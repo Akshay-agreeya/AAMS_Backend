@@ -4,6 +4,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 const { getConnectionPool } = require("./config/db");
 const loginRoutes = require('./routes/loginRoutes');
+const orgRoutes = require('./routes/orgRoutes')
 const { GlobalErrorHandler } = require("./middlewares/errorHandler");
 
 dotenv.config();
@@ -18,7 +19,7 @@ app.use(cors());
 
 // Routes
 app.use("/api", loginRoutes);
-// app.use("/api/trigger", triggerRoutes);
+app.use("/org",orgRoutes);
 
 // Serve frontend files
 // app.use(express.static(path.join(__dirname, "build")));

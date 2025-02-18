@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const { AppError } = require('./errorHandler');
+const dotenv = require('dotenv');
+dotenv.config();
 
 exports.verifyJwt = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
