@@ -4,24 +4,29 @@ const { generateToken } = require('../utils/jwUtils');
 const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
 
+
 exports.userLoginService = async (email, password) => {
     try {
         const pool = await getConnectionPool();
-    
-          const result = await pool.request()
-                .input("Email", sql.VarChar(50), email)
-                .execute("UserLogin");
-        
-        if (!result.recordset.length) {
-            throw { status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.USER_NOT_FOUND };
+        const result = await pool.request()
+            .input("Email", sql.VarChar(50), email)
+            .execute("UserLogin");
+   
+            if (!result || !result.recordset || !result.recordset[0].user_id) {
+            throw new AppError(ERROR_MESSAGES.INVALID_EMAIL, STATUS_CODES.NOT_FOUND);
         }
-
+        
         const user = result.recordset[0];
+
+        // Ensure password_hash exists before comparing
+        if (!user.password_hash) {
+            throw new AppError(ERROR_MESSAGES.INVALID_CREDENTIALS, STATUS_CODES.UNAUTHORIZED);
+        }
 
         // Verify password
         const isPasswordValid = await bcrypt.compare(password, user.password_hash);
         if (!isPasswordValid) {
-            throw { status: STATUS_CODES.UNAUTHORIZED, message: ERROR_MESSAGES.INVALID_CREDENTIALS };
+            throw new AppError(ERROR_MESSAGES.INVALID_CREDENTIALS, STATUS_CODES.UNAUTHORIZED);
         }
 
         // Generate JWT token
@@ -32,14 +37,15 @@ exports.userLoginService = async (email, password) => {
             first_name: user.first_name,
             last_name: user.last_name,
             user_type: user.user_type,
-            user_role:user.user_role,
+            user_role: user.user_role,
             token
         };
     } catch (error) {
         console.error("Login error:", error);
-        throw new AppError(error.message, STATUS_CODES.BAD_REQUEST);
+        throw error; // Do not wrap it again; just rethrow it.
     }
 };
+
 
 exports.forgotAndResetPasswordService = async(email, password) =>{
     const saltRounds = 10;

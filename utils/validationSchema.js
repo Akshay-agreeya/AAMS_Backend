@@ -12,7 +12,7 @@ const userLoginAndFPSchema = {
         pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])/}
   };
 
-  const addOrgSchema = {
+  const orgSchema = {
     org_name: { required: true, type: "string" },
     org_type_id: { required: true, type: "number" },
     industry_id: { required: true, type: "number" },
@@ -42,5 +42,5 @@ const userLoginAndFPSchema = {
 
   module.exports = {
     userLoginAndFPSchema,
-    addOrgSchema
+    orgSchema
   }

@@ -1,4 +1,4 @@
-const { addOrganizationService, getOrganizationByIdService} = require("../services/organizationService");
+const { addOrganizationService, getOrganizationByIdService, editOrgService, deleteOrgService} = require("../services/organizationService");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
@@ -34,6 +34,47 @@ exports.getOrganizationByIdController = async(req,res,next) =>{
             resp: orgDetails,
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.editOrganizationController = async (req, res, next) => {
+    try {
+        const {org_id} = req.params;
+        const orgData = req.body;
+        const modified_by = req.user?.id;
+
+        if (!modified_by) {
+            return res.status(STATUS_CODES.UNAUTHORIZED).json({ error: ERROR_MESSAGES.UNAUTHORIZED });
+        }
+
+        const org = await editOrgService(org_id, orgData, modified_by);
+        const successResponse = SuccessReturnHandler({
+            message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+            resp: org,
+        });
+        return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+
+    } catch (err) {
+       next(err);
+    }
+};
+
+exports.deleteOrgController = async(req,res,next) =>{
+    const {org_id} = req.params;
+    try{
+        if(!org_id){
+            throw new AppError("org_id is required", STATUS_CODES.BAD_REQUEST);
+        }
+
+        const message = await deleteOrgService(org_id);
+
+        const successResponse = SuccessReturnHandler({
+            message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+            resp:message,
+        })
+        return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){
         next(err);
     }
