@@ -40,7 +40,49 @@ const userLoginAndFPSchema = {
     },
 };
 
+const userSchema = {
+  username: { required: true, type: "string" },
+  first_name: { required: true, type: "string" },
+  last_name: { required: true, type: "string" }, 
+  email: {
+    required: true,
+    type: "string",
+    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+},
+  phone_number: {
+    required: true,
+    type: "string",
+    pattern: /^[0-9]{10}$/,
+}, 
+  password: { 
+    required: true, 
+    type: "string", 
+    minLength: 8,
+    pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])/},
+
+  role_id: { required: true, type: "number" }
+}
+
+const editUserSchema = {
+ 
+  first_name: {  type: "string" },
+  last_name: {  type: "string" }, 
+  email: {
+   
+    type: "string",
+    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+},
+  phone_number: {
+  
+    type: "string",
+    pattern: /^[0-9]{10}$/,
+}, 
+  role_id: {  type: "number" }
+}
+
   module.exports = {
     userLoginAndFPSchema,
-    orgSchema
+    orgSchema,
+    userSchema,
+    editUserSchema
   }
