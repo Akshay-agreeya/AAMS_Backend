@@ -1,4 +1,3 @@
-const bcrypt = require("bcrypt");
 const { sql, getConnectionPool } = require("../config/db");
 const { AppError } = require("../middlewares/errorHandler");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
@@ -28,7 +27,7 @@ exports.addOrganizationService = async (orgData, created_by) => {
             .input("ContractExpiryDate", sql.Date, contract_expiry_date)
             .input("CreatedBy", sql.UniqueIdentifier, created_by)  
             .execute("AddOrganization");
-       console.log(result);
+     
         return result.recordset;
 
     } catch (err) {

@@ -1,0 +1,80 @@
+const bcrypt = require("bcrypt");
+const { sql, getConnectionPool } = require("../config/db"); // Database connection
+const { AppError } = require("../middlewares/errorHandler");
+const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
+
+exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
+    const {username, first_name, last_name, email, phone_number, password, role_id}=userData;
+    try {
+        const pool = await getConnectionPool();
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+        const result = await pool.request()
+            .input("OrgID", sql.UniqueIdentifier, org_id)
+            .input("UserName", sql.VarChar(50),username)
+            .input("FirstName", sql.VarChar(50), first_name)
+            .input("LastName", sql.VarChar(50), last_name)
+            .input("Email", sql.VarChar(50), email)
+            .input("PhoneNumber", sql.VarChar(20), phone_number)
+            .input("Password", sql.NVarChar(255), hashedPassword)
+            .input("RoleID", sql.Int, role_id) 
+            .input("CreatedBy", sql.UniqueIdentifier, created_by)
+            .execute("AddUserToOrganization");
+
+        return result.recordset ;
+    } catch (err) {
+        console.error("Error in addUserToOrganizationService:", err);
+
+        if (err.code === "EREQUEST" || err.code === "EPARAM") {
+            throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        }
+
+        throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+    }
+};
+
+exports.editUserService = async (user_id, updatedData, modified_by) => {
+    const {first_name, last_name, email, phone_number, role_id} = updatedData;
+    try {
+        const pool = await getConnectionPool();
+
+        const result = await pool.request()
+            .input("UserID", sql.UniqueIdentifier, user_id)
+            .input("FirstName", sql.VarChar(50), first_name)
+            .input("LastName", sql.VarChar(50), last_name)
+            .input("Email", sql.VarChar(50), email)
+            .input("PhoneNumber", sql.VarChar(20), phone_number)
+            .input("RoleID", sql.Int, role_id) 
+            .input("ModifiedBy", sql.UniqueIdentifier, modified_by)
+            .execute("UpdateUser");
+
+        return result.recordset ;
+    } catch (err) {
+        console.error("Error in editUserService:", err);
+
+        if (err.code === "EREQUEST" || err.code === "EPARAM") {
+            throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        }
+
+        throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+    }
+};
+
+exports.viewUserService = async (user_id) => {
+try{
+    const pool = await getConnectionPool();
+
+    const result = await pool.request()
+    .input("UserID", sql.UniqueIdentifier, user_id)
+    .execute("GetUserDetailsById");
+    if(!result.recordset.length){
+        throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+      }
+    return result.recordset[0];
+}
+catch(err){
+    console.error("Database error:", err);
+    throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+}
+}
