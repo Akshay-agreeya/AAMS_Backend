@@ -37,7 +37,7 @@ exports.addOrganizationService = async (orgData, created_by) => {
             throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
         }
 
-        throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+        throw new AppError(err.message, err.status);
     }
 };
 
@@ -54,8 +54,11 @@ exports.getOrganizationByIdService= async(org_id)=>{
        }
      return result.recordset[0];
     }catch(err){
-      console.error("Database error:", err);
-      throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      if (err.code === "EREQUEST" || err.code === 'EPARAM') {
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+    }
+    throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+
     }
   }
 
@@ -116,3 +119,28 @@ exports.deleteOrgService = async(org_id) =>{
   throw new AppError("An expected error occured:"+ err.message,err.status);
   }
 }
+
+exports.getOrganizationsService = async (pageNumber, pageSize) => {
+    try {
+        const pool = await getConnectionPool();
+
+        const result = await pool.request()
+            .input("PageNumber", sql.Int, pageNumber)
+            .input("PageSize", sql.Int, pageSize)
+            .execute("GetOrganizations");
+
+        if (!result.recordset.length) {
+            throw new AppError(ERROR_MESSAGES.DATA_NOT_FOUND, STATUS_CODES.NOT_FOUND);
+        }
+
+        return {
+            organizations: result.recordset,
+            total_count: result.recordset[0]?.total_count || 0
+        };
+
+    } catch (err) {
+        console.error("Error in getOrganizations", err);
+      
+        throw new AppError(err.message, err.status);
+    }
+};

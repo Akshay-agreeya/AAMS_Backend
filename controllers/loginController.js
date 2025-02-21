@@ -34,7 +34,7 @@ try{
 };
 
 exports.changePasswordController = async(req, res, next)=>{
-    const {user_id} = req.params;
+   const user_id = req.user?.id;
     const {oldPassword, newPassword} = req.body;
     try{
         const user = await changePasswordService(user_id, oldPassword, newPassword);

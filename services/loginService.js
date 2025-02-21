@@ -11,8 +11,11 @@ exports.userLoginService = async (email, password) => {
         const result = await pool.request()
             .input("Email", sql.VarChar(50), email)
             .execute("UserLogin");
-   
-            if (!result || !result.recordset || !result.recordset[0].user_id) {
+
+        if (result.recordset[0].ErrorMessage) {
+            throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.UNAUTHORIZED);
+        }
+        if (!result || !result.recordset) {
             throw new AppError(ERROR_MESSAGES.INVALID_EMAIL, STATUS_CODES.NOT_FOUND);
         }
         
@@ -42,7 +45,7 @@ exports.userLoginService = async (email, password) => {
         };
     } catch (error) {
         console.error("Login error:", error);
-        throw error; // Do not wrap it again; just rethrow it.
+        throw new AppError(error.message, error.status);
     }
 };
 
@@ -86,8 +89,8 @@ exports.changePasswordService = async (user_id, oldPassword, newPassword) => {
             .input("UserID", sql.UniqueIdentifier, user_id)
             .query("SELECT password FROM User_Authentication WHERE user_id = @UserID");
 
-        if (!userResult.recordset.length) {
-            throw new AppError("User not found.", STATUS_CODES.NOT_FOUND);
+        if (!userResult.recordset.length || !userResult.recordset[0].password) {
+            throw new AppError("User not found", STATUS_CODES.NOT_FOUND);
         }
 
         const storedPasswordHash = userResult.recordset[0].password;
@@ -95,7 +98,7 @@ exports.changePasswordService = async (user_id, oldPassword, newPassword) => {
         // Compare old password with stored hash using bcrypt
         const isOldPasswordValid = await bcrypt.compare(oldPassword, storedPasswordHash);
         if (!isOldPasswordValid) {
-            throw new AppError("Old password is incorrect.", STATUS_CODES.UNAUTHORIZED);
+            throw new AppError("Old password is incorrect", STATUS_CODES.UNAUTHORIZED);
         }
 
         // Hash new password
@@ -108,7 +111,7 @@ exports.changePasswordService = async (user_id, oldPassword, newPassword) => {
             .execute("ChangePassword");
 
         if (!result.recordset.length) {
-            throw new AppError("Password change failed.", STATUS_CODES.BAD_REQUEST);
+            throw new AppError("Password change failed", STATUS_CODES.BAD_REQUEST);
         }
 
         return {
@@ -123,7 +126,8 @@ exports.changePasswordService = async (user_id, oldPassword, newPassword) => {
             throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
         }
 
-        throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+        throw new AppError(err.message, err.status);
+
     }
 };
 
