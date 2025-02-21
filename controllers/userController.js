@@ -1,4 +1,4 @@
-const { addUserToOrganizationService, editUserService, viewUserService } = require("../services/userService");
+const { addUserToOrganizationService, editUserService, viewUserService, deleteUserService, getUsersService } = require("../services/userService");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
@@ -53,6 +53,40 @@ exports.viewUserController = async(req,res,next) =>{
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
             resp: userDetails,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.deleteUserController = async(req,res,next) =>{
+    const {user_id} = req.params;
+    try{
+        if(!user_id){
+            throw new AppError("user_id is required", STATUS_CODES.BAD_REQUEST);
+        }
+
+        const message = await deleteUserService(user_id);
+
+        const successResponse = SuccessReturnHandler({
+            message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+            resp:message,
+        })
+        return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.getUsersController = async(req,res,next) =>{
+    const {org_id} = req.params;
+    try{
+        const users = await getUsersService(org_id);
+
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+            resp: users,
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){

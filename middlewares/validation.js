@@ -39,10 +39,24 @@ exports.validateInputs = (schema) => (req, res, next) => {
         }
 
         // Check regex pattern
-        if (rule.pattern && !rule.pattern.test(value)) {
-            errors.push(`${key} is invalid.`);
-        }
+    //     if (rule.pattern && !rule.pattern.test(value)) {
+    //         errors.push(`${key} is invalid.`);
+    //     }
+    // }
+
+    if (rule.pattern && !rule.pattern.test(value)) {
+        const fieldRequirements = {
+            password: "must contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+            oldPassword: "must contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+            newPassword: "must contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+            email: "must be a valid email address.",
+            phone_number: "must be a valid phone number."
+        };
+    
+        const requirement = fieldRequirements[key] || "does not meet the required format.";
+        errors.push(`${key} ${requirement}`);
     }
+}
 
     // If errors exist, respond with 400 and list of errors
     if (errors.length > 0) {

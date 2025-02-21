@@ -13,8 +13,8 @@ exports.getOrganizationTypeService = async () => {
     }
     return orgTypes.recordset; 
   } catch (err) {
-    console.error("Database Error:", error);
-    throw new AppError(error.message, STATUS_CODES.BAD_REQUEST);
+    console.error( err);
+    throw new AppError(er.message, err.status);
 
   }
 };
@@ -30,8 +30,8 @@ exports.getIndustryTypeService = async () => {
   }
   return orgTypes.recordset; 
 } catch (err) {
-  console.error("Database Error:", error);
-  throw new AppError(error.message, STATUS_CODES.BAD_REQUEST);
+  console.error( err);
+  throw new AppError(err.message, err.status);
 
 }
 };

@@ -1,3 +1,9 @@
+const passwordValidation = { 
+  required: true, 
+  type: "string", 
+  minLength: 8, 
+  pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])/ 
+};
 
 const userLoginAndFPSchema = {
     email: {
@@ -11,6 +17,11 @@ const userLoginAndFPSchema = {
         minLength: 8,
         pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])/}
   };
+
+const changePasswordSchema = {
+    oldPassword: { ...passwordValidation },
+    newPassword: { ...passwordValidation }
+  }
 
   const orgSchema = {
     org_name: { required: true, type: "string" },
@@ -82,6 +93,7 @@ const editUserSchema = {
 
   module.exports = {
     userLoginAndFPSchema,
+    changePasswordSchema,
     orgSchema,
     userSchema,
     editUserSchema
