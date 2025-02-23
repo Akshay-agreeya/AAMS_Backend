@@ -78,3 +78,40 @@ catch(err){
     throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
 }
 }
+
+exports.deleteUserService = async(user_id) =>{
+    try{
+      const pool = await getConnectionPool();
+      const result = await pool.request()
+      .input("UserID", sql.UniqueIdentifier, user_id)
+      .execute("DeleteUser");
+  
+      return result.recordset;
+  
+    }catch(err){
+      console.error(err);
+      if (err.code === 'EREQUEST' || err.code === 'EPARAM') {
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); // Database-level errors
+    }
+    throw new AppError("An expected error occured:"+ err.message,err.status);
+    }
+  }
+
+exports.getUsersService = async (org_id) => {
+    try{
+        const pool = await getConnectionPool();
+    
+        const result = await pool.request()
+        .input("OrgID", sql.UniqueIdentifier, org_id)
+        .execute("GetUsersByOrgId");
+        if(!result.recordset.length){
+            throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+          }
+        return result.recordset;
+    }
+    catch(err){
+        console.error("Database error:", err);
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+    }
+    }
+
