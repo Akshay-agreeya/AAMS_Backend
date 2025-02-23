@@ -14,25 +14,35 @@ const dbConfig = {
     },
 };
 
-let pool;
-
-const getConnectionPool = async () => {
-    try {
-        if (!pool) {
-            pool = await sql.connect(dbConfig);
-            console.log('Database connection pool created.');
+// Validate required environment variables before proceeding
+const validateEnv = () => {
+    const requiredEnvVars = ['DB_USER', 'DB_PASS', 'DB_HOST', 'DB_NAME'];
+    requiredEnvVars.forEach((key) => {
+        if (!process.env[key]) {
+            throw new Error(`${key} environment variable is not set properly.`);
         }
-        return pool;
-    } catch (err) {
-        console.error('Failed to create or reuse the database connection pool:', err);
-        throw err;
-    }
+    });
 };
 
-// Validate environment variables
-if (!process.env.DB_USER || !process.env.DB_PASS || !process.env.DB_HOST || !process.env.DB_NAME) {
-    throw new Error('Database environment variables are not set properly.');
-}
+let poolPromise;
 
+const getConnectionPool = async () => {
+    if (!poolPromise) {
+        poolPromise = sql.connect(dbConfig)
+            .then((pool) => {
+                console.log('Database connection pool created.');
+                return pool;
+            })
+            .catch((err) => {
+                console.error('Failed to create database connection pool:', err);
+                throw err;
+            });
+    }
+
+    return poolPromise;
+};
+
+// Validate environment variables at startup
+validateEnv();
 
 module.exports = { sql, getConnectionPool, dbConfig };
