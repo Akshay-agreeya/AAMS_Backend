@@ -6,6 +6,7 @@ const { getConnectionPool } = require("./config/db");
 const loginRoutes = require('./routes/loginRoutes');
 const orgRoutes = require('./routes/orgRoutes');
 const userRoutes = require('./routes/userRoutes')
+const roleRoutes = require('./routes/roleRoutes');
 const lookupRoutes = require('./routes/lookupRoutes');
 const { GlobalErrorHandler } = require("./middlewares/errorHandler");
 
@@ -21,8 +22,9 @@ app.use(cors());
 
 // Routes
 app.use("/api", loginRoutes);
-app.use("/org",orgRoutes);
-app.use("/user", userRoutes);
+app.use("/api/org",orgRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/role", roleRoutes);
 app.use("/api/lookup",lookupRoutes);
 
 // Serve frontend files
