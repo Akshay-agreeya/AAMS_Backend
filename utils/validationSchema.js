@@ -91,10 +91,17 @@ const editUserSchema = {
   role_id: {  type: "number" }
 }
 
+const roleSchema = {
+         role_name : { required: true, type: "string" },
+          description : { required: true, type: "string" },
+          role_permissions : { required: true, type: "array", itemsType: "number" }
+}
+
   module.exports = {
     userLoginAndFPSchema,
     changePasswordSchema,
     orgSchema,
     userSchema,
-    editUserSchema
+    editUserSchema,
+    roleSchema
   }

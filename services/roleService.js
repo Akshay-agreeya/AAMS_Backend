@@ -34,7 +34,10 @@ exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
           .input("RolePermissions", sql.NVarChar(sql.MAX), JSON.stringify(role_permissions))
           .input("CreatedBy", sql.UniqueIdentifier, created_by)
           .execute("AddRoleWithDetails");
-  
+
+          if (result.recordset[0].ErrorMessage) {
+            throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.CONFLICT);
+          }
           return result.recordset;
         }
         catch(err){
@@ -64,6 +67,13 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
       .input("ModifiedBy", sql.UniqueIdentifier, modified_by)
       .execute("UpdateRoleWithDetails");
     
+      if (result.recordset[0].ErrorState === 1) {
+        throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.NOT_FOUND);
+      }
+
+      if (result.recordset[0].ErrorState === 2) {
+        throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.CONFLICT);
+      }
       return result.recordset;
     }catch(err){
         console.error('Error in updateRoleAndDetailsService:', err);

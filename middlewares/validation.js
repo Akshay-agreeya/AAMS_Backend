@@ -17,14 +17,22 @@ exports.validateInputs = (schema) => (req, res, next) => {
             continue;
         }
 
-        // Check data type
-        if (rule.type === "number") {
-            if (typeof value !== "number" || !Number.isInteger(value)) {
-                errors.push(`${key} must be an integer.`);
-            }
-        } else if (rule.type && typeof value !== rule.type) {
-            errors.push(`${key} must be of type ${rule.type}.`);
-        }
+ // Check data type
+ if (rule.type === "number") {
+    if (typeof value !== "number" || !Number.isInteger(value)) {
+        errors.push(`${key} must be an integer.`);
+    }
+} else if (rule.type === "array") {
+    if (!Array.isArray(value)) {
+        errors.push(`${key} must be an array.`);
+    } else if (value.length === 0 && rule.required) {
+        errors.push(`${key} cannot be empty.`);
+    } else if (rule.itemsType === "number" && !value.every(item => Number.isInteger(item))) {
+        errors.push(`${key} must contain only integer values.`);
+    }
+} else if (rule.type && typeof value !== rule.type) {
+    errors.push(`${key} must be of type ${rule.type}.`);
+}
 
         // Check for enum values
         if (rule.enum && !rule.enum.includes(value)) {
@@ -38,11 +46,6 @@ exports.validateInputs = (schema) => (req, res, next) => {
             errors.push(`${key} must be no more than ${rule.maxLength} characters long.`);
         }
 
-        // Check regex pattern
-    //     if (rule.pattern && !rule.pattern.test(value)) {
-    //         errors.push(`${key} is invalid.`);
-    //     }
-    // }
 
     if (rule.pattern && !rule.pattern.test(value)) {
         const fieldRequirements = {
