@@ -25,8 +25,8 @@ const changePasswordSchema = {
 
   const orgSchema = {
     org_name: { required: true, type: "string" },
-    org_type_id: { required: true, type: "number" },
-    industry_id: { required: true, type: "number" },
+    org_type_id: { required: true },
+    industry_id: { required: true },
     address_line: { required: true, type: "string" },
     city: { required: false, type: "string" },
     state: { required: true, type: "string" },
@@ -71,7 +71,7 @@ const userSchema = {
     minLength: 8,
     pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])/},
 
-  role_id: { required: true, type: "number" }
+  role_id: { required: true}
 }
 
 const editUserSchema = {
@@ -87,8 +87,7 @@ const editUserSchema = {
   
     type: "string",
     pattern: /^[0-9]{10}$/,
-}, 
-  role_id: {  type: "number" }
+}
 }
 
 const roleSchema = {

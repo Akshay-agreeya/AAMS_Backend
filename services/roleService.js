@@ -85,3 +85,54 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
   
         }
     }
+
+exports.getRoleWithDetailsService = async (role_id) => {
+      try {
+        const pool = await getConnectionPool();
+    
+        const result = await pool.request()
+          .input("RoleID", sql.Int, role_id)
+          .execute("GetRoleWithDetails");
+    
+        const roleInfo = result.recordsets[0] || [];
+        const roleDetails = result.recordsets[1] || [];
+    
+        if (result.recordset[0].ErrorState === 1) {
+          throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.NOT_FOUND);
+        }
+        return {
+          role: roleInfo[0],
+          details: roleDetails,
+        };
+      } catch (error) {
+        console.error("Error in getRoleWithDetails:", error);
+    
+        if (error.code === 'EREQUEST') {
+          throw new AppError(error.message, STATUS_CODES.BAD_REQUEST);
+        }
+        throw new AppError(error.message, error.status);
+      }
+    };
+    
+    exports.deleteRoleService = async(role_id) =>{
+      try{
+        const pool = await getConnectionPool();
+        const result = await pool.request()
+        .input("RoleID", sql.Int, role_id)
+        .execute("DeleteRole");
+    
+        if (result.recordset[0].ErrorState === 1) {
+          throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.NOT_FOUND);
+        }
+        return result.recordset;
+    
+      }catch(err){
+        console.error(err);
+        if (err.code === 'EREQUEST' || err.code === 'EPARAM') {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); // Database-level errors
+      }
+      throw new AppError(err.message,err.status);
+      }
+    }
+  
+    

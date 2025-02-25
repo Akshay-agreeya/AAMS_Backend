@@ -1,5 +1,5 @@
 const { SuccessReturnHandler } = require('../middlewares/responseHandler');
-const {getRolesService, addRoleAndDetailsService, updateRoleAndDetailsService } = require('../services/roleService');
+const {getRolesService, addRoleAndDetailsService, updateRoleAndDetailsService, getRoleWithDetailsService, deleteRoleService } = require('../services/roleService');
 const { STATUS_CODES } = require('../utils/errorCodes');
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
 
@@ -53,4 +53,39 @@ exports.updateRoleAndDetailsController = async(req,res,next) =>{
      next(err);
     }
   }
+
+  exports.getRoleWithDetailsController = async(req,res,next) =>{
+    const {role_id} = req.params;
   
+    try{
+     const roleData = await getRoleWithDetailsService(role_id);
+     const response = SuccessReturnHandler({
+      message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+      resp: roleData
+  });
+  
+  res.status(STATUS_CODES.SUCCESS).json(response);
+  
+    }catch(err){
+     next(err);
+    }
+  }
+  
+  exports.deleteRoleController = async(req,res,next) =>{
+    const {role_id} = req.params;
+    try{
+        if(!role_id){
+            throw new AppError("role_id is required", STATUS_CODES.BAD_REQUEST);
+        }
+
+        const message = await deleteRoleService(role_id);
+
+        const successResponse = SuccessReturnHandler({
+            message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+            resp:message,
+        })
+        return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
