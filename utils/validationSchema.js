@@ -96,11 +96,21 @@ const roleSchema = {
           role_permissions : { required: true, type: "array", itemsType: "number" }
 }
 
+const productSchema ={
+  web_url :{required : true, type: "string", 
+  pattern: /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d{1,5})?(\/[^\s]*)?$/},
+  other_details :{
+    type : "string"
+  },
+  scan_day_ids:{required: true, type: "string"}
+}
+
   module.exports = {
     userLoginAndFPSchema,
     changePasswordSchema,
     orgSchema,
     userSchema,
     editUserSchema,
-    roleSchema
+    roleSchema,
+    productSchema
   }
