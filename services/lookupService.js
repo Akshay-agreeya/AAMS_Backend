@@ -36,6 +36,23 @@ exports.getIndustryTypeService = async () => {
 }
 };
 
+exports.getUserStatusService = async () => {
+  try {
+  const pool = await getConnectionPool();
+  const user_status = await pool.request()
+  .query("SELECT * from User_Status");
+   
+  if (!user_status.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+  }
+  return user_status.recordset; 
+} catch (err) {
+  console.error( err);
+  throw new AppError(err.message, err.status);
+
+}
+};
+
 exports.getOperationTypeService = async () => {
   try {
   const pool = await getConnectionPool();
@@ -68,6 +85,74 @@ exports.getPermissionsService = async () => {
 } catch (err) {
   console.error( err);
   throw new AppError(err.message, err.status);
+
+}
+};
+
+exports.getGuidelineVersionService = async () => {
+  try {
+  const pool = await getConnectionPool();
+  const guideline = await pool.request()
+  .query("SELECT * from Guideline_version");
+   
+  if (!guideline.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+  }
+  return guideline.recordset; 
+} catch (err) {
+  console.error( err);
+  throw new AppError(er.message, err.status);
+
+}
+};
+
+exports.getComplianceLevelService = async () => {
+  try {
+  const pool = await getConnectionPool();
+  const level = await pool.request()
+  .query("SELECT * from Compliance_level");
+   
+  if (!level.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+  }
+  return level.recordset; 
+} catch (err) {
+  console.error( err);
+  throw new AppError(er.message, err.status);
+
+}
+};
+
+exports.getFrequencyService = async () => {
+  try {
+  const pool = await getConnectionPool();
+  const frequency  = await pool.request()
+  .query("SELECT * from Frequency ");
+   
+  if (!frequency .recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+  }
+  return frequency.recordset; 
+} catch (err) {
+  console.error( err);
+  throw new AppError(er.message, err.status);
+
+}
+};
+
+exports.getScanDaysService = async () => {
+  try {
+  const pool = await getConnectionPool();
+  const days  = await pool.request()
+  .query("SELECT * from Scan_days ");
+   
+  if (!days .recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+  }
+  return days.recordset; 
+} catch (err) {
+  console.error( err);
+  throw new AppError(er.message, err.status);
 
 }
 };
