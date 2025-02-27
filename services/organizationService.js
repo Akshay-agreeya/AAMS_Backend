@@ -33,7 +33,7 @@ exports.addOrganizationService = async (orgData, created_by) => {
     } catch (err) {
         console.error("Error in addOrganizationService:", err);
 
-        if (err.code === "EREQUEST") {
+        if (err.code === "EREQUEST"||"EPARAM") {
             throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
         }
 
@@ -102,23 +102,52 @@ try{
 }
 }
 
-exports.deleteOrgService = async(org_id) =>{
-  try{
+// exports.deleteOrgService = async(org_id) =>{
+//   try{
+//     const pool = await getConnectionPool();
+//     const result = await pool.request()
+//     .input("OrgID", sql.UniqueIdentifier, org_id)
+//     .execute("DeleteOrganization");
+
+//     return result.recordset;
+
+//   }catch(err){
+//     console.error(err);
+//     if (err.code === 'EREQUEST' || err.code === 'EPARAM') {
+//       throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); // Database-level errors
+//   }
+//   throw new AppError("An expected error occured:"+ err.message,err.status);
+//   }
+// }
+
+exports.deleteOrgService = async (org_ids) => {
+  try {
     const pool = await getConnectionPool();
+
+    // Create a Table-Valued Parameter (TVP)
+    const table = new sql.Table("UDT_OrgID");  // Ensure this matches your SQL type
+    table.columns.add("org_id", sql.UniqueIdentifier);
+
+    // Add each org_id to the TVP
+    org_ids.forEach(id => {
+      table.rows.add(id);
+    });
+
     const result = await pool.request()
-    .input("OrgID", sql.UniqueIdentifier, org_id)
-    .execute("DeleteOrganization");
+      .input("OrgIDs", table) // Pass TVP as input
+      .execute("DeleteOrganization"); // Use updated stored procedure
 
     return result.recordset;
 
-  }catch(err){
+  } catch (err) {
     console.error(err);
-    if (err.code === 'EREQUEST' || err.code === 'EPARAM') {
+    if (err.code === "EREQUEST" || err.code === "EPARAM") {
       throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); // Database-level errors
+    }
+    throw new AppError("An unexpected error occurred: " + err.message, err.status);
   }
-  throw new AppError("An expected error occured:"+ err.message,err.status);
-  }
-}
+};
+
 
 exports.getOrganizationsService = async (pageNumber, pageSize) => {
     try {
