@@ -71,7 +71,8 @@ const userSchema = {
     minLength: 8,
     pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])/},
 
-  role_id: { required: true}
+  role_id: { required: true},
+  status_id: {required : true}
 }
 
 const editUserSchema = {
