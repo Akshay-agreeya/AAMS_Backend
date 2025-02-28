@@ -66,3 +66,61 @@ exports.updateProductService = async (service_id, updatedData, modified_by) => {
         throw new AppError(err.message, err.status);
     }
 };
+
+exports.viewProductService = async (service_id) => {
+    try{
+        const pool = await getConnectionPool();
+    
+        const result = await pool.request()
+        .input("ServiceID", sql.Int, service_id)
+        .execute("GetServiceDetailsByServiceID");
+        if(!result.recordset.length){
+            throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+          }
+        return result.recordset[0];
+    }
+    catch(err){
+        console.error("Database error:", err);
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+    }
+}
+
+exports.getProductsService = async (org_id) => {
+        try{
+            const pool = await getConnectionPool();
+        
+            const result = await pool.request()
+            .input("OrgID", sql.UniqueIdentifier, org_id)
+            .execute("GetServiceDetailsByOrgID");
+            if(!result.recordset.length){
+                throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+              }
+            return result.recordset;
+        }
+        catch(err){
+            console.error("Database error:", err);
+            if (err.code === "EREQUEST" || err.code === "EPARAM") {
+                throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+            }
+            throw new AppError(err.message, err.status);
+        }
+ }
+
+
+ exports.deleteProductService = async(service_id) =>{
+    try{
+      const pool = await getConnectionPool();
+      const result = await pool.request()
+      .input("ServiceID", sql.Int, service_id)
+      .execute("DeleteServiceByServiceID ");
+  
+      return result.recordset;
+  
+    }catch(err){
+      console.error(err);
+      if (err.code === 'EREQUEST' || err.code === 'EPARAM') {
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); 
+    }
+    throw new AppError(err.message,err.status);
+    }
+  }

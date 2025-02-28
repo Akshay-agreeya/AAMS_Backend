@@ -41,18 +41,20 @@ exports.addOrganizationService = async (orgData, created_by) => {
     }
 };
 
-exports.getOrganizationByIdService= async(org_id)=>{
+exports.getOrganizationByIdService= async(org_id, pageNumber, pageSize)=>{
     try{
        const pool = await getConnectionPool();
   
        const result = await pool.request()
        .input("OrgID", sql.UniqueIdentifier, org_id)
-       .execute("GetOrganizationByID");
+       .input("PageNumber", sql.Int, pageNumber)
+       .input("PageSize", sql.Int, pageSize)
+       .execute("GetOrganizationDetails");
   
        if(!result.recordset.length){
          throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
        }
-     return result.recordset[0];
+     return result.recordset;
     }catch(err){
       if (err.code === "EREQUEST" || err.code === 'EPARAM') {
         throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);

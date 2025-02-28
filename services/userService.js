@@ -76,7 +76,11 @@ try{
 }
 catch(err){
     console.error("Database error:", err);
-    throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+
+    if (err.code === "EREQUEST" || err.code === "EPARAM") {
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+    }
+    throw new AppError(err.message, err.status);
 }
 }
 
@@ -112,7 +116,10 @@ exports.getUsersService = async (org_id) => {
     }
     catch(err){
         console.error("Database error:", err);
-        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        if (err.code === "EREQUEST" || err.code === "EPARAM") {
+            throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        }
+        throw new AppError(err.message, err.status);
     }
     }
 

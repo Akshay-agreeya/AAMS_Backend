@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const {addProductService, updateProductService} = require("../services/productService")
+const {addProductService, updateProductService, viewProductService, getProductsService, deleteProductService} = require("../services/productService")
 
 exports.addProductController = async (req, res, next) => {
     try {
@@ -44,3 +44,52 @@ exports.updateProductController = async (req, res, next) => {
         next(err);
     }
 };
+
+exports.viewProductController = async(req,res,next) =>{
+    const {service_id} = req.params;
+    try{
+        const productDetails = await viewProductService(service_id)
+
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+            resp: productDetails,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.getProductsController = async(req,res,next) =>{
+    const {org_id} = req.params;
+    try{
+        const products = await getProductsService(org_id);
+
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+            resp: products,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.deleteProductController = async(req,res,next) =>{
+    const {service_id} = req.params;
+    try{
+        if(!service_id){
+            throw new AppError("service_id is required", STATUS_CODES.BAD_REQUEST);
+        }
+
+        const message = await deleteProductService(service_id);
+
+        const successResponse = SuccessReturnHandler({
+            message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+            resp:message,
+        })
+        return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
