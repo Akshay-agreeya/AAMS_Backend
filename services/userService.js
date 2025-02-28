@@ -4,7 +4,7 @@ const { AppError } = require("../middlewares/errorHandler");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 
 exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
-    const {username, first_name, last_name, email, phone_number, password, role_id}=userData;
+    const {username, first_name, last_name, email, phone_number, password, role_id, status_id}=userData;
     try {
         const pool = await getConnectionPool();
         const saltRounds = 10;
@@ -19,6 +19,7 @@ exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
             .input("PhoneNumber", sql.VarChar(20), phone_number)
             .input("Password", sql.NVarChar(255), hashedPassword)
             .input("RoleID", sql.Int, role_id) 
+            .input("StatusID", sql.Int, status_id) 
             .input("CreatedBy", sql.UniqueIdentifier, created_by)
             .execute("AddUserToOrganization");
 
