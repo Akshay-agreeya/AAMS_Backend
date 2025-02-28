@@ -25,9 +25,14 @@ exports.addOrganizationController = async (req, res, next) => {
 };
 
 exports.getOrganizationByIdController = async(req,res,next) =>{
-    const {org_id} = req.params;
+    const {org_id} = req.body;
+    const { page, size } = req.query;
+    
+    const pageNumber = parseInt(page, 10) || 1;
+    const pageSize = parseInt(size, 10) || 5;
+
     try{
-        const orgDetails = await getOrganizationByIdService(org_id);
+        const orgDetails = await getOrganizationByIdService(org_id, pageNumber, pageSize);
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
