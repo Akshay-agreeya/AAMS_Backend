@@ -1,15 +1,15 @@
-const express = require("express");
-const cors = require("cors");
-const path = require("path");
-const dotenv = require("dotenv");
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
 const { getConnectionPool } = require("./config/db");
 const loginRoutes = require('./routes/loginRoutes');
 const orgRoutes = require('./routes/orgRoutes');
-const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes');
 const roleRoutes = require('./routes/roleRoutes');
 const productRoutes = require('./routes/productRoutes');
 const lookupRoutes = require('./routes/lookupRoutes');
 const { GlobalErrorHandler } = require("./middlewares/errorHandler");
+const setupSwagger = require("./swagger");
 
 dotenv.config();
 
@@ -21,19 +21,16 @@ app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// Routes
+// Setup Swagger UI
+setupSwagger(app);
+
+// Mount routes
 app.use("/api", loginRoutes);
-app.use("/api/org",orgRoutes);
+app.use("/api/org", orgRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/role", roleRoutes);
-app.use("/api/lookup",lookupRoutes);
+app.use("/api/lookup", lookupRoutes);
 app.use("/api/product", productRoutes);
-
-// Serve frontend files
-// app.use(express.static(path.join(__dirname, "build")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
 
 // Global Error Handler
 app.use(GlobalErrorHandler);
