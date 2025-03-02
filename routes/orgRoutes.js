@@ -64,7 +64,7 @@ router.post('/add', verifyJwt, validateInputs(orgSchema), addOrganizationControl
  *       401:
  *         description: Unauthorized
  */
-router.get('/get', verifyJwt, getOrganizationByIdController);
+router.post('/get', verifyJwt, getOrganizationByIdController);
 
 /**
  * @swagger
