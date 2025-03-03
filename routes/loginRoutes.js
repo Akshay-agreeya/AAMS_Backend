@@ -3,7 +3,7 @@ const router = express.Router();
 const { validateInputs } = require('../middlewares/validation');
 const { userLoginAndFPSchema, changePasswordSchema } = require('../utils/validationSchema');
 const { verifyJwt } = require('../middlewares/auth');
-const { userLoginController, forgotAndResetPasswordController, changePasswordController } = require('../controllers/loginController');
+const { userLoginController, changePasswordController, forgotPasswordController, resetPasswordController } = require('../controllers/loginController');
 
 /**
  * @swagger
@@ -68,8 +68,9 @@ router.post('/login', userLoginController);
  *       400:
  *         description: Invalid input or recovery details
  */
-router.patch('/user/reset-password', validateInputs(userLoginAndFPSchema), forgotAndResetPasswordController);
-
+// router.patch('/user/reset-password', validateInputs(userLoginAndFPSchema), forgotAndResetPasswordController);
+   router.post('/user/forgot-password', forgotPasswordController);
+   router.post('/user/reset-password', resetPasswordController);
 /**
  * @swagger
  * /api/user/change-password:

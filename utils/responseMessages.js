@@ -6,7 +6,8 @@ const SUCCESS_MESSAGES = {
     DETAILS_FETCHED_SUCCESS: "Details fetched successfully.",
     OPERATION_SUCCESS: "Operation completed successfully.",
     DETAILS_ADD_SUCCESS:"Details added successfully",
-    UPDATE_SUCCESS:"Details updated successfully"
+    UPDATE_SUCCESS:"Details updated successfully",
+    FORGOT_PASSWORD:"Reset link send successfully. "
 };
 
 module.exports = { SUCCESS_MESSAGES };

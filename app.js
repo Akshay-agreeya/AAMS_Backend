@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 const { getConnectionPool } = require("./config/db");
 const loginRoutes = require('./routes/loginRoutes');
 const orgRoutes = require('./routes/orgRoutes');
@@ -31,6 +32,12 @@ app.use("/api/user", userRoutes);
 app.use("/api/role", roleRoutes);
 app.use("/api/lookup", lookupRoutes);
 app.use("/api/product", productRoutes);
+
+ // Serve frontend files 
+  // app.use(express.static(path.join(__dirname, "build")));
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.join(__dirname, "build", "index.html"));
+  // });
 
 // Global Error Handler
 app.use(GlobalErrorHandler);
