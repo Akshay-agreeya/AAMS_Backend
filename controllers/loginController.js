@@ -19,19 +19,6 @@ exports.userLoginController =
         }
     };
 
-// exports.forgotAndResetPasswordController = async(req,res,next)=>{
-// const {email, password} = req.body;
-// try{
-//     const user = await forgotAndResetPasswordService(email, password);
-//     const successResponse = SuccessReturnHandler({
-//         message: SUCCESS_MESSAGES.PASSWORD_RESET,
-//         resp: user,
-//     });
-//     return res.status(STATUS_CODES.SUCCESS).json(successResponse);
-// } catch(err){
-//     next(err)
-// }
-// };
 
 exports.changePasswordController = async(req, res, next)=>{
    const user_id = req.user?.id;
