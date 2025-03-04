@@ -123,3 +123,25 @@ exports.getUsersService = async (org_id) => {
     }
     }
 
+    
+exports.updateUserStatusService = async (user_id,status_id) => {
+        
+        try {
+            const pool = await getConnectionPool();
+    
+            const result = await pool.request()
+                .input("UserID", sql.UniqueIdentifier, user_id)
+                .input("StatusID", sql.Int,status_id)
+                .execute("UpdateUserStatus");
+    
+            return result.recordset ;
+        } catch (err) {
+            console.error("Error in updateUserStatusService", err);
+    
+            if (err.code === "EREQUEST" || err.code === "EPARAM") {
+                throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+            }
+    
+            throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+        }
+    };

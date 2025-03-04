@@ -43,10 +43,10 @@ router.post('/add', verifyJwt, validateInputs(orgSchema), addOrganizationControl
 
 /**
  * @swagger
- * /api/org/get/{org_id}:
- *   get:
- *     summary: Get an organization by ID
- *     description: Fetches details of an organization by its ID.
+ * /api/org/get:
+ *   post:
+ *     summary: Get an organization by ID or all
+ *     description: Fetches details of an organization by its ID or get all organizations.
  *     security:
  *       - bearerAuth: []
  *     parameters:
