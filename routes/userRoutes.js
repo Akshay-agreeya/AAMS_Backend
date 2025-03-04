@@ -1,5 +1,5 @@
 const express = require('express');
-const { addUserToOrganizationController, editUserCntroller, viewUserController, deleteUserController, getUsersController } = require('../controllers/userController');
+const { addUserToOrganizationController, editUserController, viewUserController, deleteUserController, getUsersController, updateUserStatusController } = require('../controllers/userController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
 const { validateInputs } = require('../middlewares/validation');
@@ -97,7 +97,7 @@ router.post('/add/:org_id', verifyJwt, validateInputs(userSchema), addUserToOrga
  *       404:
  *         description: User not found
  */
-router.patch('/edit/:user_id', verifyJwt, validateInputs(editUserSchema), editUserCntroller);
+router.patch('/edit/:user_id', verifyJwt, validateInputs(editUserSchema), editUserController);
 
 /**
  * @swagger
@@ -211,5 +211,50 @@ router.delete('/delete/:user_id', verifyJwt, deleteUserController);
  *         description: Organization not found or no users in organization
  */
 router.get('/list/:org_id', verifyJwt, getUsersController);
+
+/**
+ * @swagger
+ * /api/user/update/status:
+ *   patch:
+ *     summary: Update user status
+ *     description: Updates the status of a user based on the provided user ID.
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userId:
+ *                 type: string
+ *                 format: uuid
+ *                 example: "123e4567-e89b-12d3-a456-426614174000"
+ *               status:
+ *                 type: integer
+ *                 example: 1
+ *             required:
+ *               - userId
+ *               - status
+ *     responses:
+ *       200:
+ *         description: User status updated successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "User status updated successfully."
+ *       400:
+ *         description: Invalid request or missing parameters.
+ *       404:
+ *         description: User not found.
+ *       500:
+ *         description: Internal server error.
+ */
+ router.patch('/update/status', verifyJwt, updateUserStatusController);
 
 module.exports = router;

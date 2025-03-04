@@ -69,8 +69,67 @@ router.post('/login', userLoginController);
  *         description: Invalid input or recovery details
  */
 // router.patch('/user/reset-password', validateInputs(userLoginAndFPSchema), forgotAndResetPasswordController);
-   router.post('/user/forgot-password', forgotPasswordController);
-   router.post('/user/reset-password', resetPasswordController);
+  /**
+ * @swagger
+ * /api/user/forgot-password:
+ *   post:
+ *     summary: Request password reset
+ *     description: Sends a password reset link to the user's email.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *             required:
+ *               - email
+ *     responses:
+ *       200:
+ *         description: If email exists, reset link is sent.
+ *       500:
+ *         description: Server error while processing request.
+ */
+router.post('/user/forgot-password', forgotPasswordController);
+
+
+/**
+ * @swagger
+ * /api/user/reset-password:
+ *   post:
+ *     summary: Reset user password
+ *     description: Allows a user to reset their password using a valid reset token.
+ *     parameters:
+ *       - in: query
+ *         name: token
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Password reset token
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               newPassword:
+ *                 type: string
+ *             required:
+ *               - newPassword
+ *     responses:
+ *       200:
+ *         description: Password successfully reset
+ *       400:
+ *         description: Invalid or expired token
+ *       500:
+ *         description: Internal server error
+ */
+ router.post('/user/reset-password', resetPasswordController);
+
+
 /**
  * @swagger
  * /api/user/change-password:

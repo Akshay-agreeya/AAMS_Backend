@@ -1,4 +1,4 @@
-const { addUserToOrganizationService, editUserService, viewUserService, deleteUserService, getUsersService } = require("../services/userService");
+const { addUserToOrganizationService, editUserService, viewUserService, deleteUserService, getUsersService, updateUserStatusService } = require("../services/userService");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
@@ -24,7 +24,7 @@ exports.addUserToOrganizationController = async (req, res, next) => {
     }
 };
 
-exports.editUserCntroller = async (req, res, next) => {
+exports.editUserController = async (req, res, next) => {
     try {
         const {user_id} = req.params;
         const updatedData = req.body;
@@ -93,3 +93,18 @@ exports.getUsersController = async(req,res,next) =>{
         next(err);
     }
 }
+
+exports.updateUserStatusController = async (req, res, next) => {
+    try {
+        const {user_id, status_id} = req.body;
+
+        const updatedStatus = await updateUserStatusService(user_id, status_id);
+        const successResponse = SuccessReturnHandler({
+            message: SUCCESS_MESSAGES.UPDATE_SUCCESS,
+            resp: updatedStatus,
+        });
+        return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    } catch (err) {
+        next(err);
+    }
+};
