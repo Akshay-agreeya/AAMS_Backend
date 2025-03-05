@@ -36,7 +36,8 @@ const options = {
     "./routes/userRoutes.js", 
     "./routes/roleRoutes.js", 
     "./routes/lookupRoutes.js",
-    "./routes/productRoutes.js"
+    "./routes/productRoutes.js",
+    "./routes/permissionRoutes.js"
   ],
 };
 

@@ -5,6 +5,8 @@ const { generateToken } = require('../utils/jwUtils');
 const {sendEmail} = require('../utils/emailUtils');
 const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 exports.userLoginService = async (email, password) => {
@@ -52,32 +54,6 @@ exports.userLoginService = async (email, password) => {
     }
 };
 
-// exports.forgotAndResetPasswordService = async(email, password) =>{
-//     const saltRounds = 10;
-//     const hashedPassword = await bcrypt.hash(password, saltRounds);
-//     try{
-//         const pool = await getConnectionPool();
-//         const result = await pool.request()
-//         .input("Email", sql.VarChar(50), email)
-//         .input("NewPasswordHash", sql.VarChar(255),hashedPassword)
-//         .execute("ForgotPasswordAndReset");
-
-//       if(!result.recordset[0].user_id){
-//         throw { status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.USER_NOT_FOUND };
-//       }
-        
-//         return result.recordset;
-
-// }catch (err) {
-//     console.error('Error in ForgotAndResetPasswordService', err);
-
-//     if (err.code === 'EREQUEST') {
-//         throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); // Database-level errors
-//     }
-
-//     throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
-// }
-// }
 
 exports.changePasswordService = async (user_id, oldPassword, newPassword) => {
     const saltRounds = 10;
@@ -166,7 +142,8 @@ exports.forgotPasswordService = async (email) => {
         .input('ExpiresAt', sql.DateTime, expiresAt)
         .execute('AddResetToken');
   
-      const resetUrl = `http://localhost:8080/api/reset-password?token=${token}`;
+        const url = process.env.RESET_URL;
+      const resetUrl = `${url}?token=${token}`;
   
       // Send email
       await sendEmail(email, 'Password Reset Request',

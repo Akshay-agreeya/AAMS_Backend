@@ -16,14 +16,14 @@ const userLoginAndFPSchema = {
         type: "string", 
         minLength: 8,
         pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])/}
-  };
+};
 
 const changePasswordSchema = {
     oldPassword: { ...passwordValidation },
     newPassword: { ...passwordValidation }
-  }
+}
 
-  const orgSchema = {
+const orgSchema = {
     org_name: { required: true, type: "string" },
     org_type_id: { required: true },
     industry_id: { required: true },
@@ -106,6 +106,19 @@ const productSchema ={
   scan_day_ids:{required: true, type: "string"}
 }
 
+const productPermissionSchema={
+  usersWithServices: {
+    required: true,
+    type: "array",
+    itemsType: "object",
+    itemsSchema: {
+      user_id: { required: true, type: "string" },
+      service_id: { required: true, type: "number" },
+      product_permission_opr_ids: { required: true, type: "array", itemsType: "number" }
+    }
+  }
+}
+
   module.exports = {
     userLoginAndFPSchema,
     changePasswordSchema,
@@ -113,5 +126,6 @@ const productSchema ={
     userSchema,
     editUserSchema,
     roleSchema,
-    productSchema
+    productSchema,
+    productPermissionSchema
   }

@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const { getPermissionService } = require("../services/permissionService");
+const { getPermissionService, updateUserPermissionService } = require("../services/permissionService");
 
 exports.getPermissionController = async(req,res,next) =>{
     const {org_id} = req.params;
@@ -11,6 +11,23 @@ exports.getPermissionController = async(req,res,next) =>{
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
             resp: permissionDetails,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+
+exports.updateUserPermissionController = async(req,res,next) =>{
+    const { usersWithServices} = req.body;
+    try{
+
+        const updatedPermissions = await updateUserPermissionService(usersWithServices);
+
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.UPDATE_SUCCESS,
+            resp: updatedPermissions,
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){
