@@ -66,24 +66,6 @@ exports.editOrganizationController = async (req, res, next) => {
     }
 };
 
-// exports.deleteOrgController = async(req,res,next) =>{
-//     const {org_id} = req.params;
-//     try{
-//         if(!org_id){
-//             throw new AppError("org_id is required", STATUS_CODES.BAD_REQUEST);
-//         }
-
-//         const message = await deleteOrgService(org_id);
-
-//         const successResponse = SuccessReturnHandler({
-//             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-//             resp:message,
-//         })
-//         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
-//     }catch(err){
-//         next(err);
-//     }
-// }
 
 exports.deleteOrgController = async (req, res, next) => {
     let { org_ids } = req.body; // Expecting an array of org_ids

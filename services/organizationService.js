@@ -104,23 +104,6 @@ try{
 }
 }
 
-// exports.deleteOrgService = async(org_id) =>{
-//   try{
-//     const pool = await getConnectionPool();
-//     const result = await pool.request()
-//     .input("OrgID", sql.UniqueIdentifier, org_id)
-//     .execute("DeleteOrganization");
-
-//     return result.recordset;
-
-//   }catch(err){
-//     console.error(err);
-//     if (err.code === 'EREQUEST' || err.code === 'EPARAM') {
-//       throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); // Database-level errors
-//   }
-//   throw new AppError("An expected error occured:"+ err.message,err.status);
-//   }
-// }
 
 exports.deleteOrgService = async (org_ids) => {
   try {

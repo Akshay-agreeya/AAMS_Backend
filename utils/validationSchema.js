@@ -41,8 +41,7 @@ const orgSchema = {
     },
     phone_number: {
         required: true,
-        type: "string",
-        pattern: /^[0-9]{10}$/,
+        type: "string"
     },
     contract_expiry_date: { 
         required: true, 
@@ -63,7 +62,6 @@ const userSchema = {
   phone_number: {
     required: true,
     type: "string",
-    pattern: /^[0-9]{10}$/,
 }, 
   password: { 
     required: true, 
@@ -87,7 +85,6 @@ const editUserSchema = {
   phone_number: {
   
     type: "string",
-    pattern: /^[0-9]{10}$/,
 }
 }
 

@@ -163,8 +163,9 @@ exports.resetPasswordService = async (token, newPassword) => {
   
       let decoded;
       try {
+     
         decoded = jwt.verify(token, process.env.JWT_SECRET);
-  
+       
       } catch (err) {
         console.log(decoded, err);
         throw new AppError(ERROR_MESSAGES.INVALID_CREDENTIALS, STATUS_CODES.UNAUTHORIZED);
