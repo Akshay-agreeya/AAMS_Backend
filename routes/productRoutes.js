@@ -1,10 +1,10 @@
 const express = require('express');
-const { 
-  addProductController, 
-  updateProductController, 
-  viewProductController, 
-  getProductsController, 
-  deleteProductController 
+const {
+  addProductController,
+  updateProductController,
+  viewProductController,
+  getProductsController,
+  deleteProductController
 } = require('../controllers/productController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
@@ -13,7 +13,7 @@ const { productSchema } = require('../utils/validationSchema');
 
 /**
  * @swagger
- * api/products/add/{org_id}:
+ * /api/product/add/{org_id}:
  *   post:
  *     summary: Add a new product
  *     description: Adds a new product to the organization by providing product details.
@@ -44,7 +44,7 @@ router.post('/add/:org_id', verifyJwt, validateInputs(productSchema), addProduct
 
 /**
  * @swagger
- * api/products/edit/{service_id}:
+ * /api/product/edit/{service_id}:
  *   patch:
  *     summary: Update an existing product
  *     description: Updates an existing product by providing the product ID and new details.
@@ -77,7 +77,7 @@ router.patch('/edit/:service_id', verifyJwt, validateInputs(productSchema), upda
 
 /**
  * @swagger
- * api/products/view/{service_id}:
+ * /api/product/view/{service_id}:
  *   get:
  *     summary: View product details
  *     description: Get details of a specific product by product ID.
@@ -106,7 +106,7 @@ router.get('/view/:service_id', verifyJwt, viewProductController);
 
 /**
  * @swagger
- * api/products/get/{org_id}:
+ * /api/product/get/{org_id}:
  *   get:
  *     summary: Get all products in an organization
  *     description: Retrieves all products in an organization by its ID.
@@ -137,7 +137,7 @@ router.get('/get/:org_id', verifyJwt, getProductsController);
 
 /**
  * @swagger
- * api/products/delete/{service_id}:
+ * /api/product/delete/{service_id}:
  *   delete:
  *     summary: Delete a product
  *     description: Delete a specific product by providing its ID.
