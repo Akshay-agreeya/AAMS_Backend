@@ -85,12 +85,14 @@ exports.viewProductService = async (service_id) => {
     }
 }
 
-exports.getProductsService = async (org_id) => {
+exports.getProductsService = async (org_id, pageNumber, pageSize) => {
         try{
             const pool = await getConnectionPool();
         
             const result = await pool.request()
             .input("OrgID", sql.UniqueIdentifier, org_id)
+            .input("PageNumber", sql.Int, pageNumber)
+            .input("PageSize", sql.Int, pageSize)
             .execute("GetServiceDetailsByOrgID");
             if(!result.recordset.length){
                 throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
@@ -105,7 +107,6 @@ exports.getProductsService = async (org_id) => {
             throw new AppError(err.message, err.status);
         }
  }
-
 
  exports.deleteProductService = async(service_id) =>{
     try{

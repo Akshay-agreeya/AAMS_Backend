@@ -10,6 +10,7 @@ const roleRoutes = require('./routes/roleRoutes');
 const productRoutes = require('./routes/productRoutes');
 const permissionRoutes = require('./routes/permissionRoutes');
 const lookupRoutes = require('./routes/lookupRoutes');
+const reportRoutes = require('./routes/reportRoutes');
 const { GlobalErrorHandler } = require("./middlewares/errorHandler");
 const setupSwagger = require("./swagger");
 
@@ -34,6 +35,7 @@ app.use("/api/role", roleRoutes);
 app.use("/api/lookup", lookupRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/permission", permissionRoutes);
+app.use("/api/report", reportRoutes)
  // Serve frontend files 
   // app.use(express.static(path.join(__dirname, "build")));
   // app.get("*", (req, res) => {

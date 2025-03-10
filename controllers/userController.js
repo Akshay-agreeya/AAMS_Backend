@@ -81,8 +81,12 @@ exports.deleteUserController = async(req,res,next) =>{
 
 exports.getUsersController = async(req,res,next) =>{
     const {org_id} = req.params;
+    const { page, size } = req.query;
+    
+    const pageNumber = parseInt(page, 10) || 1;
+    const pageSize = parseInt(size, 10) || 10;
     try{
-        const users = await getUsersService(org_id);
+        const users = await getUsersService(org_id, pageNumber, pageSize);
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,

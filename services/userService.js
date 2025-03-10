@@ -102,12 +102,14 @@ exports.deleteUserService = async(user_id) =>{
     }
   }
 
-exports.getUsersService = async (org_id) => {
+exports.getUsersService = async (org_id, pageNumber, pageSize) => {
     try{
         const pool = await getConnectionPool();
     
         const result = await pool.request()
         .input("OrgID", sql.UniqueIdentifier, org_id)
+        .input("PageNumber", sql.Int, pageNumber)
+        .input("PageSize", sql.Int, pageSize)
         .execute("GetUsersByOrgId");
         if(!result.recordset.length){
             throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}

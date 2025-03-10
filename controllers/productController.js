@@ -62,8 +62,13 @@ exports.viewProductController = async(req,res,next) =>{
 
 exports.getProductsController = async(req,res,next) =>{
     const {org_id} = req.params;
+    const { page, size } = req.query;
+    
+    const pageNumber = parseInt(page, 10) || 1;
+    const pageSize = parseInt(size, 10) || 10;
+
     try{
-        const products = await getProductsService(org_id);
+        const products = await getProductsService(org_id, pageNumber, pageSize);
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,

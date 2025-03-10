@@ -4,8 +4,12 @@ const { STATUS_CODES } = require('../utils/errorCodes');
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
 
 exports.getRolesController = async(req,res,next)=>{
+  const { page, size } = req.query;
+
+    const pageNumber = parseInt(page, 10) || 1;
+    const pageSize = parseInt(size, 10) || 5;
     try{
-        const roleNames = await getRolesService();
+        const roleNames = await getRolesService(pageNumber, pageSize);
 
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
