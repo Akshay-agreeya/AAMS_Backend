@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const { sql, getConnectionPool } = require("../config/db"); // Database connection
 const { AppError } = require("../middlewares/errorHandler");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
+const {getDatawithPagination} = require("../utils/helper")
 
 exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
     const {username, first_name, last_name, email, phone_number, password, role_id, status_id}=userData;
@@ -114,7 +115,7 @@ exports.getUsersService = async (org_id, pageNumber, pageSize) => {
         if(!result.recordset.length){
             throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
           }
-        return result.recordset;
+          return getDatawithPagination(result.recordsets);
     }
     catch(err){
         console.error("Database error:", err);

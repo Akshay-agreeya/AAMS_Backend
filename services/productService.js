@@ -1,6 +1,7 @@
 const { sql, getConnectionPool } = require("../config/db"); 
 const { AppError } = require("../middlewares/errorHandler");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
+const {getDatawithPagination} = require("../utils/helper");
 
 exports.addProductService = async (org_id, serviceData, created_by) => {
     const {web_url, other_details, service_type_id, guideline_version_id, compliance_level_id, support_type_id,
@@ -97,7 +98,7 @@ exports.getProductsService = async (org_id, pageNumber, pageSize) => {
             if(!result.recordset.length){
                 throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
               }
-            return result.recordset;
+              return getDatawithPagination(result.recordsets);
         }
         catch(err){
             console.error("Database error:", err);

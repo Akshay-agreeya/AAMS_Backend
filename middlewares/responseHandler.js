@@ -5,6 +5,6 @@ exports.SuccessReturnHandler = ({ message, resp, statusCode = STATUS_CODES.SUCCE
         status: statusCode,
         success: true,
         message,
-        data: resp,
+        ...resp
     };
 }
