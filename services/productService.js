@@ -121,7 +121,7 @@ exports.myProductsService = async (user_id, pageNumber, pageSize) => {
         if(!result.recordset.length){
             throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
           }
-        return result.recordset;
+          return getDatawithPagination(result.recordsets);
     }
     catch(err){
         console.error("Database error:", err);

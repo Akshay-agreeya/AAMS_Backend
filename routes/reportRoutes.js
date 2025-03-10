@@ -1,5 +1,5 @@
 const express = require('express');
-const { getWebUrlsController } = require('../controllers/reportController');
+const { getWebUrlsController, getAssessmentsController } = require('../controllers/reportController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
 
@@ -124,5 +124,7 @@ const { verifyJwt } = require('../middlewares/auth');
  */
 
 router.get('/getUrls/:org_id', verifyJwt, getWebUrlsController)
+
+router.get('/getAssessments/:service_id', verifyJwt, getAssessmentsController)
 
 module.exports = router;
