@@ -3,12 +3,14 @@ const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
 const { SUCCESS_MESSAGES } = require("../utils/responseMessages");
 
-exports.getRolesService = async () => {
+exports.getRolesService = async (pageNumber, pageSize) => {
     try {
     const pool = await getConnectionPool();
 
     const result = await pool.request()
-    .query("SELECT * from Roles")
+    .input("PageNumber", sql.Int, pageNumber)
+    .input("PageSize", sql.Int, pageSize)
+    .execute("GetRoles");
     if (!result.recordset.length) {
         throw { status: STATUS_CODES.NOT_FOUND };
     }
