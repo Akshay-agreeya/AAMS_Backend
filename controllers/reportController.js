@@ -5,8 +5,13 @@ const { getWebUrls, getWebUrlsService } = require("../services/reportsService");
 
 exports.getWebUrlsController = async(req,res,next) =>{
     const {org_id} = req.params;
+    const { page, size } = req.query;
+    
+    const pageNumber = parseInt(page, 10) || 1;
+    const pageSize = parseInt(size, 10) || 10;
+
     try{
-        const urls = await getWebUrlsService(org_id);
+        const urls = await getWebUrlsService(org_id, pageNumber, pageSize);
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
