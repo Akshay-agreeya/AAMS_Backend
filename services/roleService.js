@@ -2,6 +2,7 @@ const { sql, getConnectionPool } = require("../config/db");
 const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
 const { SUCCESS_MESSAGES } = require("../utils/responseMessages");
+const { getDatawithPagination } = require("../utils/helper");
 
 exports.getRolesService = async (pageNumber, pageSize) => {
     try {
@@ -14,8 +15,8 @@ exports.getRolesService = async (pageNumber, pageSize) => {
     if (!result.recordset.length) {
         throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return result.recordset; 
-  } catch (err) {
+    return getDatawithPagination(result.recordsets);
+  } catch (error) {
     console.error("Database Error:", error);
     throw new AppError(error.message, STATUS_CODES.BAD_REQUEST);
 

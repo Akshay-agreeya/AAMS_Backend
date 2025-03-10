@@ -1,6 +1,7 @@
 const { sql, getConnectionPool } = require("../config/db");
 const { AppError } = require("../middlewares/errorHandler");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
+const { getDatawithPagination } = require("../utils/helper");
 
 exports.addOrganizationService = async (orgData, created_by) => {
     const {
@@ -54,7 +55,7 @@ exports.getOrganizationByIdService= async(org_id, pageNumber, pageSize)=>{
        if(!result.recordset.length){
          throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
        }
-     return result.recordset;
+     return getDatawithPagination(result.recordsets);
     }catch(err){
       if (err.code === "EREQUEST" || err.code === 'EPARAM') {
         throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
@@ -147,10 +148,7 @@ exports.getOrganizationsService = async (pageNumber, pageSize) => {
             throw new AppError(ERROR_MESSAGES.DATA_NOT_FOUND, STATUS_CODES.NOT_FOUND);
         }
 
-        return {
-            organizations: result.recordset,
-            total_count: result.recordset[0]?.total_count || 0
-        };
+        return getDatawithPagination(result.recordsets);
 
     } catch (err) {
         console.error("Error in getOrganizations", err);
