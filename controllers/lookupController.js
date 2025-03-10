@@ -39,7 +39,7 @@ exports.getIndustryTypeController =
             const user_status = await getUserStatusService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                resp: user_status,
+                resp: {contents:user_status},
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
@@ -69,7 +69,7 @@ exports.getPermissionsController =
             const permissions = await getPermissionsService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                resp: permissions,
+                resp: {contents:permissions},
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            

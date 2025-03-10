@@ -3,8 +3,10 @@
 // }
 
 exports.getDatawithPagination = (result) => {
+    const pagenation = result?.[1]?.[0] || {};
+    const data = result?.[0] || [];
     return {
-        data: result?.[0], 
-        pagination: result?.[1]?.[0] || {} 
+        contents: [...data],
+        ...pagenation
     };
 };

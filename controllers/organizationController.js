@@ -101,7 +101,7 @@ exports.getOrganizationsController = async (req, res, next) => {
         return res.status(STATUS_CODES.SUCCESS).json({
             success: true,
             message: "Organizations retrieved successfully",
-            data
+            ...data
         });
 
     } catch (err) {
