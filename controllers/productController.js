@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const {addProductService, updateProductService, viewProductService, getProductsService, deleteProductService} = require("../services/productService")
+const {addProductService, updateProductService, viewProductService, getProductsService, deleteProductService, myProductsService} = require("../services/productService")
 
 exports.addProductController = async (req, res, next) => {
     try {
@@ -69,6 +69,26 @@ exports.getProductsController = async(req,res,next) =>{
 
     try{
         const products = await getProductsService(org_id, pageNumber, pageSize);
+
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+            resp: products,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.myProductsController = async(req,res,next) =>{
+    const {user_id} = req.params;
+    const { page, size } = req.query;
+    
+    const pageNumber = parseInt(page, 10) || 1;
+    const pageSize = parseInt(size, 10) || 10;
+
+    try{
+        const products = await myProductsService(user_id, pageNumber, pageSize);
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,

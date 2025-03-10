@@ -4,7 +4,8 @@ const {
   updateProductController,
   viewProductController,
   getProductsController,
-  deleteProductController
+  deleteProductController,
+  myProductsController
 } = require('../controllers/productController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
@@ -13,7 +14,6 @@ const { productSchema } = require('../utils/validationSchema');
 
 /**
  * @swagger
-
  * /api/product/add/{org_id}:
  *   post:
  *     summary: Add a new product
@@ -45,8 +45,7 @@ router.post('/add/:org_id', verifyJwt, validateInputs(productSchema), addProduct
 
 /**
  * @swagger
-
- * /api/product/edit/{service_id}
+ * /api/product/edit/{service_id}:
  *   patch:
  *     summary: Update an existing product
  *     description: Updates an existing product by providing the product ID and new details.
@@ -140,6 +139,121 @@ router.get('/view/:service_id', verifyJwt, viewProductController);
  *         description: Internal Server Error
  */
 router.get('/get/:org_id', verifyJwt, getProductsController);
+
+/**
+ * @swagger
+ * /api/product/my/{user_id}:
+ *   get:
+ *     summary: Get a user's products with assessment details
+ *     description: Retrieves distinct web URLs assigned to a user, along with the count of assessments and the latest assessment date.
+ *     security:
+ *       - BearerAuth: []  # Requires JWT authentication
+ *     parameters:
+ *       - in: path
+ *         name: user_id
+ *         required: true
+ *         description: The unique identifier of the user.
+ *         schema:
+ *           type: string
+ *           format: uuid
+ *           example: "CF397886-0270-4FAD-A1F8-CA422453B764"
+ *       - in: query
+ *         name: PageNumber
+ *         required: false
+ *         description: The page number for pagination (default is 1).
+ *         schema:
+ *           type: integer
+ *           example: 1
+ *       - in: query
+ *         name: PageSize
+ *         required: false
+ *         description: The number of records per page (default is 10).
+ *         schema:
+ *           type: integer
+ *           example: 10
+ *     responses:
+ *       "200":
+ *         description: Successfully retrieved the user's products.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 totalCount:
+ *                   type: integer
+ *                   example: 25
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       web_url:
+ *                         type: string
+ *                         example: "https://example.com/a11y"
+ *                       total_assessments:
+ *                         type: integer
+ *                         example: 5
+ *                       latest_assessment_date:
+ *                         type: string
+ *                         format: date-time
+ *                         example: "2024-03-07T10:00:00Z"
+ *       "400":
+ *         description: Bad Request - Invalid input data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "User ID cannot be null."
+ *       "401":
+ *         description: Unauthorized - JWT token is missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Unauthorized: Invalid token."
+ *       "404":
+ *         description: Not Found - User does not exist.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "User ID not found."
+ *       "500":
+ *         description: Internal Server Error - Unexpected error occurred.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error."
+ */
+router.get('/my/:user_id',verifyJwt, myProductsController);
 
 /**
  * @swagger

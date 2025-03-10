@@ -108,6 +108,29 @@ exports.getProductsService = async (org_id, pageNumber, pageSize) => {
         }
  }
 
+exports.myProductsService = async (user_id, pageNumber, pageSize) => {
+    try{
+        const pool = await getConnectionPool();
+    
+        const result = await pool.request()
+        .input("user_id", sql.UniqueIdentifier, user_id)
+        .input("PageNumber", sql.Int, pageNumber)
+        .input("PageSize", sql.Int, pageSize)
+        .execute("MyProducts");
+        if(!result.recordset.length){
+            throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+          }
+        return result.recordset;
+    }
+    catch(err){
+        console.error("Database error:", err);
+        if (err.code === "EREQUEST" || err.code === "EPARAM") {
+            throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        }
+        throw new AppError(err.message, err.status);
+    }
+}
+
  exports.deleteProductService = async(service_id) =>{
     try{
       const pool = await getConnectionPool();
@@ -125,3 +148,4 @@ exports.getProductsService = async (org_id, pageNumber, pageSize) => {
     throw new AppError(err.message,err.status);
     }
   }
+
