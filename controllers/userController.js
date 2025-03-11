@@ -16,7 +16,7 @@ exports.addUserToOrganizationController = async (req, res, next) => {
         const user = await addUserToOrganizationService(org_id, userData, created_by);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.DETAILS_ADD_SUCCESS,
-            resp: user,
+            resp: {content: user},
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     } catch (err) {
@@ -37,7 +37,7 @@ exports.editUserController = async (req, res, next) => {
         const updatedUser = await editUserService(user_id, updatedData, modified_by);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.UPDATE_SUCCESS,
-            resp: updatedUser,
+            resp: {content: updatedUser},
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     } catch (err) {
@@ -52,7 +52,7 @@ exports.viewUserController = async(req,res,next) =>{
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-            resp: userDetails,
+            resp: {content: userDetails},
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){
@@ -71,7 +71,7 @@ exports.deleteUserController = async(req,res,next) =>{
 
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-            resp:message,
+            resp: {content: message},
         })
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){
@@ -105,7 +105,7 @@ exports.updateUserStatusController = async (req, res, next) => {
         const updatedStatus = await updateUserStatusService(user_id, status_id);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.UPDATE_SUCCESS,
-            resp: updatedStatus,
+            resp: {content: updatedStatus},
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     } catch (err) {

@@ -16,7 +16,7 @@ exports.addProductController = async (req, res, next) => {
         const product = await addProductService(org_id, serviceData, created_by);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.DETAILS_ADD_SUCCESS,
-            resp: product,
+            resp:{content: product},
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     } catch (err) {
@@ -37,7 +37,7 @@ exports.updateProductController = async (req, res, next) => {
         const updatedProduct = await updateProductService(service_id, updatedData, modified_by);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.UPDATE_SUCCESS,
-            resp: updatedProduct,
+            resp:{content: updatedProduct},
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     } catch (err) {
@@ -52,7 +52,7 @@ exports.viewProductController = async(req,res,next) =>{
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-            resp: productDetails,
+            resp:{content: productDetails},
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){
@@ -111,7 +111,7 @@ exports.deleteProductController = async(req,res,next) =>{
 
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-            resp:message,
+            resp: {content: message},
         })
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){

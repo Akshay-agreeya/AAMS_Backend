@@ -10,7 +10,7 @@ exports.userLoginController =
             const user = await userLoginService(email, password);
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.LOGIN_SUCCESS,
-                resp: user,
+                resp: {content:user},
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
