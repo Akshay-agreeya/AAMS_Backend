@@ -7,7 +7,7 @@ const { userLoginController, changePasswordController, forgotPasswordController,
 
 /**
  * @swagger
- * /api/login/login:
+ * /api/login:
  *   post:
  *     summary: User login
  *     description: Allows a user to log in to the system with their credentials.
@@ -42,33 +42,6 @@ const { userLoginController, changePasswordController, forgotPasswordController,
  */
 router.post('/login', userLoginController);
 
-/**
- * @swagger
- * /api/user/reset-password:
- *   patch:
- *     summary: Reset user password
- *     description: Allows a user to reset their password using the provided login and recovery info.
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               username:
- *                 type: string
- *               password:
- *                 type: string
- *             required:
- *               - username
- *               - password
- *     responses:
- *       200:
- *         description: Password reset successful
- *       400:
- *         description: Invalid input or recovery details
- */
-// router.patch('/user/reset-password', validateInputs(userLoginAndFPSchema), forgotAndResetPasswordController);
   /**
  * @swagger
  * /api/user/forgot-password:
