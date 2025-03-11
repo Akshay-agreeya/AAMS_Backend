@@ -30,7 +30,7 @@ exports.addRoleAndDetailsController = async(req,res,next)=>{
   
      const response = SuccessReturnHandler({
        message: SUCCESS_MESSAGES.DETAILS_ADD_SUCCESS,
-       resp: roleResponse
+       resp: {content: roleResponse}
      });
      res.status(STATUS_CODES.CREATED).json(response)
     }
@@ -48,7 +48,7 @@ exports.updateRoleAndDetailsController = async(req,res,next) =>{
      const updatedRoleAndDetails = await updateRoleAndDetailsService(role_id, roleDetails, modified_by);
      const response = SuccessReturnHandler({
       message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-      resp: updatedRoleAndDetails
+      resp: {content: updatedRoleAndDetails}
   });
   
   res.status(STATUS_CODES.SUCCESS).json(response);
@@ -65,7 +65,7 @@ exports.updateRoleAndDetailsController = async(req,res,next) =>{
      const roleData = await getRoleWithDetailsService(role_id);
      const response = SuccessReturnHandler({
       message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-      resp: roleData
+      resp: {content: roleData}
   });
   
   res.status(STATUS_CODES.SUCCESS).json(response);
@@ -86,7 +86,7 @@ exports.updateRoleAndDetailsController = async(req,res,next) =>{
 
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-            resp:message,
+            resp: {content: message},
         })
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){
