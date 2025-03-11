@@ -52,7 +52,7 @@ exports.viewUserController = async(req,res,next) =>{
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-            resp: {content: userDetails},
+            resp:  userDetails,
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){
@@ -71,7 +71,7 @@ exports.deleteUserController = async(req,res,next) =>{
 
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-            resp: {content: message},
+            resp: message,
         })
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){

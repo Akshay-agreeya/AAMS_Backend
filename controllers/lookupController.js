@@ -9,7 +9,7 @@ exports.getOrgTypeController =
             const orgTypes = await getOrganizationTypeService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                resp: {content:orgTypes},
+                resp: orgTypes,
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
@@ -24,7 +24,7 @@ exports.getIndustryTypeController =
             const industryTypes = await getIndustryTypeService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                resp: {content:industryTypes},
+                resp: industryTypes,
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
@@ -39,7 +39,7 @@ exports.getIndustryTypeController =
             const user_status = await getUserStatusService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                resp: {contents:user_status},
+                resp: user_status,
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
@@ -54,7 +54,7 @@ exports.getOperationTypeController =
             const operation_types = await getOperationTypeService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                resp: {content:operation_types},
+                resp:operation_types,
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
@@ -69,7 +69,7 @@ exports.getPermissionsController =
             const permissions = await getPermissionsService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                resp: {contents:permissions},
+                resp: permissions,
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
@@ -84,7 +84,7 @@ exports.getGuidelineVersionController =
             const versions = await getGuidelineVersionService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                resp: {content:versions},
+                resp: versions,
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
@@ -99,7 +99,7 @@ exports.getComplianceLevelController =
                const level = await getComplianceLevelService();
                const successResponse = SuccessReturnHandler({
                    message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                   resp: {content:level},
+                   resp: level,
                });
                return res.status(STATUS_CODES.SUCCESS).json(successResponse);
               
@@ -114,7 +114,7 @@ exports.getFrequencyController =
                const frequency = await getFrequencyService();
                const successResponse = SuccessReturnHandler({
                    message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                   resp: {content:frequency},
+                   resp: frequency,
                });
                return res.status(STATUS_CODES.SUCCESS).json(successResponse);
               
@@ -129,7 +129,7 @@ exports.getScanDaysController =
                const scan_days = await getScanDaysService();
                const successResponse = SuccessReturnHandler({
                    message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                   resp: {content: scan_days},
+                   resp:  scan_days,
                });
                return res.status(STATUS_CODES.SUCCESS).json(successResponse);
               

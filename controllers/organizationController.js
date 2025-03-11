@@ -16,7 +16,7 @@ exports.addOrganizationController = async (req, res, next) => {
         const org = await addOrganizationService(orgData, created_by);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.DETAILS_ADD_SUCCESS,
-            resp:{content: org},
+            resp:org,
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
 
@@ -58,7 +58,7 @@ exports.editOrganizationController = async (req, res, next) => {
         const org = await editOrgService(org_id, orgData, modified_by);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-            resp: {content: org},
+            resp: org,
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
 
@@ -80,7 +80,7 @@ exports.deleteOrgController = async (req, res, next) => {
   
       const successResponse = SuccessReturnHandler({
         message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
-        resp: {content: message},
+        resp:  message,
       });
   
       return res.status(STATUS_CODES.SUCCESS).json(successResponse);

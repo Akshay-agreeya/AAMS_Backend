@@ -51,7 +51,7 @@ exports.getCategoryDataController = async(req,res,next) =>{
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-            resp: {content: categoryData},
+            resp:  categoryData,
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){

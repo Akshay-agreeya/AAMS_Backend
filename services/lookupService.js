@@ -11,7 +11,7 @@ exports.getOrganizationTypeService = async () => {
     if (!orgTypes.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return { contents: orgTypes.recordset };
+    return {contents: orgTypes.recordset };
   } catch (err) {
     console.error(err);
     throw new AppError(er.message, err.status);
@@ -28,7 +28,7 @@ exports.getIndustryTypeService = async () => {
     if (!industrytypes.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return industrytypes.recordset;
+    return {contents: industrytypes.recordset};
   } catch (err) {
     console.error(err);
     throw new AppError(err.message, err.status);
@@ -45,7 +45,7 @@ exports.getUserStatusService = async () => {
     if (!user_status.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return user_status.recordset;
+    return {contents: user_status.recordset};
   } catch (err) {
     console.error(err);
     throw new AppError(err.message, err.status);
@@ -62,7 +62,7 @@ exports.getOperationTypeService = async () => {
     if (!operation_types.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return operation_types.recordset;
+    return {contents: operation_types.recordset};
   } catch (err) {
     console.error(err);
     throw new AppError(err.message, err.status);
@@ -81,7 +81,7 @@ exports.getPermissionsService = async () => {
     }
     const rawJson = permissions.recordset[0]["JSON_F52E2B61-18A1-11d1-B105-00805F49916B"];
     const parsedJson = JSON.parse(rawJson);
-    return parsedJson;
+    return {contents: parsedJson};
   } catch (err) {
     console.error(err);
     throw new AppError(err.message, err.status);
@@ -98,7 +98,7 @@ exports.getGuidelineVersionService = async () => {
     if (!guideline.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return guideline.recordset;
+    return {contents: guideline.recordset};
   } catch (err) {
     console.error(err);
     throw new AppError(er.message, err.status);
@@ -115,7 +115,7 @@ exports.getComplianceLevelService = async () => {
     if (!level.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return level.recordset;
+    return {contents: level.recordset};
   } catch (err) {
     console.error(err);
     throw new AppError(er.message, err.status);
@@ -132,7 +132,7 @@ exports.getFrequencyService = async () => {
     if (!frequency.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return frequency.recordset;
+    return {contents: frequency.recordset};
   } catch (err) {
     console.error(err);
     throw new AppError(er.message, err.status);
@@ -149,7 +149,7 @@ exports.getScanDaysService = async () => {
     if (!days.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return days.recordset;
+    return {contents: days.recordset};
   } catch (err) {
     console.error(err);
     throw new AppError(er.message, err.status);
