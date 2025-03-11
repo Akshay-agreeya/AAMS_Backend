@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const { getWebUrls, getWebUrlsService, getAssessmentsService, getCategoryDataService } = require("../services/reportsService");
+const { getWebUrlsService, getAssessmentsService, getCategoryDataService } = require("../services/reportsService");
 
 exports.getWebUrlsController = async(req,res,next) =>{
     const {org_id} = req.params;

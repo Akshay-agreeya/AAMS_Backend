@@ -1,7 +1,7 @@
 const { STATUS_CODES } = require("../utils/errorCodes");
 
 exports.validateInputs = (schema) => (req, res, next) => {
-    const errors = [];
+    const errors = {}; // Use an object to store single messages instead of an array
 
     for (const key in schema) {
         const rule = schema[key];
@@ -14,41 +14,30 @@ exports.validateInputs = (schema) => (req, res, next) => {
 
         // Check if required field is missing
         if (rule.required && (value === undefined || value === null || value === "")) {
-            errors.push(`${key} is required.`);
+            errors[key] = `${key} is required.`;
             continue;
         }
 
         // Validate data types
         if (rule.type === "number") {
             if (typeof value !== "number" || !Number.isInteger(value)) {
-                errors.push(`${key} must be an integer.`);
+                errors[key] = `${key} must be an integer.`;
+                continue; // Stop further validation for this key
             }
         } else if (rule.type === "array") {
             if (!Array.isArray(value)) {
-                errors.push(`${key} must be an array.`);
+                errors[key] = `${key} must be an array.`;
+                continue;
             } else if (value.length === 0 && rule.required) {
-                errors.push(`${key} cannot be empty.`);
+                errors[key] = `${key} cannot be empty.`;
+                continue;
             } else if (rule.itemsType === "number" && !value.every(item => Number.isInteger(item))) {
-                errors.push(`${key} must contain only integer values.`);
-            } else if (rule.itemsType === "object" && rule.itemsSchema) {
-                // Validate each object inside the array
-                value.forEach((item, index) => {
-                    for (const subKey in rule.itemsSchema) {
-                        const subRule = rule.itemsSchema[subKey];
-                        const subValue = item[subKey];
-
-                        if (subRule.required && (subValue === undefined || subValue === null || subValue === "")) {
-                            errors.push(`usersWithServices[${index}].${subKey} is required.`);
-                        } else if (subRule.type === "number" && typeof subValue !== "number") {
-                            errors.push(`usersWithServices[${index}].${subKey} must be a number.`);
-                        } else if (subRule.type === "array" && !Array.isArray(subValue)) {
-                            errors.push(`usersWithServices[${index}].${subKey} must be an array.`);
-                        }
-                    }
-                });
+                errors[key] = `${key} must contain only integer values.`;
+                continue;
             }
         } else if (rule.type && typeof value !== rule.type) {
-            errors.push(`${key} must be of type ${rule.type}.`);
+            errors[key] = `${key} must be of type ${rule.type}.`;
+            continue;
         }
 
         // Validate regex pattern
@@ -61,16 +50,15 @@ exports.validateInputs = (schema) => (req, res, next) => {
                 phone_number: "must be a valid phone number."
             };
 
-            const requirement = fieldRequirements[key] || "does not meet the required format.";
-            errors.push(`${key} ${requirement}`);
+            errors[key] = `${key} ${fieldRequirements[key] || "does not meet the required format."}`;
         }
     }
 
     // If errors exist, return validation errors
-    if (errors.length > 0) {
+    if (Object.keys(errors).length > 0) {
         return res.status(STATUS_CODES.BAD_REQUEST).json({
             success: false,
-            errors,
+            errors, // Errors as an object with single messages
         });
     }
 
