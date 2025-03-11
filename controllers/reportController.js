@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const { getWebUrls, getWebUrlsService, getAssessmentsService } = require("../services/reportsService");
+const { getWebUrls, getWebUrlsService, getAssessmentsService, getCategoryDataService } = require("../services/reportsService");
 
 exports.getWebUrlsController = async(req,res,next) =>{
     const {org_id} = req.params;
@@ -36,6 +36,22 @@ exports.getAssessmentsController = async(req,res,next) =>{
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
             resp: urls,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.getCategoryDataController = async(req,res,next) =>{
+    const {assessment_id} = req.params;
+
+    try{
+        const categoryData = await getCategoryDataService(assessment_id)
+
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+            resp: {content: categoryData},
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){

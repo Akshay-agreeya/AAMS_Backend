@@ -1,5 +1,5 @@
 const express = require('express');
-const { getWebUrlsController, getAssessmentsController } = require('../controllers/reportController');
+const { getWebUrlsController, getAssessmentsController, getCategoryDataController } = require('../controllers/reportController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
 
@@ -123,8 +123,10 @@ const { verifyJwt } = require('../middlewares/auth');
  *                   example: "Internal server error."
  */
 
-router.get('/getUrls/:org_id', verifyJwt, getWebUrlsController)
+router.get('/get/urls/:org_id', verifyJwt, getWebUrlsController)
 
-router.get('/getAssessments/:service_id', verifyJwt, getAssessmentsController)
+router.get('/get/assessments/:service_id', verifyJwt, getAssessmentsController)
+
+router.get('/get/category-data/:assessment_id', verifyJwt, getCategoryDataController);
 
 module.exports = router;
