@@ -2,6 +2,7 @@ const { addOrganizationService, getOrganizationByIdService, editOrgService, dele
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
+const {AppError} = require("../middlewares/errorHandler")
 
 exports.addOrganizationController = async (req, res, next) => {
     try {

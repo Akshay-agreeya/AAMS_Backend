@@ -48,3 +48,30 @@ exports.getAssessmentsService = async (service_id, pageNumber, pageSize) => {
         throw new AppError(err.message, err.status);
     }
 }
+
+exports.getCategoryDataService = async (assessment_id) => {
+    try{
+        const pool = await getConnectionPool();
+    
+        const result = await pool.request()
+        .input("AssessmentID", sql.Int, assessment_id)
+        .execute("GetCategoryReportByAssessmentID");
+        if(!result.recordset.length){
+            throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+          }
+          
+         const formattedResult = result.recordset.map(record => ({
+            ...record,
+            category_details: record.category_details ? JSON.parse(record.category_details) : []
+        }));
+
+        return formattedResult;
+    }
+    catch(err){
+        console.error("Database error:", err);
+        if (err.code === "EREQUEST" || err.code === "EPARAM") {
+            throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        }
+        throw new AppError(err.message, err.status);
+    }
+}
