@@ -3,17 +3,17 @@ const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
 
 exports.getOrganizationTypeService = async () => {
-    try {
+  try {
     const pool = await getConnectionPool();
     const orgTypes = await pool.request()
-    .query("SELECT * from Organization_Type");
-     
+      .query("SELECT * from Organization_Type");
+
     if (!orgTypes.recordset.length) {
-        throw { status: STATUS_CODES.NOT_FOUND };
+      throw { status: STATUS_CODES.NOT_FOUND };
     }
-    return orgTypes.recordset; 
+    return { contents: orgTypes.recordset };
   } catch (err) {
-    console.error( err);
+    console.error(err);
     throw new AppError(er.message, err.status);
 
   }
@@ -21,138 +21,138 @@ exports.getOrganizationTypeService = async () => {
 
 exports.getIndustryTypeService = async () => {
   try {
-  const pool = await getConnectionPool();
-  const industrytypes = await pool.request()
-  .query("SELECT * from Industry_Type");
-   
-  if (!industrytypes.recordset.length) {
-      throw { status: STATUS_CODES.NOT_FOUND };
-  }
-  return industrytypes.recordset; 
-} catch (err) {
-  console.error( err);
-  throw new AppError(err.message, err.status);
+    const pool = await getConnectionPool();
+    const industrytypes = await pool.request()
+      .query("SELECT * from Industry_Type");
 
-}
+    if (!industrytypes.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return industrytypes.recordset;
+  } catch (err) {
+    console.error(err);
+    throw new AppError(err.message, err.status);
+
+  }
 };
 
 exports.getUserStatusService = async () => {
   try {
-  const pool = await getConnectionPool();
-  const user_status = await pool.request()
-  .query("SELECT * from User_Status");
-   
-  if (!user_status.recordset.length) {
-      throw { status: STATUS_CODES.NOT_FOUND };
-  }
-  return user_status.recordset; 
-} catch (err) {
-  console.error( err);
-  throw new AppError(err.message, err.status);
+    const pool = await getConnectionPool();
+    const user_status = await pool.request()
+      .query("SELECT * from User_Status");
 
-}
+    if (!user_status.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return user_status.recordset;
+  } catch (err) {
+    console.error(err);
+    throw new AppError(err.message, err.status);
+
+  }
 };
 
 exports.getOperationTypeService = async () => {
   try {
-  const pool = await getConnectionPool();
-  const operation_types = await pool.request()
-  .query("SELECT * from Operation_Types");
-   
-  if (!operation_types.recordset.length) {
-      throw { status: STATUS_CODES.NOT_FOUND };
-  }
-  return operation_types.recordset; 
-} catch (err) {
-  console.error( err);
-  throw new AppError(err.message, err.status);
+    const pool = await getConnectionPool();
+    const operation_types = await pool.request()
+      .query("SELECT * from Operation_Types");
 
-}
+    if (!operation_types.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return operation_types.recordset;
+  } catch (err) {
+    console.error(err);
+    throw new AppError(err.message, err.status);
+
+  }
 };
 
 exports.getPermissionsService = async () => {
   try {
-  const pool = await getConnectionPool();
-  const permissions = await pool.request()
- .execute("GetPermissions")
-   
-  if (!permissions.recordset.length) {
-      throw {  message: ERROR_MESSAGES.DATA_NOT_FOUND, status: STATUS_CODES.NOT_FOUND };
-  }
-  const rawJson = permissions.recordset[0]["JSON_F52E2B61-18A1-11d1-B105-00805F49916B"];
-  const parsedJson = JSON.parse(rawJson);
-  return parsedJson; 
-} catch (err) {
-  console.error( err);
-  throw new AppError(err.message, err.status);
+    const pool = await getConnectionPool();
+    const permissions = await pool.request()
+      .execute("GetPermissions")
 
-}
+    if (!permissions.recordset.length) {
+      throw { message: ERROR_MESSAGES.DATA_NOT_FOUND, status: STATUS_CODES.NOT_FOUND };
+    }
+    const rawJson = permissions.recordset[0]["JSON_F52E2B61-18A1-11d1-B105-00805F49916B"];
+    const parsedJson = JSON.parse(rawJson);
+    return parsedJson;
+  } catch (err) {
+    console.error(err);
+    throw new AppError(err.message, err.status);
+
+  }
 };
 
 exports.getGuidelineVersionService = async () => {
   try {
-  const pool = await getConnectionPool();
-  const guideline = await pool.request()
-  .query("SELECT * from Guideline_version");
-   
-  if (!guideline.recordset.length) {
-      throw { status: STATUS_CODES.NOT_FOUND };
-  }
-  return guideline.recordset; 
-} catch (err) {
-  console.error( err);
-  throw new AppError(er.message, err.status);
+    const pool = await getConnectionPool();
+    const guideline = await pool.request()
+      .query("SELECT * from Guideline_version");
 
-}
+    if (!guideline.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return guideline.recordset;
+  } catch (err) {
+    console.error(err);
+    throw new AppError(er.message, err.status);
+
+  }
 };
 
 exports.getComplianceLevelService = async () => {
   try {
-  const pool = await getConnectionPool();
-  const level = await pool.request()
-  .query("SELECT * from Compliance_level");
-   
-  if (!level.recordset.length) {
-      throw { status: STATUS_CODES.NOT_FOUND };
-  }
-  return level.recordset; 
-} catch (err) {
-  console.error( err);
-  throw new AppError(er.message, err.status);
+    const pool = await getConnectionPool();
+    const level = await pool.request()
+      .query("SELECT * from Compliance_level");
 
-}
+    if (!level.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return level.recordset;
+  } catch (err) {
+    console.error(err);
+    throw new AppError(er.message, err.status);
+
+  }
 };
 
 exports.getFrequencyService = async () => {
   try {
-  const pool = await getConnectionPool();
-  const frequency  = await pool.request()
-  .query("SELECT * from Frequency ");
-   
-  if (!frequency .recordset.length) {
-      throw { status: STATUS_CODES.NOT_FOUND };
-  }
-  return frequency.recordset; 
-} catch (err) {
-  console.error( err);
-  throw new AppError(er.message, err.status);
+    const pool = await getConnectionPool();
+    const frequency = await pool.request()
+      .query("SELECT * from Frequency ");
 
-}
+    if (!frequency.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return frequency.recordset;
+  } catch (err) {
+    console.error(err);
+    throw new AppError(er.message, err.status);
+
+  }
 };
 
 exports.getScanDaysService = async () => {
   try {
-  const pool = await getConnectionPool();
-  const days  = await pool.request()
-  .query("SELECT * from Scan_days ");
-   
-  if (!days .recordset.length) {
-      throw { status: STATUS_CODES.NOT_FOUND };
-  }
-  return days.recordset; 
-} catch (err) {
-  console.error( err);
-  throw new AppError(er.message, err.status);
+    const pool = await getConnectionPool();
+    const days = await pool.request()
+      .query("SELECT * from Scan_days ");
 
-}
+    if (!days.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return days.recordset;
+  } catch (err) {
+    console.error(err);
+    throw new AppError(er.message, err.status);
+
+  }
 };
