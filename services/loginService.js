@@ -44,8 +44,9 @@ exports.userLoginService = async (email, password) => {
             first_name: user.first_name,
             last_name: user.last_name,
             user_type: user.user_type,
-            user_role: user.user_role,
             role_id: user.role_id,
+            role_key: user.role_key,
+            user_role: user.user_role,
             token
         };
     } catch (error) {
