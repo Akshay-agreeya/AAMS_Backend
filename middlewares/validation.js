@@ -22,7 +22,7 @@ exports.validateInputs = (schema) => (req, res, next) => {
         if (rule.type === "number") {
             if (typeof value !== "number" || !Number.isInteger(value)) {
                 errors[key] = `${key} must be an integer.`;
-                continue; // Stop further validation for this key
+                continue; 
             }
         } else if (rule.type === "array") {
             if (!Array.isArray(value)) {
@@ -46,8 +46,7 @@ exports.validateInputs = (schema) => (req, res, next) => {
                 password: "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character.",
                 oldPassword: "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character.",
                 newPassword: "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character",
-                email: "Must be a valid email address.",
-                phone_number: "Must be a valid phone number."
+                email: "Must be a valid email address."
             };
 
             errors[key] = `${fieldRequirements[key] || "does not meet the required format."}`;
@@ -58,7 +57,7 @@ exports.validateInputs = (schema) => (req, res, next) => {
     if (Object.keys(errors).length > 0) {
         return res.status(STATUS_CODES.BAD_REQUEST).json({
             success: false,
-            errors, // Errors as an object with single messages
+            errors, 
         });
     }
 
