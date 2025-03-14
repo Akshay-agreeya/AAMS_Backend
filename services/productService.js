@@ -19,7 +19,7 @@ exports.addProductService = async (org_id, serviceData, created_by) => {
             .input("SupportTypeID", sql.Int, support_type_id)
             .input("FrequencyID", sql.Int, frequency_id)
             .input("ScanDayIDs", sql.NVarChar(20), scan_day_ids)
-            .input("ScheduleTime", sql.VarChar(50), schedule_time)
+            .input("ScheduleTime", sql.Time, schedule_time)
             .input("CreatedBy", sql.UniqueIdentifier, created_by)
             .output("ServiceID", sql.Int)
             .execute("AddServiceWithDetails");
@@ -52,7 +52,7 @@ exports.updateProductService = async (service_id, updatedData, modified_by) => {
             .input("SupportTypeID", sql.Int, support_type_id)
             .input("FrequencyID", sql.Int, frequency_id)
             .input("ScanDayIDs", sql.NVarChar(20), scan_day_ids)
-            .input("ScheduleTime", sql.VarChar(50), schedule_time)
+            .input("ScheduleTime", sql.Time, schedule_time)
             .input("ModifiedBy", sql.UniqueIdentifier, modified_by)
             .execute("UpdateServiceWithDetails");
 
