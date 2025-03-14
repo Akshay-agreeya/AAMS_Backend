@@ -5,7 +5,7 @@ const { verifyJwt } = require('../middlewares/auth');
 
 /**
  * @swagger
- * /api/report/getUrls/{org_id}:
+ * /api/report/get/urls/{org_id}:
  *   get:
  *     summary: Get web URLs for an organization with assessment details
  *     description: Retrieves distinct web URLs associated with a given organization, including accessibility issue details and the latest assessment date.
