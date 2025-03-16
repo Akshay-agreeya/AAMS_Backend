@@ -26,6 +26,7 @@ exports.getRolesService = async (pageNumber, pageSize) => {
 exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
     const{role_name,
           description,
+          role_key,
           role_permissions
         } = roleDetails
   
@@ -33,6 +34,7 @@ exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
           const pool = await getConnectionPool();
           const result = await pool.request()
           .input("RoleName", sql.NVarChar(50), role_name)
+          .input("RoleKey", sql.NVarChar(50), role_key)
           .input("Description", sql.NVarChar(255), description)
           .input("RolePermissions", sql.NVarChar(sql.MAX), JSON.stringify(role_permissions))
           .input("CreatedBy", sql.UniqueIdentifier, created_by)
@@ -59,12 +61,14 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
     try{
       const{
         role_name,
+        role_key,
         description,
         role_permissions
       }= roleDetails
       const result = await pool.request()
       .input("RoleID", sql.Int, role_id)
       .input("RoleName", sql.NVarChar(50), role_name)
+      .input("RoleKey", sql.NVarChar(50), role_key)
       .input("Description", sql.NVarChar(255), description)
       .input("RolePermissions", sql.NVarChar(sql.MAX), JSON.stringify(role_permissions))
       .input("ModifiedBy", sql.UniqueIdentifier, modified_by)
