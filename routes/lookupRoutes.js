@@ -1,5 +1,5 @@
 const express = require('express');
-const { getOrgTypeController, getIndustryTypeController, getOperationTypeController, getPermissionsController, getGuidelineVersionController, getComplianceLevelController, getFrequencyController, getScanDaysController, getUserStatusController } = require('../controllers/lookupController');
+const { getOrgTypeController, getIndustryTypeController, getOperationTypeController, getPermissionsController, getGuidelineVersionController, getComplianceLevelController, getFrequencyController, getScanDaysController, getUserStatusController, getProdPermissionsController } = require('../controllers/lookupController');
 
 const router = express.Router();
 
@@ -82,6 +82,26 @@ router.get('/operation-types', getOperationTypeController);
  *         description: Unauthorized
  */
 router.get('/permissions', getPermissionsController);
+
+/**
+ * @swagger
+ * /api/lookup/prod_permissions:
+ *   get:
+ *     summary: Get all prod_permissions
+ *     description: Retrieves a list of all available prod_permissions.
+ *     responses:
+ *       200:
+ *         description: A list of prod_permissions
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: string
+ *       401:
+ *         description: Unauthorized
+ */
+router.get('/prod_permissions', getProdPermissionsController);
 
 /**
  * @swagger

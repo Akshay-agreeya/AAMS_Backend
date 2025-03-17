@@ -89,6 +89,23 @@ exports.getPermissionsService = async () => {
   }
 };
 
+exports.getProdPermissionsService = async () => {
+  try {
+    const pool = await getConnectionPool();
+    const all_permissions = await pool.request()
+      .query("SELECT * from Product_permission_opr");
+
+    if (!all_permissions.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return {contents: all_permissions.recordset };
+  } catch (err) {
+    console.error(err);
+    throw new AppError(er.message, err.status);
+
+  }
+};
+
 exports.getGuidelineVersionService = async () => {
   try {
     const pool = await getConnectionPool();

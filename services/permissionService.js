@@ -31,7 +31,7 @@ return parsedData;
     }
     }
 
-    exports.updateUserPermissionService = async (usersWithServices) => {
+exports.updateUserPermissionService = async (usersWithServices) => {
         try {
             const pool = await getConnectionPool();
             const results = [];
@@ -80,6 +80,7 @@ return parsedData;
         }
     };
     
+
     
     
 

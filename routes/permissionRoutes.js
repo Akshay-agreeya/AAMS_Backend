@@ -221,4 +221,5 @@ router.get('/get/:org_id', verifyJwt,getPermissionController );
 
 router.post('/update', verifyJwt, validateInputs(productPermissionSchema), updateUserPermissionController);
 
+
 module.exports = router;

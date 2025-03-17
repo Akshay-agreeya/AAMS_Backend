@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const { getPermissionService, updateUserPermissionService } = require("../services/permissionService");
+const { getPermissionService, updateUserPermissionService} = require("../services/permissionService");
 
 exports.getPermissionController = async(req,res,next) =>{
     const {org_id} = req.params;
@@ -34,3 +34,4 @@ exports.updateUserPermissionController = async(req,res,next) =>{
         next(err);
     }
 }
+
