@@ -1,5 +1,5 @@
 const express = require('express');
-const { getCountController } = require('../controllers/dashboardController');
+const { getCountController, getExpiringController } = require('../controllers/dashboardController');
 const {verifyJwt} = require('../middlewares/auth')
 
 const router = express.Router();
@@ -75,5 +75,58 @@ const router = express.Router();
  */
 
 router.get('/count',verifyJwt, getCountController)
+
+/**
+ * @swagger
+ * /api/dashboard/expiring_services:
+ *   get:
+ *     summary: Get expiring services
+ *     description: Fetches services that are expiring within a user-specified number of days.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: days
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           example: 30
+ *         description: The number of days to check for expiring services.
+ *     responses:
+ *       200:
+ *         description: Successfully fetched expiring services
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       organization_name:
+ *                         type: string
+ *                         example: "AgreeYa Solutions"
+ *                       service_type:
+ *                         type: string
+ *                         example: "Website Accessibility"
+ *                       expiry_date:
+ *                         type: string
+ *                         format: date
+ *                         example: "04-10-2025"
+ *       400:
+ *         description: Invalid input (e.g., days <= 0)
+ *       401:
+ *         description: Unauthorized (JWT missing or invalid)
+ *       404:
+ *         description: No expiring services found
+ *       500:
+ *         description: Internal server error
+ */
+router.get('/expiring_services', verifyJwt, getExpiringController)
 
 module.exports = router;

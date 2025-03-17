@@ -1,6 +1,7 @@
 const { sql, getConnectionPool } = require("../config/db");
 const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
+const {getDatawithPagination} = require('../utils/helper')
 
 exports.getCountService = async () => {
   try {
@@ -22,3 +23,24 @@ exports.getCountService = async () => {
 
   }
 };
+
+exports.getExpiringService = async (days) => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .input("Days", sql.Int, days)
+      .execute("GetExpiringServices");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND, message: "No expiring services found"}
+        }
+      return {contents: result.recordset}
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}
