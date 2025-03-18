@@ -11,6 +11,12 @@ exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
+         // 🔹 Set the session context for audit logs
+         await pool.request()
+         .input("app_user", sql.UniqueIdentifier, created_by)
+         .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
         const result = await pool.request()
             .input("OrgID", sql.UniqueIdentifier, org_id)
             .input("UserName", sql.VarChar(50),username)
@@ -40,6 +46,12 @@ exports.editUserService = async (user_id, updatedData, modified_by) => {
     const {first_name, last_name, email, phone_number, role_id} = updatedData;
     try {
         const pool = await getConnectionPool();
+
+         // 🔹 Set the session context for audit logs
+         await pool.request()
+         .input("app_user", sql.UniqueIdentifier, modified_by)
+         .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
 
         const result = await pool.request()
             .input("UserID", sql.UniqueIdentifier, user_id)
@@ -85,9 +97,16 @@ catch(err){
 }
 }
 
-exports.deleteUserService = async(user_id) =>{
+exports.deleteUserService = async(user_id, deleted_by) =>{
     try{
       const pool = await getConnectionPool();
+
+       // 🔹 Set the session context for audit logs
+       await pool.request()
+       .input("app_user", sql.UniqueIdentifier, deleted_by)
+       .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
       const result = await pool.request()
       .input("UserID", sql.UniqueIdentifier, user_id)
       .execute("DeleteUser");

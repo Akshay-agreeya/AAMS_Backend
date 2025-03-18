@@ -70,13 +70,14 @@ exports.editOrganizationController = async (req, res, next) => {
 
 exports.deleteOrgController = async (req, res, next) => {
     let { org_ids } = req.body; // Expecting an array of org_ids
-  
+  const deleted_by = req.user?.id;
+
     try {
       if (!org_ids || !Array.isArray(org_ids) || org_ids.length === 0) {
         throw new AppError("At least one org_id is required", STATUS_CODES.BAD_REQUEST);
       }
   
-      const message = await deleteOrgService(org_ids);
+      const message = await deleteOrgService(org_ids, deleted_by);
   
       const successResponse = SuccessReturnHandler({
         message: SUCCESS_MESSAGES.OPERATION_SUCCESS,

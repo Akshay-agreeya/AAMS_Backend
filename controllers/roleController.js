@@ -77,12 +77,13 @@ exports.updateRoleAndDetailsController = async(req,res,next) =>{
   
   exports.deleteRoleController = async(req,res,next) =>{
     const {role_id} = req.params;
+    const deleted_by = req.user?.id;
     try{
         if(!role_id){
             throw new AppError("role_id is required", STATUS_CODES.BAD_REQUEST);
         }
 
-        const message = await deleteRoleService(role_id);
+        const message = await deleteRoleService(role_id, deleted_by);
 
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,

@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
-const { getCountService, getExpiringService } = require("../services/dashboardService");
+const { getCountService, getExpiringService, getRecentActivitiesService } = require("../services/dashboardService");
 
 exports.getCountController = 
     async (req, res, next) => {
@@ -18,7 +18,7 @@ exports.getCountController =
         }
     };
 
-    exports.getExpiringController = async(req,res,next) =>{
+ exports.getExpiringController = async(req,res,next) =>{
         const { days = 30} = req.query;
     
         try{
@@ -27,6 +27,25 @@ exports.getCountController =
             const successResponse = SuccessReturnHandler({
                 message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
                 resp: expiring_services,
+            });
+            res.status(STATUS_CODES.SUCCESS).json(successResponse);
+        }catch(err){
+            next(err);
+        }
+    }
+
+exports.getRecentActivitiesController = async(req,res,next) =>{
+        const { days, page, size } = req.query;
+
+        const pageNumber = parseInt(page, 10) || 1;
+        const pageSize = parseInt(size, 10) || 10;
+    
+        try{
+            const recent_activities = await getRecentActivitiesService(days, pageNumber, pageSize)
+ 
+            const successResponse = SuccessReturnHandler({
+                message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                resp: recent_activities,
             });
             res.status(STATUS_CODES.SUCCESS).json(successResponse);
         }catch(err){

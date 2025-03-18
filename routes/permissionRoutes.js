@@ -12,7 +12,7 @@ const {getPermissionController, updateUserPermissionController} = require('../co
  *     summary: Get product permissions by organization ID
  *     description: Retrieve all users, services, and product permissions associated with a specific organization.
  *     security:
- *       - BearerAuth: []
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: org_id
@@ -104,7 +104,7 @@ router.get('/get/:org_id', verifyJwt,getPermissionController );
  *     summary: Update User Permissions
  *     description: Updates the permissions for users on a specific service. If `product_permission_opr_ids` is an empty array, all permissions for that user will be removed.
  *     security:
- *       - BearerAuth: []
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
