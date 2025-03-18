@@ -10,7 +10,7 @@ const { verifyJwt } = require('../middlewares/auth');
  *     summary: Get web URLs for an organization with assessment details
  *     description: Retrieves distinct web URLs associated with a given organization, including accessibility issue details and the latest assessment date.
  *     security:
- *       - BearerAuth: []  # Requires JWT authentication
+ *       - bearerAuth: []  # Requires JWT authentication
  *     parameters:
  *       - in: path
  *         name: org_id
@@ -132,7 +132,7 @@ router.get('/get/urls/:org_id', verifyJwt, getWebUrlsController)
  *     summary: Get assessment details for a specific service
  *     description: Retrieves all assessments for a given service_id, including scan date, report name, issues, benchmark, guideline, and web URL. Supports pagination.
  *     security:
- *       - BearerAuth: []  # Requires JWT authentication
+ *       - bearerAuth: []  # Requires JWT authentication
  *     parameters:
  *       - in: path
  *         name: service_id
@@ -255,7 +255,7 @@ router.get('/get/assessments/:service_id', verifyJwt, getAssessmentsController)
  *     summary: Get category-related data for a specific assessment
  *     description: Retrieves category data including issue details, guidelines, and remediation steps for a given assessment_id.
  *     security:
- *       - BearerAuth: []  # Requires JWT authentication
+ *       - bearerAuth: []  # Requires JWT authentication
  *     parameters:
  *       - in: path
  *         name: assessment_id

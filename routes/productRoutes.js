@@ -147,7 +147,7 @@ router.get('/get/:org_id', verifyJwt, getProductsController);
  *     summary: Get a user's products with assessment details
  *     description: Retrieves distinct web URLs assigned to a user, along with the count of assessments and the latest assessment date.
  *     security:
- *       - BearerAuth: []  # Requires JWT authentication
+ *       - bearerAuth: []  # Requires JWT authentication
  *     parameters:
  *       - in: path
  *         name: user_id

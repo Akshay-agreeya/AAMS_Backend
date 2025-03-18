@@ -62,12 +62,13 @@ exports.viewUserController = async(req,res,next) =>{
 
 exports.deleteUserController = async(req,res,next) =>{
     const {user_id} = req.params;
+    const deleted_by = req.user?.id;
     try{
         if(!user_id){
             throw new AppError("user_id is required", STATUS_CODES.BAD_REQUEST);
         }
 
-        const message = await deleteUserService(user_id);
+        const message = await deleteUserService(user_id, deleted_by);
 
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,

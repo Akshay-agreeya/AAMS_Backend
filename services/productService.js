@@ -9,6 +9,12 @@ exports.addProductService = async (org_id, serviceData, created_by) => {
  
     try {
         const pool = await getConnectionPool();
+
+          // 🔹 Set the session context for audit logs
+          await pool.request()
+          .input("app_user", sql.UniqueIdentifier, created_by)
+          .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
         const result = await pool.request()
             .input("OrgID", sql.UniqueIdentifier, org_id)
             .input("WebURL", sql.Text, web_url)
@@ -42,6 +48,13 @@ exports.updateProductService = async (service_id, updatedData, modified_by) => {
  
     try {
         const pool = await getConnectionPool();
+
+             // 🔹 Set the session context for audit logs
+             await pool.request()
+             .input("app_user", sql.UniqueIdentifier, modified_by)
+             .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
         const result = await pool.request()
             .input("ServiceID", sql.Int, service_id)
             .input("WebURL", sql.Text, web_url)
@@ -132,9 +145,16 @@ exports.myProductsService = async (user_id, pageNumber, pageSize) => {
     }
 }
 
- exports.deleteProductService = async(service_id) =>{
+ exports.deleteProductService = async(service_id, deleted_by) =>{
     try{
       const pool = await getConnectionPool();
+
+      // 🔹 Set the session context for audit logs
+      await pool.request()
+      .input("app_user", sql.UniqueIdentifier, deleted_by)
+      .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
       const result = await pool.request()
       .input("ServiceID", sql.Int, service_id)
       .execute("DeleteServiceByServiceID ");

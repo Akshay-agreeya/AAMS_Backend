@@ -32,6 +32,13 @@ exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
   
         try{
           const pool = await getConnectionPool();
+
+           // 🔹 Set the session context for audit logs
+           await pool.request()
+           .input("app_user", sql.UniqueIdentifier, created_by)
+           .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+ 
+
           const result = await pool.request()
           .input("RoleName", sql.NVarChar(50), role_name)
           .input("RoleKey", sql.NVarChar(50), role_key)
@@ -65,6 +72,13 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
         description,
         role_permissions
       }= roleDetails
+
+       // 🔹 Set the session context for audit logs
+       await pool.request()
+       .input("app_user", sql.UniqueIdentifier, modified_by)
+       .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
       const result = await pool.request()
       .input("RoleID", sql.Int, role_id)
       .input("RoleName", sql.NVarChar(50), role_name)
@@ -121,9 +135,16 @@ exports.getRoleWithDetailsService = async (role_id) => {
       }
     };
     
-    exports.deleteRoleService = async(role_id) =>{
+    exports.deleteRoleService = async(role_id, deleted_by) =>{
       try{
         const pool = await getConnectionPool();
+
+         // 🔹 Set the session context for audit logs
+         await pool.request()
+         .input("app_user", sql.UniqueIdentifier, deleted_by)
+         .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
         const result = await pool.request()
         .input("RoleID", sql.Int, role_id)
         .execute("DeleteRole");

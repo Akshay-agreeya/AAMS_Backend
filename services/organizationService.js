@@ -12,6 +12,12 @@ exports.addOrganizationService = async (orgData, created_by) => {
     try {
         const pool = await getConnectionPool();
         
+         // 🔹 Set the session context for audit logs
+         await pool.request()
+         .input("app_user", sql.UniqueIdentifier, created_by)
+         .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
         const result = await pool.request()
             .input("OrgName", sql.VarChar(100), org_name)
             .input("OrgTypeID", sql.Int, org_type_id)
@@ -74,6 +80,13 @@ exports.editOrgService = async(org_id, orgData, modified_by )=>{
 try{
 
   const pool = await getConnectionPool();
+
+   // 🔹 Set the session context for audit logs
+   await pool.request()
+   .input("app_user", sql.UniqueIdentifier, modified_by)
+   .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
   const result = await pool.request()
   .input("OrgID", sql.UniqueIdentifier, org_id)
   .input("OrgName", sql.VarChar(100), org_name)
@@ -106,9 +119,15 @@ try{
 }
 
 
-exports.deleteOrgService = async (org_ids) => {
+exports.deleteOrgService = async (org_ids, deleted_by) => {
   try {
     const pool = await getConnectionPool();
+
+     // 🔹 Set the session context for audit logs
+     await pool.request()
+     .input("app_user", sql.UniqueIdentifier, deleted_by)
+     .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
 
     // Create a Table-Valued Parameter (TVP)
     const table = new sql.Table("UDT_OrgID");  // Ensure this matches your SQL type

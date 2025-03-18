@@ -44,3 +44,26 @@ exports.getExpiringService = async (days) => {
       throw new AppError(err.message, err.status);
   }
 }
+
+exports.getRecentActivitiesService = async (days, pageNumber, pageSize) => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .input("Days", sql.Int, days)
+      .input("PageNumber", sql.Int, pageNumber)
+      .input("PageSize", sql.Int, pageSize)
+      .execute("GetRecentActivities");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND, message: "No activity found"}
+        }
+      return getDatawithPagination(result.recordsets);
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}

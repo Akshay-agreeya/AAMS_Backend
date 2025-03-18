@@ -102,13 +102,13 @@ exports.myProductsController = async(req,res,next) =>{
 
 exports.deleteProductController = async(req,res,next) =>{
     const {service_id} = req.params;
+    const deleted_by = req.user?.id; 
     try{
         if(!service_id){
             throw new AppError("service_id is required", STATUS_CODES.BAD_REQUEST);
         }
 
-        const message = await deleteProductService(service_id);
-
+        const message = await deleteProductService(service_id, deleted_by);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
             resp: message,
