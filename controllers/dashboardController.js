@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
-const { getCountService, getExpiringService, getRecentActivitiesService } = require("../services/dashboardService");
+const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService } = require("../services/dashboardService");
 
 exports.getCountController = 
     async (req, res, next) => {
@@ -46,6 +46,22 @@ exports.getRecentActivitiesController = async(req,res,next) =>{
             const successResponse = SuccessReturnHandler({
                 message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
                 resp: recent_activities,
+            });
+            res.status(STATUS_CODES.SUCCESS).json(successResponse);
+        }catch(err){
+            next(err);
+        }
+    }
+
+exports.getSummaryDetailReportController = async(req,res,next) =>{
+        const {assessment_id} = req.params;
+    
+        try{
+            const summary_data = await getSummaryDetailReportService(assessment_id)
+    
+            const successResponse = SuccessReturnHandler({
+                message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                resp:  summary_data,
             });
             res.status(STATUS_CODES.SUCCESS).json(successResponse);
         }catch(err){

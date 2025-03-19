@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const { getWebUrlsService, getAssessmentsService, getCategoryDataService } = require("../services/reportsService");
+const { getWebUrlsService, getAssessmentsService, getCategoryDataService, getUserWebUrlsService } = require("../services/reportsService");
 
 exports.getWebUrlsController = async(req,res,next) =>{
     const {org_id} = req.params;
@@ -16,6 +16,26 @@ exports.getWebUrlsController = async(req,res,next) =>{
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
             resp: urls,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.getUserWebUrlsController = async(req,res,next) =>{
+    const user_id = req.user?.id;
+    const { page, size } = req.query;
+    
+    const pageNumber = parseInt(page, 10) || 1;
+    const pageSize = parseInt(size, 10) || 10;
+
+    try{
+        const user_urls = await getUserWebUrlsService(user_id, pageNumber, pageSize);
+
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+            resp: user_urls,
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){

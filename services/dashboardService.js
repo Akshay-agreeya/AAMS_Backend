@@ -67,3 +67,25 @@ exports.getRecentActivitiesService = async (days, pageNumber, pageSize) => {
       throw new AppError(err.message, err.status);
   }
 }
+
+exports.getSummaryDetailReportService = async (assessment_id) => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .input("AssessmentID", sql.Int, assessment_id)
+      .execute("GetSummaryDetailReportByAssessmentID");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+        }
+
+      return {contents: result.recordset};
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}
