@@ -1,5 +1,5 @@
 const express = require('express');
-const { getCountController, getExpiringController, getRecentActivitiesController } = require('../controllers/dashboardController');
+const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController } = require('../controllers/dashboardController');
 const {verifyJwt} = require('../middlewares/auth')
 
 const router = express.Router();
@@ -209,5 +209,7 @@ router.get('/expiring-services', verifyJwt, getExpiringController)
  *         description: Internal server error.
  */
 router.get('/recent-activities', verifyJwt, getRecentActivitiesController)
+
+router.get('/summary-report/:assessment_id', verifyJwt, getSummaryDetailReportController)
 
 module.exports = router;
