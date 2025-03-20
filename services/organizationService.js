@@ -154,11 +154,12 @@ exports.deleteOrgService = async (org_ids, deleted_by) => {
 };
 
 
-exports.getOrganizationsService = async (pageNumber, pageSize) => {
+exports.getOrganizationsService = async (user_id, pageNumber, pageSize) => {
     try {
         const pool = await getConnectionPool();
 
         const result = await pool.request()
+            .input("UserID", sql.UniqueIdentifier, user_id)
             .input("PageNumber", sql.Int, pageNumber)
             .input("PageSize", sql.Int, pageSize)
             .execute("GetOrganizations");

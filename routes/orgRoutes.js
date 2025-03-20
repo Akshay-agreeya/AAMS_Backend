@@ -52,7 +52,7 @@ router.post('/add', verifyJwt, validateInputs(orgSchema), addOrganizationControl
  *     parameters:
  *       - in: path
  *         name: org_id
- *         required: true
+ *         required: false
  *         description: ID of the organization to fetch
  *         schema:
  *           type: string
