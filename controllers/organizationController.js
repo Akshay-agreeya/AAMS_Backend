@@ -90,15 +90,15 @@ exports.deleteOrgController = async (req, res, next) => {
     }
   };
   
-
 exports.getOrganizationsController = async (req, res, next) => {
+    const user_id = req.user?.id;
     const { page, size } = req.query;
     
     const pageNumber = parseInt(page, 10) || 1;
     const pageSize = parseInt(size, 10) || 5;
 
     try {
-        const data = await getOrganizationsService(pageNumber, pageSize);
+        const data = await getOrganizationsService(user_id,pageNumber, pageSize);
         
         return res.status(STATUS_CODES.SUCCESS).json({
             success: true,

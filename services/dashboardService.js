@@ -89,3 +89,24 @@ exports.getSummaryDetailReportService = async (assessment_id) => {
       throw new AppError(err.message, err.status);
   }
 }
+
+
+exports.getServiceTypeCount = async () => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .execute("GetServiceTypeCount");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND, message: "No service_type found"}
+        }
+      return {contents: result.recordset}
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}

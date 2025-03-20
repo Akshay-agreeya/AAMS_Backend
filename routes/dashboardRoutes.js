@@ -1,5 +1,5 @@
 const express = require('express');
-const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController } = require('../controllers/dashboardController');
+const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController, getServiceTypeCountController } = require('../controllers/dashboardController');
 const {verifyJwt} = require('../middlewares/auth')
 
 const router = express.Router();
@@ -210,6 +210,88 @@ router.get('/expiring-services', verifyJwt, getExpiringController)
  */
 router.get('/recent-activities', verifyJwt, getRecentActivitiesController)
 
-router.get('/summary-report/:assessment_id', verifyJwt, getSummaryDetailReportController)
+/**
+ * @swagger
+ * /api/report/summary-report/{assessment_id}:
+ *   get:
+ *     summary: Get summary detail report for a specific assessment
+ *     description: Retrieves summary detail report for a given assessment_id, including summary_detail_report_id, summary_report_id, issues, benchmark, guideline, and status
+ *     security:
+ *       - bearerAuth: []  # Requires JWT authentication
+ *     parameters:
+ *       - in: path
+ *         name: assessment_id
+ *         required: true
+ *         description: The unique identifier of the assessment.
+ *         schema:
+ *           type: integer
+ *           example: 101
+ *     responses:
+ *       "200":
+ *         description: Successfully retrieved summary detail report for the assessment.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *       "400":
+ *         description: Bad Request - Invalid input data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Assessment ID cannot be null."
+ *       "401":
+ *         description: Unauthorized - JWT token is missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Unauthorized: Invalid token."
+ *       "404":
+ *         description: Not Found - No summary detail report found for the given Assessment ID.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "No summary detail report found for the given Assessment ID."
+ *       "500":
+ *         description: Internal Server Error - Unexpected error occurred.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error."
+ */
+router.get('/summary-report/:assessment_id', verifyJwt, getSummaryDetailReportController);
+
+router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
 
 module.exports = router;

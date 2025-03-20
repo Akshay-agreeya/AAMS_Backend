@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
-const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService } = require("../services/dashboardService");
+const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService, getServiceTypeCount } = require("../services/dashboardService");
 
 exports.getCountController = 
     async (req, res, next) => {
@@ -62,6 +62,19 @@ exports.getSummaryDetailReportController = async(req,res,next) =>{
             const successResponse = SuccessReturnHandler({
                 message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
                 resp:  summary_data,
+            });
+            res.status(STATUS_CODES.SUCCESS).json(successResponse);
+        }catch(err){
+            next(err);
+        }
+    }
+
+    exports.getServiceTypeCountController = async(req, res, next) =>{
+        try{
+            const service_type = await getServiceTypeCount()
+            const successResponse = SuccessReturnHandler({
+                message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                resp: service_type,
             });
             res.status(STATUS_CODES.SUCCESS).json(successResponse);
         }catch(err){
