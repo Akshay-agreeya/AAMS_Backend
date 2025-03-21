@@ -212,7 +212,7 @@ router.get('/recent-activities', verifyJwt, getRecentActivitiesController)
 
 /**
  * @swagger
- * /api/report/summary-report/{assessment_id}:
+ * /api/dashboard/summary-report/{assessment_id}:
  *   get:
  *     summary: Get summary detail report for a specific assessment
  *     description: Retrieves summary detail report for a given assessment_id, including summary_detail_report_id, summary_report_id, issues, benchmark, guideline, and status
@@ -292,6 +292,69 @@ router.get('/recent-activities', verifyJwt, getRecentActivitiesController)
  */
 router.get('/summary-report/:assessment_id', verifyJwt, getSummaryDetailReportController);
 
+/**
+ * @swagger
+ * /api/dashboard/service-type-count:
+ *   get:
+ *     summary: Get dashboard service-type-count
+ *     description: Retrieves the total count of scanned products on the basis of service-type.
+ *     security:
+ *       - bearerAuth: []  # Requires JWT authentication
+ *     responses:
+ *       "200":
+ *         description: Successfully retrieved dashboard service-type-count.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object 
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 200
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Details fetched successfully."
+ *                 contents:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       name:
+ *                         type: string
+ *                         example: "Website Accessibility"
+ *                       service_count:
+ *                         type: integer
+ *                         example: 1
+ *       "401":
+ *         description: Unauthorized - JWT token is missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Unauthorized: Invalid token."
+ *       "500":
+ *         description: Internal Server Error - Unexpected error occurred.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error."
+ */
 router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
 
 module.exports = router;

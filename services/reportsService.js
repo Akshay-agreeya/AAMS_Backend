@@ -88,7 +88,7 @@ exports.getCategoryDataService = async (assessment_id) => {
             category_details: record.category_details ? JSON.parse(record.category_details) : []
         }));
 
-        return formattedResult;
+        return {contents:formattedResult};
     }
     catch(err){
         console.error("Database error:", err);
