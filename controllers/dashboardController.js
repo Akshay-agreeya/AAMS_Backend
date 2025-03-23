@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
-const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService, getServiceTypeCount } = require("../services/dashboardService");
+const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService, getServiceTypeCount, getOrgUserCountService } = require("../services/dashboardService");
 
 exports.getCountController = 
     async (req, res, next) => {
@@ -19,10 +19,12 @@ exports.getCountController =
     };
 
  exports.getExpiringController = async(req,res,next) =>{
-        const { days = 30} = req.query;
+        const { days = 30, page, size} = req.query;
+        const pageNumber = parseInt(page, 10) || 1;
+        const pageSize = parseInt(size, 10) || 4;
     
         try{
-            const expiring_services = await getExpiringService(days)
+            const expiring_services = await getExpiringService(days, pageNumber, pageSize)
  
             const successResponse = SuccessReturnHandler({
                 message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
@@ -69,7 +71,7 @@ exports.getSummaryDetailReportController = async(req,res,next) =>{
         }
     }
 
-    exports.getServiceTypeCountController = async(req, res, next) =>{
+exports.getServiceTypeCountController = async(req, res, next) =>{
         try{
             const service_type = await getServiceTypeCount()
             const successResponse = SuccessReturnHandler({
@@ -81,3 +83,18 @@ exports.getSummaryDetailReportController = async(req,res,next) =>{
             next(err);
         }
     }
+
+    
+exports.getOrgUserCountController = async(req, res, next) =>{
+    const {org_id} = req.params;
+    try{
+        const count = await getOrgUserCountService(org_id)
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+            resp: count,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}

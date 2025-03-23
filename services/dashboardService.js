@@ -24,17 +24,19 @@ exports.getCountService = async () => {
   }
 };
 
-exports.getExpiringService = async (days) => {
+exports.getExpiringService = async (days, pageNumber, pageSize) => {
   try {
     const pool = await getConnectionPool();
 
     const result = await pool.request()
       .input("Days", sql.Int, days)
+      .input("PageNumber", sql.Int, pageNumber)
+      .input("PageSize", sql.Int, pageSize)
       .execute("GetExpiringServices");
     if (!result.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND, message: "No expiring services found" }
     }
-    return { contents: result.recordset }
+    return getDatawithPagination(result.recordsets);
   }
   catch (err) {
     console.error("Database error:", err);
@@ -90,7 +92,6 @@ exports.getSummaryDetailReportService = async (assessment_id) => {
   }
 }
 
-
 exports.getServiceTypeCount = async () => {
   try{
       const pool = await getConnectionPool();
@@ -110,3 +111,25 @@ exports.getServiceTypeCount = async () => {
       throw new AppError(err.message, err.status);
   }
 }
+
+exports.getOrgUserCountService = async (org_id) => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .input("OrgID", sql.UniqueIdentifier,org_id)
+      .execute("GetOrgUserAndReportCount");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND}
+        }
+      return {contents: result.recordset}
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}
+

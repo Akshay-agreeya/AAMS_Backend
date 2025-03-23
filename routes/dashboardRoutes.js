@@ -1,5 +1,5 @@
 const express = require('express');
-const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController, getServiceTypeCountController } = require('../controllers/dashboardController');
+const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController, getServiceTypeCountController, getOrgUserCountController } = require('../controllers/dashboardController');
 const {verifyJwt} = require('../middlewares/auth')
 
 const router = express.Router();
@@ -356,5 +356,85 @@ router.get('/summary-report/:assessment_id', verifyJwt, getSummaryDetailReportCo
  *                   example: "Internal server error."
  */
 router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
+
+/**
+ * @swagger
+ * /api/dashboard/org-user-count/{org_id}:
+ *   get:
+ *     summary: Get dashboard statistics count
+ *     description: Retrieves the total count of users, active_users, inactive_users, and reports for a particular org.
+ *     security:
+ *       - bearerAuth: []  # Requires JWT authentication
+ *     parameters:
+ *       - in: path
+ *         name: org_id
+ *         required: true
+ *         description: ID of the organization to fetch
+ *         schema:
+ *           type: string
+ *     responses:
+ *       "200":
+ *         description: Successfully retrieved dashboard statistics.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 200
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Details fetched successfully."
+ *                 contents:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       total_users:
+ *                         type: integer
+ *                         example: 3
+ *                       active_users:
+ *                         type: integer
+ *                         example: 2
+ *                       inactive_users:
+ *                         type: integer
+ *                         example: 1
+ *                       total_reports:
+ *                         type: integer
+ *                         example: 1
+ *       "401":
+ *         description: Unauthorized - JWT token is missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Unauthorized: Invalid token."
+ *       "500":
+ *         description: Internal Server Error - Unexpected error occurred.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error."
+ */
+
+ router.get('/org-user-count/:org_id',verifyJwt, getOrgUserCountController)
+
 
 module.exports = router;
