@@ -82,13 +82,13 @@ exports.getCategoryDataService = async (assessment_id) => {
         if(!result.recordset.length){
             throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
           }
-          const accessibilityInfo = result.recordsets[1] || {};
+          const accessibilityInfo = result.recordsets[1]?.[0] || {};
          const formattedResult = result.recordset.map(record => ({
             ...record,
             category_details: record.category_details ? JSON.parse(record.category_details) : []
         }));
 
-        return {contents : formattedResult, accessibilityInfo: accessibilityInfo}
+        return {contents : formattedResult, accessibilityInfo}
     }
     catch(err){
         console.error("Database error:", err);
