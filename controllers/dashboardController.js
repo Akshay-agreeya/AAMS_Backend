@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
-const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService, getServiceTypeCount, getOrgUserCountService } = require("../services/dashboardService");
+const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService, getServiceTypeCount, getOrgUserCountService, getProductCompliance } = require("../services/dashboardService");
 
 exports.getCountController = 
     async (req, res, next) => {
@@ -92,6 +92,19 @@ exports.getOrgUserCountController = async(req, res, next) =>{
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
             resp: count,
+        });
+        res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err);
+    }
+}
+
+exports.getProductComplianceController = async(req, res, next) =>{
+    try{
+        const compliant_report = await getProductCompliance()
+        const successResponse = SuccessReturnHandler({
+            message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+            resp: compliant_report,
         });
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){

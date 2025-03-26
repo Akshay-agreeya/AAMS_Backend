@@ -133,3 +133,23 @@ exports.getOrgUserCountService = async (org_id) => {
   }
 }
 
+exports.getProductCompliance = async () => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .execute("GlobalProductCompliance");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND}
+        }
+      return {contents: result.recordset?.[0]}
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}
+

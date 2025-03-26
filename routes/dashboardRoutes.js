@@ -1,5 +1,5 @@
 const express = require('express');
-const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController, getServiceTypeCountController, getOrgUserCountController } = require('../controllers/dashboardController');
+const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController, getServiceTypeCountController, getOrgUserCountController, getProductComplianceController } = require('../controllers/dashboardController');
 const {verifyJwt} = require('../middlewares/auth')
 
 const router = express.Router();
@@ -436,5 +436,6 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
 
  router.get('/org-user-count/:org_id',verifyJwt, getOrgUserCountController)
 
+ router.get('/total-products-compliance', verifyJwt, getProductComplianceController);
 
 module.exports = router;
