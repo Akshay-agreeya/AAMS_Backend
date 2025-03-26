@@ -436,6 +436,76 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
 
  router.get('/org-user-count/:org_id',verifyJwt, getOrgUserCountController)
 
+ /**
+ * @swagger
+ * /api/dashboard/total-products-compliance:
+ *   get:
+ *     summary: Get dashboard total products compliance
+ *     description: Retrieves the product compliance data .
+ *     security:
+ *       - bearerAuth: []  # Requires JWT authentication
+ *     responses:
+ *       "200":
+ *         description: Retrieves the product compliance data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 200
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Details fetched successfully."
+ *                 contents:
+ *                     type: object
+ *                     properties:
+ *                       total_products:
+ *                         type: integer
+ *                         example: 1
+ *                       compliant_products:
+ *                         type: integer
+ *                         example: 0
+ *                       non_compliant_products:
+ *                         type: integer
+ *                         example: 2
+ *                       compliant_percentage:
+ *                         type: integer
+ *                         example: 0
+ *                       non_compliant_percentage:
+ *                         type: integer
+ *                         example: 100
+ *       "401":
+ *         description: Unauthorized - JWT token is missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Unauthorized: Invalid token."
+ *       "500":
+ *         description: Internal Server Error - Unexpected error occurred.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error."
+ */
  router.get('/total-products-compliance', verifyJwt, getProductComplianceController);
 
 module.exports = router;
