@@ -42,10 +42,10 @@ app.use("/api/permission", permissionRoutes);
 app.use("/api/report", reportRoutes);
 app.use("/api/dashboard", dashboardRoutes);
  // Serve frontend files 
-  // app.use(express.static(path.join(__dirname, "build")));
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.join(__dirname, "build", "index.html"));
-  // });
+  app.use(express.static(path.join(__dirname, "build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+  });
 
 // Global Error Handler
 app.use(GlobalErrorHandler);

@@ -33,7 +33,6 @@ const getConnectionPool = async () => {
         poolPromise = sql.connect(dbConfig)
             .then((pool) => {
                 console.log('Database connection pool created.');
-                console.log(process.env.RESET_URL);
                 return pool;
             })
             .catch((err) => {
