@@ -82,7 +82,7 @@ exports.getSummaryDetailReportService = async (assessment_id) => {
       throw { status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND }
     }
 
-    return { contents: result.recordset };
+    return { contents: result.recordset, ...result.recordsets?.[1]?.[0] };
   }
   catch (err) {
     console.error("Database error:", err);
