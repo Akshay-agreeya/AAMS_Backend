@@ -41,6 +41,7 @@ exports.userLoginService = async (email, password) => {
 
         return {
             id: user.user_id,
+            org_id: user.org_id,
             first_name: user.first_name,
             last_name: user.last_name,
             user_type: user.user_type,
