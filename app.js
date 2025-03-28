@@ -1,7 +1,9 @@
-const express = require('express');
-const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
+dotenv.config({ path: path.resolve(__dirname, process.env.NODE_ENV === 'production' ? 'production.env' : '.env') });
+
+const express = require('express');
+const cors = require('cors');
 const { getConnectionPool } = require("./config/db");
 const loginRoutes = require('./routes/loginRoutes');
 const orgRoutes = require('./routes/orgRoutes');
@@ -15,7 +17,8 @@ const dashboardRoutes = require('./routes/dashboardRoutes');
 const { GlobalErrorHandler } = require("./middlewares/errorHandler");
 const setupSwagger = require("./swagger");
 
-dotenv.config();
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;

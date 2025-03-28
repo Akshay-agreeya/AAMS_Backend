@@ -2,6 +2,7 @@ const sql = require('mssql');
 const dotenv = require('dotenv');
 dotenv.config();
 
+
 const dbConfig = {
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
@@ -10,7 +11,8 @@ const dbConfig = {
     port: parseInt(process.env.DB_PORT, 10) || 1433,
     options: {
         encrypt: process.env.NODE_ENV === 'production', // Use SSL in production
-        trustServerCertificate: process.env.NODE_ENV !== 'production', // Allow self-signed certs in dev
+        trustServerCertificate: true
+        // trustServerCertificate: process.env.NODE_ENV !== 'production', // Allow self-signed certs in dev
     },
 };
 
@@ -31,6 +33,7 @@ const getConnectionPool = async () => {
         poolPromise = sql.connect(dbConfig)
             .then((pool) => {
                 console.log('Database connection pool created.');
+                console.log(process.env.RESET_URL);
                 return pool;
             })
             .catch((err) => {
