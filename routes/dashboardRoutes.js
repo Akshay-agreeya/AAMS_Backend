@@ -139,6 +139,11 @@ router.get('/expiring-services', verifyJwt, getExpiringController)
  *       - bearerAuth: []
  *     parameters:
  *       - in: query
+ *         name: org_id
+ *         schema:
+ *           type: uuid
+ *         description: org_id to fetch respective recent activities.
+ *       - in: query
  *         name: days
  *         schema:
  *           type: integer

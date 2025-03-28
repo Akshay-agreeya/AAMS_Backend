@@ -127,7 +127,7 @@ exports.myProductsService = async (user_id, pageNumber, pageSize) => {
         const pool = await getConnectionPool();
     
         const result = await pool.request()
-        .input("user_id", sql.UniqueIdentifier, user_id)
+        .input("UserID", sql.UniqueIdentifier, user_id)
         .input("PageNumber", sql.Int, pageNumber)
         .input("PageSize", sql.Int, pageSize)
         .execute("MyProducts");
