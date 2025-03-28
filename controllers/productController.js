@@ -81,7 +81,7 @@ exports.getProductsController = async(req,res,next) =>{
 }
 
 exports.myProductsController = async(req,res,next) =>{
-    const {user_id} = req.params;
+    const user_id = req.user?.id;
     const { page, size } = req.query;
     
     const pageNumber = parseInt(page, 10) || 1;

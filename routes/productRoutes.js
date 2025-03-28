@@ -142,21 +142,13 @@ router.get('/get/:org_id', verifyJwt, getProductsController);
 
 /**
  * @swagger
- * /api/product/my/{user_id}:
+ * /api/product/my:
  *   get:
  *     summary: Get a user's products with assessment details
  *     description: Retrieves distinct web URLs assigned to a user, along with the count of assessments and the latest assessment date.
  *     security:
  *       - bearerAuth: []  # Requires JWT authentication
  *     parameters:
- *       - in: path
- *         name: user_id
- *         required: true
- *         description: The unique identifier of the user.
- *         schema:
- *           type: string
- *           format: uuid
- *           example: "CF397886-0270-4FAD-A1F8-CA422453B764"
  *       - in: query
  *         name: PageNumber
  *         required: false
@@ -182,24 +174,6 @@ router.get('/get/:org_id', verifyJwt, getProductsController);
  *                 success:
  *                   type: boolean
  *                   example: true
- *                 totalCount:
- *                   type: integer
- *                   example: 25
- *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       web_url:
- *                         type: string
- *                         example: "https://example.com/a11y"
- *                       total_assessments:
- *                         type: integer
- *                         example: 5
- *                       latest_assessment_date:
- *                         type: string
- *                         format: date-time
- *                         example: "2024-03-07T10:00:00Z"
  *       "400":
  *         description: Bad Request - Invalid input data.
  *         content:
@@ -253,7 +227,7 @@ router.get('/get/:org_id', verifyJwt, getProductsController);
  *                   type: string
  *                   example: "Internal server error."
  */
-router.get('/my/:user_id',verifyJwt, myProductsController);
+router.get('/my',verifyJwt, myProductsController);
 
 /**
  * @swagger

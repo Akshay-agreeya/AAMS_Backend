@@ -37,13 +37,13 @@ exports.getCountController =
     }
 
 exports.getRecentActivitiesController = async(req,res,next) =>{
-        const { days, page, size } = req.query;
+        const { org_id, days =30, page, size } = req.query;
 
         const pageNumber = parseInt(page, 10) || 1;
         const pageSize = parseInt(size, 10) || 10;
     
         try{
-            const recent_activities = await getRecentActivitiesService(days, pageNumber, pageSize)
+            const recent_activities = await getRecentActivitiesService(org_id, days, pageNumber, pageSize)
  
             const successResponse = SuccessReturnHandler({
                 message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,

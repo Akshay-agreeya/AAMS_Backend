@@ -47,11 +47,12 @@ exports.getExpiringService = async (days, pageNumber, pageSize) => {
   }
 }
 
-exports.getRecentActivitiesService = async (days, pageNumber, pageSize) => {
+exports.getRecentActivitiesService = async (org_id, days, pageNumber, pageSize) => {
   try {
     const pool = await getConnectionPool();
 
     const result = await pool.request()
+    .input("OrgId", sql.UniqueIdentifier, org_id)
       .input("Days", sql.Int, days)
       .input("PageNumber", sql.Int, pageNumber)
       .input("PageSize", sql.Int, pageSize)
