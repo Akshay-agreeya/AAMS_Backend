@@ -123,7 +123,7 @@ exports.getOrgUserCountService = async (org_id) => {
       if(!result.recordset.length){
           throw {status: STATUS_CODES.NOT_FOUND}
         }
-      return {contents: result.recordset}
+      return  result.recordset?.[0];
   }
   catch(err){
       console.error("Database error:", err);

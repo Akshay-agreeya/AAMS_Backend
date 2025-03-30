@@ -29,7 +29,6 @@ exports.userLoginService = async (email, password) => {
         if (!user.password_hash) {
             throw new AppError(ERROR_MESSAGES.INVALID_CREDENTIALS, STATUS_CODES.UNAUTHORIZED);
         }
-
         // Verify password
         const isPasswordValid = await bcrypt.compare(password, user.password_hash);
         if (!isPasswordValid) {
