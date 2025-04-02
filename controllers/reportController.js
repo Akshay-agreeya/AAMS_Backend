@@ -25,13 +25,13 @@ exports.getWebUrlsController = async(req,res,next) =>{
 
 exports.getUserWebUrlsController = async(req,res,next) =>{
     const user_id = req.user?.id;
-    const { page, size } = req.query;
+    const { page, size, permission_name } = req.query;
     
     const pageNumber = parseInt(page, 10) || 1;
     const pageSize = parseInt(size, 10) || 10;
 
     try{
-        const user_urls = await getUserWebUrlsService(user_id, pageNumber, pageSize);
+        const user_urls = await getUserWebUrlsService(user_id, pageNumber, pageSize, permission_name);
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
