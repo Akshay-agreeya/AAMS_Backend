@@ -26,12 +26,13 @@ exports.getWebUrlsService = async (org_id, pageNumber, pageSize) => {
     }
 }
 
-exports.getUserWebUrlsService = async (user_id, pageNumber, pageSize) => {
+exports.getUserWebUrlsService = async (user_id, pageNumber, pageSize, permission_name) => {
     try{
         const pool = await getConnectionPool();
     
         const result = await pool.request()
         .input("UserID", sql.UniqueIdentifier, user_id)
+        .input("PermissionName", sql.VarChar, permission_name)
         .input("PageNumber", sql.Int, pageNumber)
         .input("PageSize", sql.Int, pageSize)
         .execute("GetUserUrls");

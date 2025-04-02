@@ -135,6 +135,13 @@ router.get('/get/urls/:org_id', verifyJwt, getWebUrlsController);
  *       - bearerAuth: []  # Requires JWT authentication
  *     parameters:
  *       - in: query
+ *         name: permission_name
+ *         required: true
+ *         description: the required permission_name
+ *         schema:
+ *           type: string
+ *           example: Product_View
+ *       - in: query
  *         name: PageNumber
  *         required: false
  *         description: The page number for pagination (default is 1).
