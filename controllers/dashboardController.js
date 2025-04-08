@@ -114,8 +114,11 @@ exports.getProductComplianceController = async(req, res, next) =>{
 
 exports.getLatestNotificationController = async(req, res, next) =>{
     const {user_id} = req.params;
+    const latest_flag = req.query.latest_flag === '1';
+
+console.log(typeof(latest_flag));
     try{
-   const latest_notification = await getLatestNotification(user_id)
+   const latest_notification = await getLatestNotification(user_id, latest_flag)
    const successResponse = SuccessReturnHandler({
        message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
        resp: latest_notification
