@@ -1,5 +1,5 @@
 const express = require('express');
-const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController, getServiceTypeCountController, getOrgUserCountController, getProductComplianceController } = require('../controllers/dashboardController');
+const { getCountController, getExpiringController, getRecentActivitiesController, getSummaryDetailReportController, getServiceTypeCountController, getOrgUserCountController, getProductComplianceController, getLatestNotificationController, updateNotificationStatusController } = require('../controllers/dashboardController');
 const {verifyJwt} = require('../middlewares/auth')
 
 const router = express.Router();
@@ -512,5 +512,92 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
  *                   example: "Internal server error."
  */
  router.get('/total-products-compliance', verifyJwt, getProductComplianceController);
+
+ /**
+ * @swagger
+ * /api/dashboard/latest-notification/{user_id}:
+ *   get:
+ *     summary: Get latest user notification
+ *     description: Retrieves the notification details.
+ *     security:
+ *       - bearerAuth: []  # Requires JWT authentication
+ *     parameters:
+ *       - in: path
+ *         name: user_id
+ *         required: true
+ *         description: ID of the user to fetch
+ *         schema:
+ *           type: string
+ *     responses:
+ *       "200":
+ *         description: Details fetched successfully!.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 200
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Details fetched successfully."
+ *                 contents:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       notification_id:
+ *                         type: integer
+ *                         example: 1
+ *                       user_id:
+ *                         type: uuid
+ *                         example: 0C99D86E-4B03-48F8-85FD-665D3541CE97
+ *                       assessment_id:
+ *                         type: integer
+ *                         example: 1435263
+ *                       status:
+ *                         type: string
+ *                         example: seen
+ *                       created_at: 
+ *                         type: string
+ *                         example: 2025-04-07T11:35:33.797Z
+ *                       summary_report_name: 
+ *                         type: string
+ *                         example: kiteflyers
+ *       "401":
+ *         description: Unauthorized - JWT token is missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Unauthorized: Invalid token."
+ *       "500":
+ *         description: Internal Server Error - Unexpected error occurred.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error."
+ */
+ router.get('/latest-notification/:user_id', verifyJwt, getLatestNotificationController);
+
+ 
+ router.patch('/update-notification-status',verifyJwt, updateNotificationStatusController);
 
 module.exports = router;

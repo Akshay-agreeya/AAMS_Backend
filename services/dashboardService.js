@@ -1,7 +1,8 @@
 const { sql, getConnectionPool } = require("../config/db");
 const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
-const { getDatawithPagination } = require('../utils/helper')
+const { getDatawithPagination } = require('../utils/helper');
+const { NText } = require("mssql");
 
 exports.getCountService = async () => {
   try {
@@ -156,4 +157,48 @@ exports.getProductCompliance = async () => {
       throw new AppError(err.message, err.status);
   }
 }
+
+exports.getLatestNotification = async (user_id) => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .input("UserID", sql.UniqueIdentifier, user_id)
+      .execute("GetNotification");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND}
+        }
+      return {contents: result.recordset?.[0]}
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}
+
+exports.updateNotificationStatus = async(notification_id)=>{
+  try{
+const pool = await getConnectionPool();
+const result = await pool.request()
+.input("NotificationID", sql.Int, notification_id)
+.query(`BEGIN TRANSACTION;
+UPDATE Notification
+SET status = 'seen'
+where notification_id = @NotificationID
+COMMIT TRANSACTION;`);
+
+if(!result.rowsAffected.length)
+throw new AppError(err.message);
+return{message: "Notification status updated successfully!", result}
+  }catch(err){
+    console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+  }
 

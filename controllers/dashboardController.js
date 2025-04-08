@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
-const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService, getServiceTypeCount, getOrgUserCountService, getProductCompliance } = require("../services/dashboardService");
+const { getCountService, getExpiringService, getRecentActivitiesService, getSummaryDetailReportService, getServiceTypeCount, getOrgUserCountService, getProductCompliance, getLatestNotification, updateNotificationStatus } = require("../services/dashboardService");
 
 exports.getCountController = 
     async (req, res, next) => {
@@ -109,5 +109,33 @@ exports.getProductComplianceController = async(req, res, next) =>{
         res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }catch(err){
         next(err);
+    }
+}
+
+exports.getLatestNotificationController = async(req, res, next) =>{
+    const {user_id} = req.params;
+    try{
+   const latest_notification = await getLatestNotification(user_id)
+   const successResponse = SuccessReturnHandler({
+       message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+       resp: latest_notification
+   })
+   res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+    next(err);
+    }
+}
+
+exports.updateNotificationStatusController = async(req, res, next) =>{
+    const {notification_id} = req.body;
+    try{
+   const notification = await updateNotificationStatus(notification_id)
+   const successResponse = SuccessReturnHandler({
+       message : SUCCESS_MESSAGES.UPDATE_SUCCESS,
+       resp: notification
+   })
+   res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+    next(err);
     }
 }
