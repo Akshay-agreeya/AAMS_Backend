@@ -7,11 +7,14 @@ exports.getCountService = async () => {
   try {
     const pool = await getConnectionPool();
     const countRow = await pool.request()
-      .query(`SELECT
+      .query  (`SELECT
       (SELECT COUNT(*) FROM Organization) AS OrgCount,
-              (SELECT COUNT(*) FROM Roles) AS RoleCount,
-              (SELECT COUNT(*) FROM Users) AS UserCount,
-              (SELECT COUNT(*) FROM Assessments) AS ReportCount`);
+      (SELECT COUNT(*) FROM Roles WHERE role_key != 'Super_Admin') AS RoleCount,
+      (SELECT COUNT(*) 
+       FROM User_Roles UR
+       JOIN Roles R ON UR.role_id = R.role_id 
+       WHERE R.role_key != 'Super_Admin') AS UserCount,
+      (SELECT COUNT(*) FROM Assessments) AS ReportCount`);
 
     if (!countRow.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
