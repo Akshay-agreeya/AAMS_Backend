@@ -158,12 +158,14 @@ exports.getProductCompliance = async () => {
   }
 }
 
-exports.getLatestNotification = async (user_id) => {
+exports.getLatestNotification = async (user_id, latest_flag) => {
+  console.log(latest_flag);
   try{
       const pool = await getConnectionPool();
   
       const result = await pool.request()
       .input("UserID", sql.UniqueIdentifier, user_id)
+      .input("OnlyTop", sql.Bit, latest_flag)
       .execute("GetNotification");
       if(!result.recordset.length){
           throw {status: STATUS_CODES.NOT_FOUND}

@@ -528,6 +528,12 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
  *         description: ID of the user to fetch
  *         schema:
  *           type: string
+ *       - in: query
+ *         name: latest_flag
+ *         required: false
+ *         description: flag to get latest notification or all
+ *         schema:
+ *           type: int
  *     responses:
  *       "200":
  *         description: Details fetched successfully!.
@@ -597,7 +603,7 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
  */
  router.get('/latest-notification/:user_id', verifyJwt, getLatestNotificationController);
 
- 
+
  router.patch('/update-notification-status',verifyJwt, updateNotificationStatusController);
 
 module.exports = router;
