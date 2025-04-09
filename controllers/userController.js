@@ -1,4 +1,4 @@
-const { addUserToOrganizationService, editUserService, viewUserService, deleteUserService, getUsersService, updateUserStatusService } = require("../services/userService");
+const { addUserToOrganizationService, editUserService, viewUserService, deleteUserService, getUsersService, updateUserStatusService, uploadImageService, getImageService } = require("../services/userService");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
@@ -113,3 +113,31 @@ exports.updateUserStatusController = async (req, res, next) => {
         next(err);
     }
 };
+
+exports.uploadImageController = async (req, res, next) =>{
+    try{
+     const user_id = req.user?.id;
+     const user_image= req.file.buffer;
+     const imageResult = await uploadImageService(user_id, user_image)
+     const successResponse = SuccessReturnHandler({
+        message: SUCCESS_MESSAGES.UPDATE_SUCCESS,
+        resp: {content: imageResult},
+    });
+    return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err)
+    }
+}
+
+exports.getImageController = async (req, res, next) => {
+    try{
+        const {user_id} = req.params;
+        const {imageBuffer, mimeType} = await getImageService(user_id)
+        res.set('Content-Type', mimeType);
+        res.send(imageBuffer);
+        return res.status(STATUS_CODES.SUCCESS);
+    }catch(err){
+        next(err)
+    }
+}
+

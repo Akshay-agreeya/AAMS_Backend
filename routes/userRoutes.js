@@ -1,9 +1,16 @@
 const express = require('express');
-const { addUserToOrganizationController, editUserController, viewUserController, deleteUserController, getUsersController, updateUserStatusController } = require('../controllers/userController');
+const { addUserToOrganizationController, editUserController, viewUserController, deleteUserController, getUsersController, updateUserStatusController, uploadImageController, getImageController } = require('../controllers/userController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
 const { validateInputs } = require('../middlewares/validation');
 const { userSchema, editUserSchema } = require('../utils/validationSchema');
+const multer = require('multer');
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 1 * 1024 * 1024 }, // 1 MB
+});
+
 
 /**
  * @swagger
@@ -256,5 +263,9 @@ router.get('/list/:org_id', verifyJwt, getUsersController);
  *         description: Internal server error.
  */
  router.patch('/update/status', verifyJwt, updateUserStatusController);
+
+ router.post('/update/image', verifyJwt, upload.single('image'), uploadImageController);
+ router.get('/display-image/:user_id', getImageController);
+
 
 module.exports = router;
