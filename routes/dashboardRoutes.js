@@ -533,7 +533,7 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
  *         required: false
  *         description: flag to get latest notification or all
  *         schema:
- *           type: int
+ *           type: number
  *     responses:
  *       "200":
  *         description: Details fetched successfully!.
