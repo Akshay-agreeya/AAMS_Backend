@@ -159,7 +159,6 @@ exports.getProductCompliance = async () => {
 }
 
 exports.getLatestNotification = async (user_id, latest_flag) => {
-  console.log(latest_flag);
   try{
       const pool = await getConnectionPool();
   
