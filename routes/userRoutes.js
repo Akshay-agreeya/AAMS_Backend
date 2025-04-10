@@ -265,7 +265,7 @@ router.get('/list/:org_id', verifyJwt, getUsersController);
  router.patch('/update/status', verifyJwt, updateUserStatusController);
 
  router.post('/update/image', verifyJwt, upload.single('image'), uploadImageController);
- router.get('/display-image/:user_id', getImageController);
+ router.get('/display-image/:user_id',verifyJwt, getImageController);
 
 
 module.exports = router;
