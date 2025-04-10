@@ -601,7 +601,7 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
  *                   type: string
  *                   example: "Internal server error."
  */
- router.get('/latest-notification/:user_id', verifyJwt, getLatestNotificationController);
+ router.get('/notifications/:user_id', verifyJwt, getLatestNotificationController);
 
 
  router.patch('/update-notification-status',verifyJwt, updateNotificationStatusController);
