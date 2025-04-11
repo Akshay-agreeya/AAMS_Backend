@@ -31,9 +31,14 @@ return parsedData;
     }
     }
 
-exports.updateUserPermissionService = async (usersWithServices) => {
+exports.updateUserPermissionService = async (usersWithServices, performed_by) => {
         try {
             const pool = await getConnectionPool();
+
+            await pool.request()
+            .input("app_user", sql.UniqueIdentifier, performed_by)
+            .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+   
             const results = [];
     
             for (const userService of usersWithServices) {
