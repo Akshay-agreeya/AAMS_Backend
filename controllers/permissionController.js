@@ -21,9 +21,10 @@ exports.getPermissionController = async(req,res,next) =>{
 
 exports.updateUserPermissionController = async(req,res,next) =>{
     const { usersWithServices} = req.body;
+    const performed_by = req.user?.id;
     try{
 
-        const updatedPermissions = await updateUserPermissionService(usersWithServices);
+        const updatedPermissions = await updateUserPermissionService(usersWithServices, performed_by);
 
         const successResponse = SuccessReturnHandler({
             message : SUCCESS_MESSAGES.UPDATE_SUCCESS,
