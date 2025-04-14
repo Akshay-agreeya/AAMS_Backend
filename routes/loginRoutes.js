@@ -3,7 +3,7 @@ const router = express.Router();
 const { validateInputs } = require('../middlewares/validation');
 const { userLoginAndFPSchema, changePasswordSchema } = require('../utils/validationSchema');
 const { verifyJwt } = require('../middlewares/auth');
-const { userLoginController, changePasswordController, forgotPasswordController, resetPasswordController } = require('../controllers/loginController');
+const { userLoginController, changePasswordController, forgotPasswordController, resetPasswordController, refreshAccessToken } = require('../controllers/loginController');
 
 /**
  * @swagger
@@ -135,4 +135,5 @@ router.post('/user/forgot-password', forgotPasswordController);
  */
 router.patch('/user/change-password', verifyJwt, validateInputs(changePasswordSchema), changePasswordController);
 
+router.post('/refresh-token', refreshAccessToken);
 module.exports = router;

@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const { sql, getConnectionPool } = require("../config/db");
-const { generateToken } = require('../utils/jwUtils');
+const { generateToken, generateRefreshToken} = require('../utils/jwUtils');
 const {sendEmail} = require('../utils/emailUtils');
 const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
@@ -37,7 +37,8 @@ exports.userLoginService = async (email, password) => {
         }
 
         // Generate JWT token
-        const token = generateToken(user.user_id);
+        const token =generateToken(user.user_id);
+        const refresh_token = generateRefreshToken(user.user_id);
 
         return {
             id: user.user_id,
@@ -48,7 +49,8 @@ exports.userLoginService = async (email, password) => {
             role_id: user.role_id,
             role_key: user.role_key,
             user_role: user.user_role,
-            token
+            token,
+            refresh_token
         };
     } catch (error) {
         console.error("Login error:", error);
