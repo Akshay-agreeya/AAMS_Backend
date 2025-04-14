@@ -6,4 +6,8 @@ const generateToken = (payload) => {
     return jwt.sign({id:payload}, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
 
-module.exports = { generateToken};
+const generateRefreshToken = (payload) => {
+    return jwt.sign({id:payload}, process.env.REFRESH_SECRET,{expiresIn:'7d'})
+}
+
+module.exports = { generateToken, generateRefreshToken};

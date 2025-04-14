@@ -1,10 +1,14 @@
 const {userLoginService, changePasswordService, forgotPasswordService, resetPasswordService} = require('../services/loginService');
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
+const {generateToken} = require('../utils/jwUtils')
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
+const dotenv = require('dotenv');
+const { AppError } = require('../middlewares/errorHandler');
+const jwt = require('jsonwebtoken');
+dotenv.config();
 
-exports.userLoginController = 
-    async (req, res, next) => {
+exports.userLoginController = async (req, res, next) => {
         const { email, password} = req.body;
         try {
             const user = await userLoginService(email, password);
@@ -18,7 +22,6 @@ exports.userLoginController =
             next(err)
         }
     };
-
 
 exports.changePasswordController = async(req, res, next)=>{
    const user_id = req.user?.id;
@@ -65,5 +68,27 @@ exports.resetPasswordController = async (req, res, next) => {
   
     } catch (error) {
       next(error); 
+    }
+  };
+
+ exports.refreshAccessToken = (req, res) => {
+    const { refreshToken } = req.body;
+  
+    if (!refreshToken) 
+    return res.status(STATUS_CODES.UNAUTHORIZED).json({ message: 'Refresh token missing' });
+  
+    try {
+      const decoded = jwt.verify(refreshToken, process.env.REFRESH_SECRET);
+      const newAccessToken = generateToken(decoded.id);
+      return res.status(STATUS_CODES.SUCCESS).json({ token: newAccessToken });
+    } catch (err) {
+      if (err.name === 'TokenExpiredError') {
+        return res.status(STATUS_CODES.FORBIDDEN).json({ message: 'Refresh Token expired' });
+      }
+  
+      if (err.name === 'JsonWebTokenError') {
+        return res.status(STATUS_CODES.FORBIDDEN).json({ message: 'Invalid refresh token' });
+      }
+      return res.status(STATUS_CODES.UNAUTHORIZED).json({ message: ERROR_MESSAGES.INVALID_CREDENTIALS });
     }
   };
