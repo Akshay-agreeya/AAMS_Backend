@@ -41,7 +41,10 @@ const orgSchema = {
     },
     phone_number: {
         required: true,
-        type: "string"
+        type: "string",
+        maxLength : 10,
+        pattern: /^\d+$/
+
     },
     contract_expiry_date: { 
         required: true, 
@@ -62,6 +65,8 @@ const userSchema = {
   phone_number: {
     required: true,
     type: "string",
+    maxLength : 10,
+    pattern: /^\d+$/
 }, 
   password: { 
     required: true, 
@@ -83,8 +88,9 @@ const editUserSchema = {
     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
 },
   phone_number: {
-  
     type: "string",
+    maxLength : 10,
+    pattern: /^\d+$/
 }
 }
 

@@ -40,13 +40,26 @@ exports.validateInputs = (schema) => (req, res, next) => {
             continue;
         }
 
+        // Check minLength and maxLength (for strings and arrays)
+        if (rule.minLength && value.length < rule.minLength) {
+            errors[key] = `${key} must be at least ${rule.minLength} characters long.`;
+            continue;
+        }
+
+        if (rule.maxLength && value.length > rule.maxLength) {
+            errors[key] = `${key} must not exceed ${rule.maxLength} characters.`;
+            continue;
+        }
+
         // Validate regex pattern
         if (rule.pattern && !rule.pattern.test(value)) {
             const fieldRequirements = {
                 password: "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character.",
                 oldPassword: "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character.",
                 newPassword: "Password must include at least one uppercase letter, one lowercase letter, one number, and one special character",
-                email: "Must be a valid email address."
+                email: "Must be a valid email address.",
+                phone_number: "Please enter only 10 digit numeric value"
+                
             };
 
             errors[key] = `${fieldRequirements[key] || "does not meet the required format."}`;
