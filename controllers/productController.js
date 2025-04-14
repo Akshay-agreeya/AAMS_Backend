@@ -20,6 +20,12 @@ exports.addProductController = async (req, res, next) => {
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     } catch (err) {
+        if (err.validationErrors) {
+            return res.status(STATUS_CODES.BAD_REQUEST).json({
+              success: false,
+              errors: err.validationErrors,
+            });
+          }
         next(err);
     }
 };
@@ -41,6 +47,12 @@ exports.updateProductController = async (req, res, next) => {
         });
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
     } catch (err) {
+        if (err.validationErrors) {
+            return res.status(STATUS_CODES.BAD_REQUEST).json({
+              success: false,
+              errors: err.validationErrors,
+            });
+          }
         next(err);
     }
 };

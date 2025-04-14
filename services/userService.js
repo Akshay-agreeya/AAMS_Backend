@@ -226,3 +226,29 @@ exports.getImageService = async(user_id)=>{
         throw new AppError(err.message, err.status);
     }
 }
+
+
+exports.deleteImageService = async(user_id)=>{
+    try{
+  const pool = await getConnectionPool()
+  const result = await pool.request()
+  .input("UserID", sql.UniqueIdentifier, user_id)
+  .query(`UPDATE Users
+  set user_image = NULL
+  where user_id = @UserID`)
+
+  if (result.rowsAffected[0] === 0) {
+    throw new AppError("No user found or delete failed", STATUS_CODES.NOT_FOUND);
+  }
+
+  return {
+    message: "User image deleted successfully!",
+  };
+    }catch(err){
+      console.error("Database error:", err);
+        if (err.code === "EREQUEST" || err.code === "EPARAM") {
+            throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        }
+        throw new AppError(err.message, err.status);
+    }
+    }

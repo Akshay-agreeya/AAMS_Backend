@@ -141,3 +141,17 @@ exports.getImageController = async (req, res, next) => {
     }
 }
 
+exports.deleteImageController = async (req, res, next) =>{
+    try{
+     const user_id = req.user?.id;
+     const result = await deleteUserService(user_id)
+     const successResponse = SuccessReturnHandler({
+        message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+        resp : result
+    });
+    return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    }catch(err){
+        next(err)
+    }
+}
+

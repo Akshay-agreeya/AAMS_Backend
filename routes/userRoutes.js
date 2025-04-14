@@ -1,5 +1,5 @@
 const express = require('express');
-const { addUserToOrganizationController, editUserController, viewUserController, deleteUserController, getUsersController, updateUserStatusController, uploadImageController, getImageController } = require('../controllers/userController');
+const { addUserToOrganizationController, editUserController, viewUserController, deleteUserController, getUsersController, updateUserStatusController, uploadImageController, getImageController, deleteImageController } = require('../controllers/userController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
 const { validateInputs } = require('../middlewares/validation');
@@ -266,6 +266,7 @@ router.get('/list/:org_id', verifyJwt, getUsersController);
 
  router.post('/update/image', verifyJwt, upload.single('image'), uploadImageController);
  router.get('/display-image/:user_id',verifyJwt, getImageController);
+ router.delete('/delete/image', verifyJwt, deleteImageController );
 
 
 module.exports = router;
