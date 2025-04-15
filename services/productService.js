@@ -39,7 +39,7 @@ exports.addProductService = async (org_id, serviceData, created_by) => {
             err.code === "EPARAM" ||
             (err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
           ) {
-            let field = "web_url";
+            let field = "Web_Url";
             const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
             customError.validationErrors = {
               [field]: `${field.replace(/_/g, ' ')} already exists.`
@@ -87,7 +87,7 @@ exports.updateProductService = async (service_id, updatedData, modified_by) => {
             err.code === "EPARAM" ||
             (err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
           ) {
-            let field = "web_url";
+            let field = "Web_Url";
             const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
             customError.validationErrors = {
               [field]: `${field.replace(/_/g, ' ')} already exists.`

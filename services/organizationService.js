@@ -45,7 +45,7 @@ exports.addOrganizationService = async (orgData, created_by) => {
           err.code === "EPARAM" ||
           (err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
         ) {
-          let field = "org_name";
+          let field = "Organization Name";
           const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
           customError.validationErrors = {
             [field]: `${field.replace(/_/g, ' ')} already exists.`
@@ -125,7 +125,7 @@ try{
     err.code === "EPARAM" ||
     (err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
   ) {
-    let field = "org_name";
+    let field = "Organization Name";
     const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
     customError.validationErrors = {
       [field]: `${field.replace(/_/g, ' ')} already exists.`

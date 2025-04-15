@@ -47,7 +47,7 @@ exports.validateInputs = (schema) => (req, res, next) => {
         }
 
         if (rule.maxLength && value.length > rule.maxLength) {
-            errors[key] = `${key} must not exceed ${rule.maxLength} characters.`;
+            errors[key] = `Must not exceed ${rule.maxLength} characters.`;
             continue;
         }
 
