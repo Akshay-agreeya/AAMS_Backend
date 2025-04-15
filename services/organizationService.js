@@ -31,7 +31,7 @@ exports.addOrganizationService = async (orgData, created_by) => {
             .input("LastName", sql.VarChar(50), last_name)
             .input("Email", sql.VarChar(50), email)
             .input("PhoneNumber", sql.VarChar(20), phone_number)
-            .input("ContractExpiryDate", sql.Date, contract_expiry_date)
+            .input("ContractExpiryDate", sql.NVarChar(25), contract_expiry_date)
             .input("CreatedBy", sql.UniqueIdentifier, created_by)  
             .execute("AddOrganization");
      
@@ -85,6 +85,8 @@ exports.editOrgService = async(org_id, orgData, modified_by )=>{
     first_name, last_name, email, phone_number, contract_expiry_date
 } = orgData;
 
+
+
 try{
 
   const pool = await getConnectionPool();
@@ -109,7 +111,7 @@ try{
             .input("LastName", sql.VarChar(50), last_name)
             .input("Email", sql.VarChar(50), email)
             .input("PhoneNumber", sql.VarChar(20), phone_number)
-            .input("ContractExpiryDate", sql.Date, contract_expiry_date)
+            .input("ContractExpiryDate", sql.NVarChar(25), contract_expiry_date)
             .input("ModifiedBy", sql.UniqueIdentifier, modified_by)  
             .execute("EditOrganization");
 
