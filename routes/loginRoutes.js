@@ -9,6 +9,8 @@ const { userLoginController, changePasswordController, forgotPasswordController,
  * @swagger
  * /api/login:
  *   post:
+ *     tags:
+ *       - Common API endpoints
  *     summary: User login
  *     description: Allows a user to log in to the system with their credentials.
  *     requestBody:
@@ -18,21 +20,48 @@ const { userLoginController, changePasswordController, forgotPasswordController,
  *           schema:
  *             type: object
  *             properties:
- *               username:
+ *               email:
  *                 type: string
  *               password:
  *                 type: string
  *             required:
- *               - username
+ *               - email
  *               - password
  *     responses:
  *       200:
- *         description: Successful login with JWT token
+ *         description: Successful login with user details and JWT token
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 200
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Login successful.
+ *                 id:
+ *                   type: string
+ *                   format: uuid
+ *                 org_id:
+ *                   type: string
+ *                   format: uuid
+ *                 first_name:
+ *                   type: string
+ *                 last_name:
+ *                   type: string
+ *                 user_type:
+ *                   type: string
+ *                 role_id:
+ *                   type: integer
+ *                 role_key:
+ *                   type: string
+ *                 user_role:
+ *                   type: string
  *                 token:
  *                   type: string
  *       400:
@@ -40,12 +69,16 @@ const { userLoginController, changePasswordController, forgotPasswordController,
  *       401:
  *         description: Unauthorized
  */
+
+
 router.post('/login', userLoginController);
 
   /**
  * @swagger
  * /api/user/forgot-password:
  *   post:
+  *     tags:
+ *       - Common API endpoints
  *     summary: Request password reset
  *     description: Sends a password reset link to the user's email.
  *     requestBody:
@@ -72,6 +105,8 @@ router.post('/user/forgot-password', forgotPasswordController);
  * @swagger
  * /api/user/reset-password:
  *   post:
+ *     tags:
+ *       - Common API endpoints
  *     summary: Reset user password
  *     description: Allows a user to reset their password using a valid reset token.
  *     parameters:
@@ -107,6 +142,8 @@ router.post('/user/forgot-password', forgotPasswordController);
  * @swagger
  * /api/user/change-password:
  *   patch:
+ *     tags:
+ *       - Common API endpoints
  *     summary: Change user password
  *     description: Allows an authenticated user to change their password.
  *     security:

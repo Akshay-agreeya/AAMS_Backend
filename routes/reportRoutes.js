@@ -129,6 +129,8 @@ router.get('/get/urls/:org_id', verifyJwt, getWebUrlsController);
  * @swagger
  * /api/report/get/user-urls:
  *   get:
+ *     tags:
+ *       - Common API endpoints
  *     summary: Get web URLs for a user with assessment details
  *     description: Retrieves distinct web URLs associated with a logged in user, including accessibility issue details and the latest assessment date.
  *     security:
@@ -249,6 +251,8 @@ router.get('/get/user-urls', verifyJwt, getUserWebUrlsController);
  * @swagger
  * /api/report/get/assessments/{service_id}:
  *   get:
+ *     tags:
+ *       - Common API endpoints
  *     summary: Get assessment details for a specific service
  *     description: Retrieves all assessments for a given service_id, including scan date, report name, issues, benchmark, guideline, and web URL. Supports pagination.
  *     security:
@@ -372,6 +376,8 @@ router.get('/get/assessments/:service_id', verifyJwt, getAssessmentsController)
  * @swagger
  * /api/report/get/category-data/{assessment_id}:
  *   get:
+ *     tags:
+ *       - Common API endpoints
  *     summary: Get category-related data for a specific assessment
  *     description: Retrieves category data including issue details, guidelines, and remediation steps for a given assessment_id.
  *     security:

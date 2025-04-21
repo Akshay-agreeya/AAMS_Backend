@@ -49,7 +49,6 @@ const options = {
 const swaggerSpec = swaggerJsdoc(options);
 
 const setupSwagger = (app) => {
-  if(process.env.NODE_ENV !== 'production')
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
