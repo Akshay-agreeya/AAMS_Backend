@@ -219,6 +219,8 @@ router.get('/recent-activities', verifyJwt, getRecentActivitiesController)
  * @swagger
  * /api/dashboard/summary-report/{assessment_id}:
  *   get:
+ *     tags:
+ *       - Common API endpoints
  *     summary: Get summary detail report for a specific assessment
  *     description: Retrieves summary detail report for a given assessment_id, including summary_detail_report_id, summary_report_id, issues, benchmark, guideline, and status
  *     security:
