@@ -264,7 +264,93 @@ router.get('/list/:org_id', verifyJwt, getUsersController);
  */
  router.patch('/update/status', verifyJwt, updateUserStatusController);
 
+/**
+ * @swagger
+ * /api/user/update/image:
+ *   post:
+ *     summary: Upload or update a user's image
+ *     tags:
+ *       - Common API endpoints
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               image:
+ *                 type: string
+ *                 format: binary
+ *                 description: The image file to upload
+ *     responses:
+ *       200:
+ *         description: Image uploaded and user details updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 200
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Details updated successfully
+ *                 content:
+ *                   type: object
+ *                   properties:
+ *                     message:
+ *                       type: string
+ *                       example: User image updated successfully!
+ *       401:
+ *         description: Unauthorized - Missing or invalid JWT
+ *       500:
+ *         description: Internal Server Error
+ */
+
  router.post('/update/image', verifyJwt, upload.single('image'), uploadImageController);
+
+ /**
+ * @swagger
+ * /api/user/display-image/{user_id}:
+ *   get:
+ *     tags:
+ *       - Common API endpoints
+ *     summary: Get user profile image
+ *     description: Returns the profile image for the specified user ID.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: user_id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: UUID of the user
+ *     responses:
+ *       200:
+ *         description: Image file returned successfully
+ *         content:
+ *           image/png:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *           image/jpeg:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *       400:
+ *         description: Invalid user ID
+ *       404:
+ *         description: Image not found
+ *       401:
+ *         description: Unauthorized - missing or invalid token
+ */
  router.get('/display-image/:user_id',verifyJwt, getImageController);
  router.delete('/delete/image', verifyJwt, deleteImageController );
 
