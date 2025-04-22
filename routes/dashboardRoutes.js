@@ -517,28 +517,38 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
 
  /**
  * @swagger
- * /api/dashboard/latest-notification/{user_id}:
- *   get:
- *     summary: Get latest user notification
- *     description: Retrieves the notification details.
+ * /api/dashboard/notifications/{user_id}:
+ *   get: 
+ *     tags:
+ *       - Common API endpoints
+ *     summary: Get user notifications
+ *     description: >
+ *       Retrieves the user's notifications. 
+ *       If `latest_flag=1`, only the latest notifications will be returned. 
+ *       If `latest_flag` is omitted or set to any other value, all notifications will be returned.
  *     security:
  *       - bearerAuth: []  # Requires JWT authentication
  *     parameters:
  *       - in: path
  *         name: user_id
  *         required: true
- *         description: ID of the user to fetch
+ *         description: ID of the user to fetch notifications for
  *         schema:
  *           type: string
+ *           format: uuid
  *       - in: query
  *         name: latest_flag
  *         required: false
- *         description: flag to get latest notification or all
+ *         description: >
+ *           Set to 1 to retrieve only the latest notifications. 
+ *           Leave empty or set to 0 to retrieve all notifications.
  *         schema:
- *           type: number
+ *           type: integer
+ *           enum: [0, 1]
+ *           example: 1
  *     responses:
  *       "200":
- *         description: Details fetched successfully!.
+ *         description: Details fetched successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -562,7 +572,8 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
  *                         type: integer
  *                         example: 1
  *                       user_id:
- *                         type: uuid
+ *                         type: string
+ *                         format: uuid
  *                         example: 0C99D86E-4B03-48F8-85FD-665D3541CE97
  *                       assessment_id:
  *                         type: integer
@@ -572,6 +583,7 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
  *                         example: seen
  *                       created_at: 
  *                         type: string
+ *                         format: date-time
  *                         example: 2025-04-07T11:35:33.797Z
  *                       summary_report_name: 
  *                         type: string
@@ -605,6 +617,85 @@ router.get('/service-type-count', verifyJwt, getServiceTypeCountController);
  */
  router.get('/notifications/:user_id', verifyJwt, getLatestNotificationController);
 
+/**
+ * @swagger
+ * /api/dashboard/update-notification-status:
+ *   patch:
+ *     tags:
+ *       - Common API endpoints
+ *     summary: Update notification status
+ *     description: Updates the status of a notification based on its ID.
+ *     security:
+ *       - bearerAuth: []  # Requires JWT authentication
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - notification_id
+ *             properties:
+ *               notification_id:
+ *                 type: integer
+ *                 example: 1
+ *     responses:
+ *       "200":
+ *         description: Notification status updated successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: integer
+ *                   example: 200
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: "Notification status updated successfully!"
+ *       "400":
+ *         description: Bad Request - notification_id missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Invalid notification_id provided."
+ *       "401":
+ *         description: Unauthorized - JWT token is missing or invalid.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Unauthorized: Invalid token."
+ *       "500":
+ *         description: Internal Server Error - Unexpected error occurred.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error."
+ */
 
  router.patch('/update-notification-status',verifyJwt, updateNotificationStatusController);
 
