@@ -172,5 +172,41 @@ router.post('/user/forgot-password', forgotPasswordController);
  */
 router.patch('/user/change-password', verifyJwt, validateInputs(changePasswordSchema), changePasswordController);
 
+/**
+ * @swagger
+ * /api/user/refresh-token:
+ *   post:
+ *     tags:
+ *       - Common API endpoints
+ *     summary: Refresh access token
+ *     description: Generates a new access token using a valid refresh token. This endpoint does not require an access token.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               refreshToken:
+ *                 type: string
+ *                 description: The refresh token issued during login.
+ *             required:
+ *               - refreshToken
+ *     responses:
+ *       200:
+ *         description: New access token generated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *                   description: The newly issued access token
+ *       401:
+ *         description: Refresh token missing or invalid
+ *       403:
+ *         description: Refresh token expired or invalid
+ */
 router.post('/refresh-token', refreshAccessToken);
 module.exports = router;
