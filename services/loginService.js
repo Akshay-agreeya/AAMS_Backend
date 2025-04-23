@@ -37,7 +37,7 @@ exports.userLoginService = async (email, password) => {
 
         // Generate JWT token
         const token =generateToken(user.user_id);
-
+        const refresh_token = generateRefreshToken(user.user_id);
         return {
             id: user.user_id,
             org_id: user.org_id,
@@ -47,7 +47,8 @@ exports.userLoginService = async (email, password) => {
             role_id: user.role_id,
             role_key: user.role_key,
             user_role: user.user_role,
-            token
+            token,
+            refresh_token
         };
     } catch (error) {
         console.error("Login error:", error);
