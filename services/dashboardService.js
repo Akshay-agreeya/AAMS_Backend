@@ -15,7 +15,7 @@ exports.getCountService = async () => {
        FROM User_Roles UR
        JOIN Roles R ON UR.role_id = R.role_id 
        WHERE R.role_key != 'Super_Admin') AS UserCount,
-      (SELECT COUNT(*) FROM Assessments) AS ReportCount`);
+      (SELECT COUNT(*) FROM Assessments where status = 'Completed') AS ReportCount`);
 
     if (!countRow.recordset.length) {
       throw { status: STATUS_CODES.NOT_FOUND };
