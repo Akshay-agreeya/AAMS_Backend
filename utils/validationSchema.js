@@ -106,7 +106,7 @@ const productSchema ={
   other_details :{
     type : "string"
   },
-  scan_day_ids:{required: true, type: "string"}
+  scan_day_ids:{type: "string"}
 }
 
 const productPermissionSchema={

@@ -2,7 +2,7 @@ const { sql, getConnectionPool } = require("../config/db");
 const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
 const { getDatawithPagination } = require('../utils/helper');
-const { NText } = require("mssql");
+
 
 exports.getCountService = async () => {
   try {
