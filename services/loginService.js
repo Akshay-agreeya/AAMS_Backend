@@ -121,7 +121,7 @@ exports.forgotPasswordService = async (email) => {
         .query('SELECT user_id, username FROM Users WHERE email = @Email');
   
       if (userResult.recordset.length === 0) {
-        return { message: 'If the email exists, a reset link has been sent.' };
+        return { message: 'Provided Email is not registered.' };
       }
   
       const { user_id: userId, username: userName } = userResult.recordset[0];
@@ -151,7 +151,7 @@ exports.forgotPasswordService = async (email) => {
       await sendEmail(email, 'Password Reset Request',
        `Hi ${userName || 'User'},\n\nClick the link to reset your password: ${resetUrl}`);
   
-      return { message: 'If the email exists, a reset link has been sent.' };
+      return { message: 'Reset link has been sent to your registered email.' };
     } catch (error) {
       console.error('Error in forgotPasswordService:', error);
       throw new AppError(error.message, error.status);
