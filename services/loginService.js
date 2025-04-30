@@ -122,7 +122,7 @@ exports.forgotPasswordService = async (email) => {
         .query('SELECT user_id, username FROM Users WHERE email = @Email');
   
       if (userResult.recordset.length === 0) {
-        return { message: 'Provided Email is not registered.' };
+        throw new AppError("Provided Email is not registered", STATUS_CODES.NOT_FOUND);
       }
   
       const { user_id: userId, username: userName } = userResult.recordset[0];
