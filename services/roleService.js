@@ -26,6 +26,7 @@ exports.getRolesService = async (pageNumber, pageSize) => {
 exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
     const{role_name,
           description,
+          org_id,
           role_key,
           role_permissions
         } = roleDetails
@@ -43,6 +44,7 @@ exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
           .input("RoleName", sql.NVarChar(50), role_name)
           .input("RoleKey", sql.NVarChar(50), role_key)
           .input("Description", sql.NVarChar(255), description)
+          .input("OrgID", sql.UniqueIdentifier, org_id)
           .input("RolePermissions", sql.NVarChar(sql.MAX), JSON.stringify(role_permissions))
           .input("CreatedBy", sql.UniqueIdentifier, created_by)
           .execute("AddRoleWithDetails");
@@ -70,6 +72,7 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
         role_name,
         role_key,
         description,
+        org_id,
         role_permissions
       }= roleDetails
 
@@ -84,6 +87,7 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
       .input("RoleName", sql.NVarChar(50), role_name)
       .input("RoleKey", sql.NVarChar(50), role_key)
       .input("Description", sql.NVarChar(255), description)
+      .input("OrgID",sql.UniqueIdentifier, org_id)
       .input("RolePermissions", sql.NVarChar(sql.MAX), JSON.stringify(role_permissions))
       .input("ModifiedBy", sql.UniqueIdentifier, modified_by)
       .execute("UpdateRoleWithDetails");
