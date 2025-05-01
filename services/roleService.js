@@ -4,13 +4,14 @@ const { AppError } = require("../middlewares/errorHandler");
 const { SUCCESS_MESSAGES } = require("../utils/responseMessages");
 const { getDatawithPagination } = require("../utils/helper");
 
-exports.getRolesService = async (pageNumber, pageSize) => {
+exports.getRolesService = async (org_id, pageNumber, pageSize) => {
     try {
     const pool = await getConnectionPool();
 
     const result = await pool.request()
     .input("PageNumber", sql.Int, pageNumber)
     .input("PageSize", sql.Int, pageSize)
+    .input("OrgID", sql.UniqueIdentifier, org_id)
     .execute("GetRoles");
     if (!result.recordset.length) {
         throw { status: STATUS_CODES.NOT_FOUND };

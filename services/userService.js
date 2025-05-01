@@ -10,8 +10,6 @@ const fileTypeFromBuffer = async (buffer) => {
   };
   
 
-
-
 exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
     const {username, first_name, last_name, email, phone_number, password, role_id, status_id}=userData;
     try {
