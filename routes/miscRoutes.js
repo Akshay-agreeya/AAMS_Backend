@@ -69,6 +69,7 @@ router.post('/upload', upload.single('zipfile'), (req, res) => {
   }
 
   const zipPath = req.file.path;
+  const {service_id, org_id }= req.body
   const extractFolder = `extracted`;
   const extractPath = path.join(__dirname, '..', 'uploads', extractFolder);
 
@@ -111,7 +112,7 @@ router.post('/upload', upload.single('zipfile'), (req, res) => {
     fs.unlinkSync(zipPath);
 
 
-const result =  extractFiles(extractPath + '/', extractPath + '/');
+const result =  extractFiles(service_id, org_id, extractPath + '/', extractPath + '/');
 const successResponse = SuccessReturnHandler({
   message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
   resp: result,

@@ -22,7 +22,7 @@ function parseHTML(filePath) {
     }
 }
 
-exports.extractFiles =async(inputFolder, outputFolder) => {
+exports.extractFiles =async(service_id, org_id, inputFolder, outputFolder) => {
 
     
     //const inputFolder = process.argv[2]; // File path passed as the first argument
@@ -71,6 +71,8 @@ exports.extractFiles =async(inputFolder, outputFolder) => {
     try {
         const pool = await getConnectionPool();
         const result = await pool.request()
+        .input('ServiceID', sql.Int, service_id)
+        .input('OrgID', sql.UniqueIdentifier, org_id)
         .input('parsedSummaryData', sql.NVarChar(sql.MAX), JSON.stringify(parsedSummaryData))
         .input('parsedDeepAccessibileData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepAccessibileData).replace(/\n/g, '\\n'))
         .execute('InsertFullAccessibilityData');
