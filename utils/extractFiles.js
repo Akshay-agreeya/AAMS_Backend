@@ -3,6 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const parseSummaryReport = require('./parseSortSiteSummaryReport'); // Assuming function is exported
 const parseDeepAccessibilityReport = require('./parseSortSiteDeepAccessibilityReport');
+const { getConnectionPool, sql } = require('../config/db');
+const { AppError } = require('../middlewares/errorHandler');
+const { STATUS_CODES } = require('./errorCodes');
 const summaryHeader = "Summary Report";
 const deepAccessibilityHeader = "Deep Accessibility Report";
 
@@ -19,7 +22,7 @@ function parseHTML(filePath) {
     }
 }
 
-exports.extractFiles = (inputFolder, outputFolder) => {
+exports.extractFiles =async(inputFolder, outputFolder) => {
 
     
     //const inputFolder = process.argv[2]; // File path passed as the first argument
@@ -60,5 +63,21 @@ exports.extractFiles = (inputFolder, outputFolder) => {
         // Parse the HTML content to get the JSON array for accessibility report
         // parsedAccessibileData = parseAccessibilityReport(accessibileHtmlContent);
         parsedDeepAccessibileData = parseDeepAccessibilityReport(accessibileHtmlContent);
+
     }
+    // console.log("start");
+    //    console.log(JSON.stringify(parsedDeepAccessibileData));
+    //    console.log("end");
+    try {
+        const pool = await getConnectionPool();
+        const result = await pool.request()
+        .input('parsedSummaryData', sql.NVarChar(sql.MAX), JSON.stringify(parsedSummaryData))
+        .input('parsedDeepAccessibileData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepAccessibileData).replace(/\n/g, '\\n'))
+        .execute('InsertFullAccessibilityData');
+        console.log(result);
+        return result;
+    } catch (err) {
+        console.error('Error executing stored procedure:', err.message);
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)
+    } 
 }

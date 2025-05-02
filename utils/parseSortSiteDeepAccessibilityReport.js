@@ -138,7 +138,7 @@ function parseDeepAccessibilityReport(html) {
 
     // Properly print the array of objects, including nested objects
    
-    console.log(JSON.stringify(dataArray, null, 2)); // Convert to readable JSON format with indentation
+    //  console.log(JSON.stringify(dataArray, null, 2)); // Convert to readable JSON format with indentation
     return dataArray;
 }
 

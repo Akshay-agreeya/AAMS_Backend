@@ -33,7 +33,7 @@ function parseSummaryReport(html) {
             });
         }
     });
-    console.log(dataArray);
+    // console.log(dataArray);
     return dataArray;
 }
 module.exports = parseSummaryReport;
