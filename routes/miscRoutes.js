@@ -4,6 +4,10 @@ const AdmZip = require('adm-zip');
 const fs = require('fs');
 const path = require('path');
 const { extractFiles } = require('../utils/extractFiles');
+const { SuccessReturnHandler } = require('../middlewares/responseHandler');
+const { STATUS_CODES } = require('../utils/errorCodes');
+const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
+
 
 // Configure multer with better file validation
 const storage = multer.diskStorage({
@@ -107,9 +111,12 @@ router.post('/upload', upload.single('zipfile'), (req, res) => {
     fs.unlinkSync(zipPath);
 
 
-
-    extractFiles(extractPath + '/', extractPath + '/');
-    res.send("Extract data succesfully done");
+const result =  extractFiles(extractPath + '/', extractPath + '/');
+const successResponse = SuccessReturnHandler({
+  message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+  resp: result,
+});
+res.status(STATUS_CODES.SUCCESS).json(successResponse);
   } catch (err) {
     console.error('Unexpected error:', err);
     res.status(500).json({
