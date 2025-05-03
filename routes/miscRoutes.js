@@ -60,7 +60,7 @@ function isValidZipFile(filePath) {
 // Create router
 const router = express.Router();
 
-router.post('/upload', upload.single('zipfile'), (req, res) => {
+router.post('/upload', upload.single('zipfile'), async(req, res) => {
   if (!req.file) {
     return res.status(400).json({
       status: 'error',
@@ -112,9 +112,9 @@ router.post('/upload', upload.single('zipfile'), (req, res) => {
     fs.unlinkSync(zipPath);
 
 
-const result =  extractFiles(service_id, org_id, extractPath + '/', extractPath + '/');
+const result =  await extractFiles(service_id, org_id, extractPath + '/', extractPath + '/');
 const successResponse = SuccessReturnHandler({
-  message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+  message : SUCCESS_MESSAGES.EXTRACT_REPORT_SUCCESS,
   resp: result,
 });
 res.status(STATUS_CODES.SUCCESS).json(successResponse);
@@ -143,29 +143,6 @@ res.status(STATUS_CODES.SUCCESS).json(successResponse);
         console.error('Error cleaning up extracted files:', cleanupError);
       }
     }
-  }
-});
-
-// Optional: Add a route to check processing status
-router.get('/status/:processId', (req, res) => {
-  const processId = req.params.processId;
-  const statusFilePath = path.join(__dirname, 'assets', `status_${processId}.json`);
-
-  if (fs.existsSync(statusFilePath)) {
-    try {
-      const statusData = JSON.parse(fs.readFileSync(statusFilePath, 'utf8'));
-      return res.status(200).json(statusData);
-    } catch (err) {
-      return res.status(500).json({
-        status: 'error',
-        message: 'Error reading status file'
-      });
-    }
-  } else {
-    return res.status(404).json({
-      status: 'unknown',
-      message: 'Process ID not found or processing complete'
-    });
   }
 });
 
