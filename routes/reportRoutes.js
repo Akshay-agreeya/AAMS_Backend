@@ -1,7 +1,9 @@
 const express = require('express');
-const { getWebUrlsController, getAssessmentsController, getCategoryDataController, getUserWebUrlsController } = require('../controllers/reportController');
+const { getWebUrlsController, getAssessmentsController, getCategoryDataController, getUserWebUrlsController, insertCategoryAndDetails } = require('../controllers/reportController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
+const {validateInputs} = require('../middlewares/validation');
+const {addCategoryDetailsSchema} = require('../utils/validationSchema')
 
 /**
  * @swagger
@@ -511,5 +513,7 @@ router.get('/get/assessments/:service_id', verifyJwt, getAssessmentsController)
  */
 
 router.get('/get/category-data/:assessment_id', verifyJwt, getCategoryDataController);
+
+router.post('/add', verifyJwt, validateInputs(addCategoryDetailsSchema), insertCategoryAndDetails);
 
 module.exports = router;
