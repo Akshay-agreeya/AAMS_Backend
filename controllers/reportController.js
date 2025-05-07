@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const { getWebUrlsService, getAssessmentsService, getCategoryDataService, getUserWebUrlsService, insertCategoryAndDetailsService } = require("../services/reportsService");
+const { getWebUrlsService, getAssessmentsService, getCategoryDataService, getUserWebUrlsService, insertCategoryAndDetailsService, updateCategoryAndDetailsService, deleteCategoryReport } = require("../services/reportsService");
 
 exports.getWebUrlsController = async(req,res,next) =>{
     const {org_id} = req.params;
@@ -97,3 +97,39 @@ exports.insertCategoryAndDetails = async (req, res, next) => {
       next(err);
     }
   };
+
+exports.updateCategoryAndDetails = async (req, res, next) => {
+    const {category_id} = req.params;
+    const categoryDetails = req.body;
+  
+    try {
+      const updatedData  = await updateCategoryAndDetailsService(
+        category_id, categoryDetails
+      );
+  
+      const response = SuccessReturnHandler({
+        message: "Category and details updated successfully.",
+        resp: updatedData,
+      });
+  
+      res.status(STATUS_CODES.SUCCESS).json(response);
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  exports.deleteCategoryReportController = async(req,res,next)=>{
+      const {category_id} = req.params;
+      try {
+        const deletedData  = await deleteCategoryReport(category_id)
+    
+        const response = SuccessReturnHandler({
+          message: "Category and details deleted successfully.",
+          resp: deletedData,
+        });
+    
+        res.status(STATUS_CODES.SUCCESS).json(response);
+      } catch (err) {
+        next(err);
+      }
+  }

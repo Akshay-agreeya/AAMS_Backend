@@ -172,3 +172,114 @@ exports.insertCategoryAndDetailsService = async (categoryDetails) => {
       );
     }
   };
+
+exports.updateCategoryAndDetailsService = async (category_id, categoryDetails) => {
+
+    const {
+      level,
+      issue_description,
+      guideline,
+      status,
+      guideline_url,
+      category_report_type,
+      category_report_name,
+      category_detail_report, 
+    } = categoryDetails;
+  
+    try {
+      const pool = await getConnectionPool();
+  
+     
+      const tvp = new sql.Table();
+      tvp.columns.add("category_detail_id", sql.BigInt); // Include category_detail_id for updates
+      tvp.columns.add("criteria", sql.NVarChar(sql.MAX));
+      tvp.columns.add("remediation", sql.NVarChar(sql.MAX));
+      tvp.columns.add("page_url", sql.NVarChar(sql.MAX));
+      tvp.columns.add("line_numbers", sql.NVarChar(sql.MAX));
+      tvp.columns.add("status", sql.NVarChar(50));
+  
+      // Populate TVP with data
+      category_detail_report.forEach((detail) => {
+        tvp.rows.add(
+          detail.category_detail_id || null, // Use null for new rows
+          detail.criteria,
+          detail.remediation,
+          detail.page_url,
+          detail.line_numbers,
+          detail.status
+        );
+      });
+  
+      const result = await pool
+        .request()
+        .input("category_id", sql.BigInt, category_id)
+        .input("level", sql.NVarChar(50), level)
+        .input("issue_description", sql.NVarChar(sql.MAX), issue_description)
+        .input("guideline", sql.NVarChar(sql.MAX), guideline)
+        .input("status", sql.NVarChar(50), status)
+        .input("guideline_url", sql.NVarChar(sql.MAX), guideline_url)
+        .input("category_report_type", sql.NVarChar(50), category_report_type)
+        .input("category_report_name", sql.NVarChar(50), category_report_name)
+        .input("Category_Detail_Report", tvp) 
+        .execute("UpdateCategoryAndDetails"); 
+  
+      return {
+        updatedData: result,
+         category_id,
+      };
+    } catch (err) {
+      console.error("Error in updateCategoryAndDetailsService:", err);
+  
+      if (err.code === "EREQUEST") {
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+  
+      throw new AppError(
+        ERROR_MESSAGES.INTERNAL_SERVER_ERROR,
+        STATUS_CODES.INTERNAL_SERVER_ERROR
+      );
+    }
+  };
+
+  
+exports.getUsersService = async (org_id, pageNumber, pageSize) => {
+    try{
+        const pool = await getConnectionPool();
+    
+        const result = await pool.request()
+        .input("OrgID", sql.UniqueIdentifier, org_id)
+        .input("PageNumber", sql.Int, pageNumber)
+        .input("PageSize", sql.Int, pageSize)
+        .execute("GetUsersByOrgId");
+        if(!result.recordset.length){
+            throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+          }
+          return getDatawithPagination(result.recordsets);
+    }
+    catch(err){
+        console.error("Database error:", err);
+        if (err.code === "EREQUEST" || err.code === "EPARAM") {
+            throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        }
+        throw new AppError(err.message, err.status);
+    }
+    }
+
+    exports.deleteCategoryReport = async(category_id) =>{
+      try{
+        const pool = await getConnectionPool();
+        
+        const deletedData = await pool.request()
+        .input('CategoryID', sql.Int, category_id)
+        .query(`DELETE from Category_Report where category_id = @CategoryID`);
+    
+        return deletedData.rowsAffected;
+    
+      }catch(err){
+        console.error(err);
+        if (err.code === 'EREQUEST' ) {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); // Database-level errors
+      }
+      throw new AppError("An expected error occured:"+ err.message,err.status);
+      }
+    }
