@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const { getWebUrlsService, getAssessmentsService, getCategoryDataService, getUserWebUrlsService } = require("../services/reportsService");
+const { getWebUrlsService, getAssessmentsService, getCategoryDataService, getUserWebUrlsService, insertCategoryAndDetailsService } = require("../services/reportsService");
 
 exports.getWebUrlsController = async(req,res,next) =>{
     const {org_id} = req.params;
@@ -78,3 +78,22 @@ exports.getCategoryDataController = async(req,res,next) =>{
         next(err);
     }
 }
+
+exports.insertCategoryAndDetails = async (req, res, next) => {
+    const categoryDetails = req.body;
+  
+    try {
+      const { categoryId}  = await insertCategoryAndDetailsService(
+        categoryDetails
+      );
+  
+      const response = SuccessReturnHandler({
+        message: "Category and details inserted successfully.",
+        resp: { categoryId },
+      });
+  
+      res.status(STATUS_CODES.CREATED).json(response);
+    } catch (err) {
+      next(err);
+    }
+  };

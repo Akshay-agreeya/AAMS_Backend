@@ -122,6 +122,18 @@ const productPermissionSchema={
   }
 }
 
+const addCategoryDetailsSchema = {
+  level: {required: true, type:"string"},
+  issue_description: {required: true, type:"string"},
+  guideline: {required: true, type:"string"},
+  failing_page: {required: true},
+  status: {required: true, type:"string"},
+  guideline_url: {required: true, type:"string", pattern: /^(https?:\/\/[^\s]+)/},
+  summary_detail_report_id: {required: true},
+  assessment_id: {required: true, type: "number"},
+  category_report_type: {required: true, type:"string"},
+  category_report_name: {required: true, type:"string"},
+}
   module.exports = {
     userLoginAndFPSchema,
     changePasswordSchema,
@@ -130,5 +142,6 @@ const productPermissionSchema={
     editUserSchema,
     roleSchema,
     productSchema,
-    productPermissionSchema
+    productPermissionSchema,
+    addCategoryDetailsSchema
   }
