@@ -7,6 +7,8 @@ const { extractFiles } = require('../utils/extractFiles');
 const { SuccessReturnHandler } = require('../middlewares/responseHandler');
 const { STATUS_CODES } = require('../utils/errorCodes');
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
+const {verifyJwt} = require('../middlewares/auth');
+const { generateAccessibilityReportController } = require('../controllers/downloadController');
 
 
 // Configure multer with better file validation
@@ -60,7 +62,7 @@ function isValidZipFile(filePath) {
 // Create router
 const router = express.Router();
 
-router.post('/upload', upload.single('zipfile'), async(req, res) => {
+router.post('/upload', verifyJwt, upload.single('zipfile'), async(req, res) => {
   if (!req.file) {
     return res.status(400).json({
       status: 'error',
@@ -145,5 +147,7 @@ res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }
   }
 });
+ 
+router.get('/download-docx/:assessment_id', generateAccessibilityReportController)
 
 module.exports = router;

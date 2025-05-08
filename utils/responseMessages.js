@@ -9,6 +9,7 @@ const SUCCESS_MESSAGES = {
     UPDATE_SUCCESS:"Details updated successfully",
     FORGOT_PASSWORD:"Reset link send successfully. ",    
     EXTRACT_REPORT_SUCCESS: "Report extracted successfully.",
+    DOWNLOAD_REPORT_SUCCESS:"Report downloaded successfully."
 };
 
 module.exports = { SUCCESS_MESSAGES };
