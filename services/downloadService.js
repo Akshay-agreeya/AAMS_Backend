@@ -31,6 +31,11 @@ exports.generateAccessibilityReport = async (assessment_id) => {
       org_name: categoryRows.accessibilityInfo?.org_name || "Unknown Org",
       project_manager: "NA",
       product_name: categoryRows.accessibilityInfo?.web_url || "N/A",
+      link_product_name: `{link_product_name}`,
+      linkObj: {
+        url: categoryRows.accessibilityInfo?.web_url || "" ,
+        text:categoryRows.accessibilityInfo?.web_url || "" ,
+      },
       web_url: categoryRows.accessibilityInfo?.web_url || "N/A",
       access_tester: "NA",
       testing_device: "System",
@@ -47,8 +52,8 @@ exports.generateAccessibilityReport = async (assessment_id) => {
         level: issue.level || "A",
         failing_page: issue.failing_page || "",
         guideline: issue.guideline || "",
-        pages: issue?.category_details?.map((pItem) => ({
-          link: "{link}",
+        pages: issue?.category_details?.map((pItem, index) => ({
+          link: `{link_${index}}`,
           linkObj: {
             url: pItem.page_url,
             text: pItem.page_url,
@@ -84,6 +89,7 @@ exports.generateAccessibilityReport = async (assessment_id) => {
     // Then, prepare data for link replacement
       // We need to transform our data to match the expected format for replaceLinks
       const linkReplacementData = {
+        linkObj: reportData.linkObj,
         issues: reportData.issues.map(issue => ({
           ...issue,
           pages: issue.pages.map(page => ({
