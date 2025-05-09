@@ -129,26 +129,52 @@ exports.replaceLinks= (doc, data)=> {
 
       // Create a regex pattern to find {link} placeholder
       // We need to be careful with the regex as the XML might have special formatting
-      const linkPlaceholderPattern = /\{link\}/g;
+  
+                          const productUrl = escapeXml(data.linkObj?.url);
+                          const productText = escapeXml(data.linkObj?.text);
 
+                          // Create hyperlink XML
+                          const productlinkXml = `<w:hyperlink r:id="rId${"p"}" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:r><w:rPr><w:color w:val="0000FF"/><w:u w:val="single"/></w:rPr><w:t>${productText}</w:t></w:r></w:hyperlink>`;
+                          const productXml = `<Relationship Id="rId${"p"}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${productUrl}" TargetMode="External"/>`;
+                         
+      const linkProductPattern = new RegExp(`\\\{link_product_name}`, 'g');
+      if (docXml.match(linkProductPattern)) {
+        docXml = docXml.replace(linkProductPattern, productlinkXml);
+        console.log(linkProductPattern);
+
+        if (relsXml.includes('</Relationships>')) {
+            relsXml = relsXml.replace('</Relationships>', `${productXml}\n</Relationships>`);
+        } else {
+            relsXml += `<Relationships>${productXml}</Relationships>`;
+        }
+        
+    }
+    
       // Process each issue and its pages
       if (data.issues && Array.isArray(data.issues)) {
           for (const issue of data.issues) {
               if (issue.pages && Array.isArray(issue.pages)) {
+                  let index = -1
                   for (const page of issue.pages) {
                       if (page.link && typeof page.link === 'object' && page.link.url && page.link.text) {
                           // XML-escape the URL and text
+                          index += 1;
                           const escapedUrl = escapeXml(page.link.url);
                           const escapedText = escapeXml(page.link.text);
 
                           // Create hyperlink XML
                           const hyperlinkXml = `<w:hyperlink r:id="rId${relId}" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:r><w:rPr><w:color w:val="0000FF"/><w:u w:val="single"/></w:rPr><w:t>${escapedText}</w:t></w:r></w:hyperlink>`;
-
+                          const link_var = "link_" + index;
+                          const linkPlaceholderPattern = new RegExp(`\\\{${link_var}}`, 'g');
+                          
+            
                           // Replace the first occurrence of {link} with this hyperlink
                           // Note: We replace only one occurrence at a time to ensure correct matching
                           if (docXml.match(linkPlaceholderPattern)) {
+
                               docXml = docXml.replace(linkPlaceholderPattern, hyperlinkXml);
 
+                             
                               // Add relationship for this hyperlink
                               const relXml = `<Relationship Id="rId${relId}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="${escapedUrl}" TargetMode="External"/>`;
 
