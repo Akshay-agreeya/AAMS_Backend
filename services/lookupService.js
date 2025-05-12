@@ -173,3 +173,20 @@ exports.getScanDaysService = async () => {
 
   }
 };
+
+exports.getManualStatusService = async () => {
+  try {
+    const pool = await getConnectionPool();
+    const status = await pool.request()
+      .query("SELECT * from Manual_Assessments_Status");
+
+    if (!status.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return {contents: status.recordset};
+  } catch (err) {
+    console.error(err);
+    throw new AppError(er.message, err.status);
+
+  }
+};

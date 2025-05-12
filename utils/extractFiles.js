@@ -66,7 +66,7 @@ exports.extractFiles = async (service_id, org_id, inputFolder) => {
             .input('parsedSummaryData', sql.NVarChar(sql.MAX), JSON.stringify(parsedSummaryData))
             .input('parsedDeepAccessibileData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepAccessibileData).replace(/\n/g, '\\n'))
             .execute('InsertFullAccessibilityData');
-        console.log(result);
+        
         return result;
     } catch (err) {
         console.error('Error executing stored procedure:', err.message);

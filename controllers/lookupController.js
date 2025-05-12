@@ -10,7 +10,8 @@ const { getOrganizationTypeService,
          getComplianceLevelService,
           getFrequencyService,
           getScanDaysService,
-          getUserStatusService
+          getUserStatusService,
+          getManualStatusService
         } = require("../services/lookupService");
 
 exports.getOrgTypeController = 
@@ -163,6 +164,20 @@ exports.getScanDaysController =
            }
        };
 
+       exports.getManualStatusController = 
+    async (req, res, next) => {
+           try {
+               const manual_status = await getManualStatusService();
+               const successResponse = SuccessReturnHandler({
+                   message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                   resp:  manual_status,
+               });
+               return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+              
+           } catch (err) {
+               next(err)
+           }
+       };
 
    
 
