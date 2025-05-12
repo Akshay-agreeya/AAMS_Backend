@@ -1,5 +1,5 @@
 const express = require('express');
-const { getOrgTypeController, getIndustryTypeController, getOperationTypeController, getPermissionsController, getGuidelineVersionController, getComplianceLevelController, getFrequencyController, getScanDaysController, getUserStatusController, getProdPermissionsController } = require('../controllers/lookupController');
+const { getOrgTypeController, getIndustryTypeController, getOperationTypeController, getPermissionsController, getGuidelineVersionController, getComplianceLevelController, getFrequencyController, getScanDaysController, getUserStatusController, getProdPermissionsController, getManualStatusController } = require('../controllers/lookupController');
 
 const router = express.Router();
 
@@ -200,5 +200,7 @@ router.get('/frequency', getFrequencyController);
  *         description: Unauthorized
  */
 router.get('/scan-days', getScanDaysController);
+
+router.get('/manual-status', getManualStatusController);
 
 module.exports = router;
