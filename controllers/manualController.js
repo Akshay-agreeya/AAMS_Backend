@@ -20,8 +20,7 @@ exports.getFormDataController =
 
     exports.addFormDataController = 
     async (req, res, next) => {
-        const {service_id, rawFormData} = req.body;
-        const formData = JSON.stringify(rawFormData);
+        const {service_id, formData} = req.body;
         try {
             const txnId = await addFormDataService(service_id, formData);
             const successResponse = SuccessReturnHandler({

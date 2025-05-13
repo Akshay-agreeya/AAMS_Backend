@@ -4,5 +4,5 @@ const router = express.Router();
 const {verifyJwt} = require('../middlewares/auth')
 
 router.get('/get', verifyJwt, getFormDataController);
-router.post('/add',addFormDataController);
+router.post('/add', verifyJwt, addFormDataController);
 module.exports = router;

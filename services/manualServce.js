@@ -26,7 +26,7 @@ exports.addFormDataService = async (service_id, formData) => {
       const pool = await getConnectionPool();
       const result = await pool.request()
       .input('ServiceID', sql.Int, service_id)
-      .input('AssessmentData', sql.NVarChar(sql.MAX), formData)
+      .input('AssessmentData', sql.NVarChar(sql.MAX), JSON.stringify(formData))
       .output('TxnID', sql.Int)
       .execute("InsertManualAssessmentsWithTxn")
 
