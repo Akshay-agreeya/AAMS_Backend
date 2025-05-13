@@ -21,12 +21,13 @@ exports.getFormDataService = async () => {
     }
   };
 
-exports.addFormDataService = async (service_id, formData) => {
+exports.addFormDataService = async (service_id, formData, created_by) => {
     try {
       const pool = await getConnectionPool();
       const result = await pool.request()
       .input('ServiceID', sql.Int, service_id)
       .input('AssessmentData', sql.NVarChar(sql.MAX), JSON.stringify(formData))
+      .input('CreatedBy', sql.UniqueIdentifier, created_by)
       .output('TxnID', sql.Int)
       .execute("InsertManualAssessmentsWithTxn")
 
@@ -36,6 +37,23 @@ exports.addFormDataService = async (service_id, formData) => {
         throw { message: ERROR_MESSAGES.DATA_NOT_FOUND, status: STATUS_CODES.NOT_FOUND };
       }
       return {txn: txnId};
+    } catch (err) {
+      console.error(err);
+      throw new AppError(err.message, err.status);
+  
+    }
+  };
+
+  exports.editFormDataService = async (txn_id, formData, modified_by) => {
+    try {
+      const pool = await getConnectionPool();
+      const result = await pool.request()
+      .input('TxnID', sql.Int, txn_id)
+      .input('AssessmentData', sql.NVarChar(sql.MAX), JSON.stringify(formData))
+      .input('ModifiedBy', sql.UniqueIdentifier, modified_by)
+      .execute("UpdateManualAssessments");
+      
+      return result;
     } catch (err) {
       console.error(err);
       throw new AppError(err.message, err.status);
