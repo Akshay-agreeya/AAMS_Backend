@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
-const {getFormDataService, addFormDataService, editFormDataService} = require('../services/manualServce');
+const {getFormDataService, addFormDataService, editFormDataService, deleteformDataService, getManualTxnsService} = require('../services/manualServce');
 
 exports.getFormDataController = 
     async (req, res, next) => {
@@ -53,3 +53,39 @@ exports.getFormDataController =
             next(err)
         }
     };
+
+      exports.deleteFormDataController = 
+    async (req, res, next) => {
+        const {txn_id} = req.params;
+        try {
+            const result = await deleteformDataService(txn_id);
+            const successResponse = SuccessReturnHandler({
+                message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+                resp: result,
+            });
+            return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+           
+        } catch (err) {
+            next(err)
+        }
+    };
+
+    exports.getManualTxnsController = async(req,res,next) =>{
+        const {service_id} = req.params;
+        const { page, size } = req.query;
+        
+        const pageNumber = parseInt(page, 10) || 1;
+        const pageSize = parseInt(size, 10) || 10;
+    
+        try{
+            const urls = await getManualTxnsService(service_id, pageNumber, pageSize);
+    
+            const successResponse = SuccessReturnHandler({
+                message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                resp: urls,
+            });
+            res.status(STATUS_CODES.SUCCESS).json(successResponse);
+        }catch(err){
+            next(err);
+        }
+    }
