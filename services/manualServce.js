@@ -22,12 +22,12 @@ exports.getFormDataService = async () => {
     }
   };
 
-exports.addFormDataService = async (service_id, formData, created_by) => {
+exports.addFormDataService = async (service_id, assessmentData, created_by) => {
     try {
       const pool = await getConnectionPool();
       const result = await pool.request()
       .input('ServiceID', sql.Int, service_id)
-      .input('AssessmentData', sql.NVarChar(sql.MAX), JSON.stringify(formData))
+      .input('AssessmentData', sql.NVarChar(sql.MAX), JSON.stringify(assessmentData))
       .input('CreatedBy', sql.UniqueIdentifier, created_by)
       .output('TxnID', sql.Int)
       .execute("InsertManualAssessmentsWithTxn")
@@ -45,12 +45,12 @@ exports.addFormDataService = async (service_id, formData, created_by) => {
     }
   };
 
-  exports.editFormDataService = async (txn_id, formData, modified_by) => {
+  exports.editFormDataService = async (txn_id, assessmentData, modified_by) => {
     try {
       const pool = await getConnectionPool();
       const result = await pool.request()
       .input('TxnID', sql.Int, txn_id)
-      .input('AssessmentData', sql.NVarChar(sql.MAX), JSON.stringify(formData))
+      .input('AssessmentData', sql.NVarChar(sql.MAX), JSON.stringify(assessmentData))
       .input('ModifiedBy', sql.UniqueIdentifier, modified_by)
       .execute("UpdateManualAssessments");
 

@@ -10,11 +10,10 @@ exports.getCountService = async () => {
     const countRow = await pool.request()
       .query  (`SELECT
       (SELECT COUNT(*) FROM Organization) AS OrgCount,
-      (SELECT COUNT(*) FROM Roles WHERE role_key != 'Super_Admin') AS RoleCount,
+      (SELECT COUNT(*) FROM Roles) AS RoleCount,
       (SELECT COUNT(*) 
        FROM User_Roles UR
-       JOIN Roles R ON UR.role_id = R.role_id 
-       WHERE R.role_key != 'Super_Admin') AS UserCount,
+       JOIN Roles R ON UR.role_id = R.role_id ) AS UserCount,
       (SELECT COUNT(*) FROM Assessments where status = 'Completed') AS ReportCount`);
 
     if (!countRow.recordset.length) {
