@@ -21,10 +21,10 @@ exports.getFormDataController =
     exports.addFormDataController = 
     async (req, res, next) => {
         const {service_id} = req.params;
-        const {formData} = req.body;
+        const {assessmentData} = req.body;
         const created_by = req.user?.id; 
         try {
-            const txnId = await addFormDataService(service_id, formData, created_by);
+            const txnId = await addFormDataService(service_id, assessmentData, created_by);
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_ADD_SUCCESS,
                 resp: txnId,
@@ -39,10 +39,10 @@ exports.getFormDataController =
     exports.editFormDataController = 
     async (req, res, next) => {
         const {txn_id} = req.params;
-        const {formData} = req.body;
+        const {assessmentData} = req.body;
         const modified_by = req.user?.id; 
         try {
-            const result = await editFormDataService(txn_id, formData, modified_by);
+            const result = await editFormDataService(txn_id, assessmentData, modified_by);
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.UPDATE_SUCCESS,
                 resp: result,
