@@ -104,3 +104,26 @@ exports.getManualTxnsService = async (service_id, pageNumber, pageSize) => {
       throw new AppError(err.message, err.status);
   }
 }
+
+exports.getManualReportService = async (txn_id) => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .input("txn_id", sql.Int, txn_id)
+      .execute("GetManualAssessmentReportJson");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+        }
+        const rawJson = result.recordset[0]["JSON_F52E2B61-18A1-11d1-B105-00805F49916B"];
+        const parsedJson = JSON.parse(rawJson);
+        return {contents: parsedJson};
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}

@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {SuccessReturnHandler} = require('../middlewares/responseHandler');
-const {getFormDataService, addFormDataService, editFormDataService, deleteformDataService, getManualTxnsService} = require('../services/manualServce');
+const {getFormDataService, addFormDataService, editFormDataService, deleteformDataService, getManualTxnsService, getManualReportService} = require('../services/manualServce');
 
 exports.getFormDataController = 
     async (req, res, next) => {
@@ -89,3 +89,20 @@ exports.getFormDataController =
             next(err);
         }
     }
+
+    exports.getManualReportController = async(req,res,next) =>{
+        const {txn_id} = req.params;
+    
+        try{
+            const manualReort = await getManualReportService(txn_id)
+    
+            const successResponse = SuccessReturnHandler({
+                message : SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                resp:  manualReort,
+            });
+            res.status(STATUS_CODES.SUCCESS).json(successResponse);
+        }catch(err){
+            next(err);
+        }
+    }
+    
