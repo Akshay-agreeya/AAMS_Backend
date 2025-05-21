@@ -150,13 +150,13 @@ router.get('/expiring-services', verifyJwt, getExpiringController)
  *           default: 30
  *         description: Number of days to filter recent activities.
  *       - in: query
- *         name: pageNumber
+ *         name: page
  *         schema:
  *           type: integer
  *           default: 1
  *         description: The page number for pagination.
  *       - in: query
- *         name: pageSize
+ *         name: page
  *         schema:
  *           type: integer
  *           default: 10
@@ -195,10 +195,10 @@ router.get('/expiring-services', verifyJwt, getExpiringController)
  *                     totalRecords:
  *                       type: integer
  *                       example: 50
- *                     pageNumber:
+ *                     page:
  *                       type: integer
  *                       example: 1
- *                     pageSize:
+ *                     size:
  *                       type: integer
  *                       example: 10
  *                     totalPages:
