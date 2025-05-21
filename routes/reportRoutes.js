@@ -23,14 +23,14 @@ const {addCategoryDetailsSchema} = require('../utils/validationSchema')
  *           format: uuid
  *           example: "450253B3-9617-4C32-B53D-C222E19AF8B8"
  *       - in: query
- *         name: PageNumber
+ *         name: page
  *         required: false
  *         description: The page number for pagination (default is 1).
  *         schema:
  *           type: integer
  *           example: 1
  *       - in: query
- *         name: PageSize
+ *         name: size
  *         required: false
  *         description: The number of records per page (default is 10).
  *         schema:
@@ -146,14 +146,14 @@ router.get('/get/urls/:org_id', verifyJwt, getWebUrlsController);
  *           type: string
  *           example: Product_View
  *       - in: query
- *         name: PageNumber
+ *         name: page
  *         required: false
  *         description: The page number for pagination (default is 1).
  *         schema:
  *           type: integer
  *           example: 1
  *       - in: query
- *         name: PageSize
+ *         name: size
  *         required: false
  *         description: The number of records per page (default is 10).
  *         schema:
