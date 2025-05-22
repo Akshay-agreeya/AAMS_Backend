@@ -144,6 +144,8 @@ router.get('/get/:org_id', verifyJwt, getProductsController);
  * @swagger
  * /api/product/my:
  *   get:
+ *     tags:
+ *       - Common API endpoints
  *     summary: Get a user's products with assessment details
  *     description: Retrieves distinct web URLs assigned to a user, along with the count of assessments and the latest assessment date.
  *     security:

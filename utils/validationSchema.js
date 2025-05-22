@@ -134,6 +134,10 @@ const addCategoryDetailsSchema = {
   category_report_type: {required: true, type:"string"},
   category_report_name: {required: true, type:"string"},
 }
+
+const manualAssessmentSchema={
+  assessmentData:{required: true}
+}
   module.exports = {
     userLoginAndFPSchema,
     changePasswordSchema,
@@ -143,5 +147,6 @@ const addCategoryDetailsSchema = {
     roleSchema,
     productSchema,
     productPermissionSchema,
-    addCategoryDetailsSchema
+    addCategoryDetailsSchema,
+    manualAssessmentSchema
   }
