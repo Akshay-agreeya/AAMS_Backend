@@ -268,14 +268,14 @@ router.get('/get/user-urls', verifyJwt, getUserWebUrlsController);
  *           type: integer
  *           example: 101
  *       - in: query
- *         name: PageNumber
+ *         name: page
  *         required: false
  *         description: The page number for pagination (default is 1).
  *         schema:
  *           type: integer
  *           example: 1
  *       - in: query
- *         name: PageSize
+ *         name: size
  *         required: false
  *         description: The number of records per page (default is 10).
  *         schema:
