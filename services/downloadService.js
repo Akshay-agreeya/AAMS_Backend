@@ -6,6 +6,7 @@ const ImageModule = require("docxtemplater-image-module-free");
 const { generateScoreCardImage, formattedDate, replaceLinks } = require("../utils/helper");
 const { getSummaryDetailReportService } = require("./dashboardService");
 const { getCategoryDataService } = require("./reportsService");
+const {getManualReportService} = require("../services/manualServce")
 const { AppError } = require("../middlewares/errorHandler");
 
 exports.generateAccessibilityReport = async (assessment_id) => {
@@ -106,6 +107,93 @@ exports.generateAccessibilityReport = async (assessment_id) => {
 
     return {
       filename: `accessibility-report-${assessment_id}.docx`,
+      buffer,
+    };
+  } catch (err) {
+    console.error("DOCX generation failed:", err);
+    throw new AppError("Failed to generate report", 500);
+  }
+};
+
+exports.generateManualAccessibilityReport = async (txn_id) => {
+  try {
+    // Fetch data from services
+    const manualReport = await getManualReportService(txn_id);
+  
+
+    if (!manualReport) {
+      throw new AppError("Report data not found", 404);
+    }
+    const manualData = {
+      org_name: manualReport.reportInfo?.org_name || "Unknown Org",
+      project_manager: "NA",
+      product_name: manualReport.reportInfo?.web_url || "N/A",
+      link_product_name: `{link_product_name}`,
+      linkObj: {
+        url: manualReport.reportInfo?.web_url || "",
+        text: manualReport.reportInfo?.web_url || "",
+      },
+      web_url: manualReport.reportInfo?.web_url || "N/A",
+      access_tester: "NA",
+      testing_device: "System",
+      test_environment: "NA",
+      start_date: formattedDate(new Date(manualReport.reportInfo?.start_date), "MM-dd-yyyy") || "",
+      end_date: formattedDate(new Date(manualReport.reportInfo?.end_date), "MM-dd-yyyy") || "",
+      contents: manualReport?.contents.map((content) => ({
+        page_url: content.pageUrl || "",
+        formData: content?.formData?.map((item) => ({
+          category: item.category || "",
+          description: item.description || "",
+          user_impact: item.user_impact || "",
+          conditions: item.conditions?.map((c_item) => ({
+            condition: c_item.condition || "",
+            remediation: c_item.remidiation || "",
+            status: c_item.status || ""
+          })) || []
+        })) || []
+      })) || []
+    };
+    
+    // Load and populate DOCX template
+    const templatePath = path.resolve(
+      __dirname,
+      "../templates/manualAssessment_template.docx"
+    );
+    const content = fs.readFileSync(templatePath, "binary");
+    const zip = new PizZip(content);
+
+    const imageOpts = {
+      getImage: (tagValue) => Buffer.from(tagValue, "base64"),
+      getSize: () => [600, 350],
+    };
+
+    const imageModule = new ImageModule(imageOpts);
+
+    const doc = new Docxtemplater(zip, {
+      modules: [imageModule],
+    });
+
+    doc.render(manualData);
+    // Then, prepare data for link replacement
+      // We need to transform our data to match the expected format for replaceLinks
+      // const linkReplacementData = {
+      //   linkObj: manualData.linkObj,
+      //   issues: reportData.issues.map(issue => ({
+      //     ...issue,
+      //     pages: issue.pages.map(page => ({
+      //       ...page,
+      //       link: page.linkObj // Use the linkObj we set above
+      //     }))
+      //   }))
+      // };
+
+      // Now replace {link} placeholders with actual hyperlinks
+      // replaceLinks(doc, linkReplacementData);
+
+    const buffer = doc.getZip().generate({ type: "nodebuffer" });
+
+    return {
+      filename: `manual-accessibility-report-${txn_id}.docx`,
       buffer,
     };
   } catch (err) {
