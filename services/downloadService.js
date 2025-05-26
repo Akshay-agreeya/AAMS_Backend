@@ -177,7 +177,7 @@ exports.generateManualAccessibilityReport = async (txn_id) => {
     // Then, prepare data for link replacement
       // We need to transform our data to match the expected format for replaceLinks
       const linkReplacementData = {
-        linkObj: manualData.linkObjs
+        linkObj: manualData.linkObj,
       };
 
       // Now replace {link} placeholders with actual hyperlinks

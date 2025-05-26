@@ -140,7 +140,6 @@ exports.replaceLinks= (doc, data)=> {
       const linkProductPattern = new RegExp(`\\\{link_product_name}`, 'g');
       if (docXml.match(linkProductPattern)) {
         docXml = docXml.replace(linkProductPattern, productlinkXml);
-        console.log(linkProductPattern);
 
         if (relsXml.includes('</Relationships>')) {
             relsXml = relsXml.replace('</Relationships>', `${productXml}\n</Relationships>`);
