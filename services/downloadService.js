@@ -176,19 +176,12 @@ exports.generateManualAccessibilityReport = async (txn_id) => {
     doc.render(manualData);
     // Then, prepare data for link replacement
       // We need to transform our data to match the expected format for replaceLinks
-      // const linkReplacementData = {
-      //   linkObj: manualData.linkObj,
-      //   issues: reportData.issues.map(issue => ({
-      //     ...issue,
-      //     pages: issue.pages.map(page => ({
-      //       ...page,
-      //       link: page.linkObj // Use the linkObj we set above
-      //     }))
-      //   }))
-      // };
+      const linkReplacementData = {
+        linkObj: manualData.linkObj,
+      };
 
       // Now replace {link} placeholders with actual hyperlinks
-      // replaceLinks(doc, linkReplacementData);
+      replaceLinks(doc, linkReplacementData);
 
     const buffer = doc.getZip().generate({ type: "nodebuffer" });
 
