@@ -8,7 +8,7 @@ const { SuccessReturnHandler } = require('../middlewares/responseHandler');
 const { STATUS_CODES } = require('../utils/errorCodes');
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const {verifyJwt} = require('../middlewares/auth');
-const { generateAccessibilityReportController } = require('../controllers/downloadController');
+const { generateAccessibilityReportController, generateManualAccessibilityReportController } = require('../controllers/downloadController');
 
 
 // Configure multer with better file validation
@@ -149,5 +149,6 @@ res.status(STATUS_CODES.SUCCESS).json(successResponse);
 });
  
 router.get('/download-docx/:assessment_id', generateAccessibilityReportController)
+router.get('/download-manual-docx/:txn_id', generateManualAccessibilityReportController)
 
 module.exports = router;

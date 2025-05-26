@@ -115,9 +115,11 @@ exports.getManualReportService = async (txn_id) => {
       if(!result.recordset.length){
           throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
         }
-        const rawJson = result.recordset[0]["JSON_F52E2B61-18A1-11d1-B105-00805F49916B"];
+        const rawJson = result.recordset[0]?.contents;
         const parsedJson = JSON.parse(rawJson);
-        return {contents: parsedJson};
+        const info = result.recordset[0]?.info;
+        const reportInfo = JSON.parse(info);
+        return {contents: parsedJson, reportInfo };
   }
   catch(err){
       console.error("Database error:", err);
