@@ -48,7 +48,7 @@ exports.addOrganizationService = async (orgData, created_by) => {
           let field = "org_name";
           const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
           customError.validationErrors = {
-            [field]: `${field.replace(/_/g, ' ')} already exists.`
+            [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
           };
           throw customError;
         }
@@ -128,7 +128,7 @@ try{
     let field = "org_name";
     const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
     customError.validationErrors = {
-      [field]: `${field.replace(/_/g, ' ')} already exists.`
+      [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
     };
     throw customError;
   }

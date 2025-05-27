@@ -54,7 +54,7 @@ exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
             let field = "role_name";
             const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
           customError.validationErrors = {
-            [field]: `${field.replace(/_/g, ' ')}  already exists.`
+            [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
           };
           throw customError;
           }
@@ -109,7 +109,7 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
         let field = "role_name";
             const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
           customError.validationErrors = {
-            [field]: `${field.replace(/_/g, ' ')}  already exists.`
+            [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
           };
           throw customError;
       }
