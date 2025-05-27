@@ -51,17 +51,25 @@ exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
           .execute("AddRoleWithDetails");
 
           if (result.recordset[0].ErrorMessage) {
-            throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.CONFLICT);
+            let field = "role_name";
+            const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+          customError.validationErrors = {
+            [field]: `${field.replace(/_/g, ' ')}  already exists.`
+          };
+          throw customError;
           }
           return result.recordset;
         }
         catch(err){
         console.error('Error in addRoleAndDetailsService:', err);
-  
+
+        if (err instanceof AppError) {
+          throw err;
+        }
         if(err.code === 'EREQUEST' || err.code === 'EPARAM'){
           throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
         }
-        throw new AppError(err.message, err.status);
+        throw new AppError(err.message, STATUS_CODES.INTERNAL_SERVER_ERROR);
   
         }
   };
@@ -98,12 +106,19 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
       }
 
       if (result.recordset[0].ErrorState === 2) {
-        throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.CONFLICT);
+        let field = "role_name";
+            const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+          customError.validationErrors = {
+            [field]: `${field.replace(/_/g, ' ')}  already exists.`
+          };
+          throw customError;
       }
       return result.recordset;
     }catch(err){
         console.error('Error in updateRoleAndDetailsService:', err);
-
+        if (err instanceof AppError) {
+          throw err;
+        }
         if(err.code === 'EREQUEST' || err.code === 'EPARAM'){
           throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
         }

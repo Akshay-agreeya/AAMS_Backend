@@ -36,6 +36,14 @@ exports.addRoleAndDetailsController = async(req,res,next)=>{
      res.status(STATUS_CODES.CREATED).json(response)
     }
     catch(err){
+      console.log("Error",err,"Error");
+      console.log("RoleError",err.AppError,"RoleError");
+      if (err.validationErrors) {
+        return res.status(STATUS_CODES.BAD_REQUEST).json({
+          success: false,
+          errors: err.validationErrors,
+        });
+      } 
       next(err);
     }
   }
@@ -55,6 +63,12 @@ exports.updateRoleAndDetailsController = async(req,res,next) =>{
   res.status(STATUS_CODES.SUCCESS).json(response);
   
     }catch(err){
+      if (err.validationErrors) {
+      return res.status(STATUS_CODES.BAD_REQUEST).json({
+        success: false,
+        errors: err.validationErrors,
+      });
+    }
      next(err);
     }
   }
