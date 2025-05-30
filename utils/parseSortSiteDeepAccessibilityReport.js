@@ -139,7 +139,13 @@ function parseDeepAccessibilityReport(html) {
     // Properly print the array of objects, including nested objects
    
     //  console.log(JSON.stringify(dataArray, null, 2)); // Convert to readable JSON format with indentation
-    return dataArray;
+    return [
+        {
+            header: "Deep Accessibility Report",
+            data: dataArray,
+            reportType: "Deep"
+        }
+    ];
 }
 
 module.exports = parseDeepAccessibilityReport;
