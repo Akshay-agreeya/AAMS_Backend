@@ -21,16 +21,26 @@ function parseDeepAccessibilityReport(html) {
         $mainTbody.find('tr[id]').each(function () {
             const cells = $(this).find('td');
 
-            if (cells.length > 0) {
-                const levelImg = cells.eq(0).find('button + img[src^="Report"][class="absmiddle"]');
-                const level = levelImg.length > 0 ? levelImg.attr('alt') : 'Not Available';
-
+            if (cells.length >= 0) {
+                //const levelImg = cells.eq(0).find('button + img[src^="vres"][class="absmiddle"]');
+                //const levelImg = cells.eq(0).find('img[src^="vres"][class="absmiddle"]');
+                //const levelImg = cells.eq(0).find('img[src^="https://try.powermapper.com/vres/"][class="absmiddle"]');
+                //const level = levelImg.length > 0 ? levelImg.attr('alt') : 'Not Available';
+                const levelImg = cells.eq(0).find('img[class="absmiddle"]');
+                // Filter images based on the src and non-empty alt attribute
+                const dynamicImg = levelImg.filter((index, img) => {
+                    const src = $(img).attr('src');
+                    const alt = $(img).attr('alt');
+                    return src && src.startsWith("https://try.powermapper.com/vres/") && alt !== "";
+                });
+                const level = dynamicImg.length > 0 ? dynamicImg.attr('alt') : 'Not Available';
+                
                 let modifiedLevel;
                 if (level === 'Critical') {
                     modifiedLevel = 'A';
                 } else if (level === 'Very Important') {
                     modifiedLevel = 'AA';
-                } else if (level === 'Less Important') {
+                } else if (level === 'Important') {
                     modifiedLevel = 'AAA';
                 } else {
                     modifiedLevel = level;

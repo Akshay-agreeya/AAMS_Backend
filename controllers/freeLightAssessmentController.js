@@ -74,7 +74,8 @@ exports.freeLightAssementController = async (service_id, org_id, url) => {
         }
 
         try {
-            console.log(`parsed data  `,parsedSummaryData,parsedDeepAccessibilityData);
+            console.log(`Summary parsed data  `,JSON.stringify(parsedSummaryData));
+             console.log(`************************  Deep accesibility parsed data \n *******************  `,JSON.stringify(parsedDeepAccessibilityData));
             const pool = await getConnectionPool();
             const result = await pool.request()
                 .input('ServiceID', sql.Int, service_id)
