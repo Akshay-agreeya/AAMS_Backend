@@ -7,8 +7,11 @@ const { extractFiles } = require('../utils/extractFiles');
 const { SuccessReturnHandler } = require('../middlewares/responseHandler');
 const { STATUS_CODES } = require('../utils/errorCodes');
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
-const {verifyJwt} = require('../middlewares/auth');
+const { verifyJwt } = require('../middlewares/auth');
 const { generateAccessibilityReportController, generateManualAccessibilityReportController, generateDeepAccessibilityReportController } = require('../controllers/downloadController');
+const { freeLiteAssessmentUrlSchema } = require('../utils/validationSchema');
+const { validateInputs } = require('../middlewares/validation');
+const { freeLightAssementController } = require('../controllers/freeLightAssessmentController');
 
 
 // Configure multer with better file validation
@@ -62,7 +65,7 @@ function isValidZipFile(filePath) {
 // Create router
 const router = express.Router();
 
-router.post('/upload', verifyJwt, upload.single('zipfile'), async(req, res) => {
+router.post('/upload', verifyJwt, upload.single('zipfile'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({
       status: 'error',
@@ -71,7 +74,7 @@ router.post('/upload', verifyJwt, upload.single('zipfile'), async(req, res) => {
   }
 
   const zipPath = req.file.path;
-  const {service_id, org_id }= req.body
+  const { service_id, org_id } = req.body
   const extractFolder = `extracted`;
   const extractPath = path.join(__dirname, '..', 'uploads', extractFolder);
 
@@ -114,12 +117,12 @@ router.post('/upload', verifyJwt, upload.single('zipfile'), async(req, res) => {
     fs.unlinkSync(zipPath);
 
 
-const result =  await extractFiles(service_id, org_id, extractPath + '/', extractPath + '/');
-const successResponse = SuccessReturnHandler({
-  message : SUCCESS_MESSAGES.EXTRACT_REPORT_SUCCESS,
-  resp: result,
-});
-res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    const result = await extractFiles(service_id, org_id, extractPath + '/', extractPath + '/');
+    const successResponse = SuccessReturnHandler({
+      message: SUCCESS_MESSAGES.EXTRACT_REPORT_SUCCESS,
+      resp: result,
+    });
+    res.status(STATUS_CODES.SUCCESS).json(successResponse);
   } catch (err) {
     console.error('Unexpected error:', err);
     res.status(500).json({
@@ -147,7 +150,29 @@ res.status(STATUS_CODES.SUCCESS).json(successResponse);
     }
   }
 });
- 
+
+
+router.post('/free-lite-assessment', verifyJwt, validateInputs(freeLiteAssessmentUrlSchema), async (req, res) => {
+console.log("entry in lite assessment");
+  const { service_id, org_id,freeLiteAssessmentUrl } = req.body
+
+  try {
+    const result = await freeLightAssementController(service_id, org_id,freeLiteAssessmentUrl);
+    const successResponse = SuccessReturnHandler({
+      message: SUCCESS_MESSAGES.EXTRACT_REPORT_SUCCESS,
+      resp: result,
+    });
+    res.status(STATUS_CODES.SUCCESS).json(successResponse);
+  } catch (err) {
+    console.error('Unexpected error:', err);
+    res.status(500).json({
+      status: 'error',
+      message: 'Error processing upload',
+      details: err.message
+    });
+  }
+});
+
 router.get('/download-docx/:assessment_id', generateAccessibilityReportController);
 router.get('/download-manual-docx/:txn_id', generateManualAccessibilityReportController);
 router.get('/download-deep-docx', generateDeepAccessibilityReportController);

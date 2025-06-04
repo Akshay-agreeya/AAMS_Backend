@@ -138,6 +138,9 @@ const addCategoryDetailsSchema = {
 const manualAssessmentSchema={
   assessmentData:{required: true}
 }
+const freeLiteAssessmentUrlSchema={
+  freeLiteAssessmentUrl:{required: true}
+}
   module.exports = {
     userLoginAndFPSchema,
     changePasswordSchema,
@@ -148,5 +151,6 @@ const manualAssessmentSchema={
     productSchema,
     productPermissionSchema,
     addCategoryDetailsSchema,
-    manualAssessmentSchema
+    manualAssessmentSchema,
+    freeLiteAssessmentUrlSchema
   }
