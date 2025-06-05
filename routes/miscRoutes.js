@@ -152,27 +152,7 @@ router.post('/upload', verifyJwt, upload.single('zipfile'), async (req, res) => 
 });
 
 
-router.post('/free-lite-assessment', verifyJwt, validateInputs(freeLiteAssessmentUrlSchema), async (req, res) => {
-console.log("entry in lite assessment");
-  const { service_id, org_id,freeLiteAssessmentUrl } = req.body
-
-  try {
-    const result = await freeLightAssementController(service_id, org_id,freeLiteAssessmentUrl);
-    const successResponse = SuccessReturnHandler({
-      message: SUCCESS_MESSAGES.EXTRACT_REPORT_SUCCESS,
-      resp: result,
-    });
-    res.status(STATUS_CODES.SUCCESS).json(successResponse);
-  } catch (err) {
-    console.error('Unexpected error:', err);
-    res.status(500).json({
-      status: 'error',
-      message: 'Error processing upload',
-      details: err.message
-    });
-  }
-});
-
+router.post('/free-lite-assessment', verifyJwt, validateInputs(freeLiteAssessmentUrlSchema), freeLightAssementController);
 router.get('/download-docx/:assessment_id', generateAccessibilityReportController);
 router.get('/download-manual-docx/:txn_id', generateManualAccessibilityReportController);
 router.get('/download-deep-docx', generateDeepAccessibilityReportController);
