@@ -153,6 +153,7 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
                 const deepHTML = await deepFrame.content();
 
                 parsedDeepAccessibilityData = parseDeepAccessibilityReport(deepHTML);
+
                 console.log("Deep accessibility report parsed.");
             } else {
                 console.warn("Accessibility link not clickable.");
