@@ -1,161 +1,177 @@
+
 const cheerio = require('cheerio');
 const fs = require('fs');
 const path = require('path');
 
-//const logFilePath = path.join(__dirname, '../log/', 'parseDeepAccessibilityReport.log');
-
-
+const logFilePath = './log/parseDeepAccessibilityReport.log';
 
 /**
- * Parses the accessibility report from an HTML string and returns a JSON array of objects.
- * @param {string} html - The HTML string containing the report.
- * @returns {Array<Object>} - An array of objects representing the summary report data.
+ * Appends a timestamped message to the log file.
+ * @param {string} message
+ */
+function logMessage(message) {
+  const timestamp = new Date().toISOString();
+  const logEntry = `[${timestamp}] ${message}\n`;
+  try {
+    fs.appendFileSync(logFilePath, logEntry);
+  } catch (error) {
+    console.error(`Failed to write to log file: ${error.message}`);
+  }
+}
+
+/**
+ * Parses the expando section for nested table data, remediation, and criteria.
+ * @param {*} $expandoTbody
+ * @returns {{nestedTableData: array, remediation: string|null, criteria: string|null}}
+ */
+function parseDeepAccessibilityExpando($expandoTbody) {
+  const result = [];
+  let currentDetails = [];
+  let remediation = null;
+  let criteria = null;
+
+  try {
+    const rows = $expandoTbody.find('tr').toArray();
+
+    for (let i = 0; i < rows.length; i++) {
+      const $row = cheerio.load(rows[i])('tr');
+
+      if (i === 0) {
+        const tdElements = $row.find('td');
+        if (tdElements.length > 2) {
+          remediation = tdElements.eq(1).text().trim() || null;
+          criteria = tdElements.eq(2).text().trim() || null;
+        }
+        continue;
+      }
+
+      const anchor = $row.find('a');
+      const urlText = anchor.text().trim();
+      const href = anchor.attr('href');
+
+      const codeText = $row.find('code').text().trim();
+      const lineMatch = $row.text().match(/Line\s*(\d+)/i);
+      const lineNumber = lineMatch ? lineMatch[1] : null;
+
+      const isPageURL = urlText.startsWith('http') || (href && href.startsWith('http'));
+
+      if (codeText && lineNumber) {
+        currentDetails.push({
+          Description: codeText,
+          LineNumbers: lineNumber
+        });
+        continue;
+      }
+
+      if (isPageURL && currentDetails.length > 0) {
+        result.push({
+          PageURL: {
+            text: urlText,
+            link: urlText
+          },
+          Details: currentDetails
+        });
+        currentDetails = [];
+      }
+    }
+  } catch (error) {
+    logMessage(`Error parsing expando section: ${error.message}`);
+  }
+
+  return { nestedTableData: result, remediation, criteria };
+}
+
+/**
+ * Parses the full accessibility report HTML into structured data.
+ * @param {string} html
+ * @returns {Array<Object>}
  */
 function parseDeepAccessibilityReport(html) {
+  const dataArray = [];
+
+  try {
     const $ = cheerio.load(html);
-    const dataArray = [];
 
     $('table.issues tbody:not(.expando)').each(function () {
-        const $mainTbody = $(this);
+      const $mainTbody = $(this);
 
-        $mainTbody.find('tr[id]').each(function () {
-            const cells = $(this).find('td');
+      $mainTbody.find('tr[id]').each(function () {
+        try {
+          const cells = $(this).find('td');
+          if (cells.length < 4) return;
 
-            if (cells.length >= 0) {
-                //const levelImg = cells.eq(0).find('button + img[src^="vres"][class="absmiddle"]');
-                //const levelImg = cells.eq(0).find('img[src^="vres"][class="absmiddle"]');
-                //const levelImg = cells.eq(0).find('img[src^="https://try.powermapper.com/vres/"][class="absmiddle"]');
-                //const level = levelImg.length > 0 ? levelImg.attr('alt') : 'Not Available';
-                const levelImg = cells.eq(0).find('img[class="absmiddle"]');
-                // Filter images based on the src and non-empty alt attribute
-                const dynamicImg = levelImg.filter((index, img) => {
-                    const src = $(img).attr('src');
-                    const alt = $(img).attr('alt');
-                    return src && src.startsWith("https://try.powermapper.com/vres/") && alt !== "";
-                });
-                const level = dynamicImg.length > 0 ? dynamicImg.attr('alt') : 'Not Available';
-                
-                let modifiedLevel;
-                if (level === 'Critical') {
-                    modifiedLevel = 'A';
-                } else if (level === 'Very Important') {
-                    modifiedLevel = 'AA';
-                } else if (level === 'Important') {
-                    modifiedLevel = 'AAA';
-                } else {
-                    modifiedLevel = level;
-                }
+          const levelImg = cells.eq(0).find('img.absmiddle');
+          const dynamicImg = levelImg.filter((_, img) => {
+            const src = $(img).attr('src');
+            const alt = $(img).attr('alt');
+            return src?.startsWith("https://try.powermapper.com/vres/") && alt;
+          });
 
-                const issue = cells.eq(1).text().trim();
-                const rulesCell = cells.eq(2);
-                let rules;
+          const level = dynamicImg.length > 0 ? dynamicImg.attr('alt') : 'Not Available';
+          const modifiedLevel =
+            level === 'Critical' ? 'A' :
+            level === 'Very Important' ? 'AA' :
+            level === 'Important' ? 'AAA' :
+            level;
 
-                // Check if there are any anchor tags in the rules cell
-                if (rulesCell.find('a').length > 0) {
-                    // Create a JSON object for rules
-                    const rulesArray = rulesCell.find('a').map(function () {
-                        return {
-                            text: $(this).text().trim(), // Get the text of the link
-                            link: $(this).attr('href'),   // Get the URL from the anchor tag
-                        };
-                    }).get(); // Convert the jQuery object to a regular array
+          const issueDescription = cells.eq(1).text().trim();
 
-                    rules = rulesArray; // Assign the JSON array to rules
-                } else {
-                    // If no anchor tags, keep the existing text
-                    rules = rulesCell.text().trim();
-                }
+          const rulesCell = cells.eq(2);
+          let rules;
+          if (rulesCell.find('a').length > 0) {
+            rules = rulesCell.find('a').map(function () {
+              return {
+                text: $(this).text().trim(),
+                link: $(this).attr('href'),
+              };
+            }).get();
+          } else {
+            rules = rulesCell.text().trim();
+          }
 
-                const pages = cells.eq(3).text().trim();
-                const valueBeforePages = pages.match(/(\d+)\s+pages/) ? pages.match(/(\d+)\s+pages/)[1] : pages;
+          const pages = cells.eq(3).text().trim();
+          const failingPage = pages.match(/(\d+)\s+pages/)?.[1] || pages;
 
-                const rowData = {
-                    Criteria: null,
-                    'Issue Description': issue,
-                    Remediation: null,
-                    Level: modifiedLevel,
-                    'Failing Page': valueBeforePages,
-                    Guideline: rules, // Use the modified rules here
-                };
+          const $expandoTbody = $mainTbody.next('.expando');
+          let nestedTableData = [];
+          let remediation = null;
+          let criteria = null;
 
-                const $expandoTbody = $mainTbody.next('.expando');
-                if ($expandoTbody.length > 0) {
-                    const expandoRows = $expandoTbody.find('tr');
+          if ($expandoTbody.length > 0) {
+            const expandoResult = parseDeepAccessibilityExpando($expandoTbody);
+            nestedTableData = expandoResult.nestedTableData;
+            remediation = expandoResult.remediation;
+            criteria = expandoResult.criteria;
+          }
 
-                    // Initialize an array to store Page URL and Line Numbers pairs
-                    const pageDataArray = [];
+          const rowData = {
+            Criteria: criteria,
+            'Issue Description': issueDescription,
+            Remediation: remediation,
+            Level: modifiedLevel,
+            'Failing Page': failingPage,
+            Guideline: rules,
+            nestedTableData: nestedTableData
+          };
 
-                    expandoRows.each(function () {
-                        const currentTr = $(this);
-                        const anchorTags = currentTr.find('td').eq(1).find('a');
-
-                        // Check if there are any <a> tags in the row
-                        if (anchorTags.length > 0) {
-                            // For each <a> tag, extract its Page URL and Line Numbers
-                            anchorTags.each(function () {
-                                const url = $(this).attr('href');
-                                const text = $(this).text(); // Get the text of the link for display
-
-                                // Get all Line Numbers associated with this page URL from the second <td>
-                                const lineNumbers = currentTr.find('td').eq(2).find('a')
-                                    .map(function () {
-                                        return $(this).attr('data-line');
-                                    })
-                                    .get()
-                                    .join(', ');
-
-                                // Get the text from all <code> tags before the <a> tag
-                                const codeTexts = currentTr.find('td').eq(1).find('code')
-                                    .map(function () {
-                                        return $(this).text().trim(); // Get the text and trim any extra whitespace
-                                    })
-                                    .get()
-                                    .join(', '); // Join all code texts into a single string, separated by commas
-
-                                // Push the URL, Line Numbers, and Description as an object to the array
-                                pageDataArray.push({
-                                    PageURL: {
-                                        text: text, // Add display text for hyperlink
-                                        link: url // Add URL
-                                    },
-                                    Description: codeTexts,
-                                    LineNumbers: lineNumbers
-                                });
-                            });
-                        } else {
-                            // Logic for rows without <a> tags
-                            const firstColumnText = currentTr.find('td').eq(1).text().trim();
-                            const secondColumnText = currentTr.find('td').eq(2).text().trim();
-
-                            if (!rowData.Remediation) {
-                                rowData.Remediation = firstColumnText;
-                            }
-
-                            if (!rowData.Criteria && secondColumnText) {
-                                rowData.Criteria = secondColumnText;
-                            }
-                        }
-                    });
-
-                    // Store the array of Page URL and Line Number objects in the rowData
-                    rowData.nestedTableData = pageDataArray;
-                }
-
-                dataArray.push(rowData);
-            }
-        });
-    });
-
-    // Properly print the array of objects, including nested objects
-   
-    //  console.log(JSON.stringify(dataArray, null, 2)); // Convert to readable JSON format with indentation
-    return [
-        {
-            header: "Deep Accessibility Report",
-            data: dataArray,
-            reportType: "Deep"
+          dataArray.push(rowData);
+        } catch (innerError) {
+          logMessage(`Error parsing row: ${innerError.message}`);
         }
-    ];
+      });
+    });
+  } catch (outerError) {
+    logMessage(`Error parsing accessibility report HTML: ${outerError.message}`);
+  }
+
+  logMessage(`Parsed data: ${JSON.stringify(dataArray, null, 2)}`);
+  return [
+            {
+                header: "Deep Accessibility Report",
+                data: dataArray,
+                reportType: "Deep"
+            }
+        ];
 }
 
 module.exports = parseDeepAccessibilityReport;
