@@ -59,8 +59,12 @@ exports.generateAccessibilityReport = async (assessment_id) => {
             url: pItem.page_url,
             text: pItem.page_url,
           },
-          description: pItem.remediation || "",
-          lines: pItem.line_numbers || "",
+          remediation: pItem.remediation || "",
+          details: pItem?.page_details?.map((pageItem, index)=>({
+            description: pageItem.description,
+            lines: pageItem.line_numbers
+          }))
+          
         })),
       })),
       summary_data: summaryRows.contents || [],
@@ -246,10 +250,13 @@ exports.generateDeepAccessibilityReport = async (assessment_id, txn_id) => {
             url: pItem.page_url,
             text: pItem.page_url,
           },
-          description: pItem.remediation || "",
-          lines: pItem.line_numbers || "",
-        })),
+          remediation: pItem.remediation || "",
+          details: pItem?.page_details?.map((pageItem, index)=>({
+            description: pageItem.description,
+            lines: pageItem.line_numbers
+          }))
       })),
+    })),
       summary_data: summaryRows.contents || [],
       contents: manualReport?.contents.map((content) => ({
         page_url: content.pageUrl || "",
