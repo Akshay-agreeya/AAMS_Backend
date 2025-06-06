@@ -18,7 +18,7 @@ exports.formattedDate = (date, dateFormat = "yyyy-MM-dd") => {
 };
 
 const getProgressColor = (score) => {
-  if (score >= 90) return '#4CAF50'; // green
+  if (score >= 95) return '#4CAF50'; // green
   if (score >= 70) return '#FFC107'; // amber
   return '#F44336'; // red
 };
