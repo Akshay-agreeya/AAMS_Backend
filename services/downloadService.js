@@ -49,7 +49,7 @@ exports.generateAccessibilityReport = async (assessment_id) => {
       issues: categoryRows?.contents.map((issue) => ({
         criteria: issue.criteria || "",
         description: issue.issue_description || "",
-        remediation: issue.remediation || "",
+        // remediation: issue.remediation || "",
         level: issue.level || "A",
         failing_page: issue.failing_page || "",
         guideline: issue.guideline || "",
@@ -70,7 +70,6 @@ exports.generateAccessibilityReport = async (assessment_id) => {
       summary_data: summaryRows.contents || [],
       audit_score: base64,
     };
-
     // Load and populate DOCX template
     const templatePath = path.resolve(
       __dirname,
@@ -240,7 +239,7 @@ exports.generateDeepAccessibilityReport = async (assessment_id, txn_id) => {
       issues: categoryRows?.contents.map((issue) => ({
         criteria: issue.criteria || "",
         description: issue.issue_description || "",
-        remediation: issue.remediation || "",
+        // remediation: issue.remediation || "",
         level: issue.level || "A",
         failing_page: issue.failing_page || "",
         guideline: issue.guideline || "",
