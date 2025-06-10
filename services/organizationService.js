@@ -40,11 +40,7 @@ exports.addOrganizationService = async (orgData, created_by) => {
     } catch (err) {
         console.error("Error in addOrganizationService:", err);
 
-        if (
-          err.code === "EREQUEST" ||
-          err.code === "EPARAM" ||
-          (err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
-        ) {
+        if (err.message && err.message.includes("Violation of UNIQUE KEY constraint")) {
           let field = "org_name";
           const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
           customError.validationErrors = {
@@ -52,6 +48,10 @@ exports.addOrganizationService = async (orgData, created_by) => {
           };
           throw customError;
         }
+        if (
+          err.code === "EREQUEST" ||
+          err.code === "EPARAM" )
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
         throw new AppError(err.message, err.status);
     }
 };
@@ -120,11 +120,8 @@ try{
 }catch (err) {
   console.error("Error in editOrgService:", err);
 
-  if (
-    err.code === "EREQUEST" ||
-    err.code === "EPARAM" ||
-    (err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
-  ) {
+  if(err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
+   {
     let field = "org_name";
     const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
     customError.validationErrors = {
@@ -132,6 +129,13 @@ try{
     };
     throw customError;
   }
+
+  if (
+    err.code === "EREQUEST" ||
+    err.code === "EPARAM"){
+      throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)
+    }
+    
   
   throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
 }
