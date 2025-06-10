@@ -45,12 +45,8 @@ exports.addProductService = async (org_id, serviceData, created_by) => {
   } catch (err) {
       console.error("Error in addProductService:", err);
 
-     
-      if (
-          err.code === "EREQUEST" ||
-          err.code === "EPARAM" ||
-          (err.message && err.message.includes("Web URL") && err.message.includes("UNIQUE"))
-      ) {
+      if(err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
+          {
           const field = "web_url";
           const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
           customError.validationErrors = {
@@ -58,6 +54,10 @@ exports.addProductService = async (org_id, serviceData, created_by) => {
           };
           throw customError;
       }
+      if (
+          err.code === "EREQUEST" ||
+          err.code === "EPARAM")
+          {throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)}
 
       throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
   }
@@ -94,18 +94,19 @@ exports.updateProductService = async (service_id, updatedData, modified_by) => {
     } catch (err) {
         console.error("Error in updateProductService:", err);
 
-        if (
-            err.code === "EREQUEST" ||
-            err.code === "EPARAM" ||
-            (err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
-          ) {
-            let field = "Web_Url";
-            const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
-            customError.validationErrors = {
-              [field]: `${field.replace(/_/g, ' ')} already exists.`
-            };
-            throw customError;
-          }
+        if(err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
+        {
+        const field = "web_url";
+        const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+        customError.validationErrors = {
+            [field]: `${field.replace(/_/g, ' ')} already exists.`
+        };
+        throw customError;
+    }
+    if (
+        err.code === "EREQUEST" ||
+        err.code === "EPARAM")
+        {throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)}
           
         throw new AppError(err.message, err.status);
     }
