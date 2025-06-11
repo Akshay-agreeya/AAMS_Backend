@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const parseSummaryReport = require('../utils/parseSortSiteSummaryReport'); // Assuming function is exported
 const parseDeepAccessibilityReport = require('../utils/parseSortSiteDeepAccessibilityReport');
+const parseDeepUsabilityReport = require('../utils/parseSortSiteDeepUsabilityReport')
 const { getConnectionPool, sql } = require('../config/db');
 
 
@@ -54,6 +55,7 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
 
         const $ = cheerio.load(summaryHTML);
         const accLinkHref = $('a[href="map.ACC.htm"]').attr('href');
+        const useLinkHref = $('a[href="map.USE.htm"]').attr('href');
 
         let parsedDeepAccessibilityData = [];
         if (accLinkHref) {
@@ -77,6 +79,35 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
             console.warn("Accessibility link not found in summary.");
         }
 
+        const backToSummary = await summaryFrame.$('a[href="map.htm"]');
+        if (backToSummary) {
+          await backToSummary.click();
+          console.log('Navigated back to Summary.');
+          await new Promise(r => setTimeout(r, 10000));
+        } else {
+          console.warn('Summary link (map.htm) not found in iframe.');
+        }
+        let parsedDeepUsabilityData = [];
+        if (useLinkHref) {
+          const useLink = await summaryFrame.$(`a[href="${useLinkHref}"]`);
+          if (useLink) {
+            await useLink.click();
+            console.log(`Navigated to deep usability report: ${useLinkHref}`);
+            await new Promise(r => setTimeout(r, 10000));
+    
+            const deepUsabilityFrameHandle = await page.$('iframe.embedFrame');
+            const deepUsabilityFrame = await deepUsabilityFrameHandle.contentFrame();
+            const deepUsabilityHTML = await deepUsabilityFrame.content();
+    
+            parsedDeepUsabilityData = parseDeepUsabilityReport(deepUsabilityHTML);
+            console.log("Deep usability report parsed.");
+          } else {
+            console.warn("Usability link not clickable.");
+          }
+        } else {
+          console.warn("Usability link not found in summary.");
+        }
+
         try {
             // console.log(`parsed data  `,parsedSummaryData,parsedDeepAccessibilityData);
             const pool = await getConnectionPool();
@@ -85,6 +116,7 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
                 .input('OrgID', sql.UniqueIdentifier, org_id)
                 .input('parsedSummaryData', sql.NVarChar(sql.MAX), JSON.stringify(parsedSummaryData))
                 .input('parsedDeepAccessibileData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepAccessibilityData).replace(/\n/g, '\\n'))
+                .input('parsedDeepUsabilityData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepUsabilityData))
                 .execute('InsertFullAccessibilityDataReport');
 
             return result;
