@@ -14,6 +14,9 @@ exports.generateAccessibilityReport = async (assessment_id) => {
     // Fetch data from services
     const summaryRows = await getSummaryDetailReportService(assessment_id);
     const categoryRows = await getCategoryDataService(assessment_id);
+    const accessibilityOnly = categoryRows.contents.filter(
+      item => item.category_report_name === "Accessibility"
+    );
 
     if (!summaryRows || !categoryRows) {
       throw new AppError("Report data not found", 404);
@@ -46,10 +49,10 @@ exports.generateAccessibilityReport = async (assessment_id) => {
       level: categoryRows.accessibilityInfo?.level || "WCAG 2.1 AA",
       start_date: formattedDate(new Date(categoryRows.accessibilityInfo.assessment_timestamp), "MM-dd-yyyy") || "",
       end_date: formattedDate(new Date(categoryRows.accessibilityInfo.assessment_timestamp), "MM-dd-yyyy") || "",
-      issues: categoryRows?.contents.map((issue) => ({
+      issues: accessibilityOnly.map((issue) => ({
         criteria: issue.criteria || "",
         description: issue.issue_description || "",
-        // remediation: issue.remediation || "",
+        remediation: issue.category_details?.[0]?.remediation,
         level: issue.level || "A",
         failing_page: issue.failing_page || "",
         guideline: issue.guideline || "",
@@ -59,7 +62,7 @@ exports.generateAccessibilityReport = async (assessment_id) => {
             url: pItem.page_url,
             text: pItem.page_url,
           },
-          remediation: pItem.remediation || "",
+          // remediation: pItem.remediation || "",
           details: pItem?.page_details?.map((pageItem, index)=>({
             description: pageItem.description,
             lines: pageItem.line_numbers
@@ -208,6 +211,9 @@ exports.generateDeepAccessibilityReport = async (assessment_id, txn_id) => {
     if (!summaryRows || !categoryRows || !manualReport) {
       throw new AppError("Report data not found", 404);
     }
+    const accessibilityOnly = categoryRows.contents.filter(
+      item => item.category_report_name === "Accessibility"
+    );
 
     const auditScore = summaryRows.accessibility_score || 0;
     const text =
@@ -236,10 +242,10 @@ exports.generateDeepAccessibilityReport = async (assessment_id, txn_id) => {
       level: categoryRows.accessibilityInfo?.level || "WCAG 2.1 AA",
       start_date: formattedDate(new Date(categoryRows.accessibilityInfo.assessment_timestamp), "MM-dd-yyyy") || "",
       end_date: formattedDate(new Date(manualReport.reportInfo.end_date), "MM-dd-yyyy") || "",
-      issues: categoryRows?.contents.map((issue) => ({
+      issues: accessibilityOnly.map((issue) => ({
         criteria: issue.criteria || "",
         description: issue.issue_description || "",
-        // remediation: issue.remediation || "",
+        remediation: issue.category_details?.[0]?.remediation,
         level: issue.level || "A",
         failing_page: issue.failing_page || "",
         guideline: issue.guideline || "",
