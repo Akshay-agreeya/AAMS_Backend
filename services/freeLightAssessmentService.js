@@ -97,6 +97,7 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
         const accLinkHref = $('a[href="map.ACC.htm"]').attr('href');
         const useLinkHref = $('a[href="map.USE.htm"]').attr('href');
         const seoLinkHref = $('a[href="map.SEO.htm"]').attr('href');
+        const standardLinkHref = $('a[href="map.W3C.htm"]').attr('href');
 
         const parsedDeepAccessibilityData = parsedSummaryData[0].data.some(item =>
             item.Category === "Accessibility" && item.Pages.trim().startsWith("0 pages")
@@ -165,13 +166,13 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
                     reportType: "Deep"
                 }
             ]
-            :await navigateToReportAndBack(
-            summaryFrame,
-            page,
-            standardLinkHref,
-            parseDeepStandardReport,
-            "Standard"
-        );
+            : await navigateToReportAndBack(
+                summaryFrame,
+                page,
+                standardLinkHref,
+                parseDeepStandardReport,
+                "Standard"
+            );
 
 
 
