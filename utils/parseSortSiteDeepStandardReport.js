@@ -169,8 +169,14 @@ function parseDeepStandardReport(html) {
   }
 
   logMessage(`Parsed data: ${JSON.stringify(dataArray, null, 2)}`);
-  console.log(JSON.stringify(dataArray, null, 2));
-  return dataArray;
+  // console.log(JSON.stringify(dataArray, null, 2));
+  return [
+    {
+        header: "Deep Standards Report",
+        data: dataArray,
+        reportType: "Deep"
+    }
+];
 }
 
 module.exports = parseDeepStandardReport;

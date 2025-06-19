@@ -157,24 +157,22 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
 
 
         const parsedDeepStandardData = parsedSummaryData[0].data.some(item =>
-            item.Category === "Standard" && item.Pages.trim().startsWith("0 pages")
+            item.Category === "Standards" && item.Pages.trim().startsWith("0 pages")
         )
             ? [
                 {
-                    header: "Deep Standard Report",
+                    header: "Deep Standards Report",
                     data: [],
                     reportType: "Deep"
                 }
             ]
-            : await navigateToReportAndBack(
-                summaryFrame,
-                page,
-                standardLinkHref,
-                parseDeepStandardReport,
-                "Standard"
-            );
-
-
+            :await navigateToReportAndBack(
+            summaryFrame,
+            page,
+            standardLinkHref,
+            parseDeepStandardReport,
+            "Standards"
+        );
 
         try {
             const pool = await getConnectionPool();
