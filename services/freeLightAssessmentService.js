@@ -5,6 +5,7 @@ const parseDeepAccessibilityReport = require('../utils/parseSortSiteDeepAccessib
 const parseDeepUsabilityReport = require('../utils/parseSortSiteDeepUsabilityReport')
 const { getConnectionPool, sql } = require('../config/db');
 const parseDeepSEOReport = require('../utils/parseSortSiteDeepSearchUsabilityReport');
+const parseDeepStandardReport = require('../utils/parseSortSiteDeepStandardReport');
 
 
 async function waitForIframe(page, selector, maxWaitMs = 6 * 60 * 60 * 1000, checkInterval = 15000) {
@@ -120,6 +121,15 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
             "SEO"
         );
 
+        const parsedDeepStandardData = await navigateToReportAndBack(
+            summaryFrame,
+            page,
+            standardLinkHref,
+            parseDeepStandardReport,
+            "Standard"
+        );
+
+
 
         try {
             // console.log(`parsed data  `,parsedSummaryData,parsedDeepAccessibilityData);
@@ -131,6 +141,7 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
                 .input('parsedDeepAccessibileData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepAccessibilityData).replace(/\n/g, '\\n'))
                 .input('parsedDeepUsabilityData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepUsabilityData))
                 .input('parsedDeepSEOData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepSEOData))
+                .input('parsedDeepStandardData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepStandardData))
                 .execute('InsertFullAccessibilityDataReport');
 
             return result;
