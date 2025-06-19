@@ -170,7 +170,6 @@ function parseDeepSEOReport(html) {
     }
 
     logMessage(`Parsed data: ${JSON.stringify(dataArray, null, 2)}`);
-    console.log(JSON.stringify(dataArray, null, 2));
     return [
         {
             header: "Deep Seo Report",
