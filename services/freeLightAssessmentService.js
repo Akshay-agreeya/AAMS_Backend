@@ -88,6 +88,7 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
         const summaryFrame = await waitForIframe(page, 'iframe.embedFrame');
         const summaryHTML = await summaryFrame.content();
         const parsedSummaryData = parseSummaryReport(summaryHTML);
+        console.log(parsedSummaryData);
         console.log("Summary report parsed.");
 
 
@@ -96,7 +97,18 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
         const useLinkHref = $('a[href="map.USE.htm"]').attr('href');
         const seoLinkHref = $('a[href="map.SEO.htm"]').attr('href');
 
-        const parsedDeepAccessibilityData = await navigateToReportAndBack(
+        const parsedDeepAccessibilityData = parsedSummaryData[0].data.some(item =>
+            item.Category === "Accessibility" && item.Pages.trim().startsWith("0 pages")
+          )
+            ? [
+                {
+                    header: "Deep Accessibility Report",
+                    data: [],
+                    reportType: "Deep"
+                }
+            ]
+            :
+           await navigateToReportAndBack(
             summaryFrame,
             page,
             accLinkHref,
@@ -104,7 +116,17 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
             "Accessibility"
         );
 
-        const parsedDeepUsabilityData = await navigateToReportAndBack(
+        const parsedDeepUsabilityData = parsedSummaryData[0].data.some(item =>
+            item.Category === "Usability" && item.Pages.trim().startsWith("0 pages")
+          )
+            ? [
+                {
+                    header: "Deep Usability Report",
+                    data: [],
+                    reportType: "Deep"
+                }
+            ]
+            : await navigateToReportAndBack(
             summaryFrame,
             page,
             useLinkHref,
@@ -112,17 +134,25 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
             "Usability"
         );
 
-        const parsedDeepSEOData = await navigateToReportAndBack(
-            summaryFrame,
-            page,
-            seoLinkHref,
-            parseDeepSEOReport,
-            "SEO"
-        );
-
-
+        const parsedDeepSEOData = parsedSummaryData[0].data.some(item =>
+            item.Category === "Search" && item.Pages.trim().startsWith("0 pages")
+          )
+            ? [
+                {
+                    header: "Deep Seo Report",
+                    data: [],
+                    reportType: "Deep"
+                }
+            ]
+            : await navigateToReportAndBack(
+                summaryFrame,
+                page,
+                seoLinkHref,
+                parseDeepSEOReport,
+                "SEO"
+              );
+          
         try {
-            // console.log(`parsed data  `,parsedSummaryData,parsedDeepAccessibilityData);
             const pool = await getConnectionPool();
             const result = await pool.request()
                 .input('ServiceID', sql.Int, service_id)
