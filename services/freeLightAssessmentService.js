@@ -6,7 +6,8 @@ const parseDeepUsabilityReport = require('../utils/parseSortSiteDeepUsabilityRep
 const { getConnectionPool, sql } = require('../config/db');
 const parseDeepSEOReport = require('../utils/parseSortSiteDeepSearchUsabilityReport');
 const parseDeepStandardReport = require('../utils/parseSortSiteDeepStandardReport');
-
+const parseDeepCompatibilityReport = require('../utils/parseSortSiteDeepCompatibilityReport');
+const parseDeepErrorReport = require('../utils/parseSortSiteDeepErrorReport');
 
 async function waitForIframe(page, selector, maxWaitMs = 6 * 60 * 60 * 1000, checkInterval = 15000) {
     const start = Date.now();
@@ -98,6 +99,8 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
         const useLinkHref = $('a[href="map.USE.htm"]').attr('href');
         const seoLinkHref = $('a[href="map.SEO.htm"]').attr('href');
         const standardLinkHref = $('a[href="map.W3C.htm"]').attr('href');
+        const compatibilityLinkHref = $('a[href="map.BUG.htm"]').attr('href');
+        const errorLinkHref = $('a[href="map.ERR.htm"]').attr('href');
 
         const parsedDeepAccessibilityData = parsedSummaryData[0].data.some(item =>
             item.Category === "Accessibility" && item.Pages.trim().startsWith("0 pages")
@@ -174,6 +177,42 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
             "Standards"
         );
 
+        const parsedDeepCompatibilityData = parsedSummaryData[0].data.some(item =>
+            item.Category === "Compatibility" && item.Pages.trim().startsWith("0 pages")
+        )
+            ? [
+                {
+                    header: "Deep Compatibility Report",
+                    data: [],
+                    reportType: "Deep"
+                }
+            ]
+            :await navigateToReportAndBack(
+            summaryFrame,
+            page,
+            compatibilityLinkHref,
+            parseDeepCompatibilityReport,
+            "Compatibility"
+        );
+
+        const parsedDeepErrorData = parsedSummaryData[0].data.some(item =>
+            item.Category === "Errors" && item.Pages.trim().startsWith("0 pages")
+        )
+            ? [
+                {
+                    header: "Deep Errors Report",
+                    data: [],
+                    reportType: "Deep"
+                }
+            ]
+            :await navigateToReportAndBack(
+            summaryFrame,
+            page,
+            errorLinkHref,
+            parseDeepErrorReport,
+            "Errors"
+        );
+
         try {
             const pool = await getConnectionPool();
             const result = await pool.request()
@@ -184,6 +223,8 @@ exports.freeLightAssementService = async (service_id, org_id, url) => {
                 .input('parsedDeepUsabilityData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepUsabilityData))
                 .input('parsedDeepSEOData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepSEOData))
                 .input('parsedDeepStandardData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepStandardData))
+                .input('parsedDeepCompatibilityData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepCompatibilityData))
+                .input('parsedDeepErrorData', sql.NVarChar(sql.MAX), JSON.stringify(parsedDeepErrorData))
                 .execute('InsertFullAccessibilityDataReport');
 
             return result;
