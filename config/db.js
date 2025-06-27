@@ -11,7 +11,8 @@ const dbConfig = {
     port: parseInt(process.env.DB_PORT, 10) || 1433,
     options: {
         encrypt: process.env.NODE_ENV === 'production', // Use SSL in production
-        trustServerCertificate: true
+        trustServerCertificate: true,
+        enableArithAbort: true
         // trustServerCertificate: process.env.NODE_ENV !== 'production', // Allow self-signed certs in dev
     },
 };
