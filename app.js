@@ -60,7 +60,8 @@ const startServer = async () => {
   try {
     await getConnectionPool();
     console.log("Database connected successfully.");
-
+    // ⏰ Start scheduler (runs silently if no job is due)
+    require('./scheduler/scheduler'); // <- ✅ This triggers the cron job
     app.listen(PORT, () => {
       console.log(
         `Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`

@@ -76,7 +76,7 @@ exports.generateAccessibilityReport = async (assessment_id) => {
     // Load and populate DOCX template
     const templatePath = path.resolve(
       __dirname,
-      "../templates/templatedocx2.docx"
+      "../templates/liteAssessment_template.docx"
     );
     const content = fs.readFileSync(templatePath, "binary");
     const zip = new PizZip(content);
