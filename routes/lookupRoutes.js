@@ -1,5 +1,5 @@
 const express = require('express');
-const { getOrgTypeController, getIndustryTypeController, getOperationTypeController, getPermissionsController, getGuidelineVersionController, getComplianceLevelController, getFrequencyController, getScanDaysController, getUserStatusController, getProdPermissionsController, getManualStatusController, getPlatformController, getAppTypeController } = require('../controllers/lookupController');
+const { getOrgTypeController, getIndustryTypeController, getOperationTypeController, getPermissionsController, getGuidelineVersionController, getComplianceLevelController, getFrequencyController, getScanDaysController, getUserStatusController, getProdPermissionsController, getManualStatusController, getPlatformController, getAppTypeController, getLanguageController } = require('../controllers/lookupController');
 
 const router = express.Router();
 
@@ -204,4 +204,5 @@ router.get('/scan-days', getScanDaysController);
 router.get('/manual-status', getManualStatusController);
 router.get('/platform', getPlatformController);
 router.get('/app-type', getAppTypeController);
+router.get('/languages', getLanguageController)
 module.exports = router;
