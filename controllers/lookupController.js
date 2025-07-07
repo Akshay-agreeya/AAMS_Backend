@@ -11,7 +11,9 @@ const { getOrganizationTypeService,
           getFrequencyService,
           getScanDaysService,
           getUserStatusService,
-          getManualStatusService
+          getManualStatusService,
+          getPlatformService,
+          getAppTypeService
         } = require("../services/lookupService");
 
 exports.getOrgTypeController = 
@@ -178,6 +180,36 @@ exports.getScanDaysController =
                next(err)
            }
        };
+
+       exports.getPlatformController = 
+       async (req, res, next) => {
+              try {
+                  const manual_status = await getPlatformService();
+                  const successResponse = SuccessReturnHandler({
+                      message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                      resp:  manual_status,
+                  });
+                  return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+                 
+              } catch (err) {
+                  next(err)
+              }
+          };
+
+          exports.getAppTypeController = 
+          async (req, res, next) => {
+                 try {
+                     const manual_status = await getAppTypeService();
+                     const successResponse = SuccessReturnHandler({
+                         message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                         resp:  manual_status,
+                     });
+                     return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+                    
+                 } catch (err) {
+                     next(err)
+                 }
+             };
 
    
 
