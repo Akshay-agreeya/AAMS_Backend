@@ -190,3 +190,37 @@ exports.getManualStatusService = async () => {
 
   }
 };
+
+exports.getPlatformService = async () => {
+  try {
+    const pool = await getConnectionPool();
+    const status = await pool.request()
+      .query("SELECT * from Platform");
+
+    if (!status.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return {contents: status.recordset};
+  } catch (err) {
+    console.error(err);
+    throw new AppError(er.message, err.status);
+
+  }
+}
+
+exports.getAppTypeService = async () => {
+  try {
+    const pool = await getConnectionPool();
+    const status = await pool.request()
+      .query("SELECT * from App_type");
+
+    if (!status.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return {contents: status.recordset};
+  } catch (err) {
+    console.error(err);
+    throw new AppError(er.message, err.status);
+
+  }
+}
