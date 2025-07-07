@@ -13,7 +13,8 @@ const { getOrganizationTypeService,
           getUserStatusService,
           getManualStatusService,
           getPlatformService,
-          getAppTypeService
+          getAppTypeService,
+          getLanguageService
         } = require("../services/lookupService");
 
 exports.getOrgTypeController = 
@@ -184,10 +185,10 @@ exports.getScanDaysController =
        exports.getPlatformController = 
        async (req, res, next) => {
               try {
-                  const manual_status = await getPlatformService();
+                  const platform = await getPlatformService();
                   const successResponse = SuccessReturnHandler({
                       message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                      resp:  manual_status,
+                      resp:  platform,
                   });
                   return res.status(STATUS_CODES.SUCCESS).json(successResponse);
                  
@@ -199,10 +200,10 @@ exports.getScanDaysController =
           exports.getAppTypeController = 
           async (req, res, next) => {
                  try {
-                     const manual_status = await getAppTypeService();
+                     const app_type = await getAppTypeService();
                      const successResponse = SuccessReturnHandler({
                          message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
-                         resp:  manual_status,
+                         resp:  app_type,
                      });
                      return res.status(STATUS_CODES.SUCCESS).json(successResponse);
                     
@@ -211,5 +212,19 @@ exports.getScanDaysController =
                  }
              };
 
+             exports.getLanguageController = 
+             async (req, res, next) => {
+                    try {
+                        const language = await getLanguageService();
+                        const successResponse = SuccessReturnHandler({
+                            message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                            resp:  language,
+                        });
+                        return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+                       
+                    } catch (err) {
+                        next(err)
+                    }
+                };
    
 
