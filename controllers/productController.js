@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const {addProductService, updateProductService, viewProductService, getProductsService, deleteProductService, myProductsService} = require("../services/productService")
+const {addProductService, updateProductService, viewProductService, getProductsService, deleteProductService, myProductsService, addMobileProductService} = require("../services/productService")
 
 exports.addProductController = async (req, res, next) => {
     try {
@@ -130,3 +130,30 @@ exports.deleteProductController = async(req,res,next) =>{
         next(err);
     }
 }
+
+exports.addMobileProductController = async (req, res, next) => {
+    try {
+        const {org_id} = req.params;
+        const serviceData = req.body;
+        const created_by = req.user?.id; 
+
+        if (!created_by) {
+            return res.status(STATUS_CODES.UNAUTHORIZED).json({ error: ERROR_MESSAGES.UNAUTHORIZED });
+        }
+
+        const product = await addMobileProductService(org_id, serviceData, created_by);
+        const successResponse = SuccessReturnHandler({
+            message: SUCCESS_MESSAGES.DETAILS_ADD_SUCCESS,
+            resp:product,
+        });
+        return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+    } catch (err) {
+        if (err.validationErrors) {
+            return res.status(STATUS_CODES.BAD_REQUEST).json({
+              success: false,
+              errors: err.validationErrors,
+            });
+          }
+        next(err);
+    }
+};

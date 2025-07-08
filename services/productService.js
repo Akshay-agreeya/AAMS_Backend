@@ -35,7 +35,7 @@ exports.addProductService = async (org_id, serviceData, created_by) => {
       request.input("SupportTypeID", sql.Int, support_type_id);
       request.input("FrequencyID", sql.Int, frequency_id);
       request.input("ScanDayIDs", sql.NVarChar(sql.MAX), scan_day_ids);
-      request.input("ScheduleTime", sql.Time, schedule_time);
+      request.input("ScheduleTime", sql.NVarChar(30), schedule_time);
       request.input("CreatedBy", sql.UniqueIdentifier, created_by);
       request.output("ServiceID", sql.Int);
 
@@ -200,4 +200,69 @@ exports.myProductsService = async (user_id, pageNumber, pageSize) => {
     throw new AppError(err.message,err.status);
     }
   }
+
+  exports.addMobileProductService = async (org_id, serviceData, created_by) => {
+    const {
+        mobile_app_name,
+        mobile_app_version,
+        language_id,
+        other_details,
+        service_type_id = 2,  // Optional default
+        guideline_version_id,
+        compliance_level_id,
+        support_type_id,
+        frequency_id,
+        schedule_time
+    } = serviceData;
+  
+    try {
+        const pool = await getConnectionPool();
+  
+        
+        await pool.request()
+            .input("app_user", sql.UniqueIdentifier, created_by)
+            .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+  
+        const request = pool.request();
+  
+        request.input("OrgID", sql.UniqueIdentifier, org_id);
+        request.input("MobileAppName", sql.NVarChar(30), mobile_app_name);
+        request.input("MobileAppVersion", sql.NVarChar(20), mobile_app_version);
+        request.input("LanguageID", sql.Int, language_id);
+        request.input("OtherDetails", sql.Text, other_details || null);
+        request.input("ServiceTypeID", sql.Int, service_type_id);
+        request.input("GuidelineVersionID", sql.Int, guideline_version_id);
+        request.input("ComplianceLevelID", sql.Int, compliance_level_id);
+        request.input("SupportTypeID", sql.Int, support_type_id);
+        request.input("FrequencyID", sql.Int, frequency_id);
+        request.input("ScheduleTime", sql.Time, schedule_time);
+        request.input("CreatedBy", sql.UniqueIdentifier, created_by);
+        request.output("ServiceID", sql.Int);
+  
+        const result = await request.execute("AddMobileServiceWithDetails");
+  
+        return result.recordset;
+    } catch (err) {
+        console.error("Error in addMobileProductService:", err);
+  
+        if(err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
+            {
+            const field = "app_name";
+            const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+            customError.validationErrors = {
+                [field]: `${field.replace(/_/g, ' ')} already exists.`
+            };
+            throw customError;
+        }
+        if (
+            err.code === "EREQUEST" ||
+            err.code === "EPARAM")
+            {throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)}
+  
+        throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+    }
+  };
+  
+
+  
 
