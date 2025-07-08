@@ -5,7 +5,8 @@ const {
   viewProductController,
   getProductsController,
   deleteProductController,
-  myProductsController
+  myProductsController,
+  addMobileProductController
 } = require('../controllers/productController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
@@ -257,5 +258,7 @@ router.get('/my',verifyJwt, myProductsController);
  *         description: Internal Server Error
  */
 router.delete('/delete/:service_id', verifyJwt, deleteProductController);
+
+router.post('/mobile/add/:org_id', verifyJwt, addMobileProductController);
 
 module.exports = router;
