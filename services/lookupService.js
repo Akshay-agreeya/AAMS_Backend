@@ -36,6 +36,23 @@ exports.getIndustryTypeService = async () => {
   }
 };
 
+exports.getServiceTypeService = async () => {
+  try {
+    const pool = await getConnectionPool();
+    const servicetypes = await pool.request()
+      .query("SELECT * from Service_Type");
+
+    if (!servicetypes.recordset.length) {
+      throw { status: STATUS_CODES.NOT_FOUND };
+    }
+    return {contents: servicetypes.recordset};
+  } catch (err) {
+    console.error(err);
+    throw new AppError(err.message, err.status);
+
+  }
+};
+
 exports.getUserStatusService = async () => {
   try {
     const pool = await getConnectionPool();

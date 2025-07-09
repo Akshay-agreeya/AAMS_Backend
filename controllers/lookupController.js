@@ -14,7 +14,8 @@ const { getOrganizationTypeService,
           getManualStatusService,
           getPlatformService,
           getAppTypeService,
-          getLanguageService
+          getLanguageService,
+          getServiceTypeService
         } = require("../services/lookupService");
 
 exports.getOrgTypeController = 
@@ -39,6 +40,21 @@ exports.getIndustryTypeController =
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
                 resp: industryTypes,
+            });
+            return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+           
+        } catch (err) {
+            next(err)
+        }
+    };
+
+    exports.getServiceTypeController = 
+    async (req, res, next) => {
+        try {
+            const industryTypes = await getServiceTypeService();
+            const successResponse = SuccessReturnHandler({
+                message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
+                resp: serviceTypes,
             });
             return res.status(STATUS_CODES.SUCCESS).json(successResponse);
            
