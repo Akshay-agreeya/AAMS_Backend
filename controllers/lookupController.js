@@ -51,7 +51,7 @@ exports.getIndustryTypeController =
     exports.getServiceTypeController = 
     async (req, res, next) => {
         try {
-            const industryTypes = await getServiceTypeService();
+            const serviceTypes = await getServiceTypeService();
             const successResponse = SuccessReturnHandler({
                 message: SUCCESS_MESSAGES.DETAILS_FETCHED_SUCCESS,
                 resp: serviceTypes,
