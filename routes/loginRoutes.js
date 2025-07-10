@@ -174,7 +174,7 @@ router.patch('/user/change-password', verifyJwt, validateInputs(changePasswordSc
 
 /**
  * @swagger
- * /api/user/refresh-token:
+ * /api/refresh-token:
  *   post:
  *     tags:
  *       - Common API endpoints
