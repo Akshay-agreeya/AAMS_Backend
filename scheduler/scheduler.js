@@ -5,7 +5,7 @@ const { getConnectionPool, sql } = require('../config/db');
 
 
 // 🔁 Daily at 10 PM
-cron.schedule('* 22 * * *', async () => {
+cron.schedule('0 22 * * *', async () => {
   console.log(`[${new Date().toLocaleString()}] ⏳ Starting scheduled accessibility scans...`);
 
   try {
