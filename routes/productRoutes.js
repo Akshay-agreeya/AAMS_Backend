@@ -6,7 +6,8 @@ const {
   getProductsController,
   deleteProductController,
   myProductsController,
-  addMobileProductController
+  addMobileProductController,
+  updateMobileProductController
 } = require('../controllers/productController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
@@ -260,5 +261,7 @@ router.get('/my',verifyJwt, myProductsController);
 router.delete('/delete/:service_id', verifyJwt, deleteProductController);
 
 router.post('/mobile/add/:org_id', verifyJwt, addMobileProductController);
+
+router.patch('/mobile/edit/:service_id', verifyJwt, updateMobileProductController);
 
 module.exports = router;

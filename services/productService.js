@@ -263,6 +263,54 @@ exports.myProductsService = async (user_id, pageNumber, pageSize) => {
     }
   };
   
+  exports.updateMobileProductService = async (service_id, updatedData, modified_by) => {
+    const {mobile_app_name, mobile_app_version, language_id, other_details, guideline_version_id, compliance_level_id, support_type_id,
+    frequency_id, schedule_time}= updatedData;
+ 
+    try {
+        const pool = await getConnectionPool();
+
+             // 🔹 Set the session context for audit logs
+             await pool.request()
+             .input("app_user", sql.UniqueIdentifier, modified_by)
+             .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
+        const result = await pool.request()
+            .input("ServiceID", sql.Int, service_id)
+            .input("MobileAppName", sql.NVarChar(30), mobile_app_name)
+            .input("MobileAppVersion", sql.NVarChar(20), mobile_app_version)
+            .input("LanguageID", sql.Int, language_id)
+            .input("OtherDetails", sql.Text,other_details)
+            .input("GuidelineVersionID", sql.Int, guideline_version_id)
+            .input("ComplianceLevelID", sql.Int, compliance_level_id)
+            .input("SupportTypeID", sql.Int, support_type_id)
+            .input("FrequencyID", sql.Int, frequency_id)
+            .input("ScheduleTime", sql.Time, schedule_time)
+            .input("ModifiedBy", sql.UniqueIdentifier, modified_by)
+            .execute("UpdateMobileServiceWithDetails");
+
+        return result.recordset ;
+    } catch (err) {
+        console.error("Error in updateProductService:", err);
+
+        if(err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
+        {
+        const field = "app_name";
+        const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+        customError.validationErrors = {
+            [field]: `${field.replace(/_/g, ' ')} already exists.`
+        };
+        throw customError;
+    }
+    if (
+        err.code === "EREQUEST" ||
+        err.code === "EPARAM")
+        {throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)}
+          
+        throw new AppError(err.message, err.status);
+    }
+};
 
   
 
