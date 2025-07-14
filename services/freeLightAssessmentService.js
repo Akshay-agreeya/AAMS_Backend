@@ -1,13 +1,10 @@
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
-const parseSummaryReport = require('../utils/parseSortSiteSummaryReport'); // Assuming function is exported
-const parseDeepAccessibilityReport = require('../utils/parseSortSiteDeepAccessibilityReport');
-const parseDeepUsabilityReport = require('../utils/parseSortSiteDeepUsabilityReport')
 const { getConnectionPool, sql } = require('../config/db');
-const parseDeepSEOReport = require('../utils/parseSortSiteDeepSearchUsabilityReport');
-const parseDeepStandardReport = require('../utils/parseSortSiteDeepStandardReport');
-const parseDeepCompatibilityReport = require('../utils/parseSortSiteDeepCompatibilityReport');
-const parseDeepErrorReport = require('../utils/parseSortSiteDeepErrorReport');
+const parseSummaryReport = require('../utils/parseSortSiteSummaryReport'); // Assuming function is exported
+const {parseDeepAccessibilityReport,parseDeepUsabilityReport,parseDeepSEOReport,
+    parseDeepStandardReport,parseDeepCompatibilityReport,parseDeepErrorReport
+} = require('../utils/parser/ParserUtil');
 
 async function waitForIframe(page, selector, maxWaitMs = 6 * 60 * 60 * 1000, checkInterval = 15000) {
     const start = Date.now();
