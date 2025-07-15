@@ -260,8 +260,68 @@ router.get('/my',verifyJwt, myProductsController);
  */
 router.delete('/delete/:service_id', verifyJwt, deleteProductController);
 
+/**
+ * @swagger
+ * /api/product/mobile/add/{org_id}:
+ *   post:
+ *     summary: Add a new product for Mobile Accessibility
+ *     description: Adds a new product to the organization by providing product details.
+ *     parameters:
+ *       - name: org_id
+ *         in: path
+ *         description: ID of the organization
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - name: product
+ *         in: body
+ *         description: Product object to be added
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/Product'
+ *     responses:
+ *       200:
+ *         description: Product added successfully
+ *       400:
+ *         description: Invalid input
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal Server Error
+ */
 router.post('/mobile/add/:org_id', verifyJwt, addMobileProductController);
 
+/**
+ * @swagger
+ * /api/product/mobile/edit/{service_id}:
+ *   patch:
+ *     summary: Update an existing product in Mobile Accessibility
+ *     description: Updates an existing product by providing the product ID and new details.
+ *     parameters:
+ *       - name: service_id
+ *         in: path
+ *         description: ID of the product to be updated
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - name: product
+ *         in: body
+ *         description: Updated product object
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/Product'
+ *     responses:
+ *       200:
+ *         description: Product updated successfully
+ *       400:
+ *         description: Invalid input
+ *       401:
+ *         description: Unauthorized
+ *       404:
+ *         description: Product not found
+ *       500:
+ *         description: Internal Server Error
+ */
 router.patch('/mobile/edit/:service_id', verifyJwt, updateMobileProductController);
 
 module.exports = router;
