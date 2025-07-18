@@ -6,8 +6,17 @@ exports.extractMobileFiles = async (service_id, org_id, inputFolder) => {
 
     /* Code for read all json file and convert into json */
     const jsondata = await readAllJsonFiles(inputFolder);
-    //console.log("parsed mobile data", jsondata);
+    console.log("parsed mobile data", jsondata);
+    return jsondata;
 }
+
+function formatRuleId(rawId) {
+    return rawId
+      .replace(/([a-z])([A-Z])/g, '$1 $2')   // insert space before uppercase
+      .replace(/\s+/g, ' ')                  // collapse multiple spaces
+      .trim()                                // trim ends
+  }
+  
 
 const readAllJsonFiles = async (inputFolder) => {
     console.log(`🚀 Starting JSON file processing in folder: ${inputFolder}`);
@@ -73,7 +82,7 @@ const readAllJsonFiles = async (inputFolder) => {
                 const dataRules = jsonData?.axeRuleResults?.map(rule => ({
                     axeViewId: rule.axeViewId,
                     impact: rule.impact,
-                    ruleId: rule.ruleId,
+                    ruleId: formatRuleId(rule.ruleId),
                     ruleSummary: rule.ruleSummary,
                     status: rule.status,
                     props: {
@@ -85,8 +94,9 @@ const readAllJsonFiles = async (inputFolder) => {
                     scanname: jsonData?.scanName,
                     Rules: dataRules,
                     score: jsonData?.score,
-                    screenshot: jsonData?.axeContext?.screenshot
-                };               
+                    screenshot: jsonData.axeContext.screenshot,
+                    tempId: `${file}_${Date.now()}` // to track which image goes with which row
+                  };                               
                     
                 allData.push(processedData);
                 console.log(`✅ Successfully processed: ${file}`);
