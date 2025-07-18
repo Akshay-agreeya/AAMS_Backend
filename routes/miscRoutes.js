@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const AdmZip = require('adm-zip');
+const { getConnectionPool, sql } = require('../config/db');
 const fs = require('fs');
 const path = require('path');
 const { extractFiles } = require('../utils/extractFiles');
@@ -157,7 +158,6 @@ router.post('/mobile-app-parse', verifyJwt, upload.single('zipfile'), async (req
   const startTime = Date.now();
   const requestId = req.headers['x-request-id'] || Math.random().toString(36).substr(2, 9);
   let shouldCleanupExtracted = false; // Flag to control cleanup
-  
   console.log(`[${requestId}] Upload request started`, {
     timestamp: new Date().toISOString(),
     userId: req.user?.id,
@@ -250,15 +250,92 @@ router.post('/mobile-app-parse', verifyJwt, upload.single('zipfile'), async (req
     fs.unlinkSync(zipPath);
     console.log(`[${requestId}] Original ZIP file cleaned up`);
 
-    console.log(`[${requestId}] Starting file processing with extractFiles function`);
+    console.log(`[${requestId}] Starting file processing with extractMobileFiles function`);
     const result = await extractMobileFiles(service_id, org_id, extractPath, extractPath + '/');
 
-    const successResponse = SuccessReturnHandler({
-      message: SUCCESS_MESSAGES.EXTRACT_REPORT_SUCCESS,
-      resp: result,
-    });
+console.log(`[${requestId}] File extraction completed. Inserting into database...`);
 
-    res.status(STATUS_CODES.SUCCESS).json(successResponse);
+// try {
+//   const pool = await getConnectionPool();
+
+//   const dbResponse = await pool.request()
+//     .input('ServiceID', sql.Int, service_id)
+//     .input('OrgID', sql.UniqueIdentifier, org_id)
+//     .input('json', sql.NVarChar(sql.MAX), JSON.stringify(result))
+//     .execute('InsertMobileAccessibilityReport');
+  
+//   const insertedIds = dbResponse.recordset?.[0] || {}; 
+  
+//   const successResponse = SuccessReturnHandler({
+//     message: SUCCESS_MESSAGES.DETAILS_ADD_SUCCESS,
+//     resp: {
+//       assessment_id: insertedIds.assessment_id,
+//       summary_report_id: insertedIds.summary_report_id
+//     }
+//   });
+  
+//   return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+  
+
+// } catch (dbErr) {
+//   console.error(`[${requestId}] ❌ Database error during report insertion:`, dbErr);
+//   return res.status(500).json({
+//     status: 'error',
+//     message: 'Failed to insert extracted report into database',
+//     details: dbErr.message
+//   });
+// }
+// STEP 1: Split screenshots & metadata
+const jsonToInsert = result.map(report => ({
+  scanname: report.scanname,
+  Rules: report.Rules,
+  score: report.score,
+  tempId: report.tempId
+}));
+
+const screenshotsByTempId = {};
+for (const report of result) {
+  if (report.screenshot && report.tempId) {
+    screenshotsByTempId[report.tempId] = report.screenshot;
+  }
+}
+
+// STEP 2: Insert report metadata (without screenshots)
+const pool = await getConnectionPool();
+
+const dbResponse = await pool.request()
+  .input('ServiceID', sql.Int, service_id)
+  .input('OrgID', sql.UniqueIdentifier, org_id)
+  .input('json', sql.NVarChar(sql.MAX), JSON.stringify(jsonToInsert))
+  .execute('InsertMobileAccessibilityReport');
+
+const inserted = dbResponse.recordset;
+
+// STEP 3: Update screenshots separately
+for (const row of inserted) {
+  const { mobile_screen_report_id, tempId } = row;
+  // Convert base64 string to buffer
+  const screenshot = screenshotsByTempId[tempId];
+const base64Data = screenshot.replace(/^data:image\/[a-z]+;base64,/, '');
+const screenshotBuffer = Buffer.from(base64Data, 'base64');
+
+await pool.request()
+  .input('reportId', sql.Int, mobile_screen_report_id)
+  .input('screenshot', sql.VarBinary(sql.MAX), screenshotBuffer) 
+  .query(`UPDATE Mobile_Screen_Report SET screenshot = @screenshot WHERE mobile_screen_report_id = @reportId`);
+}
+
+// STEP 4: Send response
+return res.status(STATUS_CODES.SUCCESS).json(
+  SuccessReturnHandler({
+    message: SUCCESS_MESSAGES.DETAILS_ADD_SUCCESS,
+    resp: {
+      summary_report_id: inserted?.[0]?.summary_report_id,
+      assessments_count: inserted?.length
+    }
+  })
+);
+
   } catch (err) {
     shouldCleanupExtracted = true; // Mark for cleanup on error
     const processingTime = Date.now() - startTime;

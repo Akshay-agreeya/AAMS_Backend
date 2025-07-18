@@ -15,6 +15,8 @@ const dbConfig = {
         enableArithAbort: true
         // trustServerCertificate: process.env.NODE_ENV !== 'production', // Allow self-signed certs in dev
     },
+    requestTimeout: 60000 // ✅ timeout in ms (e.g. 60s)
+
 };
 
 // Validate required environment variables before proceeding
