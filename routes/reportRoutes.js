@@ -1,5 +1,5 @@
 const express = require('express');
-const { getWebUrlsController, getAssessmentsController, getCategoryDataController, getUserWebUrlsController, insertCategoryAndDetails, updateCategoryAndDetails, deleteCategoryReportController } = require('../controllers/reportController');
+const { getWebUrlsController, getAssessmentsController, getCategoryDataController, getUserWebUrlsController, insertCategoryAndDetails, updateCategoryAndDetails, deleteCategoryReportController, getMobileScreenReportController } = require('../controllers/reportController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
 const {validateInputs} = require('../middlewares/validation');
@@ -513,7 +513,7 @@ router.get('/get/assessments/:service_id', verifyJwt, getAssessmentsController)
  */
 
 router.get('/get/category-data/:assessment_id', verifyJwt, getCategoryDataController);
-
+router.get('/get/mobile-screen-report/:summary_report_id', verifyJwt, getMobileScreenReportController);
 router.post('/add', verifyJwt, validateInputs(addCategoryDetailsSchema), insertCategoryAndDetails);
 router.patch('/update/:category_id', verifyJwt, updateCategoryAndDetails);
 router.delete('/delete/:category_id', verifyJwt, deleteCategoryReportController);
