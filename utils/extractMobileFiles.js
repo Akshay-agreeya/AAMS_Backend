@@ -6,7 +6,7 @@ exports.extractMobileFiles = async (service_id, org_id, inputFolder) => {
 
     /* Code for read all json file and convert into json */
     const jsondata = await readAllJsonFiles(inputFolder);
-    console.log("parsed mobile data", jsondata);
+    // console.log("parsed mobile data", jsondata);
     return jsondata;
 }
 

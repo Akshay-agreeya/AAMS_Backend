@@ -265,7 +265,7 @@ exports.getUsersService = async (org_id, pageNumber, pageSize) => {
     }
     }
 
-    exports.deleteCategoryReport = async(category_id) =>{
+exports.deleteCategoryReport = async(category_id) =>{
       try{
         const pool = await getConnectionPool();
         
@@ -283,3 +283,26 @@ exports.getUsersService = async (org_id, pageNumber, pageSize) => {
       throw new AppError("An expected error occured:"+ err.message,err.status);
       }
     }
+
+exports.getMobileScreenReportService = async (summary_report_id, pageNumber, pageSize) => {
+      try{
+          const pool = await getConnectionPool();
+      
+          const result = await pool.request()
+          .input("SummaryReportID", sql.Int, summary_report_id)
+          .input("PageNumber", sql.Int, pageNumber)
+          .input("PageSize", sql.Int, pageSize)
+          .execute("GetMobileScreenReport");
+          if(!result.recordset.length){
+              throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+            }
+          return getDatawithPagination(result.recordsets);
+      }
+      catch(err){
+          console.error("Database error:", err);
+          if (err.code === "EREQUEST" || err.code === "EPARAM") {
+              throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+          }
+          throw new AppError(err.message, err.status);
+      }
+  }
