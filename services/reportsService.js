@@ -306,3 +306,27 @@ exports.getMobileScreenReportService = async (summary_report_id, pageNumber, pag
           throw new AppError(err.message, err.status);
       }
   }
+
+  exports.getMobileruleResultsService = async (mobile_screen_report_id, status, pageNumber, pageSize) => {
+    try{
+        const pool = await getConnectionPool();
+    
+        const result = await pool.request()
+        .input("MobileScreenReportID", sql.Int, mobile_screen_report_id)
+        .input("Status", sql.VarChar(10), status)
+        .input("PageNumber", sql.Int, pageNumber)
+        .input("PageSize", sql.Int, pageSize)
+        .execute("GetMobileRuleResults");
+        if(!result.recordset.length){
+            throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+          }
+        return getDatawithPagination(result.recordsets);
+    }
+    catch(err){
+        console.error("Database error:", err);
+        if (err.code === "EREQUEST" || err.code === "EPARAM") {
+            throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+        }
+        throw new AppError(err.message, err.status);
+    }
+}
