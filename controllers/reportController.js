@@ -1,7 +1,7 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const {SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require("../middlewares/responseHandler");
-const { getWebUrlsService, getAssessmentsService, getCategoryDataService, getUserWebUrlsService, insertCategoryAndDetailsService, updateCategoryAndDetailsService, deleteCategoryReport, getMobileScreenReportService, getMobileruleResultsService } = require("../services/reportsService");
+const { getWebUrlsService, getAssessmentsService, getCategoryDataService, getUserWebUrlsService, insertCategoryAndDetailsService, updateCategoryAndDetailsService, deleteCategoryReport, getMobileScreenReportService, getMobileruleResultsService, getScreenshotService } = require("../services/reportsService");
 
 exports.getWebUrlsController = async(req,res,next) =>{
     const {org_id} = req.params;
@@ -172,5 +172,17 @@ exports.getMobileRuleResultsController = async(req,res,next) =>{
       res.status(STATUS_CODES.SUCCESS).json(successResponse);
   }catch(err){
       next(err);
+  }
+}
+
+exports.getScreenshotController = async (req, res, next) => {
+  try{
+      const {mobile_screen_report_id} = req.params;
+      const {imageBuffer, mimeType} = await getScreenshotService(mobile_screen_report_id)
+      res.set('Content-Type', mimeType);
+      res.send(imageBuffer);
+      return res.status(STATUS_CODES.SUCCESS);
+  }catch(err){
+      next(err)
   }
 }

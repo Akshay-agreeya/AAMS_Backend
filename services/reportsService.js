@@ -1,7 +1,11 @@
 const { sql, getConnectionPool } = require("../config/db"); 
 const { AppError } = require("../middlewares/errorHandler");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
-const {getDatawithPagination} = require("../utils/helper")
+const {getDatawithPagination} = require("../utils/helper");
+const fileTypeFromBuffer = async (buffer) => {
+  const fileType = await import('file-type');
+  return fileType.fileTypeFromBuffer(buffer);
+};
 
 exports.getWebUrlsService = async (org_id, pageNumber, pageSize) => {
     try{
@@ -329,4 +333,30 @@ exports.getMobileScreenReportService = async (summary_report_id, pageNumber, pag
         }
         throw new AppError(err.message, err.status);
     }
+}
+
+exports.getScreenshotService = async(mobile_screen_report_id)=>{
+  try{
+ const pool = await getConnectionPool()
+ const result = await pool.request()
+ .input("MobileScreenReportID", sql.Int, mobile_screen_report_id)
+ .query(`SELECT screenshot from Mobile_Screen_Report where mobile_screen_report_id = @MobileScreenReportID`)
+
+ const imageBuffer = result.recordset[0]?.screenshot;
+ if (!imageBuffer) {
+  throw new AppError("No image found", STATUS_CODES.NOT_FOUND);
+}
+
+// Use file-type to detect the MIME type from the buffer
+const typeInfo = await fileTypeFromBuffer(imageBuffer);
+const mimeType = typeInfo?.mime || 'image/jpeg'; // fallback to JPEG
+
+   return{imageBuffer, mimeType} 
+
+  }catch(err){
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
 }
