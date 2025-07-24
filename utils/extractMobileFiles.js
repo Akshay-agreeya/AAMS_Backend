@@ -85,9 +85,7 @@ const readAllJsonFiles = async (inputFolder) => {
                     ruleId: formatRuleId(rule.ruleId),
                     ruleSummary: rule.ruleSummary,
                     status: rule.status,
-                    props: {
-                        boundsInScreen: rule.props?.boundsInScreen || jsonData?.axeContext?.axeView?.boundsInScreen
-                    }
+                    props: rule.props
                 }))
                 // Add metadata about the file
                 const processedData = {

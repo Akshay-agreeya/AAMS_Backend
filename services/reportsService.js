@@ -360,3 +360,30 @@ const mimeType = typeInfo?.mime || 'image/jpeg'; // fallback to JPEG
       throw new AppError(err.message, err.status);
   }
 }
+
+exports.getMobileRuleResultsRemediationService = async (mobile_screen_report_id, mobile_rule_info_id, status) => {
+  try{
+      const pool = await getConnectionPool();
+  
+      const result = await pool.request()
+      .input("MobileScreenReportID", sql.Int, mobile_screen_report_id)
+      .input("MobileRuleInfoID", sql.Int, mobile_rule_info_id)
+      .input("Status", sql.VarChar(10), status)
+      .execute("GetMobileRuleDetailsWithRemediation");
+      if(!result.recordset.length){
+          throw {status: STATUS_CODES.NOT_FOUND, message: ERROR_MESSAGES.DATA_NOT_FOUND}
+        }
+        const formattedResult = result.recordset.map(record => ({
+          ...record,
+          props: record.props ? JSON.parse(record.props) : []
+      }));
+      return {contents: formattedResult};
+  }
+  catch(err){
+      console.error("Database error:", err);
+      if (err.code === "EREQUEST" || err.code === "EPARAM") {
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+      }
+      throw new AppError(err.message, err.status);
+  }
+}
