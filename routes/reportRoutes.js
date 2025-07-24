@@ -1,5 +1,5 @@
 const express = require('express');
-const { getWebUrlsController, getAssessmentsController, getCategoryDataController, getUserWebUrlsController, insertCategoryAndDetails, updateCategoryAndDetails, deleteCategoryReportController, getMobileScreenReportController, getMobileRuleResultsController, getScreenshotController } = require('../controllers/reportController');
+const { getWebUrlsController, getAssessmentsController, getCategoryDataController, getUserWebUrlsController, insertCategoryAndDetails, updateCategoryAndDetails, deleteCategoryReportController, getMobileScreenReportController, getMobileRuleResultsController, getScreenshotController, getMobileRuleResultsRemediationController } = require('../controllers/reportController');
 const router = express.Router();
 const { verifyJwt } = require('../middlewares/auth');
 const {validateInputs} = require('../middlewares/validation');
@@ -516,6 +516,7 @@ router.get('/get/category-data/:assessment_id', verifyJwt, getCategoryDataContro
 router.get('/get/mobile-screen-report/:summary_report_id', verifyJwt, getMobileScreenReportController);
 router.get('/get/mobile-rule-results/:mobile_screen_report_id', verifyJwt, getMobileRuleResultsController);
 router.get('/get/screenshot/:mobile_screen_report_id', verifyJwt, getScreenshotController);
+router.get('/get/rule-remediation/:mobile_screen_report_id', verifyJwt, getMobileRuleResultsRemediationController);
 router.post('/add', verifyJwt, validateInputs(addCategoryDetailsSchema), insertCategoryAndDetails);
 router.patch('/update/:category_id', verifyJwt, updateCategoryAndDetails);
 router.delete('/delete/:category_id', verifyJwt, deleteCategoryReportController);
