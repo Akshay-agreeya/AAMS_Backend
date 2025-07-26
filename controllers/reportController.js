@@ -179,8 +179,9 @@ exports.getScreenshotController = async (req, res, next) => {
   try{
       const {mobile_screen_report_id} = req.params;
       const {imageBuffer, mimeType} = await getScreenshotService(mobile_screen_report_id)
+      const base64 = imageBuffer.toString("base64");
       res.set('Content-Type', mimeType);
-      res.send(imageBuffer);
+      res.send(base64);
       return res.status(STATUS_CODES.SUCCESS);
   }catch(err){
       next(err)
