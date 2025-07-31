@@ -513,9 +513,175 @@ router.get('/get/assessments/:service_id', verifyJwt, getAssessmentsController)
  */
 
 router.get('/get/category-data/:assessment_id', verifyJwt, getCategoryDataController);
+/**
+ * @swagger
+ * /api/report/get/mobile-screen-report/{summary_report_id}:
+ *   get:
+ *     tags:
+ *       - Mobile Accessibility
+ *     summary: Get mobile screen report by summary report ID
+ *     description: Retrieves mobile screen report based on the provided summary report ID.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: summary_report_id
+ *         required: true
+ *         description: The unique identifier of the summary report.
+ *         schema:
+ *           type: integer
+ *           example: 123456
+ *     responses:
+ *       "200":
+ *         description: Successfully retrieved mobile screen report.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mobile_screen_report_id:
+ *                   type: integer
+ *                   example: 987654
+ *                 summary_report_id:
+ *                   type: integer
+ *                   example: 123456
+ *                 screen_name:
+ *                   type: string
+ *                   example: "Login Screen"
+ *       "401":
+ *         description: Unauthorized - Invalid or missing token.
+ *       "404":
+ *         description: Report not found.
+ *       "500":
+ *         description: Internal server error.
+ */
+
 router.get('/get/mobile-screen-report/:summary_report_id', verifyJwt, getMobileScreenReportController);
+
+/**
+ * @swagger
+ * /api/report/get/mobile-rule-results/{mobile_screen_report_id}:
+ *   get:
+ *     tags:
+ *       - Mobile Accessibility
+ *     summary: Get mobile rule results by screen report ID
+ *     description: Retrieves rule results for a given mobile screen report ID.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: mobile_screen_report_id
+ *         required: true
+ *         description: The unique identifier of the mobile screen report.
+ *         schema:
+ *           type: integer
+ *           example: 112233
+ *     responses:
+ *       "200":
+ *         description: Successfully retrieved rule results.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   rule_id:
+ *                     type: integer
+ *                     example: 101
+ *                   rule_name:
+ *                     type: string
+ *                     example: "Color Contrast"
+ *                   result:
+ *                     type: string
+ *                     example: "Fail"
+ *       "401":
+ *         description: Unauthorized - Invalid or missing token.
+ *       "404":
+ *         description: Rule results not found.
+ *       "500":
+ *         description: Internal server error.
+ */
+
 router.get('/get/mobile-rule-results/:mobile_screen_report_id', verifyJwt, getMobileRuleResultsController);
+
+/**
+ * @swagger
+ * /api/report/get/screenshot/{mobile_screen_report_id}:
+ *   get:
+ *     tags:
+ *       - Mobile Accessibility
+ *     summary: Get screenshot by screen report ID
+ *     description: Returns screenshot (binary image) for the specified mobile screen report ID.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: mobile_screen_report_id
+ *         required: true
+ *         description: The ID of the mobile screen report.
+ *         schema:
+ *           type: integer
+ *           example: 445566
+ *     responses:
+ *       "200":
+ *         description: Screenshot retrieved successfully.
+ *         content:
+ *           image/png:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *       "401":
+ *         description: Unauthorized - Invalid or missing token.
+ *       "404":
+ *         description: Screenshot not found.
+ *       "500":
+ *         description: Internal server error.
+ */
+
 router.get('/get/screenshot/:mobile_screen_report_id', verifyJwt, getScreenshotController);
+/**
+ * @swagger
+ * /api/report/get/rule-remediation/{mobile_screen_report_id}:
+ *   get:
+ *     tags:
+ *       - Mobile Accessibility
+ *     summary: Get rule remediation data by screen report ID
+ *     description: Retrieves remediation data for rules in a specific mobile screen report.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: mobile_screen_report_id
+ *         required: true
+ *         description: The ID of the mobile screen report.
+ *         schema:
+ *           type: integer
+ *           example: 556677
+ *     responses:
+ *       "200":
+ *         description: Successfully retrieved remediation data.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   rule_id:
+ *                     type: integer
+ *                     example: 202
+ *                   remediation:
+ *                     type: string
+ *                     example: "Ensure text has a contrast ratio of at least 4.5:1."
+ *       "401":
+ *         description: Unauthorized - Invalid or missing token.
+ *       "404":
+ *         description: Remediation data not found.
+ *       "500":
+ *         description: Internal server error.
+ */
+
 router.get('/get/rule-remediation/:mobile_screen_report_id', verifyJwt, getMobileRuleResultsRemediationController);
 router.post('/add', verifyJwt, validateInputs(addCategoryDetailsSchema), insertCategoryAndDetails);
 router.patch('/update/:category_id', verifyJwt, updateCategoryAndDetails);
