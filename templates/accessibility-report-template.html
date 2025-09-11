@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Report - {{product_name}}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #156082;
+            padding-bottom: 20px;
+        }
+        
+        .logo-section {
+            margin-bottom: 30px;
+        }
+        
+        .title {
+            color: #C00000;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #002060;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .product-info {
+            color: #3A3A3A;
+            font-size: 16px;
+        }
+        
+        .section-title {
+            color: #0E2841;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid #0E2841;
+            padding-bottom: 5px;
+        }
+        
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .content-table th {
+            background-color: #156082;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .content-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        
+        .content-table tr:nth-child(even) {
+            background-color: #EAF6FC;
+        }
+        
+        .project-details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .project-details-table .label {
+            background-color: #002060;
+            color: white;
+            padding: 10px;
+            width: 40%;
+            font-weight: bold;
+        }
+        
+        .project-details-table .value {
+            background-color: #EAF6FC;
+            padding: 10px;
+            width: 60%;
+        }
+        
+        .issues-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .issues-table th {
+            background-color: #156082;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .issues-table td {
+            padding: 10px 8px;
+            border: 1px solid #ddd;
+            background-color: #CAEDFB;
+        }
+        
+        .page-details {
+            margin: 10px 0;
+        }
+        
+        .page-url-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 5px 0;
+        }
+        
+        .page-url-table th {
+            background-color: #156082;
+            color: white;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .page-url-table td {
+            background-color: #95DCF7;
+            padding: 8px;
+        }
+        
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 5px 0;
+        }
+        
+        .details-table th {
+            background-color: #156082;
+            color: white;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .details-table td {
+            background-color: #83CAEB;
+            padding: 8px;
+        }
+        
+        .score-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .score-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 15px;
+            }
+            
+            .section-title {
+                page-break-after: avoid;
+            }
+            
+            .issues-table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-section">
+            <!-- Logo placeholder - replace with base64 image if needed -->
+        </div>
+        
+        <h1 class="title">ACCESSIBILITY</h1>
+        <h1 class="subtitle">EVALUATION REPORT</h1>
+        
+        <div class="product-info">
+            Research and Improvements for <strong>{{product_name}}</strong>
+        </div>
+    </div>
+
+    <h2 class="section-title">Content</h2>
+    
+    <table class="content-table">
+        <tr>
+            <td>Project Details</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Executive Summary</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Accessibility Evaluation Standards</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Accessibility Testing Tools</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Accessibility Assessment Report<br>
+                1. <a href="#accessibility-report">{{product_name}}</a>
+            </td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>A Note on Third Party Content</td>
+            <td>161</td>
+        </tr>
+        <tr>
+            <td>What's Next?</td>
+            <td>161</td>
+        </tr>
+        <tr>
+            <td>Reference</td>
+            <td>164</td>
+        </tr>
+    </table>
+
+    <h2 class="section-title">Project Details</h2>
+    
+    <table class="project-details-table">
+        <tr>
+            <td class="label">Client:</td>
+            <td class="value">{{org_name}}</td>
+        </tr>
+        <tr>
+            <td class="label">Project:</td>
+            <td class="value">{{product_name}}</td>
+        </tr>
+        <tr>
+            <td class="label">Test Site #:</td>
+            <td class="value">1</td>
+        </tr>
+        <tr>
+            <td class="label">Project Manager:</td>
+            <td class="value">{{project_manager}}</td>
+        </tr>
+        <tr>
+            <td class="label">Accessibility Tester:</td>
+            <td class="value">{{access_tester}}</td>
+        </tr>
+        <tr>
+            <td class="label">Testing Device:</td>
+            <td class="value">{{testing_device}}</td>
+        </tr>
+        <tr>
+            <td class="label">Test Environment:</td>
+            <td class="value">{{test_environment}}</td>
+        </tr>
+        <tr>
+            <td class="label">WCAG2.2 Standard:</td>
+            <td class="value">{{wcag_standard}}</td>
+        </tr>
+        <tr>
+            <td class="label">Testing Start Date:</td>
+            <td class="value">{{start_date}}</td>
+        </tr>
+        <tr>
+            <td class="label">Report Issued Date:</td>
+            <td class="value">{{end_date}}</td>
+        </tr>
+    </table>
+
+    <h2 class="section-title">Executive Summary</h2>
+    
+    <p>The objective of the remediation report was to give overview of {{wcag}} level {{level}} compliance of {{product_name}}.</p>
+    
+    <p>The website failed a number of Section 508 and {{wcag}} level {{level}} standards that will adversely impact the usability of the website by persons with disabilities.</p>
+    
+    <p>The Website contains serious accessibility violations, which may prevent disabled users from accessing website content. The most important problems include issues with alt text, keyboard accessibility, ARIA roles, and document titles.</p>
+
+    <h2 class="section-title">Accessibility Evaluation Standards</h2>
+    
+    <p>Web Content Accessibility Guidelines (WCAG) are developed through the W3C process in cooperation with individuals and organizations around the world, with a goal of providing a single shared standard for web content accessibility that meets the needs of individuals, organizations, and governments internationally.</p>
+    
+    <p>{{wcag}} is divided into three conformance levels because the success criteria are organized based on the impact they have on design or visual presentation of the pages. Each level is defined based on a set of success criteria.</p>
+    
+    <p>This can be interpreted as follows:</p>
+    
+    <p><strong>Level A -</strong> Success criteria are those which will have a high impact on a broad array of user populations. In other words, they (usually) do not focus on one type of disability alone. They will also have the lowest impact on the presentation logic and business logic of the site.</p>
+    
+    <p><strong>Level AA -</strong> Success criteria will also have a high impact for users. Sometimes only specific user populations will be impacted, but the impact is important. Adherence to these success criteria may impose changes to a system's presentation logic or business logic.</p>
+
+    <h2 class="section-title">Accessibility Testing Tools</h2>
+    
+    <table class="content-table">
+        <tr>
+            <td style="width: 200px;">
+                <!-- SortSite logo placeholder -->
+                <div style="background-color: #f0f0f0; padding: 20px; text-align: center;">
+                    SortSite Logo
+                </div>
+            </td>
+            <td>
+                <strong>SortSite</strong><br>
+                Scan your website with our accessibility checker. Test WCAG, Section 508 and ADA compliance with over 320 evidence-based rules.
+            </td>
+        </tr>
+    </table>
+
+    <h2 class="section-title" id="accessibility-report">Accessibility Assessment Report</h2>
+    
+    <div style="background-color: #156082; color: white; padding: 15px; margin: 20px 0;">
+        <h3 style="margin: 0; font-size: 24px;">1. {{product_name}}</h3>
+    </div>
+
+    <h3 style="color: #0E2740;">Issue Report</h3>
+    
+    <p>Site quality report for <a href="{{web_url}}">{{web_url}}</a> produced on {{start_date}}.</p>
+
+    <h3 style="color: black;">Summary</h3>
+    
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Pages</th>
+                <th>Benchmark</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#summary_data}}
+            <tr>
+                <td>{{category}}</td>
+                <td>{{pages}}</td>
+                <td>{{benchmark}}</td>
+            </tr>
+            {{/summary_data}}
+        </tbody>
+    </table>
+
+    {{#if audit_score}}
+    <div class="score-section">
+        <img src="data:image/png;base64,{{audit_score}}" alt="Audit Score" class="score-image">
+    </div>
+    {{/if}}
+
+    <h2 class="section-title">Detail Accessibility</h2>
+    
+    <p>This section shows accessibility issues, indicating problems for older users, people with disabilities or accessibility needs. Automated testing cannot detect all accessibility issues, so should be used alongside human testing.</p>
+
+    {{#each issues}}
+    <table class="issues-table">
+        <thead>
+            <tr>
+                <th style="width: 15%;">Criteria</th>
+                <th style="width: 15%;">Description</th>
+                <th style="width: 15%;">Remediation</th>
+                <th style="width: 10%;">Level</th>
+                <th style="width: 15%;">Failing Pages</th>
+                <th style="width: 15%;">Guideline</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{criteria}}</td>
+                <td>{{description}}</td>
+                <td>{{remediation}}</td>
+                <td>{{level}}</td>
+                <td>{{failing_page}}</td>
+                <td>{{guideline}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{#if pages}}
+    <div class="page-details">
+        {{#each pages}}
+        <table class="page-url-table">
+            <thead>
+                <tr>
+                    <th>Page URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="{{linkObj.url}}">{{linkObj.text}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        {{#if details}}
+        <table class="details-table">
+            <thead>
+                <tr>
+                    <th style="width: 50%;">Description</th>
+                    <th style="width: 50%;">Line Numbers</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each details}}
+                <tr>
+                    <td>{{description}}</td>
+                    <td>{{lines}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+        {{/each}}
+    </div>
+    {{/if}}
+    {{/each}}
+
+    <h2 class="section-title">A Note on Third Party Content</h2>
+    
+    <p>Please be aware that several third-party elements, such as iframes, forms, videos, or embedded content, may not fully comply with accessibility standards. This could result in partial accessibility across your website, as we are unable to modify or guarantee the accessibility of external content.</p>
+    
+    <p>We strongly recommend integrating all critical elements directly within the site to ensure greater control over accessibility. Minimizing third-party implementations will help mitigate potential compliance issues.</p>
+
+    <h2 class="section-title">What's Next?</h2>
+    
+    <p>We recommend that you engage us for a <strong>comprehensive, in-depth accessibility assessment</strong> of your website and web application and documents (PDF, Word). This detailed assessment will go beyond automated scans, providing a thorough <strong>manual review</strong> of accessibility issues and offering tailored solutions for every identified problem.</p>
+    
+    <p>Here's what's next:</p>
+    
+    <h3 style="color: #00B050;">Step 2 – Deep Assessment</h3>
+    
+    <p>Our assessment process is meticulous and designed to uncover both surface-level and deeper accessibility issues that automated tools might miss. We will:</p>
+    
+    <ul>
+        <li><strong>Manually Test</strong> your web application and website for compliance with {{wcag}} standards and ADA guidelines.</li>
+        <li>Conduct a <strong>Deep Assessment</strong> that examines not only the structure and content of your documents but also interactive elements, metadata, and visual content.</li>
+        <li><strong>Assess PDFs and Word Documents</strong> to ensure that all downloadable content is fully accessible and compliant with accessibility standards.</li>
+    </ul>
+
+    <h2 class="section-title">Reference</h2>
+    
+    <p>WCAG2.2: <a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a></p>
+
+    <div style="text-align: center; margin-top: 50px; padding: 20px; background-color: #f9f9f9;">
+        <h2>Thanks for Your Time. Any Questions?</h2>
+        <p>You can connect with us at:</p>
+        <p><strong>Website:</strong> https://agreeya.com/</p>
+        <p><strong>Email:</strong> sales_americas@agreeya.com</p>
+        <p><strong>Phone:</strong> +1 (916) 294-0075</p>
+    </div>
+</body>
+</html>

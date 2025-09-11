@@ -101,9 +101,13 @@ exports.getUsersController = async(req,res,next) =>{
 
 exports.updateUserStatusController = async (req, res, next) => {
     try {
-        const {user_id, status_id} = req.body;
+        // const {user_id, status_id} = req.body;
+        const { user_id } = req.params;
+        const { status_id } = req.body;
+        const updated_by = req.user?.id; // Get from JWT token
 
-        const updatedStatus = await updateUserStatusService(user_id, status_id);
+
+        const updatedStatus = await updateUserStatusService(user_id, status_id, updated_by);
         const successResponse = SuccessReturnHandler({
             message: SUCCESS_MESSAGES.UPDATE_SUCCESS,
             resp: {content: updatedStatus},

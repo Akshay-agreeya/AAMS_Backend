@@ -2,6 +2,7 @@ const { sql, getConnectionPool } = require("../config/db");
 const { AppError } = require("../middlewares/errorHandler");
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const { getDatawithPagination } = require("../utils/helper");
+const { addNotificationService } = require("./notificationService");
 
 exports.addOrganizationService = async (orgData, created_by) => {
     const {
@@ -79,66 +80,134 @@ exports.getOrganizationByIdService= async(org_id, pageNumber, pageSize)=>{
     }
   }
 
-exports.editOrgService = async(org_id, orgData, modified_by )=>{
+// exports.editOrgService = async(org_id, orgData, modified_by )=>{
+//   const {
+//     org_name, org_type_id, industry_id, address_line, city, state, zip_code, country,
+//     first_name, last_name, email, phone_number, contract_expiry_date
+// } = orgData;
+
+
+
+// try{
+
+//   const pool = await getConnectionPool();
+
+//    // 🔹 Set the session context for audit logs
+//    await pool.request()
+//    .input("app_user", sql.UniqueIdentifier, modified_by)
+//    .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
+//   const result = await pool.request()
+//   .input("OrgID", sql.UniqueIdentifier, org_id)
+//   .input("OrgName", sql.VarChar(100), org_name)
+//             .input("OrgTypeID", sql.Int, org_type_id)
+//             .input("IndustryID", sql.Int, industry_id)
+//             .input("AddressLine", sql.VarChar(255), address_line)
+//             .input("City", sql.VarChar(50), city)
+//             .input("State", sql.VarChar(50), state)
+//             .input("ZipCode", sql.VarChar(20), zip_code)
+//             .input("Country", sql.VarChar(50), country)
+//             .input("FirstName", sql.VarChar(50), first_name)
+//             .input("LastName", sql.VarChar(50), last_name)
+//             .input("Email", sql.VarChar(50), email)
+//             .input("PhoneNumber", sql.VarChar(20), phone_number)
+//             .input("ContractExpiryDate", sql.NVarChar(25), contract_expiry_date)
+//             .input("ModifiedBy", sql.UniqueIdentifier, modified_by)  
+//             .execute("EditOrganization");
+
+//             return result.recordset;
+
+// }catch (err) {
+//   console.error("Error in editOrgService:", err);
+
+//   if(err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
+//    {
+//     let field = "org_name";
+//     const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+//     customError.validationErrors = {
+//       [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
+//     };
+//     throw customError;
+//   }
+
+//   if (
+//     err.code === "EREQUEST" ||
+//     err.code === "EPARAM"){
+//       throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)
+//     }
+    
+  
+//   throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+// }
+// }
+
+
+
+
+// Update your editOrgService function
+exports.editOrgService = async(org_id, orgData, modified_by) => {
   const {
     org_name, org_type_id, industry_id, address_line, city, state, zip_code, country,
     first_name, last_name, email, phone_number, contract_expiry_date
-} = orgData;
+  } = orgData;
 
+  try{
+    const pool = await getConnectionPool();
 
+     // 🔹 Set the session context for audit logs
+     await pool.request()
+     .input("app_user", sql.UniqueIdentifier, modified_by)
+     .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
 
-try{
+    const result = await pool.request()
+    .input("OrgID", sql.UniqueIdentifier, org_id)
+    .input("OrgName", sql.VarChar(100), org_name)
+              .input("OrgTypeID", sql.Int, org_type_id)
+              .input("IndustryID", sql.Int, industry_id)
+              .input("AddressLine", sql.VarChar(255), address_line)
+              .input("City", sql.VarChar(50), city)
+              .input("State", sql.VarChar(50), state)
+              .input("ZipCode", sql.VarChar(20), zip_code)
+              .input("Country", sql.VarChar(50), country)
+              .input("FirstName", sql.VarChar(50), first_name)
+              .input("LastName", sql.VarChar(50), last_name)
+              .input("Email", sql.VarChar(50), email)
+              .input("PhoneNumber", sql.VarChar(20), phone_number)
+              .input("ContractExpiryDate", sql.NVarChar(25), contract_expiry_date)
+              .input("ModifiedBy", sql.UniqueIdentifier, modified_by)  
+              .execute("EditOrganization");
 
-  const pool = await getConnectionPool();
+    // Add notification after successful organization update
+    await addNotificationService(
+        modified_by,
+        "Organization Updated",
+        `Organization "${org_name}" has been updated successfully!`,
+        "success"
+    );
 
-   // 🔹 Set the session context for audit logs
-   await pool.request()
-   .input("app_user", sql.UniqueIdentifier, modified_by)
-   .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+    return result.recordset;
 
+  } catch (err) {
+    console.error("Error in editOrgService:", err);
 
-  const result = await pool.request()
-  .input("OrgID", sql.UniqueIdentifier, org_id)
-  .input("OrgName", sql.VarChar(100), org_name)
-            .input("OrgTypeID", sql.Int, org_type_id)
-            .input("IndustryID", sql.Int, industry_id)
-            .input("AddressLine", sql.VarChar(255), address_line)
-            .input("City", sql.VarChar(50), city)
-            .input("State", sql.VarChar(50), state)
-            .input("ZipCode", sql.VarChar(20), zip_code)
-            .input("Country", sql.VarChar(50), country)
-            .input("FirstName", sql.VarChar(50), first_name)
-            .input("LastName", sql.VarChar(50), last_name)
-            .input("Email", sql.VarChar(50), email)
-            .input("PhoneNumber", sql.VarChar(20), phone_number)
-            .input("ContractExpiryDate", sql.NVarChar(25), contract_expiry_date)
-            .input("ModifiedBy", sql.UniqueIdentifier, modified_by)  
-            .execute("EditOrganization");
-
-            return result.recordset;
-
-}catch (err) {
-  console.error("Error in editOrgService:", err);
-
-  if(err.message && err.message.includes("Violation of UNIQUE KEY constraint"))
-   {
-    let field = "org_name";
-    const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
-    customError.validationErrors = {
-      [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
-    };
-    throw customError;
-  }
-
-  if (
-    err.code === "EREQUEST" ||
-    err.code === "EPARAM"){
-      throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)
+    if(err.message && err.message.includes("Violation of UNIQUE KEY constraint")) {
+      let field = "org_name";
+      const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+      customError.validationErrors = {
+        [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
+      };
+      throw customError;
     }
+
+    if (
+      err.code === "EREQUEST" ||
+      err.code === "EPARAM"){
+        throw new AppError(err.message, STATUS_CODES.BAD_REQUEST)
+      }
     
-  
-  throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
-}
+    throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
+  }
 }
 
 
@@ -196,6 +265,70 @@ exports.getOrganizationsService = async (user_id, pageNumber, pageSize) => {
     } catch (err) {
         console.error("Error in getOrganizations", err);
       
+        throw new AppError(err.message, err.status);
+    }
+};
+
+
+
+// added by akshay
+
+exports.addOrganizationService = async (orgData, created_by) => {
+    const {
+        org_name, org_type_id, industry_id, address_line, city, state, zip_code, country,
+        first_name, last_name, email, phone_number, contract_expiry_date
+    } = orgData;
+
+    try {
+        const pool = await getConnectionPool();
+        
+         // 🔹 Set the session context for audit logs
+         await pool.request()
+         .input("app_user", sql.UniqueIdentifier, created_by)
+         .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+        const result = await pool.request()
+            .input("OrgName", sql.VarChar(100), org_name)
+            .input("OrgTypeID", sql.Int, org_type_id)
+            .input("IndustryID", sql.Int, industry_id)
+            .input("AddressLine", sql.VarChar(255), address_line)
+            .input("City", sql.VarChar(50), city)
+            .input("State", sql.VarChar(50), state)
+            .input("ZipCode", sql.VarChar(20), zip_code)
+            .input("Country", sql.VarChar(50), country)
+            .input("FirstName", sql.VarChar(50), first_name)
+            .input("LastName", sql.VarChar(50), last_name)
+            .input("Email", sql.VarChar(50), email)
+            .input("PhoneNumber", sql.VarChar(20), phone_number)
+            .input("ContractExpiryDate", sql.NVarChar(25), contract_expiry_date)
+            .input("CreatedBy", sql.UniqueIdentifier, created_by)  
+            .execute("AddOrganization");
+
+        // Add notification after successful organization creation
+        await addNotificationService(
+            created_by,
+            "Organization Added",
+            `Organization "${org_name}" has been added successfully!`,
+            "success"
+        );
+     
+        return result.recordset;
+
+    } catch (err) {
+        console.error("Error in addOrganizationService:", err);
+
+        if (err.message && err.message.includes("Violation of UNIQUE KEY constraint")) {
+          let field = "org_name";
+          const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+          customError.validationErrors = {
+            [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
+          };
+          throw customError;
+        }
+        if (
+          err.code === "EREQUEST" ||
+          err.code === "EPARAM" )
+          throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
         throw new AppError(err.message, err.status);
     }
 };

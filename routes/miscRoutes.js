@@ -10,10 +10,19 @@ const { SuccessReturnHandler } = require('../middlewares/responseHandler');
 const { STATUS_CODES } = require('../utils/errorCodes');
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { verifyJwt } = require('../middlewares/auth');
-const { generateAccessibilityReportController, generateManualAccessibilityReportController, generateDeepAccessibilityReportController } = require('../controllers/downloadController');
+// const { generateAccessibilityReportController, generateManualAccessibilityReportController, generateDeepAccessibilityReportController } = require('../controllers/downloadController');
 const { freeLiteAssessmentUrlSchema } = require('../utils/validationSchema');
 const { validateInputs } = require('../middlewares/validation');
 const { freeLightAssementController } = require('../controllers/freeLightAssessmentController');
+
+const { 
+  generateAccessibilityReportController, 
+  generateManualAccessibilityReportController, 
+  generateDeepAccessibilityReportController,
+  generateAccessibilityReportPDFController,
+  generateManualAccessibilityReportPDFController,
+  generateDeepAccessibilityReportPDFController
+} = require('../controllers/downloadController');
 
 
 // Configure multer with better file validation
@@ -353,5 +362,16 @@ router.post('/free-lite-assessment', verifyJwt, validateInputs(freeLiteAssessmen
 router.get('/download-docx/:assessment_id', generateAccessibilityReportController);
 router.get('/download-manual-docx/:txn_id', generateManualAccessibilityReportController);
 router.get('/download-deep-docx', generateDeepAccessibilityReportController);
+
+
+
+
+
+// New PDF routes
+router.get('/download-pdf/:assessment_id', generateAccessibilityReportPDFController);
+router.get('/download-manual-pdf/:txn_id', generateManualAccessibilityReportPDFController);
+router.get('/download-deep-pdf', generateDeepAccessibilityReportPDFController);
+
+
 
 module.exports = router;

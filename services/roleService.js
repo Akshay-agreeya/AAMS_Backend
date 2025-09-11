@@ -3,6 +3,7 @@ const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
 const { SUCCESS_MESSAGES } = require("../utils/responseMessages");
 const { getDatawithPagination } = require("../utils/helper");
+const { addNotificationService } = require("./notificationService"); // Add this import
 
 exports.getRolesService = async (org_id, pageNumber, pageSize) => {
     try {
@@ -58,6 +59,15 @@ exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
           };
           throw customError;
           }
+
+          // Add notification after successful role creation
+          await addNotificationService(
+              created_by,
+              "Role Created",
+              `Role "${role_name}" has been created successfully!`,
+              "success"
+          );
+
           return result.recordset;
         }
         catch(err){
@@ -113,6 +123,15 @@ exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>
           };
           throw customError;
       }
+
+      // Add notification after successful role update
+      await addNotificationService(
+          modified_by,
+          "Role Updated",
+          `Role "${role_name}" has been updated successfully!`,
+          "success"
+      );
+
       return result.recordset;
     }catch(err){
         console.error('Error in updateRoleAndDetailsService:', err);
@@ -164,6 +183,12 @@ exports.getRoleWithDetailsService = async (role_id) => {
          .input("app_user", sql.UniqueIdentifier, deleted_by)
          .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
 
+        // First get the role name for notification (optional - you can remove this if not needed)
+        const roleInfo = await pool.request()
+          .input("RoleID", sql.Int, role_id)
+          .execute("GetRoleWithDetails");
+        
+        const roleName = roleInfo.recordsets[0]?.[0]?.role_name || "Role";
 
         const result = await pool.request()
         .input("RoleID", sql.Int, role_id)
@@ -172,6 +197,15 @@ exports.getRoleWithDetailsService = async (role_id) => {
         if (result.recordset[0].ErrorState === 1) {
           throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.NOT_FOUND);
         }
+
+        // Add notification after successful role deletion
+        await addNotificationService(
+            deleted_by,
+            "Role Deleted",
+            `Role "${roleName}" has been deleted successfully!`,
+            "warning"
+        );
+
         return result.recordset;
     
       }catch(err){
@@ -182,5 +216,197 @@ exports.getRoleWithDetailsService = async (role_id) => {
       throw new AppError(err.message,err.status);
       }
     }
+
+
+
+
+
+
+
+
+// const { sql, getConnectionPool } = require("../config/db");
+// const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
+// const { AppError } = require("../middlewares/errorHandler");
+// const { SUCCESS_MESSAGES } = require("../utils/responseMessages");
+// const { getDatawithPagination } = require("../utils/helper");
+
+// exports.getRolesService = async (org_id, pageNumber, pageSize) => {
+//     try {
+//     const pool = await getConnectionPool();
+
+//     const result = await pool.request()
+//     .input("PageNumber", sql.Int, pageNumber)
+//     .input("PageSize", sql.Int, pageSize)
+//     .input("OrgID", sql.UniqueIdentifier, org_id)
+//     .execute("GetRoles");
+//     if (!result.recordset.length) {
+//         throw { status: STATUS_CODES.NOT_FOUND };
+//     }
+//     return getDatawithPagination(result.recordsets);
+//   } catch (error) {
+//     console.error("Database Error:", error);
+//     throw new AppError(error.message, STATUS_CODES.BAD_REQUEST);
+
+//   }
+// };
+
+// exports.addRoleAndDetailsService = async(roleDetails, created_by) => {
+//     const{role_name,
+//           description,
+//           org_id,
+//           role_key,
+//           role_permissions
+//         } = roleDetails
+  
+//         try{
+//           const pool = await getConnectionPool();
+
+//            // 🔹 Set the session context for audit logs
+//            await pool.request()
+//            .input("app_user", sql.UniqueIdentifier, created_by)
+//            .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+ 
+
+//           const result = await pool.request()
+//           .input("RoleName", sql.NVarChar(50), role_name)
+//           .input("RoleKey", sql.NVarChar(50), role_key)
+//           .input("Description", sql.NVarChar(255), description)
+//           .input("OrgID", sql.UniqueIdentifier, org_id)
+//           .input("RolePermissions", sql.NVarChar(sql.MAX), JSON.stringify(role_permissions))
+//           .input("CreatedBy", sql.UniqueIdentifier, created_by)
+//           .execute("AddRoleWithDetails");
+
+//           if (result.recordset[0].ErrorMessage) {
+//             let field = "role_name";
+//             const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+//           customError.validationErrors = {
+//             [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
+//           };
+//           throw customError;
+//           }
+//           return result.recordset;
+//         }
+//         catch(err){
+//         console.error('Error in addRoleAndDetailsService:', err);
+
+//         if (err instanceof AppError) {
+//           throw err;
+//         }
+//         if(err.code === 'EREQUEST' || err.code === 'EPARAM'){
+//           throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+//         }
+//         throw new AppError(err.message, STATUS_CODES.INTERNAL_SERVER_ERROR);
+  
+//         }
+//   };
+
+// exports.updateRoleAndDetailsService = async(role_id, roleDetails, modified_by)=>{
+//     const pool = await getConnectionPool();
+//     try{
+//       const{
+//         role_name,
+//         role_key,
+//         description,
+//         org_id,
+//         role_permissions
+//       }= roleDetails
+
+//        // 🔹 Set the session context for audit logs
+//        await pool.request()
+//        .input("app_user", sql.UniqueIdentifier, modified_by)
+//        .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
+//       const result = await pool.request()
+//       .input("RoleID", sql.Int, role_id)
+//       .input("RoleName", sql.NVarChar(50), role_name)
+//       .input("RoleKey", sql.NVarChar(50), role_key)
+//       .input("Description", sql.NVarChar(255), description)
+//       .input("OrgID",sql.UniqueIdentifier, org_id)
+//       .input("RolePermissions", sql.NVarChar(sql.MAX), JSON.stringify(role_permissions))
+//       .input("ModifiedBy", sql.UniqueIdentifier, modified_by)
+//       .execute("UpdateRoleWithDetails");
+    
+//       if (result.recordset[0].ErrorState === 1) {
+//         throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.NOT_FOUND);
+//       }
+
+//       if (result.recordset[0].ErrorState === 2) {
+//         let field = "role_name";
+//             const customError = new AppError("Validation error", STATUS_CODES.BAD_REQUEST);
+//           customError.validationErrors = {
+//             [field]: `${field.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase())} already exists.`
+//           };
+//           throw customError;
+//       }
+//       return result.recordset;
+//     }catch(err){
+//         console.error('Error in updateRoleAndDetailsService:', err);
+//         if (err instanceof AppError) {
+//           throw err;
+//         }
+//         if(err.code === 'EREQUEST' || err.code === 'EPARAM'){
+//           throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
+//         }
+//         throw new AppError(err.message, err.status);
+  
+//         }
+//     }
+
+// exports.getRoleWithDetailsService = async (role_id) => {
+//       try {
+//         const pool = await getConnectionPool();
+    
+//         const result = await pool.request()
+//           .input("RoleID", sql.Int, role_id)
+//           .execute("GetRoleWithDetails");
+    
+//         const roleInfo = result.recordsets[0] || [];
+//         const roleDetails = result.recordsets[1] || [];
+    
+//         if (result.recordset[0].ErrorState === 1) {
+//           throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.NOT_FOUND);
+//         }
+//         return {
+//           role: roleInfo[0],
+//           details: roleDetails,
+//         };
+//       } catch (error) {
+//         console.error("Error in getRoleWithDetails:", error);
+    
+//         if (error.code === 'EREQUEST') {
+//           throw new AppError(error.message, STATUS_CODES.BAD_REQUEST);
+//         }
+//         throw new AppError(error.message, error.status);
+//       }
+//     };
+    
+//     exports.deleteRoleService = async(role_id, deleted_by) =>{
+//       try{
+//         const pool = await getConnectionPool();
+
+//          // 🔹 Set the session context for audit logs
+//          await pool.request()
+//          .input("app_user", sql.UniqueIdentifier, deleted_by)
+//          .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
+
+
+//         const result = await pool.request()
+//         .input("RoleID", sql.Int, role_id)
+//         .execute("DeleteRole");
+    
+//         if (result.recordset[0].ErrorState === 1) {
+//           throw new AppError(result.recordset[0].ErrorMessage, STATUS_CODES.NOT_FOUND);
+//         }
+//         return result.recordset;
+    
+//       }catch(err){
+//         console.error(err);
+//         if (err.code === 'EREQUEST' || err.code === 'EPARAM') {
+//           throw new AppError(err.message, STATUS_CODES.BAD_REQUEST); // Database-level errors
+//       }
+//       throw new AppError(err.message,err.status);
+//       }
+//     }
   
     

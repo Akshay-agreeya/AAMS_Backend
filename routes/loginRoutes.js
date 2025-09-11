@@ -4,7 +4,7 @@ const { validateInputs } = require('../middlewares/validation');
 const { userLoginAndFPSchema, changePasswordSchema } = require('../utils/validationSchema');
 const { verifyJwt } = require('../middlewares/auth');
 const { userLoginController, changePasswordController, forgotPasswordController, resetPasswordController, refreshAccessToken } = require('../controllers/loginController');
-
+const {sendWelcomeEmail} = require('../services/emailService');
 /**
  * @swagger
  * /api/login:
@@ -72,6 +72,8 @@ const { userLoginController, changePasswordController, forgotPasswordController,
 
 
 router.post('/login', userLoginController);
+
+// router.get('/send-mail', sendWelcomeEmail)
 
   /**
  * @swagger

@@ -20,6 +20,7 @@ const { GlobalErrorHandler } = require("./middlewares/errorHandler");
 const setupSwagger = require("./swagger");
 const { request } = require('http');
 
+const notificationRoutes = require('./routes/notificationRoutes');
 
 
 
@@ -35,6 +36,7 @@ app.use(cors());
 setupSwagger(app);
 
 // Mount routes
+
 app.use("/api", loginRoutes);
 app.use("/api/org", orgRoutes);
 app.use("/api/user", userRoutes);
@@ -46,6 +48,11 @@ app.use("/api/report", reportRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/misc", miscRoutes);
 app.use("/api/manual", manualRoutes);
+
+app.use("/api/notifications", notificationRoutes);
+
+
+
  // Serve frontend files 
   app.use(express.static(path.join(__dirname, "build")));
   app.get("*", (req, res) => {
