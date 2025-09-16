@@ -11,7 +11,8 @@ exports.sendWelcomeEmail = async ({ first_name, email }) => {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333;">Welcome, ${first_name}!</h2>
           <p>Your account has been created successfully on <b>AAMS</b>.</p>
-          <p>You can now log in using your email: <b>${email}</b></p>
+           <p>You can now log in using your email: http://gdc-vm-adaclient:8080/
+
           <p style="margin-top: 20px;">
             Best regards,<br>
             The AAMS Team
