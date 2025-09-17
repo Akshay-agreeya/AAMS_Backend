@@ -158,6 +158,45 @@ exports.deleteOrgService = async (org_ids, deleted_by) => {
      .input("app_user", sql.UniqueIdentifier, deleted_by)
      .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
 
+    // Delete child records first
+    const userOrgDeleteTable = new sql.Table("UDT_OrgID");
+    userOrgDeleteTable.columns.add("org_id", sql.UniqueIdentifier);
+    org_ids.forEach(id => userOrgDeleteTable.rows.add(id));
+    await pool.request()
+      .input("OrgIDs", userOrgDeleteTable)
+      .query(`DELETE FROM User_Org WHERE org_id IN (SELECT org_id FROM @OrgIDs)`);
+
+    const serviceDeleteTable = new sql.Table("UDT_OrgID");
+    serviceDeleteTable.columns.add("org_id", sql.UniqueIdentifier);
+    org_ids.forEach(id => serviceDeleteTable.rows.add(id));
+    await pool.request()
+      .input("OrgIDs", serviceDeleteTable)
+      .query(`DELETE FROM Service WHERE org_id IN (SELECT org_id FROM @OrgIDs)`);
+
+    // Add similar deletes for other child tables that reference org_id (User_Product, etc.)
+
+    // Now delete the organization
+    const orgDeleteTable = new sql.Table("UDT_OrgID");  // Ensure this matches your SQL type
+    orgDeleteTable.columns.add("org_id", sql.UniqueIdentifier);
+    org_ids.forEach(id => {
+      orgDeleteTable.rows.add(id);
+    });
+    const orgDeleteResult = await pool.request()
+      .input("OrgIDs", orgDeleteTable) // Pass TVP as input
+      .input("performed_by", sql.UniqueIdentifier, deleted_by) // Pass performed_by
+      .execute("DeleteOrganization"); // Use updated stored procedure
+
+    // Optionally, delete audit_log entries after organization is deleted
+    const auditLogDeleteTable2 = new sql.Table("UDT_OrgID");
+    auditLogDeleteTable2.columns.add("org_id", sql.UniqueIdentifier);
+    org_ids.forEach(id => {
+      auditLogDeleteTable2.rows.add(id);
+    });
+    await pool.request()
+      .input("OrgIDs", auditLogDeleteTable2)
+      .query(`DELETE FROM audit_log WHERE org_id IN (SELECT org_id FROM @OrgIDs)`);
+
+    return orgDeleteResult.recordset;
 
     // Create a Table-Valued Parameter (TVP)
     const table = new sql.Table("UDT_OrgID");  // Ensure this matches your SQL type
@@ -170,6 +209,7 @@ exports.deleteOrgService = async (org_ids, deleted_by) => {
 
     const result = await pool.request()
       .input("OrgIDs", table) // Pass TVP as input
+      .input("performed_by", sql.UniqueIdentifier, deleted_by) // Pass performed_by
       .execute("DeleteOrganization"); // Use updated stored procedure
 
     return result.recordset;
@@ -320,6 +360,34 @@ exports.addOrganizationService = async (orgData, created_by) => {
           };
           throw customError;
         }
+              // Delete related records in child tables before deleting organization
+              // Delete from User_Org
+              const userOrgDeleteTable = new sql.Table("UDT_OrgID");
+              userOrgDeleteTable.columns.add("org_id", sql.UniqueIdentifier);
+              org_ids.forEach(id => userOrgDeleteTable.rows.add(id));
+              await pool.request()
+                .input("OrgIDs", userOrgDeleteTable)
+                .query(`DELETE FROM User_Org WHERE org_id IN (SELECT org_id FROM @OrgIDs)`);
+
+              // Delete from Service (if you have a Service table with org_id)
+              const serviceDeleteTable = new sql.Table("UDT_OrgID");
+              serviceDeleteTable.columns.add("org_id", sql.UniqueIdentifier);
+              org_ids.forEach(id => serviceDeleteTable.rows.add(id));
+              await pool.request()
+                .input("OrgIDs", serviceDeleteTable)
+                .query(`DELETE FROM Service WHERE org_id IN (SELECT org_id FROM @OrgIDs)`);
+
+              // Add similar deletes for other child tables that reference org_id (User_Product, etc.)
+
+            // Delete related audit_log entries before deleting organization
+            const auditLogDeleteTable = new sql.Table("UDT_OrgID");
+            auditLogDeleteTable.columns.add("org_id", sql.UniqueIdentifier);
+            org_ids.forEach(id => {
+              auditLogDeleteTable.rows.add(id);
+            });
+            await pool.request()
+              .input("OrgIDs", auditLogDeleteTable)
+              .query(`DELETE FROM audit_log WHERE org_id IN (SELECT org_id FROM @OrgIDs)`);
         if (
           err.code === "EREQUEST" ||
           err.code === "EPARAM" )
