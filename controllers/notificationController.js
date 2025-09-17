@@ -2,7 +2,9 @@
 const { 
     getUserNotificationsService, 
     markNotificationAsReadService, 
-    getUnreadCountService 
+    getUnreadCountService,
+     deleteNotificationService,
+  clearNotificationsService
 } = require("../services/notificationService");
 const { STATUS_CODES } = require("../utils/errorCodes");
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
@@ -61,4 +63,44 @@ exports.getUnreadCountController = async (req, res, next) => {
     } catch (err) {
         next(err);
     }
+};
+
+
+
+// added new 
+
+
+exports.deleteNotificationController = async (req, res, next) => {
+  try {
+    const { notification_id } = req.params;
+    const user_id = req.user?.id;
+
+    await deleteNotificationService(notification_id, user_id);
+
+    const successResponse = SuccessReturnHandler({
+      message: "Notification deleted successfully",
+      resp: { success: true },
+    });
+
+    return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.clearNotificationsController = async (req, res, next) => {
+  try {
+    const user_id = req.user?.id;
+
+    await clearNotificationsService(user_id);
+
+    const successResponse = SuccessReturnHandler({
+      message: "All notifications cleared successfully",
+      resp: { success: true },
+    });
+
+    return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+  } catch (err) {
+    next(err);
+  }
 };

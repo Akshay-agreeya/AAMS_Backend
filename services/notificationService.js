@@ -73,3 +73,73 @@ exports.getUnreadCountService = async (userId) => {
         throw new AppError(err.message, STATUS_CODES.INTERNAL_SERVER_ERROR);
     }
 };
+
+
+// added new 
+
+
+
+
+
+exports.deleteNotificationService = async (notificationId, userId) => {
+  try {
+    const pool = await getConnectionPool();
+    await pool.request()
+      .input("NotificationId", sql.UniqueIdentifier, notificationId)
+      .input("UserId", sql.UniqueIdentifier, userId)
+      .query("DELETE FROM notifications_v2 WHERE id = @NotificationId AND user_id = @UserId");
+
+    return { success: true };
+  } catch (err) {
+    console.error("Error in deleteNotificationService:", err);
+    throw new AppError(err.message, STATUS_CODES.INTERNAL_SERVER_ERROR);
+  }
+};
+
+exports.clearNotificationsService = async (userId) => {
+  try {
+    const pool = await getConnectionPool();
+    await pool.request()
+      .input("UserId", sql.UniqueIdentifier, userId)
+      .query("DELETE FROM notifications_v2 WHERE user_id = @UserId");
+
+    return { success: true };
+  } catch (err) {
+    console.error("Error in clearNotificationsService:", err);
+    throw new AppError(err.message, STATUS_CODES.INTERNAL_SERVER_ERROR);
+  }
+};
+
+
+
+// exports.deleteNotificationService = async (notificationId, userId) => {
+//   try {
+//     const pool = await getConnectionPool();
+
+//     await pool.request()
+//       .input("NotificationId", sql.UniqueIdentifier, notificationId)
+//       .input("UserId", sql.UniqueIdentifier, userId)
+//       .execute("DeleteNotification_v2"); // new stored proc (or custom delete query)
+
+//     return { success: true };
+//   } catch (err) {
+//     console.error("Error in deleteNotificationService:", err);
+//     throw new AppError(err.message, STATUS_CODES.INTERNAL_SERVER_ERROR);
+//   }
+// };
+
+// exports.clearNotificationsService = async (userId) => {
+//   try {
+//     const pool = await getConnectionPool();
+
+//     await pool.request()
+//       .input("UserId", sql.UniqueIdentifier, userId)
+//       .execute("ClearNotifications_v2"); // deletes all for this user
+
+//     return { success: true };
+//   } catch (err) {
+//     console.error("Error in clearNotificationsService:", err);
+//     throw new AppError(err.message, STATUS_CODES.INTERNAL_SERVER_ERROR);
+//   }
+// };
+

@@ -5,7 +5,9 @@ const { verifyJwt } = require('../middlewares/auth');
 const { 
     getUserNotificationsController, 
     markNotificationAsReadController, 
-    getUnreadCountController 
+    getUnreadCountController ,
+     deleteNotificationController,
+  clearNotificationsController
 } = require('../controllers/notificationController');
 
 /**
@@ -65,3 +67,14 @@ router.get('/unread-count', verifyJwt, getUnreadCountController);
 router.patch('/:notification_id/read', verifyJwt, markNotificationAsReadController);
 
 module.exports = router;
+
+
+
+// added new 
+
+
+// delete one
+router.delete('/:notification_id', verifyJwt, deleteNotificationController);
+
+// clear all
+router.delete('/', verifyJwt, clearNotificationsController);

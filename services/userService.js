@@ -1,7 +1,3 @@
-
-
-// working properly 
-
 const bcrypt = require("bcrypt");
 const { sql, getConnectionPool } = require("../config/db"); // Database connection
 const { AppError } = require("../middlewares/errorHandler");
@@ -18,65 +14,6 @@ const fileTypeFromBuffer = async (buffer) => {
     return fileType.fileTypeFromBuffer(buffer);
   };
   
-
-// exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
-//     const {username, first_name, last_name, email, phone_number, password, role_id, status_id}=userData;
-//     try {
-//         const pool = await getConnectionPool();
-//         const saltRounds = 10;
-//         const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-//          // 🔹 Set the session context for audit logs
-//          await pool.request()
-//          .input("app_user", sql.UniqueIdentifier, created_by)
-//          .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
-
-//         const result = await pool.request()
-//             .input("OrgID", sql.UniqueIdentifier, org_id)
-//             .input("UserName", sql.VarChar(50),username)
-//             .input("FirstName", sql.VarChar(50), first_name)
-//             .input("LastName", sql.VarChar(50), last_name)
-//             .input("Email", sql.VarChar(50), email)
-//             .input("PhoneNumber", sql.VarChar(20), phone_number)
-//             .input("Password", sql.NVarChar(255), hashedPassword)
-//             .input("RoleID", sql.Int, role_id) 
-//             .input("StatusID", sql.Int, status_id) 
-//             .input("CreatedBy", sql.UniqueIdentifier, created_by)
-//             .execute("AddUserToOrganization");
-
-//         // Get the created user ID from the result (adjust based on your stored procedure return)
-//         const newUserId = result.recordset[0]?.user_id;
-
-//         // Add notification to the admin who created the user
-//         await addNotificationService(
-//             created_by,
-//             "User Added",
-//             `User "${first_name} ${last_name}" has been added successfully!`,
-//             "success"
-//         );
-
-//         // Add notification to the newly created user (welcome notification)
-//         if (newUserId) {
-//             await addNotificationService(
-//                 newUserId,
-//                 "Welcome!",
-//                 `Welcome to the platform! Your account has been created successfully.`,
-//                 "info"
-//             );
-//         }
-
-//         return result.recordset ;
-//     } catch (err) {
-//         console.error("Error in addUserToOrganizationService:", err);
-
-//         if (err.code === "EREQUEST" || err.code === "EPARAM") {
-//             throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
-//         }
-
-//         throw new AppError(ERROR_MESSAGES.INTERNAL_SERVER_ERROR, STATUS_CODES.INTERNAL_SERVER_ERROR);
-//     }
-// };
-
 
 exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
     const { username, first_name, last_name, email, phone_number, password, role_id, status_id } = userData;
@@ -106,17 +43,9 @@ exports.addUserToOrganizationService = async (org_id, userData, created_by) => {
 
         const newUserId = result.recordset[0]?.user_id;
 
-        // ✅ Send email to the newly created user
-        // await sendWelcomeEmail(
-        //     email,
-        //     "Welcome to AAMS 🎉",
-        //     `Hi ${first_name}, your account has been created successfully.`,
-        //     `<h1>Welcome, ${first_name}!</h1>
-        //      <p>Your account has been created successfully on <b>AAMS</b>.</p>
-        //      <p>You can now log in using your email: <b>${email}</b></p>`
-        // );
+        await sendWelcomeEmail({ first_name, email, password });
 
-        sendWelcomeEmail({ first_name, email });
+        // sendWelcomeEmail({ first_name, email });
 
 
         // 🔔 Send notifications (your existing logic)

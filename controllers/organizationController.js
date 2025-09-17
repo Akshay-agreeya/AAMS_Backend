@@ -102,6 +102,43 @@ exports.deleteOrgController = async (req, res, next) => {
     }
   };
   
+
+// exports.deleteOrgController = async (req, res, next) => {
+//   let { org_ids } = req.body;
+//   const deleted_by = req.user?.id;
+
+//   try {
+//     if (!deleted_by) {
+//       return res.status(STATUS_CODES.UNAUTHORIZED).json({ error: ERROR_MESSAGES.UNAUTHORIZED });
+//     }
+
+//     if (!org_ids || !Array.isArray(org_ids) || org_ids.length === 0) {
+//       throw new AppError("At least one org_id is required", STATUS_CODES.BAD_REQUEST);
+//     }
+
+//     // ✅ Validate all org_ids are valid UUIDs
+//     const invalidIds = org_ids.filter(id => 
+//       !id || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)
+//     );
+
+//     if (invalidIds.length > 0) {
+//       throw new AppError(`Invalid org_id format: ${invalidIds.join(', ')}`, STATUS_CODES.BAD_REQUEST);
+//     }
+
+//     const message = await deleteOrgService(org_ids, deleted_by);
+
+//     const successResponse = SuccessReturnHandler({
+//       message: SUCCESS_MESSAGES.OPERATION_SUCCESS,
+//       resp: message,
+//     });
+
+//     return res.status(STATUS_CODES.SUCCESS).json(successResponse);
+//   } catch (err) {
+//     next(err);
+//   }
+// };
+
+
 exports.getOrganizationsController = async (req, res, next) => {
     const user_id = req.user?.id;
     const { page, size } = req.query;
