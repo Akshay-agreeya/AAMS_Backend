@@ -23,6 +23,9 @@ const { request } = require('http');
 const notificationRoutes = require('./routes/notificationRoutes');
 
 
+const pdfRoutes = require('./PDF/route/pdfRoutes');
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -50,6 +53,8 @@ app.use("/api/misc", miscRoutes);
 app.use("/api/manual", manualRoutes);
 
 app.use("/api/notifications", notificationRoutes);
+
+app.use('/api', pdfRoutes);
 
 
 
