@@ -1,4 +1,84 @@
-    const MAX_PDFS = 10; // Restrict to 10 PDFs
+    // Helper to get Last-Modified date from PDF URL
+    async function getPdfLastModified(link) {
+        try {
+            const res = await fetch(link, { method: 'HEAD' });
+            const lastModified = res.headers.get('last-modified');
+            if (lastModified) {
+                return new Date(lastModified).toISOString();
+            }
+        } catch (e) {
+            logs.push(`Failed to get Last-Modified for ${link}: ${e.message}`);
+        }
+        return null;
+    }
+    // Keyword categories for PDF classification
+    const pdfCategories = [
+        {
+            label: "Legal Document",
+            keywords: [
+                "contract", "agreement", "clause", "law", "legal", "terms", "witness", "notary",
+                "patent", "copyright", "federal", "statute", "lawsuit", "indictment", "legislation",
+                "regulations", "court", "judge", "attorney", "plaintiff", "defendant", "settlement",
+                "litigation", "arbitration", "hearing", "trial", "brief", "motion", "appeal", "verdict",
+                "case number", "jurisdiction", "confidentiality", "affidavit", "subpoena", "evidence",
+                "testimony", "deposition", "legal opinion", "compliance", "statutory", "ordinance",
+                "code", "fines", "penalty", "enforcement", "warrant", "injunction", "liability", "damages",
+                "breach", "tort", "intellectual property", "licensing"
+            ]
+        },
+        {
+            label: "Festival Document",
+            keywords: [
+                "festival", "celebration", "event", "guide", "parade", "ceremony", "holiday", "planning",
+                "agenda", "music", "arts", "community", "performance", "exhibition", "cultural", "fair",
+                "gathering", "program", "schedule", "venue", "ticket", "attendance", "registration",
+                "sponsorship", "host", "organizer", "activities", "workshop", "competition", "contest",
+                "dance", "theater", "show", "presentation", "launch", "opening", "closing", "festival week",
+                "reception", "banquet", "fundraiser", "celebration day", "carnival", "festival guide",
+                "volunteer", "committee", "announcement", "promotion", "brochure", "flyer", "poster"
+            ]
+        },
+        {
+            label: "Investigation Document",
+            keywords: [
+                "investigation", "report", "case study", "evidence", "forensic", "audit", "inquiry",
+                "inspection", "findings", "analysis", "incident", "review", "assessment", "observation",
+                "documentation", "investigator", "evaluation", "audit report", "noncompliance", "violation",
+                "risk assessment", "internal control", "regulatory", "probe", "incident report", "inspection report",
+                "audit trail", "forensic analysis", "surveillance", "confidential", "security", "risk",
+                "breach", "data breach", "cybersecurity", "fraud", "whistleblower", "interview", "statement",
+                "inspection record", "corrective action", "remediation", "control testing", "audit findings",
+                "evidence review", "case file", "follow-up", "recommendations", "compliance check"
+            ]
+        },
+        {
+            label: "Research/Academic Document",
+            keywords: [
+                "abstract", "introduction", "references", "university", "research", "methodology", "paper",
+                "journal", "study", "results", "conclusion", "literature review", "experiment", "data analysis",
+                "statistical", "findings", "discussion", "hypothesis", "sampling", "survey", "publication",
+                "citation", "bibliography", "appendix", "table of contents", "figure", "graph", "chart",
+                "experiment setup", "protocol", "evaluation", "research question", "case study", "observation",
+                "analysis", "variables", "significance", "model", "theory", "framework", "conceptual", "outcome",
+                "field study", "controlled study", "results discussion", "limitations", "future work", "acknowledgements",
+                "funding", "peer-reviewed", "review article", "scientific paper"
+            ]
+        },
+        {
+            label: "Financial Document",
+            keywords: [
+                "balance sheet", "invoice", "transaction", "account", "audit", "financial report", "earnings",
+                "quarterly", "board", "shareholder", "revenue", "expense", "profit", "loss", "cash flow",
+                "budget", "investment", "portfolio", "dividend", "capital", "asset", "liability", "equity",
+                "tax", "statement", "forecast", "financial statement", "statement of accounts", "ledger",
+                "journal entry", "accounts payable", "accounts receivable", "audit report", "financial planning",
+                "management report", "performance report", "cost analysis", "income statement", "expense report",
+                "profit margin", "return on investment", "capital expenditure", "financial analysis", "fiscal year",
+                "compliance", "risk management", "valuation", "internal control", "budget allocation", "expense tracking"
+            ]
+        }
+    ];
+    // Removed MAX_PDFS limit to allow crawling all PDFs
 const axios = require('axios');
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
@@ -6,7 +86,7 @@ const { URL } = require('url');
 const fetch = require('node-fetch');
 const pdfParse = require('pdf-parse');
 
-async function crawlForPDFs(startUrl, maxDepth = 2, usePuppeteer = true) {
+async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
     const visited = new Set();
     const pdfs = new Set();
     const failed = [];
@@ -64,8 +144,7 @@ async function crawlForPDFs(startUrl, maxDepth = 2, usePuppeteer = true) {
             return;
         }
 
-        // Stop crawling if we've reached the max PDF limit
-        if (pdfs.size >= MAX_PDFS) return;
+    // No PDF limit, crawl all found PDFs
 
         console.log(`[PDF Crawler] Crawling [depth ${depth}]: ${url}`);
 
@@ -80,17 +159,37 @@ async function crawlForPDFs(startUrl, maxDepth = 2, usePuppeteer = true) {
         }
 
         for (const link of links) {
-            if (pdfs.size >= MAX_PDFS) break; // Stop if max reached
-            try {
-                if (link.endsWith('.pdf')) {
-                    pdfs.add(link);
-                    console.log(`[PDF Crawler] Found PDF: ${link}`);
-                } else if (link.startsWith('http') && !visited.has(link)) {
-                    await crawl(link, depth + 1);
+            // Stop crawling if 10 PDFs have been found
+            if (pdfs.size >= 10) {
+                console.log('[PDF Crawler] Reached 10 PDFs, stopping crawl.');
+                return;
+            }
+            let retries = 0;
+            while (retries < 3) { // Retry up to 3 times for each link
+                try {
+                    if (link.endsWith('.pdf')) {
+                        pdfs.add(link);
+                        console.log(`[PDF Crawler] Found PDF: ${link}`);
+                        // Stop crawling if 10 PDFs have been found
+                        if (pdfs.size >= 10) {
+                            console.log('[PDF Crawler] Reached 10 PDFs, stopping crawl.');
+                            return;
+                        }
+                    } else if (link.startsWith('http') && !visited.has(link)) {
+                        await crawl(link, depth + 1);
+                        // Stop crawling if 10 PDFs have been found after recursion
+                        if (pdfs.size >= 10) {
+                            return;
+                        }
+                    }
+                    break; // Success, exit retry loop
+                } catch (e) {
+                    retries++;
+                    if (retries === 3) {
+                        logs.push(`Failed to process link after 3 retries: ${link}`);
+                        console.log(`[PDF Crawler] Failed to process link after 3 retries: ${link}`);
+                    }
                 }
-            } catch (e) {
-                logs.push(`Failed to process link: ${link}`);
-                console.log(`[PDF Crawler] Failed to process link: ${link}`);
             }
         }
     }
@@ -130,46 +229,29 @@ async function crawlForPDFs(startUrl, maxDepth = 2, usePuppeteer = true) {
         }
     }
 
-    // Helper to check if PDF is at least two years old (by filename with date or last modified header)
-    async function isTwoYearsOld(link) {
-        // Try to extract year from filename (e.g., ...2021..., ...2022...)
-        const name = link.split('/').pop() || link;
-        const yearMatch = name.match(/(20\d{2})/);
-        if (yearMatch) {
-            const year = parseInt(yearMatch[1], 10);
-            if (year <= new Date().getFullYear() - 2) return true;
-        }
-        // Try to get last-modified header
-        try {
-            const res = await fetch(link, { method: 'HEAD' });
-            const lastModified = res.headers.get('last-modified');
-            if (lastModified) {
-                const date = new Date(lastModified);
-                if (date < new Date(Date.now() - 2 * 365 * 24 * 60 * 60 * 1000)) return true;
-            }
-        } catch (e) {}
-        return false;
-    }
-
-    // Categorize PDF based on content and age
-    function categorizePdf(text, isOld) {
+    // Categorize PDF strictly by keyword lists
+    function categorizePdf(text) {
         const lower = text.toLowerCase();
-        if (isOld) return 'Two Years Old';
-        if (/congratulat|festival|wish(es)?|greetings/.test(lower)) return 'Congratulatory/Festive';
-        if (/government|circular|notice|guideline/.test(lower)) return 'Government Notice';
+        for (const cat of pdfCategories) {
+            for (const kw of cat.keywords) {
+                if (lower.includes(kw.toLowerCase())) {
+                    return cat.label;
+                }
+            }
+        }
         return 'Uncategorized';
     }
 
-    // Map PDF URLs to objects with name, link, pages, and category
+    // Map only the first 10 PDF URLs to objects with name, link, pages, and category
     const pdfObjects = [];
-    for (const link of pdfs) {
+    const firstTenPdfs = Array.from(pdfs).slice(0, 10);
+    for (const link of firstTenPdfs) {
         const name = link.split('/').pop() || link;
-        let pages = null;
-        pages = await getPdfPageCount(link);
+        let pages = await getPdfPageCount(link);
         let text = await getPdfText(link);
-        let isOld = await isTwoYearsOld(link);
-        let category = categorizePdf(text, isOld);
-        pdfObjects.push({ name, link, pages, category });
+        let category = categorizePdf(text);
+        let lastModified = await getPdfLastModified(link);
+        pdfObjects.push({ name, link, pages, category, lastModified });
     }
     return { pdfs: pdfObjects, logs };
 }
