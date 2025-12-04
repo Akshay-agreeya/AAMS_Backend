@@ -25,6 +25,7 @@ const notificationRoutes = require('./routes/notificationRoutes');
 
 
 const pdfRoutes = require('./PDF/route/pdfRoutes');
+const excelRoutes = require("./routes/excel.routes");
 
 
 
@@ -58,6 +59,9 @@ app.use("/api/notifications", notificationRoutes);
 app.use('/api', pdfRoutes);
 
 app.use('/api/accessibility', accessibilityRoutes);
+app.use("/api/excel", excelRoutes);
+
+
 
 
  // Serve frontend files 
