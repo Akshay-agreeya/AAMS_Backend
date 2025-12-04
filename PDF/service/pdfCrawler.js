@@ -1,8 +1,9 @@
-
 const axios = require('axios');
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 const { URL } = require('url');
+const fetch = require('node-fetch');
+const pdfParse = require('pdf-parse');
 
 async function crawlForPDFs(startUrl, maxDepth = 2, usePuppeteer = true) {
     const visited = new Set();
@@ -17,7 +18,7 @@ async function crawlForPDFs(startUrl, maxDepth = 2, usePuppeteer = true) {
         try {
             browser = await puppeteer.launch({ headless: true });
             page = await browser.newPage();
-            await page.goto(url, { waitUntil: 'networkidle2', timeout: 20000 });
+            await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 }); // Increased timeout to 60 seconds
             links = await page.$$eval('a[href]', anchors => anchors.map(a => a.href));
             console.log(`[PDF Crawler] Puppeteer extracted ${links.length} links from ${url}`);
         } catch (err) {
@@ -32,7 +33,7 @@ async function crawlForPDFs(startUrl, maxDepth = 2, usePuppeteer = true) {
     async function extractLinksWithCheerio(url) {
         let links = [];
         try {
-            const res = await axios.get(url, { timeout: 10000, maxRedirects: 5 });
+            const res = await axios.get(url, { timeout: 30000, maxRedirects: 5 }); 
             const $ = cheerio.load(res.data);
             $('a[href]').each((_, el) => {
                 let href = $(el).attr('href');
@@ -96,7 +97,76 @@ async function crawlForPDFs(startUrl, maxDepth = 2, usePuppeteer = true) {
         console.log(`[PDF Crawler] Top-level crawl failed: ${err.message}`);
     }
     console.log(`[PDF Crawler] Crawl finished. Found ${pdfs.size} PDFs.`);
-    return { pdfs: Array.from(pdfs), logs };
+    // Helper to get page count from a PDF URL
+    async function getPdfPageCount(link) {
+        try {
+            const res = await fetch(link);
+            if (!res.ok) return null;
+            const buffer = await res.buffer();
+            const data = await pdfParse(buffer);
+            return data.numpages || null;
+        } catch (e) {
+            logs.push(`Failed to get page count for ${link}: ${e.message}`);
+            return null;
+        }
+    }
+
+    // Helper to get PDF text content
+    async function getPdfText(link) {
+        try {
+            const res = await fetch(link);
+            if (!res.ok) return '';
+            const buffer = await res.buffer();
+            const data = await pdfParse(buffer);
+            return data.text || '';
+        } catch (e) {
+            logs.push(`Failed to get text for ${link}: ${e.message}`);
+            return '';
+        }
+    }
+
+    // Helper to check if PDF is at least two years old (by filename with date or last modified header)
+    async function isTwoYearsOld(link) {
+        // Try to extract year from filename (e.g., ...2021..., ...2022...)
+        const name = link.split('/').pop() || link;
+        const yearMatch = name.match(/(20\d{2})/);
+        if (yearMatch) {
+            const year = parseInt(yearMatch[1], 10);
+            if (year <= new Date().getFullYear() - 2) return true;
+        }
+        // Try to get last-modified header
+        try {
+            const res = await fetch(link, { method: 'HEAD' });
+            const lastModified = res.headers.get('last-modified');
+            if (lastModified) {
+                const date = new Date(lastModified);
+                if (date < new Date(Date.now() - 2 * 365 * 24 * 60 * 60 * 1000)) return true;
+            }
+        } catch (e) {}
+        return false;
+    }
+
+    // Categorize PDF based on content and age
+    function categorizePdf(text, isOld) {
+        const lower = text.toLowerCase();
+        if (isOld) return 'Two Years Old';
+        if (/congratulat|festival|wish(es)?|greetings/.test(lower)) return 'Congratulatory/Festive';
+        if (/government|circular|notice|guideline/.test(lower)) return 'Government Notice';
+        return 'Uncategorized';
+    }
+
+    // Map PDF URLs to objects with name, link, pages, and category
+    const pdfObjects = [];
+    for (const link of pdfs) {
+        const name = link.split('/').pop() || link;
+        let pages = null;
+        pages = await getPdfPageCount(link);
+        let text = await getPdfText(link);
+        let isOld = await isTwoYearsOld(link);
+        let category = categorizePdf(text, isOld);
+        pdfObjects.push({ name, link, pages, category });
+    }
+    return { pdfs: pdfObjects, logs };
 }
 
 module.exports = { crawlForPDFs };

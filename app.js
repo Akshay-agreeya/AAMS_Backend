@@ -19,6 +19,7 @@ const manualRoutes = require('./routes/manualRoutes');
 const { GlobalErrorHandler } = require("./middlewares/errorHandler");
 const setupSwagger = require("./swagger");
 const { request } = require('http');
+const accessibilityRoutes = require('./routes/accessibilityRoutes');
 
 const notificationRoutes = require('./routes/notificationRoutes');
 
@@ -56,13 +57,14 @@ app.use("/api/notifications", notificationRoutes);
 
 app.use('/api', pdfRoutes);
 
+app.use('/api/accessibility', accessibilityRoutes);
 
 
  // Serve frontend files 
-  app.use(express.static(path.join(__dirname, "build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
-  });
+  // app.use(express.static(path.join(__dirname, "build")));
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.join(__dirname, "build", "index.html"));
+  // });
 
 // Global Error Handler
 app.use(GlobalErrorHandler);

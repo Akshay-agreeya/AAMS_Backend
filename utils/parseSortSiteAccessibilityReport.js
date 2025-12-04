@@ -6,6 +6,10 @@ const cheerio = require('cheerio');
  * @returns {Array<Object>} - An array of objects representing the summary report data.
  */
 function parseAccessibilityReport(html) {
+    // Log the raw HTML input (truncated to 1000 chars for safety)
+    console.log('--- Raw HTML input to parser (truncated) ---');
+    console.log(html ? html.substring(0, 1000) : '[No HTML provided]');
+
     // Initialize Cheerio with the HTML
     const $ = cheerio.load(html);
 
@@ -53,6 +57,9 @@ function parseAccessibilityReport(html) {
         });
     });
 
+    if (dataArray.length === 0) {
+        console.warn('No accessibility issues found. Check if the report format has changed or if the scan failed.');
+    }
     console.log(dataArray);
     return dataArray;
 }

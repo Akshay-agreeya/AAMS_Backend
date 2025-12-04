@@ -1,0 +1,128 @@
+[2025-12-01T16:32:36.086Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The CSS backdrop-filter: property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "iPhone/iPad ≤ 17",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/epfrswhc/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/epfrswhc/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": ".wp-lightbox-container button { backdrop-filter: blur(16px16pxsaturate(180%180%; }",
+            "LineNumbers": "312"
+          },
+          {
+            "Description": ".has-nested-images figure.wp-block-image:before { backdrop-filter: blur(3px3px; }",
+            "LineNumbers": "251"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "53"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "53"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "109"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "109"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/dvi228kp/hpx4i.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/dvi228kp/hpx4i.css"
+        },
+        "Details": [
+          {
+            "Description": "input.lsow-button",
+            "LineNumbers": "531"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/epfrswhc/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/epfrswhc/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": ":active",
+            "LineNumbers": "212"
+          }
+        ]
+      }
+    ]
+  }
+]

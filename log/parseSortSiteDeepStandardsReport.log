@@ -1,0 +1,4094 @@
+[2025-12-01T09:50:27.081Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "An img element must have an\n                    alt attribute, except under certain\n                    conditions. For details, consult guidance on\n                    providing text alternatives for images.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/images.html#alt"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "296"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "297"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2393"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2399"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1780"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1786"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "468"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "469"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Bad value for attribute href.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "70"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "81"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-11-2021-Revised Guidelines and Schedule for Admission under Special Drive_Candidates .pdf'></a>",
+            "LineNumbers": "114"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "126"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/2021-Revised PG schedule.pdf'></a>",
+            "LineNumbers": "127"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "293"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "1685"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "1711"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/08-11-2021-DUET 04_compressed.pdf'></a>",
+            "LineNumbers": "1789"
+          },
+          {
+            "Description": "<a href='userfiles/downloads/06-11-2021-DUET score card 21 PG 2021.pdf'></a>",
+            "LineNumbers": "1791"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "300"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/18102021Guidelines_for_UG_ Merit_Based_Admission.pdf'></a>",
+            "LineNumbers": "342"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-Press%20Release - 1st Cut-Off - 2021.pdf'></a>",
+            "LineNumbers": "437"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-1st%20Cut-Off - Arts &#38; Commerce.pdf'></a>",
+            "LineNumbers": "442"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-1st%20Cut-Off - Science.pdf'></a>",
+            "LineNumbers": "447"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "300"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "1105"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "1131"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/08-11-2021-DUET 04_compressed.pdf'></a>",
+            "LineNumbers": "1209"
+          },
+          {
+            "Description": "<a href='userfiles/downloads/06-11-2021-DUET score card 21 PG 2021.pdf'></a>",
+            "LineNumbers": "1211"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Bad value for attribute width.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "296"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "297"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2393"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2399"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1780"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1786"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1813"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1819"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "CSS Validation Error.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css99999999",
+          "link": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css99999999"
+        },
+        "Details": [
+          {
+            "Description": "color: #",
+            "LineNumbers": "99"
+          },
+          {
+            "Description": "#7851a9",
+            "LineNumbers": "99"
+          },
+          {
+            "Description": "#7851a9",
+            "LineNumbers": "99"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Duplicate id - the same ID is used on more than one element.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "284"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "285"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "284"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "286"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2340"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2349"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2340"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2358"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1727"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1736"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1727"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1745"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1760"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1769"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1760"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1778"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Element a is missing one or more required attributes.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "196"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "251"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1864"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "2191"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1251"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1578"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1284"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1611"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "No p element in scope but a p end tag seen.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The align attribute on the p element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<p align='right'><a href='?UG-Admission'>More Details »</a></p>",
+            "LineNumbers": "115"
+          },
+          {
+            "Description": "<p align='right'><a href='...s'>More Details »</a></p>",
+            "LineNumbers": "119"
+          },
+          {
+            "Description": "<p align='right'><a href='?UG-Admission/NCWEB'>More Details »</a></p>",
+            "LineNumbers": "123"
+          },
+          {
+            "Description": "<p align='right'><a href='?PG-Admission'>More Details »</a></p>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The align attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "108"
+          },
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "109"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The border attribute on the table element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<table style='width: 100%;' border='2' width='100%'>...</table>",
+            "LineNumbers": "105"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "361"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "609"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "652"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "702"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "918"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<table style='border-collapse: ...' border='1'>...</table>",
+            "LineNumbers": "357"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "429"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The valign attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' valign='top'><br><p><strong>»...</strong></p>...</td>",
+            "LineNumbers": "125"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The width attribute on the table element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<table style='width: 100%;' border='2' width='100%'>...</table>",
+            "LineNumbers": "105"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "340"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "361"
+          },
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "588"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "609"
+          },
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "631"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Entrance-based-Admissions",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Entrance-based-Admissions"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "387"
+          },
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "508"
+          },
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "639"
+          },
+          {
+            "Description": "<table style='width: 100%; ...' border='1' width='100%'>...</table>",
+            "LineNumbers": "1009"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "429"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The width attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "108"
+          },
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "109"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<td width='697'><p><strong>... (H)</strong></p></td>",
+            "LineNumbers": "346"
+          },
+          {
+            "Description": "<td width='695'><p><strong>... (P)</strong></p></td>",
+            "LineNumbers": "594"
+          },
+          {
+            "Description": "<td width='699'><p>... (Program)</p></td>",
+            "LineNumbers": "615"
+          },
+          {
+            "Description": "<td width='697'><p><strong>...e</strong></p></td>",
+            "LineNumbers": "637"
+          },
+          {
+            "Description": "<td width='349'><p>●       B.Com. (H)</p></td>",
+            "LineNumbers": "658"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 20%; ...' width='289'><p><strong>...f</strong></p></td>",
+            "LineNumbers": "373"
+          },
+          {
+            "Description": "<td style='width: 25%; ...' width='396'> <strong>View</strong></td>",
+            "LineNumbers": "391"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<td width='289'><p><strong>...</strong></p></td>",
+            "LineNumbers": "435"
+          },
+          {
+            "Description": "<td width='396'><p><strong>...</strong></p></td>",
+            "LineNumbers": "446"
+          },
+          {
+            "Description": "<td width='289'><p><span>Declaration of 1...</span></p></td>",
+            "LineNumbers": "461"
+          },
+          {
+            "Description": "<td width='396'><p><span> 1...</span></p></td>",
+            "LineNumbers": "472"
+          },
+          {
+            "Description": "<td width='289'><p><span>... 1...</span></p></td>",
+            "LineNumbers": "487"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Property or at-rule is vendor specific.",
+    "Remediation": "Properties and at-rules prefixed by a dash or underscore, the zoom property and the expression() function are vendor specific and only work on one browser engine.",
+    "Level": "Information",
+    "Failing Page": "3",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/assets/css/xhstyles.css",
+          "link": "https://admission.uod.ac.in/2021/assets/css/xhstyles.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-transform",
+            "LineNumbers": "703"
+          },
+          {
+            "Description": "-webkit-box-sizing",
+            "LineNumbers": "858"
+          },
+          {
+            "Description": "-webkit-box-sizing",
+            "LineNumbers": "864"
+          },
+          {
+            "Description": "-webkit-box-shadow",
+            "LineNumbers": "1504"
+          },
+          {
+            "Description": "-webkit-transition",
+            "LineNumbers": "1506"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/plugins/fa/css/font-awesome.min.css",
+          "link": "https://admission.uod.ac.in/2021/plugins/fa/css/font-awesome.min.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-font-smoothing",
+            "LineNumbers": "5"
+          },
+          {
+            "Description": "-moz-osx-font-smoothing",
+            "LineNumbers": "5"
+          },
+          {
+            "Description": "-webkit-animation",
+            "LineNumbers": "25"
+          },
+          {
+            "Description": "-webkit-animation",
+            "LineNumbers": "26"
+          },
+          {
+            "Description": "@-webkit-keyframes",
+            "LineNumbers": "27"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css",
+          "link": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css"
+        },
+        "Details": [
+          {
+            "Description": "-ms-interpolation-mode",
+            "LineNumbers": "35"
+          },
+          {
+            "Description": "-webkit-font-smoothing",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-moz-osx-font-smoothing",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-ms-text-size-adjust",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-webkit-text-size-adjust",
+            "LineNumbers": "37"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2025-12-01T09:56:39.620Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "An img element must have an\n                    alt attribute, except under certain\n                    conditions. For details, consult guidance on\n                    providing text alternatives for images.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/images.html#alt"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "296"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "297"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2393"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2399"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1780"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1786"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "468"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "469"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Bad value for attribute href.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "70"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "81"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-11-2021-Revised Guidelines and Schedule for Admission under Special Drive_Candidates .pdf'></a>",
+            "LineNumbers": "114"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "126"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/2021-Revised PG schedule.pdf'></a>",
+            "LineNumbers": "127"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "293"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "1685"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "1711"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/08-11-2021-DUET 04_compressed.pdf'></a>",
+            "LineNumbers": "1789"
+          },
+          {
+            "Description": "<a href='userfiles/downloads/06-11-2021-DUET score card 21 PG 2021.pdf'></a>",
+            "LineNumbers": "1791"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "300"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/18102021Guidelines_for_UG_ Merit_Based_Admission.pdf'></a>",
+            "LineNumbers": "342"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-Press%20Release - 1st Cut-Off - 2021.pdf'></a>",
+            "LineNumbers": "437"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-1st%20Cut-Off - Arts &#38; Commerce.pdf'></a>",
+            "LineNumbers": "442"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-1st%20Cut-Off - Science.pdf'></a>",
+            "LineNumbers": "447"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "300"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "1105"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "1131"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/08-11-2021-DUET 04_compressed.pdf'></a>",
+            "LineNumbers": "1209"
+          },
+          {
+            "Description": "<a href='userfiles/downloads/06-11-2021-DUET score card 21 PG 2021.pdf'></a>",
+            "LineNumbers": "1211"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Bad value for attribute width.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "296"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "297"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2393"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2399"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1780"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1786"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1813"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1819"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "CSS Validation Error.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css99999999",
+          "link": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css99999999"
+        },
+        "Details": [
+          {
+            "Description": "color: #",
+            "LineNumbers": "99"
+          },
+          {
+            "Description": "#7851a9",
+            "LineNumbers": "99"
+          },
+          {
+            "Description": "#7851a9",
+            "LineNumbers": "99"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Duplicate id - the same ID is used on more than one element.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "284"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "285"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "284"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "286"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2340"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2349"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2340"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2358"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1727"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1736"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1727"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1745"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1760"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1769"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1760"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1778"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Element a is missing one or more required attributes.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "196"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "251"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1864"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "2191"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1251"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1578"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1284"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1611"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "No p element in scope but a p end tag seen.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The align attribute on the p element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<p align='right'><a href='?UG-Admission'>More Details »</a></p>",
+            "LineNumbers": "115"
+          },
+          {
+            "Description": "<p align='right'><a href='...s'>More Details »</a></p>",
+            "LineNumbers": "119"
+          },
+          {
+            "Description": "<p align='right'><a href='?UG-Admission/NCWEB'>More Details »</a></p>",
+            "LineNumbers": "123"
+          },
+          {
+            "Description": "<p align='right'><a href='?PG-Admission'>More Details »</a></p>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The align attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "108"
+          },
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "109"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The border attribute on the table element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<table style='width: 100%;' border='2' width='100%'>...</table>",
+            "LineNumbers": "105"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "361"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "609"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "652"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "702"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "918"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<table style='border-collapse: ...' border='1'>...</table>",
+            "LineNumbers": "357"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "429"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The valign attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' valign='top'><br><p><strong>»...</strong></p>...</td>",
+            "LineNumbers": "125"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The width attribute on the table element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<table style='width: 100%;' border='2' width='100%'>...</table>",
+            "LineNumbers": "105"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "340"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "361"
+          },
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "588"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "609"
+          },
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "631"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Entrance-based-Admissions",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Entrance-based-Admissions"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "387"
+          },
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "508"
+          },
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "639"
+          },
+          {
+            "Description": "<table style='width: 100%; ...' border='1' width='100%'>...</table>",
+            "LineNumbers": "1009"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "429"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The width attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "108"
+          },
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "109"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<td width='697'><p><strong>... (H)</strong></p></td>",
+            "LineNumbers": "346"
+          },
+          {
+            "Description": "<td width='695'><p><strong>... (P)</strong></p></td>",
+            "LineNumbers": "594"
+          },
+          {
+            "Description": "<td width='699'><p>... (Program)</p></td>",
+            "LineNumbers": "615"
+          },
+          {
+            "Description": "<td width='697'><p><strong>...e</strong></p></td>",
+            "LineNumbers": "637"
+          },
+          {
+            "Description": "<td width='349'><p>●       B.Com. (H)</p></td>",
+            "LineNumbers": "658"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 20%; ...' width='289'><p><strong>...f</strong></p></td>",
+            "LineNumbers": "373"
+          },
+          {
+            "Description": "<td style='width: 25%; ...' width='396'> <strong>View</strong></td>",
+            "LineNumbers": "391"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<td width='289'><p><strong>...</strong></p></td>",
+            "LineNumbers": "435"
+          },
+          {
+            "Description": "<td width='396'><p><strong>...</strong></p></td>",
+            "LineNumbers": "446"
+          },
+          {
+            "Description": "<td width='289'><p><span>Declaration of 1...</span></p></td>",
+            "LineNumbers": "461"
+          },
+          {
+            "Description": "<td width='396'><p><span> 1...</span></p></td>",
+            "LineNumbers": "472"
+          },
+          {
+            "Description": "<td width='289'><p><span>... 1...</span></p></td>",
+            "LineNumbers": "487"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Property or at-rule is vendor specific.",
+    "Remediation": "Properties and at-rules prefixed by a dash or underscore, the zoom property and the expression() function are vendor specific and only work on one browser engine.",
+    "Level": "Information",
+    "Failing Page": "3",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/assets/css/xhstyles.css",
+          "link": "https://admission.uod.ac.in/2021/assets/css/xhstyles.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-transform",
+            "LineNumbers": "703"
+          },
+          {
+            "Description": "-webkit-box-sizing",
+            "LineNumbers": "858"
+          },
+          {
+            "Description": "-webkit-box-sizing",
+            "LineNumbers": "864"
+          },
+          {
+            "Description": "-webkit-box-shadow",
+            "LineNumbers": "1504"
+          },
+          {
+            "Description": "-webkit-transition",
+            "LineNumbers": "1506"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/plugins/fa/css/font-awesome.min.css",
+          "link": "https://admission.uod.ac.in/2021/plugins/fa/css/font-awesome.min.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-font-smoothing",
+            "LineNumbers": "5"
+          },
+          {
+            "Description": "-moz-osx-font-smoothing",
+            "LineNumbers": "5"
+          },
+          {
+            "Description": "-webkit-animation",
+            "LineNumbers": "25"
+          },
+          {
+            "Description": "-webkit-animation",
+            "LineNumbers": "26"
+          },
+          {
+            "Description": "@-webkit-keyframes",
+            "LineNumbers": "27"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css",
+          "link": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css"
+        },
+        "Details": [
+          {
+            "Description": "-ms-interpolation-mode",
+            "LineNumbers": "35"
+          },
+          {
+            "Description": "-webkit-font-smoothing",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-moz-osx-font-smoothing",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-ms-text-size-adjust",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-webkit-text-size-adjust",
+            "LineNumbers": "37"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2025-12-01T10:16:14.559Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "An img element must have an\n                    alt attribute, except under certain\n                    conditions. For details, consult guidance on\n                    providing text alternatives for images.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/images.html#alt"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "296"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "297"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2393"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2399"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1780"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1786"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "468"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "469"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Bad value for attribute href.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "70"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "81"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-11-2021-Revised Guidelines and Schedule for Admission under Special Drive_Candidates .pdf'></a>",
+            "LineNumbers": "114"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "126"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/2021-Revised PG schedule.pdf'></a>",
+            "LineNumbers": "127"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "293"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "1685"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "1711"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/08-11-2021-DUET 04_compressed.pdf'></a>",
+            "LineNumbers": "1789"
+          },
+          {
+            "Description": "<a href='userfiles/downloads/06-11-2021-DUET score card 21 PG 2021.pdf'></a>",
+            "LineNumbers": "1791"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "300"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/18102021Guidelines_for_UG_ Merit_Based_Admission.pdf'></a>",
+            "LineNumbers": "342"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-Press%20Release - 1st Cut-Off - 2021.pdf'></a>",
+            "LineNumbers": "437"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-1st%20Cut-Off - Arts &#38; Commerce.pdf'></a>",
+            "LineNumbers": "442"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/cutoff/01-10-2021-1st%20Cut-Off - Science.pdf'></a>",
+            "LineNumbers": "447"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?%E0%A4%A6%E0%A4%BF%E0%A4%B2%E0%A5%8D%E0%A4%B2%E0%A5%80%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF.%E0%A4%B5%E0%A4%BF%E0%A4%A6%'></a>",
+            "LineNumbers": "300"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/12-01-2021-PhD Extension Notice.pdf'></a>",
+            "LineNumbers": "1105"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/21-12-2021-Notice 4th + spot admission round.pdf'></a>",
+            "LineNumbers": "1131"
+          },
+          {
+            "Description": "<a href='./userfiles/downloads/08-11-2021-DUET 04_compressed.pdf'></a>",
+            "LineNumbers": "1209"
+          },
+          {
+            "Description": "<a href='userfiles/downloads/06-11-2021-DUET score card 21 PG 2021.pdf'></a>",
+            "LineNumbers": "1211"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Bad value for attribute width.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "296"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "297"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2393"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2399"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1780"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1786"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1813"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1819"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "CSS Validation Error.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css99999999",
+          "link": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css99999999"
+        },
+        "Details": [
+          {
+            "Description": "color: #",
+            "LineNumbers": "99"
+          },
+          {
+            "Description": "#7851a9",
+            "LineNumbers": "99"
+          },
+          {
+            "Description": "#7851a9",
+            "LineNumbers": "99"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Duplicate id - the same ID is used on more than one element.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "284"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "285"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "284"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "286"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2340"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2349"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2340"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "2358"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1727"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1736"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1727"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1745"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1760"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1769"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1760"
+          },
+          {
+            "Description": "id=t_r",
+            "LineNumbers": "1778"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Element a is missing one or more required attributes.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "196"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "251"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1864"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "2191"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1251"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1578"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1284"
+          },
+          {
+            "Description": "hrefa<a target='_blank' rel='noopener noreferrer'></a>",
+            "LineNumbers": "1611"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "No p element in scope but a p end tag seen.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The align attribute on the p element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<p align='right'><a href='?UG-Admission'>More Details »</a></p>",
+            "LineNumbers": "115"
+          },
+          {
+            "Description": "<p align='right'><a href='...s'>More Details »</a></p>",
+            "LineNumbers": "119"
+          },
+          {
+            "Description": "<p align='right'><a href='?UG-Admission/NCWEB'>More Details »</a></p>",
+            "LineNumbers": "123"
+          },
+          {
+            "Description": "<p align='right'><a href='?PG-Admission'>More Details »</a></p>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The align attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "108"
+          },
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "109"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The border attribute on the table element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<table style='width: 100%;' border='2' width='100%'>...</table>",
+            "LineNumbers": "105"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "361"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "609"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "652"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "702"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "918"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<table style='border-collapse: ...' border='1'>...</table>",
+            "LineNumbers": "357"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "429"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The valign attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' valign='top'><br><p><strong>»...</strong></p>...</td>",
+            "LineNumbers": "125"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The width attribute on the table element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<table style='width: 100%;' border='2' width='100%'>...</table>",
+            "LineNumbers": "105"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "340"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "361"
+          },
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "588"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "609"
+          },
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "631"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Entrance-based-Admissions",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Entrance-based-Admissions"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "387"
+          },
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "508"
+          },
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "639"
+          },
+          {
+            "Description": "<table style='width: 100%; ...' border='1' width='100%'>...</table>",
+            "LineNumbers": "1009"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<table border='2' width='100%'>...</table>",
+            "LineNumbers": "429"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The width attribute on the td element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "108"
+          },
+          {
+            "Description": "<td style='width: 50%;' align='center' width='50%'><strong>...</strong></td>",
+            "LineNumbers": "109"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<td width='697'><p><strong>... (H)</strong></p></td>",
+            "LineNumbers": "346"
+          },
+          {
+            "Description": "<td width='695'><p><strong>... (P)</strong></p></td>",
+            "LineNumbers": "594"
+          },
+          {
+            "Description": "<td width='699'><p>... (Program)</p></td>",
+            "LineNumbers": "615"
+          },
+          {
+            "Description": "<td width='697'><p><strong>...e</strong></p></td>",
+            "LineNumbers": "637"
+          },
+          {
+            "Description": "<td width='349'><p>●       B.Com. (H)</p></td>",
+            "LineNumbers": "658"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<td style='width: 20%; ...' width='289'><p><strong>...f</strong></p></td>",
+            "LineNumbers": "373"
+          },
+          {
+            "Description": "<td style='width: 25%; ...' width='396'> <strong>View</strong></td>",
+            "LineNumbers": "391"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<td width='289'><p><strong>...</strong></p></td>",
+            "LineNumbers": "435"
+          },
+          {
+            "Description": "<td width='396'><p><strong>...</strong></p></td>",
+            "LineNumbers": "446"
+          },
+          {
+            "Description": "<td width='289'><p><span>Declaration of 1...</span></p></td>",
+            "LineNumbers": "461"
+          },
+          {
+            "Description": "<td width='396'><p><span> 1...</span></p></td>",
+            "LineNumbers": "472"
+          },
+          {
+            "Description": "<td width='289'><p><span>... 1...</span></p></td>",
+            "LineNumbers": "487"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Property or at-rule is vendor specific.",
+    "Remediation": "Properties and at-rules prefixed by a dash or underscore, the zoom property and the expression() function are vendor specific and only work on one browser engine.",
+    "Level": "Information",
+    "Failing Page": "3",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/assets/css/xhstyles.css",
+          "link": "https://admission.uod.ac.in/2021/assets/css/xhstyles.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-transform",
+            "LineNumbers": "703"
+          },
+          {
+            "Description": "-webkit-box-sizing",
+            "LineNumbers": "858"
+          },
+          {
+            "Description": "-webkit-box-sizing",
+            "LineNumbers": "864"
+          },
+          {
+            "Description": "-webkit-box-shadow",
+            "LineNumbers": "1504"
+          },
+          {
+            "Description": "-webkit-transition",
+            "LineNumbers": "1506"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/plugins/fa/css/font-awesome.min.css",
+          "link": "https://admission.uod.ac.in/2021/plugins/fa/css/font-awesome.min.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-font-smoothing",
+            "LineNumbers": "5"
+          },
+          {
+            "Description": "-moz-osx-font-smoothing",
+            "LineNumbers": "5"
+          },
+          {
+            "Description": "-webkit-animation",
+            "LineNumbers": "25"
+          },
+          {
+            "Description": "-webkit-animation",
+            "LineNumbers": "26"
+          },
+          {
+            "Description": "@-webkit-keyframes",
+            "LineNumbers": "27"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css",
+          "link": "https://admission.uod.ac.in/2021/templates/fhs-basic/stylesheet.css"
+        },
+        "Details": [
+          {
+            "Description": "-ms-interpolation-mode",
+            "LineNumbers": "35"
+          },
+          {
+            "Description": "-webkit-font-smoothing",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-moz-osx-font-smoothing",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-ms-text-size-adjust",
+            "LineNumbers": "37"
+          },
+          {
+            "Description": "-webkit-text-size-adjust",
+            "LineNumbers": "37"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2025-12-01T16:32:15.946Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Attribute xmlns:og not allowed on element.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='http://opengraphprotocol.org/schema/'></html>",
+            "LineNumbers": "6"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='http://opengraphprotocol.org/schema/'></html>",
+            "LineNumbers": "6"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='http://opengraphprotocol.org/schema/'></html>",
+            "LineNumbers": "6"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Bad value for attribute type.",
+    "Remediation": "Syntax of MIME type: A media-type as defined in RFC 2616; that is, typically, a required type, followed by a / character, followed by a required subtype, optionally followed by one or more instances of a ; character followed by a parameter. Examples: text/css, text/css;charset=utf-8.",
+    "Level": "Priority 1",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<script type='speculationrules'>...</script>",
+            "LineNumbers": "1408"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<script type='speculationrules'>...</script>",
+            "LineNumbers": "885"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<script type='speculationrules'>...</script>",
+            "LineNumbers": "886"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "CSS @import rules must appear before all other rules except @charset.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": "CSS Validation",
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "CSS Validation Error.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css67456745674767476749",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css67456745674767476749"
+        },
+        "Details": [
+          {
+            "Description": "width: calc(",
+            "LineNumbers": "6745"
+          },
+          {
+            "Description": "max-width: calc(",
+            "LineNumbers": "6747"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Element meta is missing one or more required attributes.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "http-equivnameitemproppropertymeta<meta content='text/html; ...'>",
+            "LineNumbers": "12"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "http-equivnameitemproppropertymeta<meta content='text/html; ...'>",
+            "LineNumbers": "12"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "http-equivnameitemproppropertymeta<meta content='text/html; ...'>",
+            "LineNumbers": "12"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Element style not allowed as child element in this context.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<body class='home wp-singular ...'><style>...</style></body>",
+            "LineNumbers": "1411"
+          },
+          {
+            "Description": "<body class='home wp-singular ...'><style>...</style></body>",
+            "LineNumbers": "1413"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<body class='wp-singular ...'><style>...</style></body>",
+            "LineNumbers": "888"
+          },
+          {
+            "Description": "<body class='wp-singular ...'><style>...</style></body>",
+            "LineNumbers": "890"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<body class='wp-singular ...'><style>...</style></body>",
+            "LineNumbers": "889"
+          },
+          {
+            "Description": "<body class='wp-singular ...'><style>...</style></body>",
+            "LineNumbers": "891"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Invalid @charset rule.",
+    "Remediation": "@charset rules are more restrictive than other @rules:\n\n@charset be at start of the CSS file with no whitespace or byte-order-mark before\n@charset must be followed by a single space and a double quote\nMust end with a double quote and semi-colon\nThe @charset rule name must be all lower case\n@charset cannot be used in HTML pages (only allowed in CSS files)",
+    "Level": "Priority 1",
+    "Failing Page": "2",
+    "Guideline": "CSS Validation",
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Invalid value for CSS property.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "3",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": "background: -webkit-gradient(",
+            "LineNumbers": "6721"
+          },
+          {
+            "Description": "background: from(",
+            "LineNumbers": "6721"
+          },
+          {
+            "Description": "background: to(",
+            "LineNumbers": "6721"
+          },
+          {
+            "Description": "background: -webkit-linear-gradient(",
+            "LineNumbers": "6721"
+          },
+          {
+            "Description": "background: -moz-linear-gradient(",
+            "LineNumbers": "6721"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/e61vlqe0/hpx4n.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/e61vlqe0/hpx4n.css"
+        },
+        "Details": [
+          {
+            "Description": "background-image: -webkit-linear-gradient(",
+            "LineNumbers": "165"
+          },
+          {
+            "Description": "background-image: -o-linear-gradient(",
+            "LineNumbers": "165"
+          },
+          {
+            "Description": "background-image: -webkit-linear-gradient(",
+            "LineNumbers": "165"
+          },
+          {
+            "Description": "background-image: -o-linear-gradient(",
+            "LineNumbers": "165"
+          },
+          {
+            "Description": "background-image: -webkit-linear-gradient(",
+            "LineNumbers": "165"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/eqma6ct/hpx4i.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/eqma6ct/hpx4i.css"
+        },
+        "Details": [
+          {
+            "Description": "background-image: -webkit-linear-gradient(",
+            "LineNumbers": "497"
+          },
+          {
+            "Description": "background-image: -o-linear-gradient(",
+            "LineNumbers": "497"
+          },
+          {
+            "Description": "background-image: -webkit-linear-gradient(",
+            "LineNumbers": "502"
+          },
+          {
+            "Description": "background-image: -o-linear-gradient(",
+            "LineNumbers": "502"
+          },
+          {
+            "Description": "background-image: -webkit-linear-gradient(",
+            "LineNumbers": "509"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Reference to non-existent ID.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "id=g-recaptcha-response",
+            "LineNumbers": "1163"
+          },
+          {
+            "Description": "id=g-recaptcha-response-1",
+            "LineNumbers": "1349"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "id=g-recaptcha-response",
+            "LineNumbers": "827"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "id=g-recaptcha-response",
+            "LineNumbers": "828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The element main must not appear as a descendant of the section element.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      },
+      {
+        "text": "WCAG 2.2 A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      },
+      {
+        "text": "Section 508 (2017) A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='home_slider'>...</div>...</main>",
+            "LineNumbers": "122"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "386"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "383"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The frameborder attribute on the iframe element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<iframe title='reCAPTCHA' width='304' height='78' role='presentation' name='a-mcg87yl2l9mc' frameborder='0' scrolling='no' sandbox='allow-forms ...' src='...5'></iframe>",
+            "LineNumbers": "269"
+          },
+          {
+            "Description": "<iframe title='reCAPTCHA' width='304' height='78' role='presentation' name='a-uw64bw79g8tn' frameborder='0' scrolling='no' sandbox='allow-forms ...' src='...y'></iframe>",
+            "LineNumbers": "274"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The scrolling attribute on the iframe element is obsolete.\n\t\t\t\tUse CSS instead.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/obsolete.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<iframe title='reCAPTCHA' width='304' height='78' role='presentation' name='a-mcg87yl2l9mc' frameborder='0' scrolling='no' sandbox='allow-forms ...' src='...5'></iframe>",
+            "LineNumbers": "269"
+          },
+          {
+            "Description": "<iframe title='reCAPTCHA' width='304' height='78' role='presentation' name='a-uw64bw79g8tn' frameborder='0' scrolling='no' sandbox='allow-forms ...' src='...y'></iframe>",
+            "LineNumbers": "274"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The value of the for attribute of the label \n\t\t\t\telement must be the ID of a non-hidden form control.",
+    "Remediation": null,
+    "Level": "Priority 1",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<label style='display: none' for='g-recaptcha-response'>...:</label>",
+            "LineNumbers": "827"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<label style='display: none' for='g-recaptcha-response'>...:</label>",
+            "LineNumbers": "828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Too many values for CSS property.",
+    "Remediation": "If a global CSS property value like inherit, initial or unset has been used, then no other property values are allowed.",
+    "Level": "Priority 1",
+    "Failing Page": "3",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/hpx4h.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/hpx4h.css"
+        },
+        "Details": [
+          {
+            "Description": "height",
+            "LineNumbers": "879"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/dvi228kp/hpx4i.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/dvi228kp/hpx4i.css"
+        },
+        "Details": [
+          {
+            "Description": "width",
+            "LineNumbers": "920"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/l0bejr34/hpx64.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/l0bejr34/hpx64.css"
+        },
+        "Details": [
+          {
+            "Description": "height",
+            "LineNumbers": "1236"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "article element lacks heading.",
+    "Remediation": "Consider using h2-h6 elements to add identifying headings to all articles.",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<article class='post-8322 ...'>...</article>",
+            "LineNumbers": "126"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Deprecated @media feature.",
+    "Remediation": "The media feature should be replaced by a modern alternative. For example, replace device-height with height and min-device-width with min-width.",
+    "Level": "Priority 2",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "CSS Validation",
+        "link": "https://www.w3.org/TR/mediaqueries-4/#mf-deprecated"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/8ijphuvh/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/8ijphuvh/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": "max-device-width",
+            "LineNumbers": "738"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/dvi228kp/hpx4i.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/dvi228kp/hpx4i.css"
+        },
+        "Details": [
+          {
+            "Description": "min-device-width",
+            "LineNumbers": "585"
+          },
+          {
+            "Description": "max-device-width",
+            "LineNumbers": "585"
+          },
+          {
+            "Description": "min-device-width",
+            "LineNumbers": "590"
+          },
+          {
+            "Description": "max-device-width",
+            "LineNumbers": "590"
+          },
+          {
+            "Description": "min-device-width",
+            "LineNumbers": "636"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/fguzgjvg/hpx4n.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/fguzgjvg/hpx4n.css"
+        },
+        "Details": [
+          {
+            "Description": "max-device-width",
+            "LineNumbers": "738"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The complementary role is unnecessary for element aside.",
+    "Remediation": null,
+    "Level": "Priority 2",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<aside id='custom_html-10' class='widget_text widget ...' role='complementary' aria-label='Quick Links'>...</aside>",
+            "LineNumbers": "248"
+          },
+          {
+            "Description": "<aside id='custom_html-4' class='widget_text widget ...' role='complementary' aria-label='Contact Information'>...</aside>",
+            "LineNumbers": "264"
+          },
+          {
+            "Description": "<aside id='...' class='widget ...' role='complementary' aria-label='Connect with us'>...</aside>",
+            "LineNumbers": "264"
+          },
+          {
+            "Description": "<aside id='media_image-2' class='widget ...' role='complementary' aria-label='Recovery Manager'>...</aside>",
+            "LineNumbers": "264"
+          },
+          {
+            "Description": "<aside id='custom_html-5' class='widget_text widget ...' role='complementary' aria-label='Contact Popup'>...</aside>",
+            "LineNumbers": "264"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<aside id='text-2' class='widget widget_text ...' role='complementary' aria-label='Contact Us'>...</aside>",
+            "LineNumbers": "460"
+          },
+          {
+            "Description": "<aside id='custom_html-10' class='widget_text widget ...' role='complementary' aria-label='Quick Links'>...</aside>",
+            "LineNumbers": "570"
+          },
+          {
+            "Description": "<aside id='custom_html-4' class='widget_text widget ...' role='complementary' aria-label='Contact Information'>...</aside>",
+            "LineNumbers": "645"
+          },
+          {
+            "Description": "<aside id='...' class='widget ...' role='complementary' aria-label='Connect with us'>...</aside>",
+            "LineNumbers": "707"
+          },
+          {
+            "Description": "<aside id='media_image-2' class='widget ...' role='complementary' aria-label='Recovery Manager'>...</aside>",
+            "LineNumbers": "735"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<aside id='text-2' class='widget widget_text ...' role='complementary' aria-label='Contact Us'>...</aside>",
+            "LineNumbers": "461"
+          },
+          {
+            "Description": "<aside id='custom_html-10' class='widget_text widget ...' role='complementary' aria-label='Quick Links'>...</aside>",
+            "LineNumbers": "571"
+          },
+          {
+            "Description": "<aside id='custom_html-4' class='widget_text widget ...' role='complementary' aria-label='Contact Information'>...</aside>",
+            "LineNumbers": "646"
+          },
+          {
+            "Description": "<aside id='...' class='widget ...' role='complementary' aria-label='Connect with us'>...</aside>",
+            "LineNumbers": "708"
+          },
+          {
+            "Description": "<aside id='media_image-2' class='widget ...' role='complementary' aria-label='Recovery Manager'>...</aside>",
+            "LineNumbers": "736"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The navigation role is unnecessary for element nav.",
+    "Remediation": null,
+    "Level": "Priority 2",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<nav role='navigation' aria-label='Skip link'>...</nav>",
+            "LineNumbers": "87"
+          },
+          {
+            "Description": "<nav role='navigation' aria-label='Mobile Menu'>...</nav>",
+            "LineNumbers": "90"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<nav role='navigation' aria-label='Skip link'>...</nav>",
+            "LineNumbers": "182"
+          },
+          {
+            "Description": "<nav role='navigation' aria-label='Mobile Menu'>...</nav>",
+            "LineNumbers": "189"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<nav role='navigation' aria-label='Skip link'>...</nav>",
+            "LineNumbers": "179"
+          },
+          {
+            "Description": "<nav role='navigation' aria-label='Mobile Menu'>...</nav>",
+            "LineNumbers": "186"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Property doesn't exist in CSS.",
+    "Remediation": "The property name may be misspelled, vendor specific, or a new CSS property from a draft specification.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": "border-background-clip",
+            "LineNumbers": "9269"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "CSS hack or vendor extension used.",
+    "Remediation": null,
+    "Level": "Information",
+    "Failing Page": "5",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/8ijphuvh/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/8ijphuvh/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)",
+            "LineNumbers": "160"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2)",
+            "LineNumbers": "161"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)",
+            "LineNumbers": "162"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)",
+            "LineNumbers": "163"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)",
+            "LineNumbers": "164"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": "filter: alpha(opacity=0)",
+            "LineNumbers": "6839"
+          },
+          {
+            "Description": "filter: alpha(opacity=0)",
+            "LineNumbers": "6855"
+          },
+          {
+            "Description": "filter: alpha(opacity=55)",
+            "LineNumbers": "6945"
+          },
+          {
+            "Description": "*height",
+            "LineNumbers": "6956"
+          },
+          {
+            "Description": "*display",
+            "LineNumbers": "6974"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/eqma6ct/hpx4i.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/eqma6ct/hpx4i.css"
+        },
+        "Details": [
+          {
+            "Description": "-ms-filter: Alpha(Opacity=30)",
+            "LineNumbers": "406"
+          },
+          {
+            "Description": "filter: alpha(opacity=0)",
+            "LineNumbers": "454"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFEEEEEE', GradientType=0)",
+            "LineNumbers": "497"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEEEEEE', endColorstr='#FFCCCCCC', GradientType=0)",
+            "LineNumbers": "502"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFEEEEEE', GradientType=0)",
+            "LineNumbers": "509"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/fguzgjvg/hpx4n.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/fguzgjvg/hpx4n.css"
+        },
+        "Details": [
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1)",
+            "LineNumbers": "160"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2)",
+            "LineNumbers": "161"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)",
+            "LineNumbers": "162"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)",
+            "LineNumbers": "163"
+          },
+          {
+            "Description": "filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)",
+            "LineNumbers": "164"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Property or at-rule is vendor specific.",
+    "Remediation": "Properties and at-rules prefixed by a dash or underscore, the zoom property and the expression() function are vendor specific and only work on one browser engine.",
+    "Level": "Information",
+    "Failing Page": "12",
+    "Guideline": "CSS Validation",
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-box-sizing",
+            "LineNumbers": "70"
+          },
+          {
+            "Description": "-moz-box-sizing",
+            "LineNumbers": "70"
+          },
+          {
+            "Description": "-ms-box-sizing",
+            "LineNumbers": "70"
+          },
+          {
+            "Description": "-webkit-transition",
+            "LineNumbers": "70"
+          },
+          {
+            "Description": "-moz-transition",
+            "LineNumbers": "70"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/8ijphuvh/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/8ijphuvh/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-animation",
+            "LineNumbers": "3"
+          },
+          {
+            "Description": "@-webkit-keyframes",
+            "LineNumbers": "5"
+          },
+          {
+            "Description": "-webkit-transform",
+            "LineNumbers": "9"
+          },
+          {
+            "Description": "-webkit-transform",
+            "LineNumbers": "11"
+          },
+          {
+            "Description": "-webkit-appearance",
+            "LineNumbers": "119"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9iummh9y/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-font-smoothing",
+            "LineNumbers": "430"
+          },
+          {
+            "Description": "-moz-osx-font-smoothing",
+            "LineNumbers": "430"
+          },
+          {
+            "Description": "-webkit-font-smoothing",
+            "LineNumbers": "6332"
+          },
+          {
+            "Description": "-moz-osx-font-smoothing",
+            "LineNumbers": "6332"
+          },
+          {
+            "Description": "-moz-border-radius",
+            "LineNumbers": "6458"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/epfrswhc/hpx4j.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/epfrswhc/hpx4j.css"
+        },
+        "Details": [
+          {
+            "Description": "-webkit-touch-callout",
+            "LineNumbers": "169"
+          },
+          {
+            "Description": "-webkit-backdrop-filter",
+            "LineNumbers": "251"
+          },
+          {
+            "Description": "-webkit-mask-image",
+            "LineNumbers": "251"
+          },
+          {
+            "Description": "-webkit-mask-image",
+            "LineNumbers": "305"
+          },
+          {
+            "Description": "-webkit-mask-image",
+            "LineNumbers": "305"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -34,6 +34,7 @@
     "nodemailer-express-handlebars": "^7.0.0",
     "nodemon": "^3.1.9",
     "path": "^0.12.7",
+    "pdf-parse": "^1.1.1",
     "pizzip": "^3.1.8",
     "puppeteer": "^24.17.0",
     "swagger-jsdoc": "^6.2.8",

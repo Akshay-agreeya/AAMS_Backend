@@ -1,0 +1,244 @@
+[2025-12-01T09:50:06.825Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "This page has no h1 element, which violates Bing webmaster guidelines.",
+    "Remediation": "Add an h1 element just before the main content describing the page.",
+    "Level": "Priority 1",
+    "Failing Page": "6",
+    "Guideline": [
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "34"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "73"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "58"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "73"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2025-12-01T09:56:19.398Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "This page has no h1 element, which violates Bing webmaster guidelines.",
+    "Remediation": "Add an h1 element just before the main content describing the page.",
+    "Level": "Priority 1",
+    "Failing Page": "6",
+    "Guideline": [
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "34"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "73"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "58"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "73"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2025-12-01T10:15:54.362Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "This page has no h1 element, which violates Bing webmaster guidelines.",
+    "Remediation": "Add an h1 element just before the main content describing the page.",
+    "Level": "Priority 1",
+    "Failing Page": "6",
+    "Guideline": [
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "34"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "73"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "58"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "73"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2025-12-01T16:31:55.787Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "No meta description tag found. Use a description tag that accurately describes the contents of a web page.",
+    "Remediation": "A well-written meta description attracts more clicks in search results than\n            an irrelevant or missing description.",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide#snippets"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "6"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "6"
+          }
+        ]
+      }
+    ]
+  }
+]
