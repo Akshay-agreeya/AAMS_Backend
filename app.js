@@ -24,6 +24,7 @@ const notificationRoutes = require('./routes/notificationRoutes');
 
 
 const pdfRoutes = require('./PDF/route/pdfRoutes');
+const excelRoutes = require("./routes/excel.routes");
 
 
 
@@ -55,6 +56,9 @@ app.use("/api/manual", manualRoutes);
 app.use("/api/notifications", notificationRoutes);
 
 app.use('/api', pdfRoutes);
+
+app.use("/api/excel", excelRoutes);
+
 
 
 
