@@ -20,13 +20,13 @@ const { GlobalErrorHandler } = require("./middlewares/errorHandler");
 const setupSwagger = require("./swagger");
 const { request } = require('http');
 const accessibilityRoutes = require('./routes/accessibilityRoutes');
+const domainRoutes = require("./routes/domainRoutes");
 
 const notificationRoutes = require('./routes/notificationRoutes');
 
 
 const pdfRoutes = require('./PDF/route/pdfRoutes');
 const excelRoutes = require("./routes/excel.routes");
-
 
 
 const app = express();
@@ -60,6 +60,7 @@ app.use('/api', pdfRoutes);
 
 app.use('/api/accessibility', accessibilityRoutes);
 app.use("/api/excel", excelRoutes);
+app.use('/api/domain', domainRoutes);
 
 
 
