@@ -27,7 +27,7 @@ const notificationRoutes = require('./routes/notificationRoutes');
 
 const pdfRoutes = require('./PDF/route/pdfRoutes');
 const excelRoutes = require("./routes/excel.routes");
-
+const pdfScanRoute = require('./routes/pdfScanRoute');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -61,7 +61,7 @@ app.use('/api', pdfRoutes);
 app.use('/api/accessibility', accessibilityRoutes);
 app.use("/api/excel", excelRoutes);
 app.use('/api/domain', domainRoutes);
-
+app.use('/api/pdfs', pdfScanRoute);
 
 
 
