@@ -11,6 +11,10 @@
         }
         return null;
     }
+
+    function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+    }
     // Keyword categories for PDF classification
     const pdfCategories = [
         {
@@ -85,6 +89,26 @@ const puppeteer = require('puppeteer');
 const { URL } = require('url');
 const fetch = require('node-fetch');
 const pdfParse = require('pdf-parse');
+const robotsParser = require('robots-parser');
+
+async function checkRobotsTxt(baseUrl) {
+    try {
+        const robotsUrl = new URL('/robots.txt', baseUrl).href;
+
+        const res = await axios.get(robotsUrl, {
+            headers: {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
+            }
+        });
+
+        const robots = robotsParser(robotsUrl, res.data);
+
+        return robots.isAllowed(baseUrl, 'MyBot'); // “MyBot” = crawler name
+    } catch (e) {
+        return true; // If robots.txt missing → allow crawling
+    }
+}
+
 
 async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
     const visited = new Set();
@@ -92,13 +116,40 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
     const failed = [];
     const logs = [];
     const startDomain = new URL(startUrl).hostname.replace(/^www\./, '');
+
+    // Check robots.txt rules BEFORE crawling
+    const allowed = await checkRobotsTxt(startUrl);
+    if (!allowed) {
+        logs.push(`Blocked by robots.txt: ${startUrl}`);
+        console.log(`[PDF Crawler] robots.txt does NOT allow crawling: ${startUrl}`);
+        return { pdfs: [], logs };
+    }
+    console.log(`[PDF Crawler] robots.txt allows crawling: ${startUrl}`);
+
     console.log(`[PDF Crawler] Starting crawl for: ${startUrl} (maxDepth=${maxDepth})`);
 
     async function extractLinksWithPuppeteer(url) {
         let browser, page, links = [];
         try {
-            browser = await puppeteer.launch({ headless: true });
+            browser = await puppeteer.launch({ headless: true, args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-blink-features=AutomationControlled'
+            ] });
             page = await browser.newPage();
+            await page.setViewport({ width: 1920, height: 1080 });
+            await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+            await page.setExtraHTTPHeaders({
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+            });
+        
+            // Remove webdriver property
+            await page.evaluateOnNewDocument(() => {
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => false,
+                });
+            });
             await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 }); // Increased timeout to 60 seconds
             links = await page.$$eval('a[href]', anchors => anchors.map(a => a.href));
             console.log(`[PDF Crawler] Puppeteer extracted ${links.length} links from ${url}`);
@@ -114,7 +165,16 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
     async function extractLinksWithCheerio(url) {
         let links = [];
         try {
-            const res = await axios.get(url, { timeout: 30000, maxRedirects: 5 }); 
+            const res = await axios.get(url, { timeout: 30000, maxRedirects: 5,
+                 headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1'
+            }
+        });
             const $ = cheerio.load(res.data);
             $('a[href]').each((_, el) => {
                 let href = $(el).attr('href');
@@ -131,11 +191,22 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
     async function crawl(url, depth) {
         if (visited.has(url) || depth > maxDepth) return;
         visited.add(url);
+        await delay(1000 + Math.random() * 2000);
+        
         let links = [];
         let domain = '';
         try {
             domain = new URL(url).hostname.replace(/^www\./, '');
         } catch (e) { return; }
+
+        try {
+        if (new URL(url).hash) {
+            console.log(`[PDF Crawler] Skipping anchor URL: ${url}`);
+            return;
+        }
+        } catch (e) {
+            return;
+        }
 
         // Only crawl subdomains of the start domain
         if (!domain.endsWith(startDomain)) {
@@ -160,10 +231,10 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
 
         for (const link of links) {
             // Stop crawling if 10 PDFs have been found
-            if (pdfs.size >= 10) {
-                console.log('[PDF Crawler] Reached 10 PDFs, stopping crawl.');
-                return;
-            }
+            // if (pdfs.size >= 10) {
+            //     console.log('[PDF Crawler] Reached 10 PDFs, stopping crawl.');
+            //     return;
+            // }
             let retries = 0;
             while (retries < 3) { // Retry up to 3 times for each link
                 try {
@@ -171,16 +242,16 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
                         pdfs.add(link);
                         console.log(`[PDF Crawler] Found PDF: ${link}`);
                         // Stop crawling if 10 PDFs have been found
-                        if (pdfs.size >= 10) {
-                            console.log('[PDF Crawler] Reached 10 PDFs, stopping crawl.');
+                        if (pdfs.size >= 100) {
+                            console.log('[PDF Crawler] Reached 100 PDFs, stopping crawl.');
                             return;
                         }
                     } else if (link.startsWith('http') && !visited.has(link)) {
                         await crawl(link, depth + 1);
                         // Stop crawling if 10 PDFs have been found after recursion
-                        if (pdfs.size >= 10) {
-                            return;
-                        }
+                        // if (pdfs.size >= 10) {
+                        //     return;
+                        // }
                     }
                     break; // Success, exit retry loop
                 } catch (e) {
@@ -244,7 +315,7 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
 
     // Map only the first 10 PDF URLs to objects with name, link, pages, and category
     const pdfObjects = [];
-    const firstTenPdfs = Array.from(pdfs).slice(0, 10);
+    const firstTenPdfs = Array.from(pdfs);
     for (const link of firstTenPdfs) {
         const name = link.split('/').pop() || link;
         let pages = await getPdfPageCount(link);

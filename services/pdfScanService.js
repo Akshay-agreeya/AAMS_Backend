@@ -1,4 +1,6 @@
 const { sql, getConnectionPool } = require("../config/db");
+const { AppError } = require("../middlewares/errorHandler");
+const { SuccessReturnHandler } = require("../middlewares/responseHandler");
 
 exports.getDomainByScanId = async (scan_id) => {
     const pool = await getConnectionPool();
@@ -41,4 +43,31 @@ exports.updatePdfCountService = async (scan_id, pdf_count) => {
             SET pdf_count = @pdf_count
             WHERE scan_id = @scan_id
         `);
+};
+
+exports.getPdfScanService = async (scan_id) => {
+    try {
+        const pool = await getConnectionPool();
+
+        const result = await pool.request()
+            .input('scan_id', sql.Int, scan_id)
+            .query(`
+                SELECT 
+                    file_id,
+                    scan_id,
+                    file_name,
+                    file_link,
+                    page_count,
+                    file_category,
+                    upload_date
+                FROM PDF_Scan_Files_DEV
+                WHERE scan_id = @scan_id
+            `);
+
+        return result.recordset;
+
+    } catch (err) {
+        console.error("Database error in getPdfScanService:", err);
+        throw new AppError("Database error", 500);
+    }
 };

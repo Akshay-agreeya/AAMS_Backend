@@ -1,6 +1,7 @@
 const { crawlForPDFs } = require('../PDF/service/pdfCrawler');
-const { savePdfRecord, updatePdfCountService, getDomainByScanId } = require("../services/pdfScanService");
+const { savePdfRecord, updatePdfCountService, getDomainByScanId, getPdfScanService } = require("../services/pdfScanService");
 const AppError = require("../middlewares/errorHandler").AppError;
+const { SuccessReturnHandler } = require("../middlewares/responseHandler");
 
 exports.generatePdfScanController = async (req, res, next) => {
     const { scan_id } = req.body;
@@ -19,7 +20,7 @@ exports.generatePdfScanController = async (req, res, next) => {
         const website_url = domain.website_url;
 
         // Crawl PDFs
-        const { pdfs } = await crawlForPDFs(website_url, 1);
+        const { pdfs } = await crawlForPDFs(website_url, 3);
 
         // Save PDFs in DB
         for (const pdf of pdfs) {
@@ -47,3 +48,26 @@ exports.generatePdfScanController = async (req, res, next) => {
         next(err);
     }
 };
+
+exports.getPdfScanController = async (req, res, next) => {
+    const { scan_id } = req.params;
+
+    try {
+        if (!scan_id) {
+            throw new AppError("scan_id is required", 400);
+        }
+
+        const pdfData = await getPdfScanService(scan_id);
+
+        return res.status(200).json(
+            SuccessReturnHandler({
+                message: "PDF scan files fetched successfully",
+                resp: pdfData
+            })
+        );
+
+    } catch (err) {
+        next(err);
+    }
+};
+
