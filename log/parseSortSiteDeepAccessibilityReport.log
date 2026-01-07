@@ -2684,3 +2684,777 @@
     ]
   }
 ]
+[2025-12-12T05:36:13.586Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Headings should not be empty.",
+    "Remediation": "Add visible text to the heading, or alt text if the heading contains an image. Screen readers read out page headings, allowing users to quickly skip to a section, but some older screen readers do not ignore empty headings.",
+    "Level": "A",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "ARIA 1.2 5.2.8",
+        "link": "https://www.w3.org/TR/wai-aria-1.2/#heading"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<h5> </h5>",
+            "LineNumbers": "334"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<h6> </h6>",
+            "LineNumbers": "123"
+          },
+          {
+            "Description": "<h6> </h6>",
+            "LineNumbers": "174"
+          },
+          {
+            "Description": "<h4> </h4>",
+            "LineNumbers": "192"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "1.3.1",
+    "Issue Description": "Identify row and column headers in data tables using th elements, and mark layout tables with role=presentation.",
+    "Remediation": "Data tables allow screen reader users to understand column and row relationships.\n            Layout tables read cells as a series of unrelated paragraphs with no tabular structure.\n\n            Without th or role, screen readers apply heuristics to decide whether a table is a layout table or data table.\n            These heuristics vary greatly between screen readers, and are affected by browser being used, window size,\n            and font size (so the outcome is very unpredictable without th or role).\n\n            If a data table has headers marked up using td, then change these to th.\n            If a data table has no headers, add th elements describing each row and/or column.\n            If the table is only used for layout add role=presentation to the table element.  Impact on users:JAWS   Reading: Treats tables without th and role as layout tables if the table contains cells above or below certain pixel sizes. This measurement is affected by browser window size, browser font size, and the browser used.NVDA   Reading: Applies a layout table heuristic to tables without th and role which varies depending on the browser used and on the window size in some circumstances.VoiceOver   Reading: Uses a sophisticated heuristic on tables without th and role, which is similar (but not identical) to the heuristic used by NVDA with Firefox.",
+    "Level": "A",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 A F91",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F91.html"
+      },
+      {
+        "text": "Section 508 (2017) A F91",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F91.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<table style='width: 100%;' border='2' width='100%'>...</table>",
+            "LineNumbers": "105"
+          },
+          {
+            "Description": "<table><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "293"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "340"
+          },
+          {
+            "Description": "<table border='2px' width='100%'>...</table>",
+            "LineNumbers": "361"
+          },
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "588"
+          },
+          {
+            "Description": "<table border='2px' width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "609"
+          },
+          {
+            "Description": "<table width='100%'><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "631"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<table style='border-collapse: ...' border='1'>...</table>",
+            "LineNumbers": "357"
+          },
+          {
+            "Description": "<table><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "1772"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<table><tbody><tr>...</tr></tbody></table>",
+            "LineNumbers": "465"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "1.1.1",
+    "Issue Description": "img elements must have an accessible name.",
+    "Remediation": "Add an alt attribute describing the image, which screen readers voice instead of the image.\n            Spacer images and purely decorative images should use alt=\"\" without any global ARIA attributes.\n            Do not use alt text containing only spaces since that's voiced as an unlabeled image.  Impact on users:NVDA 2024.4 Chrome 131 Windows 10 Reading: Image ignored.NVDA 2024.4 FF 128 Windows 10 Reading: Image ignored.NVDA 2024.4 Edge 131 Windows 10 Reading: Image ignored.JAWS 2024.2409.2 Chrome 131 Windows 10 Reading: Image ignored.JAWS 2024.2409.2 FF 128 Windows 10 Reading: Image ignored.JAWS 2024.2409.2 Edge 131 Windows 10 Reading: Image ignored.VoiceOver macOS 14.6 Safari 17.6 macOS 14.6.1 Reading: Image filename read out.VoiceOver iOS 17.7 Safari iOS 17.7 iOS 17.7.2 Touch: Image filename read out, along with OCR text from image.",
+    "Level": "A",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 A F65",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F65.html"
+      },
+      {
+        "text": "Section 508 (2017) A F65",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F65.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "296"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "297"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2393"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2399"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1780"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1786"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "468"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "469"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.4 2.4.9 4.1.2",
+    "Issue Description": "Links must have an accessible name.",
+    "Remediation": "A link name allows screen readers to voice what the links does. If there is no link content, or the link content is hidden by CSS, screen readers have nothing to read, so read out the URL instead. To add a name do one of the following:\n\nAdd text between the a element start and end tags\nAdd an aria-label attribute\nAdd an aria-labelledby attribute\nAdd an img alt attribute labeling the link if it contains an img element",
+    "Level": "A",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 A F89",
+        "link": "https://www.w3.org/TR/WCAG-TECHS/F89.html"
+      },
+      {
+        "text": "Section 508 (2017) A F89",
+        "link": "https://www.w3.org/TR/WCAG-TECHS/F89.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='./' class='logo'> </a>",
+            "LineNumbers": "38"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<a href='./' class='logo'> </a>",
+            "LineNumbers": "83"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<a href='./' class='logo'> </a>",
+            "LineNumbers": "83"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<a href='./' class='logo'> </a>",
+            "LineNumbers": "62"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.4 2.4.9",
+    "Issue Description": "Several links on a page share the same link text and surrounding context, but go to different destinations.",
+    "Remediation": "Make the link text unique for each target page (which helps all users) or add an aria-label or aria-describedby to the link (which helps screen reader users).",
+    "Level": "A",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 A F63",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F63.html"
+      },
+      {
+        "text": "Section 508 (2017) A F63",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F63.html"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": "1.4.6",
+    "Issue Description": "Ensure that text and background colors have enough contrast.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 3.0 or more for 18 point text, or larger\nThe contrast ratio should be 3.0 or more for 14 point bold text, or larger\nThe contrast ratio should be 4.5 or more for all other text",
+    "Level": "AA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      },
+      {
+        "text": "Section 508 (2017) AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(223,177,75)font-size: 11.25ptfont-weight: 400<span>Home</span>",
+            "LineNumbers": "58"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 5</a>",
+            "LineNumbers": "242"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 4</a>",
+            "LineNumbers": "242"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='... PG 2021.pdf' target='_blank' rel='noopener'>Notice 3</a>",
+            "LineNumbers": "242"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 2</a>",
+            "LineNumbers": "242"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(223,177,75)font-size: 11.25ptfont-weight: 400<span>UG Admission</span>",
+            "LineNumbers": "153"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 5</a>",
+            "LineNumbers": "2114"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 4</a>",
+            "LineNumbers": "2116"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='... PG 2021.pdf' target='_blank' rel='noopener'>Notice 3</a>",
+            "LineNumbers": "2118"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 2</a>",
+            "LineNumbers": "2120"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(223,177,75)font-size: 11.25ptfont-weight: 400<span>Cut-off Schedule</span>",
+            "LineNumbers": "166"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 5</a>",
+            "LineNumbers": "1501"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 4</a>",
+            "LineNumbers": "1503"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='... PG 2021.pdf' target='_blank' rel='noopener'>Notice 3</a>",
+            "LineNumbers": "1505"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 2</a>",
+            "LineNumbers": "1507"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(223,177,75)font-size: 11.25ptfont-weight: 400<span>FAQs</span>",
+            "LineNumbers": "99"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 5</a>",
+            "LineNumbers": "414"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 4</a>",
+            "LineNumbers": "414"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='... PG 2021.pdf' target='_blank' rel='noopener'>Notice 3</a>",
+            "LineNumbers": "414"
+          },
+          {
+            "Description": "color:   rgb(102,102,102)background:   rgb(230,201,133)font-size: 10.13ptfont-weight: 600<a href='...f' target='_blank' rel='noopener'>Notice 2</a>",
+            "LineNumbers": "414"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?DU-Website' target='_blank'>DU Website</a>",
+            "LineNumbers": "69"
+          },
+          {
+            "Description": "<a href='...%' target='_blank'>...</a>",
+            "LineNumbers": "70"
+          },
+          {
+            "Description": "<a href='...4' target='_blank'>...</a>",
+            "LineNumbers": "71"
+          },
+          {
+            "Description": "<a href='...4' target='_blank'>...</a>",
+            "LineNumbers": "72"
+          },
+          {
+            "Description": "<a href='/2021/?NTA-Website' target='_blank'>NTA Website</a>",
+            "LineNumbers": "73"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?DU-Website' target='_blank'>DU Website</a>",
+            "LineNumbers": "288"
+          },
+          {
+            "Description": "<a href='...%' target='_blank'>...</a>",
+            "LineNumbers": "293"
+          },
+          {
+            "Description": "<a href='...4' target='_blank'>...</a>",
+            "LineNumbers": "298"
+          },
+          {
+            "Description": "<a href='...4' target='_blank'>...</a>",
+            "LineNumbers": "303"
+          },
+          {
+            "Description": "<a href='/2021/?NTA-Website' target='_blank'>NTA Website</a>",
+            "LineNumbers": "308"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?DU-Website' target='_blank'>DU Website</a>",
+            "LineNumbers": "295"
+          },
+          {
+            "Description": "<a href='...%' target='_blank'>...</a>",
+            "LineNumbers": "300"
+          },
+          {
+            "Description": "<a href='...4' target='_blank'>...</a>",
+            "LineNumbers": "305"
+          },
+          {
+            "Description": "<a href='...4' target='_blank'>...</a>",
+            "LineNumbers": "310"
+          },
+          {
+            "Description": "<a href='/2021/?NTA-Website' target='_blank'>NTA Website</a>",
+            "LineNumbers": "315"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<a href='/2021/?DU-Website' target='_blank'>DU Website</a>",
+            "LineNumbers": "112"
+          },
+          {
+            "Description": "<a href='...%' target='_blank'>...</a>",
+            "LineNumbers": "113"
+          },
+          {
+            "Description": "<a href='...4' target='_blank'>...</a>",
+            "LineNumbers": "114"
+          },
+          {
+            "Description": "<a href='...4' target='_blank'>...</a>",
+            "LineNumbers": "115"
+          },
+          {
+            "Description": "<a href='/2021/?NTA-Website' target='_blank'>NTA Website</a>",
+            "LineNumbers": "116"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<div class='locator'>You are here:<span itemscope itemtype='...'>...</span></div>",
+            "LineNumbers": "44"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>Home</span>",
+            "LineNumbers": "44"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 11.25ptfont-weight: 400<a href='/2021/?UG-Admission'>UG Admission</a>",
+            "LineNumbers": "59"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 11.25ptfont-weight: 400<a href='/2021/?PG-Admission'>PG Admission</a>",
+            "LineNumbers": "60"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 11.25ptfont-weight: 400<a href='/2021/?M.Phil.-Ph.D.-Admission'>M.Phil./Ph.D. Admission</a>",
+            "LineNumbers": "61"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<div class='locator'>You are here:<span itemscope itemtype='...'>...</span></div>",
+            "LineNumbers": "103"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemscope itemtype='...'>...</span>",
+            "LineNumbers": "104"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>Home</span>",
+            "LineNumbers": "107"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>UG Admission</span>",
+            "LineNumbers": "113"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 11.25ptfont-weight: 400<a href='/2021/'>Home</a>",
+            "LineNumbers": "148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<div class='locator'>You are here:<span itemscope itemtype='...'>...</span></div>",
+            "LineNumbers": "103"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemscope itemtype='...'>...</span>",
+            "LineNumbers": "104"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>Home</span>",
+            "LineNumbers": "107"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>UG Admission</span>",
+            "LineNumbers": "114"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>Cut-off Schedule</span>",
+            "LineNumbers": "120"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<div class='locator'>You are here:<span itemscope itemtype='...'>...</span></div>",
+            "LineNumbers": "68"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemscope itemtype='...'>...</span>",
+            "LineNumbers": "68"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>Home</span>",
+            "LineNumbers": "68"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>UG Admission</span>",
+            "LineNumbers": "68"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(120,68,140)font-size: 9.56ptfont-weight: 400<span itemprop='name'>FAQs</span>",
+            "LineNumbers": "68"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.9",
+    "Issue Description": "Link uses non-descriptive text like 'Click Here' which doesn't explain link purpose.",
+    "Remediation": "Screen reader users often tab from one link to the next, or use the 'Next Link' command.\n            Moving between links labelled 'click here' sounds like 'Click here, tab, click here, tab, click here'.\n            Change the link text, or add an aria-label, so the link makes sense when read without the surrounding text.",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F84",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F84.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='...x' target='_blank' rel='noopener'>Link</a>",
+            "LineNumbers": "130"
+          },
+          {
+            "Description": "<a href='...x' target='_blank' rel='noopener'>Link</a>",
+            "LineNumbers": "242"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<a href='...x' target='_blank' rel='noopener'>Link</a>",
+            "LineNumbers": "2124"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<a href='...x' target='_blank' rel='noopener'>Link</a>",
+            "LineNumbers": "1511"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<a href='...x' target='_blank' rel='noopener'>Link</a>",
+            "LineNumbers": "414"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Several links on a page share the same link text, but go to different destinations.",
+    "Remediation": "Make the link text unique for each target, or add additional text using aria-label.",
+    "Level": "AAA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 2.4.9",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-link.html"
+      }
+    ],
+    "nestedTableData": []
+  }
+]

@@ -231,10 +231,10 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
 
         for (const link of links) {
             // Stop crawling if 10 PDFs have been found
-            // if (pdfs.size >= 10) {
-            //     console.log('[PDF Crawler] Reached 10 PDFs, stopping crawl.');
-            //     return;
-            // }
+            if (pdfs.size >= 10) {
+                console.log('[PDF Crawler] Reached 10 PDFs, stopping crawl.');
+                return;
+            }
             let retries = 0;
             while (retries < 3) { // Retry up to 3 times for each link
                 try {
@@ -242,16 +242,16 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
                         pdfs.add(link);
                         console.log(`[PDF Crawler] Found PDF: ${link}`);
                         // Stop crawling if 10 PDFs have been found
-                        if (pdfs.size >= 100) {
-                            console.log('[PDF Crawler] Reached 100 PDFs, stopping crawl.');
+                        if (pdfs.size >= 10) {
+                            console.log('[PDF Crawler] Reached 10 PDFs, stopping crawl.');
                             return;
                         }
                     } else if (link.startsWith('http') && !visited.has(link)) {
                         await crawl(link, depth + 1);
                         // Stop crawling if 10 PDFs have been found after recursion
-                        // if (pdfs.size >= 10) {
-                        //     return;
-                        // }
+                        if (pdfs.size >= 10) {
+                            return;
+                        }
                     }
                     break; // Success, exit retry loop
                 } catch (e) {
@@ -315,7 +315,7 @@ async function crawlForPDFs(startUrl, maxDepth = 500, usePuppeteer = true) {
 
     // Map only the first 10 PDF URLs to objects with name, link, pages, and category
     const pdfObjects = [];
-    const firstTenPdfs = Array.from(pdfs);
+    const firstTenPdfs = Array.from(pdfs).slice(0, 10);
     for (const link of firstTenPdfs) {
         const name = link.split('/').pop() || link;
         let pages = await getPdfPageCount(link);

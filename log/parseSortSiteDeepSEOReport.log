@@ -242,3 +242,68 @@
     ]
   }
 ]
+[2025-12-12T05:36:53.984Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "This page has no h1 element, which violates Bing webmaster guidelines.",
+    "Remediation": "Add an h1 element just before the main content describing the page.",
+    "Level": "Priority 1",
+    "Failing Page": "6",
+    "Guideline": [
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "34"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "73"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "58"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<body onload=''><header class='row-full-width' id='header'>...</header>...</body>",
+            "LineNumbers": "73"
+          }
+        ]
+      }
+    ]
+  }
+]

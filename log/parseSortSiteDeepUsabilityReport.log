@@ -1145,3 +1145,317 @@
     ]
   }
 ]
+[2025-12-12T05:36:33.790Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='image-02' style='position: static; ...'>",
+            "LineNumbers": "42"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "296"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "297"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='image-01' style='position: static; ...'>",
+            "LineNumbers": "96"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2393"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "2399"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='image-01' style='position: static; ...'>",
+            "LineNumbers": "96"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1780"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "1786"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='image-01' style='position: absolute; ...'>",
+            "LineNumbers": "66"
+          },
+          {
+            "Description": "<img src='...g' alt='image-02' style='position: absolute; ...'>",
+            "LineNumbers": "66"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "468"
+          },
+          {
+            "Description": "<img style='display: block; ...' src='...g' width='20%'>",
+            "LineNumbers": "469"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/",
+          "link": "https://admission.uod.ac.in/2021/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span style='color: maroon;'>Last date for MPhil ... upto 31.01.2022</span>",
+            "LineNumbers": "81"
+          },
+          {
+            "Description": "font-size: 11.25pt<strong>3rd Special Drive Cut-Off List - 2021-2022</strong>",
+            "LineNumbers": "114"
+          },
+          {
+            "Description": "font-size: 11.25pt<strong>Guidelines and Schedule for Admission under Special Drive - II</strong>",
+            "LineNumbers": "114"
+          },
+          {
+            "Description": "font-size: 11.25pt<strong>Revised Guidelines and ... under Special Drive</strong>",
+            "LineNumbers": "114"
+          },
+          {
+            "Description": "font-size: 11.25pt<a href='...s' target='_blank' rel='noopener'>Schedule for ... 2021-22</a>",
+            "LineNumbers": "114"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<strong>Bachelor of Science (Honours) – B.Sc. (H)</strong>",
+            "LineNumbers": "690"
+          },
+          {
+            "Description": "font-size: 11.25pt<p>●       B.Sc (Hons.) Environmental Sciences</p>",
+            "LineNumbers": "856"
+          },
+          {
+            "Description": "font-size: 11.25pt<p>●       B.Sc (Prog.) Physical Science with Electronics</p>",
+            "LineNumbers": "933"
+          },
+          {
+            "Description": "font-size: 11.25pt<p>●       B.Sc (Prog.) Applied Life Science</p>",
+            "LineNumbers": "944"
+          },
+          {
+            "Description": "font-size: 11.25pt<p>●       B.Sc Applied ... in Chemistry &#38; Biochemistry</p>",
+            "LineNumbers": "951"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/Cut-off-Schedule"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<strong>Start date to apply for Admission against Cut-Off</strong>",
+            "LineNumbers": "376"
+          },
+          {
+            "Description": "font-size: 11.25pt<strong>End date to apply for Admission against Cut-Off</strong>",
+            "LineNumbers": "385"
+          },
+          {
+            "Description": "font-size: 11.25pt<strong>Corrigendum - Acharya Narendra Dev College</strong>",
+            "LineNumbers": "607"
+          },
+          {
+            "Description": "font-size: 11.25pt<strong>Corrigendum - Acharya Narendra Dev College</strong>",
+            "LineNumbers": "756"
+          },
+          {
+            "Description": "font-size: 11.25pt<strong>Corrigendum - Janki Devi Memorial College</strong>",
+            "LineNumbers": "827"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<p>A. student can apply for a maximum of three ECA Categories.</p>",
+            "LineNumbers": "125"
+          },
+          {
+            "Description": "font-size: 11.25pt<p>A. Admission to UG Programs under ... is based on the entrance test.</p>",
+            "LineNumbers": "128"
+          },
+          {
+            "Description": "font-size: 11.25pt<p>A.  maximum of five best ... uploaded under any ECA Category.</p>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "font-size: 11.25pt<p>A certificate should not be uploaded more than once.</p>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "font-size: 11.25pt<p>The certificate should be legible ... scanned) and properly uploaded.</p>",
+            "LineNumbers": "136"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission"
+        },
+        "Details": [
+          {
+            "Description": "<strong>* Computer-based entrance ... Testing Agency (NTA).</strong>",
+            "LineNumbers": "1568"
+          },
+          {
+            "Description": "<strong>to this course is conducted ... of Music and Fine Arts.</strong>",
+            "LineNumbers": "1579"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/FAQs"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Q. Is it important to have a ... the name of the candidate?</strong>",
+            "LineNumbers": "285"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Notice dated 08/10/2021 - ... - UG Merit Based Admission</strong>",
+            "LineNumbers": "412"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use link text between 3 and 100 characters so it's long enough to be understood, but avoids line wrapping.",
+    "Remediation": "A single word text link may not give enough information about the link's destination. A link that is a full sentence is difficult to read quickly, particularly if it wraps to another line.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 10:11",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices",
+          "link": "https://admission.uod.ac.in/2021/?UG-Admission/UG-Notices"
+        },
+        "Details": [
+          {
+            "Description": "<a href='...f' target='_blank' rel='noopener'>...</a>",
+            "LineNumbers": "402"
+          }
+        ]
+      }
+    ]
+  }
+]

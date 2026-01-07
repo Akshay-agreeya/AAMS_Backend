@@ -77,3 +77,28 @@
     "nestedTableData": []
   }
 ]
+[2025-12-12T05:37:34.374Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "This link is broken. The page could not be found on the target web server.",
+    "Remediation": "Fixing this depends on how the link became broken:\n            \n The link has been mistyped and should be fixed \n The destination page has moved and the link should be updated \n The destination page no longer exists and the link should be removed \n A file has been accidentally deleted and should be replaced",
+    "Level": "Priority 1",
+    "Failing Page": "14",
+    "Guideline": [
+      {
+        "text": "Broken Link HTTP 404",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Spell checking was not enabled for this scan.",
+    "Remediation": "If you want to check spelling, set the language using the Edit Scan command in OnDemand.",
+    "Level": "Information",
+    "Failing Page": "1",
+    "Guideline": "",
+    "nestedTableData": []
+  }
+]
