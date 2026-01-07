@@ -41,7 +41,7 @@ exports.uploadAccessibilityExcelController = async (req, res, next) => {
         }
 
         // Get service_id from request body
-        const { service_id } = req.body;
+        const { service_id } = req.params;
 
         if (!service_id) {
             // Clean up uploaded file
