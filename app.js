@@ -21,6 +21,7 @@ const setupSwagger = require("./swagger");
 const { request } = require('http');
 const accessibilityRoutes = require('./routes/accessibilityRoutes');
 const domainRoutes = require("./routes/domainRoutes");
+const reportSummaryRoutes  = require("./routes/reportSummaryRoutes");
 
 const notificationRoutes = require('./routes/notificationRoutes');
 
@@ -59,6 +60,7 @@ app.use("/api/notifications", notificationRoutes);
 app.use('/api', pdfRoutes);
 
 app.use('/api/accessibility', accessibilityRoutes);
+app.use("/api/assessment", reportSummaryRoutes); 
 app.use("/api/excel", excelRoutes);
 app.use('/api/domain', domainRoutes);
 app.use('/api/pdfs', pdfScanRoute);
