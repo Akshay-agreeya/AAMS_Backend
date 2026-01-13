@@ -1072,7 +1072,6 @@ exports.getAccessibilityReportService = async (assessment_id) => {
             );
         }
 
-        // ✅ NEW: Get Report Metadata (Prepared for & Date)
         const metadataResult = await pool.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
@@ -1083,6 +1082,46 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                 FROM Assessment_Report_Metadata_DEV
                 WHERE assessment_id = @assessment_id
             `);
+        
+        const testingEnvResult = await pool.request()
+            .input('assessment_id', sql.Int, assessment_id)
+            .query(`
+                SELECT 
+                    category,
+                    value
+                FROM Assessment_Testing_Environment_DEV
+                WHERE assessment_id = @assessment_id
+                ORDER BY env_id
+            `);
+
+        // Format Testing Environment like Excel
+        const testingEnvironment = {
+            automated_tools: [],
+            operating_system: [],
+            browsers: [],
+            application: [],
+            assistive_technologies: []
+        };
+
+        testingEnvResult.recordset.forEach(row => {
+            switch (row.category) {
+                case "AUTOMATED_TOOL":
+                    testingEnvironment.automated_tools.push(row.value);
+                    break;
+                case "OPERATING_SYSTEM":
+                    testingEnvironment.operating_system.push(row.value);
+                    break;
+                case "BROWSER":
+                    testingEnvironment.browsers.push(row.value);
+                    break;
+                case "APPLICATION":
+                    testingEnvironment.application.push(row.value);
+                    break;
+                case "ASSISTIVE_TECH":
+                    testingEnvironment.assistive_technologies.push(row.value);
+                    break;
+            }
+        });
 
         // Get WCAG Conformance Data
         const conformanceResult = await pool.request()
@@ -1226,7 +1265,7 @@ exports.getAccessibilityReportService = async (assessment_id) => {
             // Tab 1: Accessibility Overview
             overview: {
                 assessment_info: assessmentResult.recordset[0],
-                // ✅ NEW: Include metadata in overview
+                testing_environment: testingEnvironment,
                 metadata: metadataResult.recordset[0] || null,
                 wcag_conformance: conformanceResult.recordset,
                 severity_breakdown: severityResult.recordset,
