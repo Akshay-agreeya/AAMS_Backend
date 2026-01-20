@@ -1034,10 +1034,14 @@
 //         );
 //     }
 // };
+
+
 const { sql, getConnectionPool } = require("../config/db");
 const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
 const { AppError } = require("../middlewares/errorHandler");
 const XLSX = require("xlsx");
+
+
 
 /**
  * Get Complete Accessibility Report
@@ -1296,12 +1300,408 @@ exports.getAccessibilityReportService = async (assessment_id) => {
  * Upload and Process Accessibility Excel File
  * Extracts data from all 4 tabs and saves to database
  */
-exports.uploadAccessibilityExcelService = async (filePath, service_id) => {
+// exports.uploadAccessibilityExcelService = async (filePath, service_id) => {
+//     const pool = await getConnectionPool();
+//     const transaction = pool.transaction();
+
+//     try {
+//         await transaction.begin();
+
+//         // Read the Excel workbook
+//         const workbook = XLSX.readFile(filePath);
+
+//         // ========================================
+//         // TAB 1: ACCESSIBILITY OVERVIEW
+//         // ========================================
+//         const tab1Name = workbook.SheetNames[0];
+//         const tab1Sheet = workbook.Sheets[tab1Name];
+//         const tab1Data = XLSX.utils.sheet_to_json(tab1Sheet, { header: 1, defval: "" });
+
+//         let conformanceScore = 0;
+//         let preparedFor = "";
+//         let reportDate = null;
+
+//         // ----------------------------------------
+//         // Extract Metadata (Prepared for & Date)
+//         // ----------------------------------------
+//         for (let rowIndex = 0; rowIndex < tab1Data.length; rowIndex++) {
+//             const row = tab1Data[rowIndex];
+
+//             for (let col = 0; col < row.length; col++) {
+//                 const cell = String(row[col] || "")
+//                     .replace(/\u00A0/g, " ")
+//                     .replace(/\s+/g, " ")
+//                     .trim()
+//                     .toLowerCase();
+
+//                 // Extract "Prepared for"
+//                 if (cell === "prepared for:" || cell === "prepared for") {
+//                     let value = row[col + 1];
+//                     if (!value && rowIndex + 1 < tab1Data.length) {
+//                         value = tab1Data[rowIndex + 1][col];
+//                     }
+//                     if (value) {
+//                         preparedFor = String(value).trim();
+//                         console.log("Found prepared_for:", preparedFor);
+//                     }
+//                 }
+
+//                 // Extract "Date"
+//                 if (cell === "date:" || cell === "date") {
+//                     let value = row[col + 1];
+//                     if (!value && rowIndex + 1 < tab1Data.length) {
+//                         value = tab1Data[rowIndex + 1][col];
+//                     }
+//                     if (value) {
+//                         // Handle Excel date serial numbers
+//                         if (typeof value === 'number') {
+//                             const excelEpoch = new Date(1899, 11, 30);
+//                             reportDate = new Date(excelEpoch.getTime() + value * 86400000);
+//                         } else {
+//                             // Try parsing as string (e.g., "Oct-25", "10/25/2024")
+//                             const dateStr = String(value).trim();
+//                             reportDate = new Date(dateStr);
+                            
+//                             // If invalid date, try common formats
+//                             if (isNaN(reportDate.getTime())) {
+//                                 // Handle "Oct-25" format
+//                                 const monthYear = dateStr.match(/([A-Za-z]+)-(\d+)/);
+//                                 if (monthYear) {
+//                                     const monthMap = {
+//                                         jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+//                                         jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
+//                                     };
+//                                     const month = monthMap[monthYear[1].toLowerCase()];
+//                                     const year = parseInt(monthYear[2]) < 100 
+//                                         ? 2000 + parseInt(monthYear[2]) 
+//                                         : parseInt(monthYear[2]);
+//                                     reportDate = new Date(year, month, 1);
+//                                 }
+//                             }
+//                         }
+//                         console.log("Found report_date:", reportDate);
+//                     }
+//                 }
+//             }
+//         }
+
+//         // Search for "conformance score" and its value
+//         for (let rowIndex = 0; rowIndex < tab1Data.length; rowIndex++) {
+//             const row = tab1Data[rowIndex];
+
+//             for (let col = 0; col < row.length; col++) {
+//                 const cell = String(row[col] || "")
+//                     .replace(/\u00A0/g, " ")
+//                     .replace(/\s+/g, " ")
+//                     .trim()
+//                     .toLowerCase();
+
+//                 if (cell === "conformance score") {
+//                     let value = row[col + 1];
+
+//                     if (!value && rowIndex + 1 < tab1Data.length) {
+//                         value = tab1Data[rowIndex + 1][col];
+//                     }
+
+//                     if (value) {
+//                         const valueStr = String(value);
+
+//                         if (typeof value === 'number' && value < 1) {
+//                             conformanceScore = Math.round(value * 100);
+//                         }
+//                         else if (valueStr.includes('%')) {
+//                             conformanceScore = parseInt(valueStr.replace("%", "").trim()) || 0;
+//                         }
+//                         else {
+//                             conformanceScore = parseInt(valueStr.trim()) || 0;
+//                         }
+
+//                         console.log("Found conformance score:", value, "->", conformanceScore);
+//                     }
+//                     break;
+//                 }
+//             }
+//             if (conformanceScore > 0) break;
+//         }
+
+//         console.log("Final conformance score:", conformanceScore);
+//         console.log("Final prepared_for:", preparedFor);
+//         console.log("Final report_date:", reportDate);
+
+//         // Create Assessment Record
+//         const assessmentResult = await transaction.request()
+//             .input("service_id", sql.Int, service_id)
+//             .input("conformance_score", sql.Int, conformanceScore)
+//             .input("status", sql.VarChar, "Completed")
+//             .input("assessment_timestamp", sql.DateTime2, new Date())
+//             .query(`
+//                 INSERT INTO Assessments_DEV 
+//                 (service_id, conformance_score, status, assessment_timestamp)
+//                 OUTPUT INSERTED.assessment_id
+//                 VALUES (@service_id, @conformance_score, @status, @assessment_timestamp);
+//             `);
+
+//         const assessmentId = assessmentResult.recordset[0].assessment_id;
+
+//         // ----------------------------------------
+//         // Insert Metadata into Assessment_Report_Metadata_DEV
+//         // ----------------------------------------
+//         if (preparedFor || reportDate) {
+//             await transaction.request()
+//                 .input("assessment_id", sql.Int, assessmentId)
+//                 .input("prepared_for", sql.VarChar, preparedFor || null)
+//                 .input("report_date", sql.Date, reportDate || null)
+//                         .input("uploaded_at", sql.DateTime2, new Date()) // ✅ ADD THIS LINE
+
+//                 .query(`
+//                     INSERT INTO Assessment_Report_Metadata_DEV 
+//                     (assessment_id, prepared_for, report_date)
+//                     VALUES (@assessment_id, @prepared_for, @report_date);
+//                 `);
+            
+//             console.log("Metadata inserted successfully");
+//         }
+
+//         // ----------------------------------------
+//         // Extract WCAG Conformance Data
+//         // ----------------------------------------
+//         const wcagIndex = tab1Data.findIndex(r =>
+//             String(r[0]).toLowerCase().includes("wcag")
+//         );
+
+//         let wcagVersion = "";
+//         if (wcagIndex !== -1) {
+//             const header = String(tab1Data[wcagIndex][0]).trim();
+//             wcagVersion = header.split(" ")[1];
+//         }
+
+//         const wcagIdResult = await pool.request()
+//             .input("guideline", sql.VarChar, `WCAG ${wcagVersion}`)
+//             .query(`SELECT guidline_version_id FROM Guideline_version WHERE guideline = @guideline`);
+
+//         const wcagId = wcagIdResult.recordset[0]?.guidline_version_id;
+
+//         const complianceLevels = await pool.request().query(`
+//             SELECT compliance_level_id, level
+//             FROM Compliance_level;
+//         `);
+
+//         const complianceMap = {};
+//         complianceLevels.recordset.forEach(row => {
+//             complianceMap[row.level.trim().toLowerCase()] = row.compliance_level_id;
+//         });
+
+//         const wcagRows = tab1Data.slice(wcagIndex + 1, wcagIndex + 3);
+
+//         for (let row of wcagRows) {
+//             const levelName = String(row[0] || "").trim();
+
+//             if (levelName.toLowerCase() === "total") continue;
+
+//             let complianceLevelId = null;
+
+//             if (levelName.toLowerCase().includes("level aa")) {
+//                 complianceLevelId = complianceMap["level aa"] || complianceMap["aa"];
+//             }
+//             else if (levelName.toLowerCase().includes("level a")) {
+//                 complianceLevelId = complianceMap["level a"] || complianceMap["a"];
+//             }
+
+//             if (!complianceLevelId) continue;
+
+//             await transaction.request()
+//                 .input("assessment_id", sql.Int, assessmentId)
+//                 .input("wcag_id", sql.Int, wcagId)
+//                 .input("passes_na", sql.Int, parseInt(row[1]) || 0)
+//                 .input("failed", sql.Int, parseInt(row[2]) || 0)
+//                 .input("compliance_level_id", sql.Int, complianceLevelId)
+//                 .query(`
+//                     INSERT INTO Assessment_conformance_DEV
+//                     (assessment_id, wcag_id, passes_na, failed, compliance_level_id)
+//                     VALUES (@assessment_id, @wcag_id, @passes_na, @failed, @compliance_level_id);
+//                 `);
+//         }
+
+//         // ----------------------------------------
+//         // Extract Severity Data
+//         // ----------------------------------------
+//         const severityIndex = tab1Data.findIndex(r => String(r[0]).trim() === "Severity");
+
+//         if (severityIndex !== -1) {
+//             const severityRef = await pool.request().query(`
+//                 SELECT severity_name, severity_id 
+//                 FROM Severity_DEV;
+//             `);
+
+//             const severityMap = {};
+//             severityRef.recordset.forEach(row => {
+//                 severityMap[row.severity_name.trim().toLowerCase()] = row.severity_id;
+//             });
+
+//             const severityRows = tab1Data.slice(severityIndex + 1, severityIndex + 6);
+
+//             for (let row of severityRows) {
+//                 const severityName = String(row[0] || "").trim().toLowerCase();
+
+//                 if (!severityName || !severityMap[severityName]) continue;
+
+//                 let defectScore = row[2];
+//                 if (typeof defectScore === 'string') {
+//                     defectScore = parseFloat(defectScore.replace('%', '').trim()) || 0;
+//                 } else if (typeof defectScore !== 'number') {
+//                     defectScore = 0;
+//                 }
+
+//                 await transaction.request()
+//                     .input("assessment_id", sql.Int, assessmentId)
+//                     .input("severity", sql.Int, severityMap[severityName])
+//                     .input("no_of_issues", sql.Int, parseInt(row[1]) || 0)
+//                     .input("defect_score", sql.Decimal(5, 2), defectScore)
+//                     .query(`
+//                         INSERT INTO Assessment_severity_DEV 
+//                         (assessment_id, severity, no_of_issues, defect_score)
+//                         VALUES (@assessment_id, @severity, @no_of_issues, @defect_score);
+//                     `);
+//             }
+//         }
+
+//         // ----------------------------------------
+//         // Extract Top Accessibility Issues
+//         // ----------------------------------------
+//         const issueIndex = tab1Data.findIndex(r => {
+//             const cell = String(r[6] || "").replace(/\s+/g, " ").trim().toLowerCase();
+//             return cell.includes("sr.no") || cell.includes("sr. no");
+//         });
+
+//         if (issueIndex !== -1) {
+//             const issueRows = tab1Data.slice(issueIndex + 1, issueIndex + 6);
+
+//             for (let row of issueRows) {
+//                 const issueTitle = String(row[7] || "").trim();
+
+//                 if (!issueTitle) continue;
+
+//                 await transaction.request()
+//                     .input("assessment_id", sql.Int, assessmentId)
+//                     .input("issue_title", sql.VarChar, issueTitle)
+//                     .query(`
+//                         INSERT INTO Top_Accessibility_Issues_DEV 
+//                         (assessment_id, issue_title)
+//                         VALUES (@assessment_id, @issue_title);
+//                     `);
+//             }
+//         }
+
+//         // ========================================
+//         // TAB 2: URL DETAILS (keeping existing code)
+//         // ========================================
+//         if (workbook.SheetNames.length > 1) {
+//             const tab2Name = workbook.SheetNames[1];
+//             const tab2Sheet = workbook.Sheets[tab2Name];
+//             const tab2Data = XLSX.utils.sheet_to_json(tab2Sheet, { header: 1, defval: "" });
+
+//             const urlHeaderIndex = tab2Data.findIndex(r =>
+//                 String(r[1]).toLowerCase().includes("page") ||
+//                 String(r[1]).toLowerCase().includes("component")
+//             );
+
+//             if (urlHeaderIndex !== -1) {
+//                 const urlRows = tab2Data.slice(urlHeaderIndex + 1);
+
+//                 for (let row of urlRows) {
+//                     const pageName = String(row[1] || "").trim();
+//                     const pageUrl = String(row[2] || "").trim();
+//                     const environments = String(row[3] || "").trim();
+
+//                     if (!pageName) continue;
+
+//                     await transaction.request()
+//                         .input("assessment_id", sql.Int, assessmentId)
+//                         .input("page_name", sql.VarChar, pageName)
+//                         .input("page_url", sql.VarChar, pageUrl)
+//                         .input("environments", sql.VarChar, environments)
+//                         .query(`
+//                             INSERT INTO Assessments_Page_DEV 
+//                             (assessment_id, page_name, page_url, environments)
+//                             VALUES (@assessment_id, @page_name, @page_url, @environments);
+//                         `);
+//                 }
+//             }
+//         }
+
+//         // ========================================
+//         // TAB 3 & TAB 4: Keep existing code
+//         // ========================================
+//         // [Rest of the existing Tab 3 and Tab 4 code remains the same]
+
+//         await transaction.commit();
+
+//         return {
+//             assessment_id: assessmentId,
+//             conformance_score: conformanceScore,
+//             metadata: {
+//                 prepared_for: preparedFor,
+//                 report_date: reportDate
+//             },
+//             message: "Excel file processed successfully"
+//         };
+
+//     } catch (err) {
+//         if (transaction) {
+//             await transaction.rollback();
+//         }
+//         console.error('Error in uploadAccessibilityExcelService:', err);
+//         throw new AppError(
+//             err.message || 'Error processing Excel file',
+//             err.status || STATUS_CODES.INTERNAL_SERVER_ERROR
+//         );
+//     }
+// };
+
+
+
+
+exports.uploadAccessibilityExcelService = async (filePath, org_id) => {  // ✅ Changed from service_id to org_id
     const pool = await getConnectionPool();
     const transaction = pool.transaction();
 
     try {
         await transaction.begin();
+
+        // ✅ NEW: Check if a service exists for this org, if not create one
+        let service_id;
+        
+        const existingServiceResult = await transaction.request()
+            .input('org_id', sql.UniqueIdentifier, org_id)
+            .query(`
+                SELECT TOP 1 service_id 
+                FROM Service 
+                WHERE org_id = @org_id 
+                ORDER BY service_id DESC
+            `);
+
+        if (existingServiceResult.recordset.length > 0) {
+            // Use existing service
+            service_id = existingServiceResult.recordset[0].service_id;
+            console.log('Using existing service_id:', service_id);
+        } else {
+            // Create new service for Third Party Report
+            const newServiceResult = await transaction.request()
+                .input('org_id', sql.UniqueIdentifier, org_id)
+                .input('service_type_id', sql.Int, 1) // Use existing service type
+                .input('web_url', sql.Text, 'Third Party Report')
+                .input('guideline_version_id', sql.Int, 1) // Default WCAG version
+                .input('compliance_level_id', sql.Int, 1) // Default compliance level
+                .input('support_type_id', sql.Int, 1) // Default support type
+                .query(`
+                    INSERT INTO Service (org_id, service_type_id, web_url, guideline_version_id, compliance_level_id, support_type_id)
+                    OUTPUT INSERTED.service_id
+                    VALUES (@org_id, @service_type_id, @web_url, @guideline_version_id, @compliance_level_id, @support_type_id)
+                `);
+            
+            service_id = newServiceResult.recordset[0].service_id;
+            console.log('Created new service_id:', service_id);
+        }
 
         // Read the Excel workbook
         const workbook = XLSX.readFile(filePath);
@@ -1426,7 +1826,7 @@ exports.uploadAccessibilityExcelService = async (filePath, service_id) => {
 
         // Create Assessment Record
         const assessmentResult = await transaction.request()
-            .input("service_id", sql.Int, service_id)
+            .input("service_id", sql.Int, service_id)  // ✅ Now using the service_id we created/found
             .input("conformance_score", sql.Int, conformanceScore)
             .input("status", sql.VarChar, "Completed")
             .input("assessment_timestamp", sql.DateTime2, new Date())
@@ -1447,10 +1847,11 @@ exports.uploadAccessibilityExcelService = async (filePath, service_id) => {
                 .input("assessment_id", sql.Int, assessmentId)
                 .input("prepared_for", sql.VarChar, preparedFor || null)
                 .input("report_date", sql.Date, reportDate || null)
+                .input("uploaded_at", sql.DateTime2, new Date()) // ✅ Store upload timestamp
                 .query(`
                     INSERT INTO Assessment_Report_Metadata_DEV 
-                    (assessment_id, prepared_for, report_date)
-                    VALUES (@assessment_id, @prepared_for, @report_date);
+                    (assessment_id, prepared_for, report_date, uploaded_at)
+                    VALUES (@assessment_id, @prepared_for, @report_date, @uploaded_at);
                 `);
             
             console.log("Metadata inserted successfully");
@@ -1587,7 +1988,7 @@ exports.uploadAccessibilityExcelService = async (filePath, service_id) => {
         }
 
         // ========================================
-        // TAB 2: URL DETAILS (keeping existing code)
+        // TAB 2: URL DETAILS
         // ========================================
         if (workbook.SheetNames.length > 1) {
             const tab2Name = workbook.SheetNames[1];
@@ -1623,15 +2024,12 @@ exports.uploadAccessibilityExcelService = async (filePath, service_id) => {
             }
         }
 
-        // ========================================
-        // TAB 3 & TAB 4: Keep existing code
-        // ========================================
-        // [Rest of the existing Tab 3 and Tab 4 code remains the same]
-
+        // Commit transaction
         await transaction.commit();
 
         return {
             assessment_id: assessmentId,
+            service_id: service_id,  // ✅ Return the service_id we created/found
             conformance_score: conformanceScore,
             metadata: {
                 prepared_for: preparedFor,
@@ -1651,6 +2049,7 @@ exports.uploadAccessibilityExcelService = async (filePath, service_id) => {
         );
     }
 };
+
 
 exports.deleteAccessibilityReportService = async (assessment_id) => {
     const pool = await getConnectionPool();
@@ -1797,6 +2196,88 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
 
         throw new AppError(
             err.message || 'Error deleting accessibility report',
+            err.status || STATUS_CODES.INTERNAL_SERVER_ERROR
+        );
+    }
+};
+
+
+
+// const { sql, getConnectionPool } = require("../config/db");
+// const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
+// const { AppError } = require("../middlewares/errorHandler");
+
+/**
+ * Get all assessments for an organization with metadata
+ */
+exports.getOrgAssessmentsService = async (org_id) => {
+    try {
+        const pool = await getConnectionPool();
+
+        const result = await pool.request()
+            .input('org_id', sql.UniqueIdentifier, org_id)
+            .query(`
+                SELECT 
+                    a.assessment_id,
+                    a.service_id,
+                    a.conformance_score,
+                    a.status,
+                    a.assessment_timestamp,
+                    m.prepared_for,
+                    m.report_date,
+                    m.uploaded_at
+                FROM Assessments_DEV a
+                INNER JOIN Service s ON a.service_id = s.service_id
+                LEFT JOIN Assessment_Report_Metadata_DEV m ON a.assessment_id = m.assessment_id
+                WHERE s.org_id = @org_id
+                ORDER BY a.assessment_timestamp DESC
+            `);
+
+        return result.recordset;
+
+    } catch (err) {
+        console.error('Error in getOrgAssessmentsService:', err);
+        throw new AppError(
+            err.message || 'Error fetching organization assessments',
+            err.status || STATUS_CODES.INTERNAL_SERVER_ERROR
+        );
+    }
+};
+
+/**
+ * Get service_id for an organization (returns first service if multiple exist)
+ */
+exports.getOrgServiceService = async (org_id) => {
+    try {
+        const pool = await getConnectionPool();
+
+        const result = await pool.request()
+            .input('org_id', sql.UniqueIdentifier, org_id)
+            .query(`
+                SELECT TOP 1
+                    service_id,
+                    org_id,
+                    web_url,
+                    service_type_id,
+                    created_at
+                FROM Service
+                WHERE org_id = @org_id
+                ORDER BY created_at DESC
+            `);
+
+        if (!result.recordset.length) {
+            throw new AppError(
+                'No service found for this organization',
+                STATUS_CODES.NOT_FOUND
+            );
+        }
+
+        return result.recordset[0];
+
+    } catch (err) {
+        console.error('Error in getOrgServiceService:', err);
+        throw new AppError(
+            err.message || 'Error fetching organization service',
             err.status || STATUS_CODES.INTERNAL_SERVER_ERROR
         );
     }

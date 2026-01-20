@@ -1,7 +1,13 @@
 const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require('../middlewares/responseHandler');
-const { getAccessibilityReportService, uploadAccessibilityExcelService, deleteAccessibilityReportService } = require("../services/accessibilityService");
+const { getAccessibilityReportService, uploadAccessibilityExcelService, deleteAccessibilityReportService ,
+     getOrgAssessmentsService,          // ✅ ADD THIS
+    getOrgServiceService    
+
+
+
+} = require("../services/accessibilityService");
 const fs = require('fs');
 /**
  * Get Complete Accessibility Report
@@ -30,6 +36,7 @@ exports.getAccessibilityReportController = async (req, res, next) => {
     }
 };
 
+
 exports.uploadAccessibilityExcelController = async (req, res, next) => {
     try {
         // Check if file is uploaded
@@ -40,22 +47,22 @@ exports.uploadAccessibilityExcelController = async (req, res, next) => {
             });
         }
 
-        // Get service_id from request body
-        const { service_id } = req.params;
+        // ✅ CHANGED: Get org_id from request params instead of service_id
+        const { org_id } = req.params;
 
-        if (!service_id) {
+        if (!org_id) {
             // Clean up uploaded file
             if (fs.existsSync(req.file.path)) {
                 fs.unlinkSync(req.file.path);
             }
             return res.status(STATUS_CODES.BAD_REQUEST).json({
                 success: false,
-                message: "service_id is required"
+                message: "org_id is required"
             });
         }
 
-        // Process the Excel file
-        const result = await uploadAccessibilityExcelService(req.file.path, service_id);
+        // ✅ CHANGED: Process the Excel file with org_id instead of service_id
+        const result = await uploadAccessibilityExcelService(req.file.path, org_id);
 
         // Clean up uploaded file after processing
         if (fs.existsSync(req.file.path)) {
@@ -77,6 +84,8 @@ exports.uploadAccessibilityExcelController = async (req, res, next) => {
         next(err);
     }
 };
+
+
 exports.deleteAccessibilityReportController = async (req, res, next) => {
     try {
         const { assessment_id } = req.params;
@@ -90,6 +99,60 @@ exports.deleteAccessibilityReportController = async (req, res, next) => {
 
         return res.status(STATUS_CODES.SUCCESS).json(successResponse);
 
+    } catch (err) {
+        next(err);
+    }
+};
+
+
+// const { 
+//     getOrgAssessmentsService,
+//     getOrgServiceService 
+// } = require("../services/accessibilityService");
+
+// Get all assessments for an organization
+exports.getOrgAssessmentsController = async (req, res, next) => {
+    try {
+        const { org_id } = req.params;
+        
+        if (!org_id) {
+            return res.status(400).json({
+                success: false,
+                message: "Organization ID is required"
+            });
+        }
+
+        const assessments = await getOrgAssessmentsService(org_id);
+
+        return res.status(200).json({
+            success: true,
+            data: assessments,
+            message: "Assessments retrieved successfully"
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+// Get service_id for an organization (optional)
+exports.getOrgServiceController = async (req, res, next) => {
+    try {
+        const { org_id } = req.params;
+        
+        if (!org_id) {
+            return res.status(400).json({
+                success: false,
+                message: "Organization ID is required"
+            });
+        }
+
+        const service = await getOrgServiceService(org_id);
+
+        return res.status(200).json({
+            success: true,
+            data: service,
+            message: "Service retrieved successfully"
+        });
     } catch (err) {
         next(err);
     }
