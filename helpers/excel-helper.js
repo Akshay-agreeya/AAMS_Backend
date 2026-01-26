@@ -39,3 +39,7 @@ async function extractImagesFromExcel(filePath, assessmentId) {
 
   return savedImages;
 }
+
+module.exports = {
+  extractImagesFromExcel
+};

@@ -4,7 +4,7 @@ const { AppError } = require("../middlewares/errorHandler");
 const XLSX = require("xlsx");
 
 const imageService = require('./imageService');
-const excelImageExtractor = require('./excelImageExtractor');
+const { extractImagesFromExcel } = require('../helpers/excel-helper');
 const fs = require('fs');
 
 /**
@@ -609,52 +609,52 @@ if (workbook.SheetNames.length > 2) {
     );
 
     if (findingsHeaderIndex !== -1) {
-        // ✅ STEP 1: Extract images from Excel
-        const fileBuffer = fs.readFileSync(filePath);
-        const extractedImages = await excelImageExtractor.extractImages(fileBuffer);
+
+        // ✅ STEP 1: Extract images from Excel using excel-helper.js
+        const extractedImages = await extractImagesFromExcel(filePath, assessmentId);
         console.log(`Found ${extractedImages.length} images in Excel`);
+        console.log('Extracted images:', extractedImages);
 
         const findingsRows = tab3Data.slice(findingsHeaderIndex + 1);
 
-        // ✅ STEP 2: Match images to rows
-        const rowsWithImages = excelImageExtractor.matchImagesToRows(
-            extractedImages, 
-            findingsRows, 
-            findingsHeaderIndex
-        );
-
-        // Load severity and compliance level mappings
-        const severityRef = await pool.request().query(`SELECT severity_name, severity_id FROM Severity_DEV;`);
-        const severityMap = {};
-        severityRef.recordset.forEach(row => {
-            severityMap[row.severity_name.trim().toLowerCase()] = row.severity_id;
-        });
-
-        const complianceRef = await pool.request().query(`SELECT level, compliance_level_id FROM Compliance_level;`);
-        const complianceMap2 = {};
-        complianceRef.recordset.forEach(row => {
-            complianceMap2[row.level.trim().toLowerCase()] = row.compliance_level_id;
-        });
-
-        // Get assessment_page_id mapping
-        const pagesResult = await transaction.request()
-            .input("assessment_id", sql.Int, assessmentId)
-            .query(`
-                SELECT assessment_page_id, page_name 
-                FROM Assessments_Page_DEV 
-                WHERE assessment_id = @assessment_id;
-            `);
-
-        const pageMap = {};
-        pagesResult.recordset.forEach(row => {
-            pageMap[row.page_name.trim().toLowerCase()] = row.assessment_page_id;
-        });
-
-        // ✅ STEP 3: Process each row with images
-        for (let i = 0; i < rowsWithImages.length; i++) {
-            const row = rowsWithImages[i];
+        // Map images to rows by sheet and row number
+        for (let i = 0; i < findingsRows.length; i++) {
+            const row = findingsRows[i];
             const pageName = String(row[0] || "").trim();
             if (!pageName) continue;
+
+            // Find image for this row (assuming sheet name matches tab3Name and row index + header offset matches image row)
+            const excelRowNumber = i + findingsHeaderIndex + 2;
+            const imageObj = extractedImages.find(img => img.sheet === tab3Name && Math.round(img.row) === excelRowNumber);
+            console.log(`Row ${i}: pageName=${pageName}, excelRowNumber=${excelRowNumber}, imageObj=`, imageObj);
+            let screenshotPath = imageObj ? imageObj.path : null;
+
+            // Load severity and compliance level mappings (move outside loop if performance needed)
+            const severityRef = await pool.request().query(`SELECT severity_name, severity_id FROM Severity_DEV;`);
+            const severityMap = {};
+            severityRef.recordset.forEach(row => {
+                severityMap[row.severity_name.trim().toLowerCase()] = row.severity_id;
+            });
+
+            const complianceRef = await pool.request().query(`SELECT level, compliance_level_id FROM Compliance_level;`);
+            const complianceMap2 = {};
+            complianceRef.recordset.forEach(row => {
+                complianceMap2[row.level.trim().toLowerCase()] = row.compliance_level_id;
+            });
+
+            // Get assessment_page_id mapping
+            const pagesResult = await transaction.request()
+                .input("assessment_id", sql.Int, assessmentId)
+                .query(`
+                    SELECT assessment_page_id, page_name 
+                    FROM Assessments_Page_DEV 
+                    WHERE assessment_id = @assessment_id;
+                `);
+
+            const pageMap = {};
+            pagesResult.recordset.forEach(row => {
+                pageMap[row.page_name.trim().toLowerCase()] = row.assessment_page_id;
+            });
 
             const assessmentPageId = pageMap[pageName.toLowerCase()];
             if (!assessmentPageId) continue;
@@ -665,22 +665,6 @@ if (workbook.SheetNames.length > 2) {
             const conformanceLevelName = String(row[11] || "").trim().toLowerCase();
             const conformanceLevelId = complianceMap2[conformanceLevelName] || null;
 
-            // ✅ STEP 4: Save image if exists
-            let screenshotPath = null;
-            if (row.imageData && row.imageData.buffer) {
-                try {
-                    const issueName = String(row[2] || "").trim();
-                    screenshotPath = await imageService.saveImage(
-                        row.imageData.buffer,
-                        `${pageName}_${issueName}_${i}`
-                    );
-                    console.log(`Saved image: ${screenshotPath}`);
-                } catch (imgError) {
-                    console.error('Error saving image:', imgError);
-                    screenshotPath = null;
-                }
-            }
-
             // ✅ STEP 5: Insert into database with screenshot path
             console.log('Inserting row with screenshotPath:', screenshotPath);
             await transaction.request()
@@ -689,7 +673,7 @@ if (workbook.SheetNames.length > 2) {
                 .input("issue_name", sql.NVarChar, String(row[2] || "").trim())
                 .input("actual_result", sql.NVarChar, String(row[3] || "").trim())
                 .input("instances", sql.NVarChar, String(row[4] || "").trim())
-                .input("screenshot", sql.NVarChar, screenshotPath) // ✅ Save path, not binary
+                .input("screenshot", sql.NVarChar, screenshotPath)
                 .input("expected_results", sql.NVarChar, String(row[6] || "").trim())
                 .input("remediation", sql.NVarChar, String(row[7] || "").trim())
                 .input("existing_code", sql.NVarChar, String(row[8] || "").trim())
