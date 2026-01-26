@@ -28,3 +28,10 @@ router.get('/org/:org_id/assessments', verifyJwt, getOrgAssessmentsController);
 router.get('/org/:org_id/service', verifyJwt, getOrgServiceController);
 
 module.exports = router;
+
+
+
+
+
+
+

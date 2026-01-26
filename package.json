@@ -22,9 +22,11 @@
     "docxtemplater": "^3.61.1",
     "docxtemplater-image-module-free": "^1.1.1",
     "dotenv": "^16.6.1",
+    "exceljs": "^4.4.0",
     "express": "^4.21.2",
     "file-saver": "^2.0.5",
     "file-type": "^20.4.1",
+    "fs-extra": "^11.3.3",
     "handlebars": "^4.7.8",
     "joi": "^18.0.1",
     "mssql": "^11.0.1",
@@ -40,9 +42,11 @@
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "robots-parser": "^3.0.1",
+    "sharp": "^0.34.5",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "xlsx-populate": "^1.21.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"

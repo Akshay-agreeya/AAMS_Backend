@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 dotenv.config({ path: path.resolve(__dirname, process.env.NODE_ENV === 'production' ? 'production.env' : '.env') });
 
-const express = require('express');
+// const express = require('express');
 const cors = require('cors');
 const { getConnectionPool } = require("./config/db");
 const loginRoutes = require('./routes/loginRoutes');
@@ -30,8 +30,11 @@ const pdfRoutes = require('./PDF/route/pdfRoutes');
 const excelRoutes = require("./routes/excel.routes");
 const pdfScanRoute = require('./routes/pdfScanRoute');
 
+const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+
 
 // Middleware
 app.use(express.json()); // Parse JSON request bodies
@@ -64,7 +67,10 @@ app.use("/api/assessment", reportSummaryRoutes);
 app.use("/api/excel", excelRoutes);
 app.use('/api/domain', domainRoutes);
 app.use('/api/pdfs', pdfScanRoute);
+// app.use("/uploads", express.static("uploads"));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// app.use("/uploads", express.static("uploads"));
 
 
  // Serve frontend files 
