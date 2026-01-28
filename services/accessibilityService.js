@@ -556,6 +556,157 @@ exports.uploadAccessibilityExcelService = async (filePath, org_id) => {
             }
         }
 
+
+
+        // ========================================
+// Extract Testing Environment Data
+// ========================================
+const testingEnvHeaderIndex = tab1Data.findIndex(r => {
+    // Check all columns in the row for "Automated tools", "Operating System", etc.
+    return r.some(cell => {
+        const cellText = String(cell || "").trim().toLowerCase();
+        return cellText === "automated tools" || 
+               cellText === "operating system" || 
+               cellText === "browsers";
+    });
+});
+
+if (testingEnvHeaderIndex !== -1) {
+    console.log("Found Testing Environment header at row:", testingEnvHeaderIndex);
+    
+    const headerRow = tab1Data[testingEnvHeaderIndex];
+    
+    // Find column indices for each category
+    const columnMap = {};
+    headerRow.forEach((cell, colIndex) => {
+        const cellText = String(cell || "").trim().toLowerCase();
+        if (cellText === "automated tools") columnMap.automatedTools = colIndex;
+        else if (cellText === "operating system") columnMap.operatingSystem = colIndex;
+        else if (cellText === "browsers") columnMap.browsers = colIndex;
+        else if (cellText === "application") columnMap.application = colIndex;
+        else if (cellText === "assistive technologies") columnMap.assistiveTech = colIndex;
+    });
+    
+    console.log("Column mapping:", columnMap);
+    
+    // ✅ STOP WORDS - Skip rows that contain these
+    const stopWords = [
+        "prepared by", "prepared for", "date:", "sr.no", "sr no",
+        "agreeya", "city of", "top accessibility", "role and state"
+    ];
+    
+    // Extract data from rows below the header
+    const testingEnvDataRows = tab1Data.slice(testingEnvHeaderIndex + 1, testingEnvHeaderIndex + 15);
+    
+    for (let row of testingEnvDataRows) {
+        if (!row || row.length === 0) continue;
+        
+        // ✅ Check if this row contains any stop words (in ANY column)
+        const rowText = row.map(cell => String(cell || "").trim().toLowerCase()).join(" ");
+        const shouldSkip = stopWords.some(stopWord => rowText.includes(stopWord));
+        
+        if (shouldSkip) {
+            console.log("Stopping at row containing stop word:", row[0]);
+            break;
+        }
+        
+        // ✅ Skip if first column has numbers only (like "1", "45939")
+        const firstCell = String(row[0] || "").trim();
+        if (firstCell && /^\d+$/.test(firstCell)) {
+            console.log("Skipping numeric row:", firstCell);
+            continue;
+        }
+        
+        // Extract Automated Tools
+        if (columnMap.automatedTools !== undefined) {
+            const value = String(row[columnMap.automatedTools] || "").trim();
+            if (value && value.length > 0 && !value.toLowerCase().includes("automated")) {
+                await transaction.request()
+                    .input("assessment_id", sql.Int, assessmentId)
+                    .input("category", sql.VarChar, "AUTOMATED_TOOL")
+                    .input("value", sql.VarChar, value)
+                    .query(`
+                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        (assessment_id, category, value)
+                        VALUES (@assessment_id, @category, @value);
+                    `);
+                console.log("Inserted Automated Tool:", value);
+            }
+        }
+        
+        // Extract Operating System
+        if (columnMap.operatingSystem !== undefined) {
+            const value = String(row[columnMap.operatingSystem] || "").trim();
+            if (value && value.length > 0 && !value.toLowerCase().includes("operating")) {
+                await transaction.request()
+                    .input("assessment_id", sql.Int, assessmentId)
+                    .input("category", sql.VarChar, "OPERATING_SYSTEM")
+                    .input("value", sql.VarChar, value)
+                    .query(`
+                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        (assessment_id, category, value)
+                        VALUES (@assessment_id, @category, @value);
+                    `);
+                console.log("Inserted Operating System:", value);
+            }
+        }
+        
+        // Extract Browsers
+        if (columnMap.browsers !== undefined) {
+            const value = String(row[columnMap.browsers] || "").trim();
+            if (value && value.length > 0 && !value.toLowerCase().includes("browser")) {
+                await transaction.request()
+                    .input("assessment_id", sql.Int, assessmentId)
+                    .input("category", sql.VarChar, "BROWSER")
+                    .input("value", sql.VarChar, value)
+                    .query(`
+                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        (assessment_id, category, value)
+                        VALUES (@assessment_id, @category, @value);
+                    `);
+                console.log("Inserted Browser:", value);
+            }
+        }
+        
+        // Extract Application
+        if (columnMap.application !== undefined) {
+            const value = String(row[columnMap.application] || "").trim();
+            if (value && value.length > 0 && !value.toLowerCase().includes("application")) {
+                await transaction.request()
+                    .input("assessment_id", sql.Int, assessmentId)
+                    .input("category", sql.VarChar, "APPLICATION")
+                    .input("value", sql.VarChar, value)
+                    .query(`
+                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        (assessment_id, category, value)
+                        VALUES (@assessment_id, @category, @value);
+                    `);
+                console.log("Inserted Application:", value);
+            }
+        }
+        
+        // Extract Assistive Technologies
+        if (columnMap.assistiveTech !== undefined) {
+            const value = String(row[columnMap.assistiveTech] || "").trim();
+            if (value && value.length > 0 && !value.toLowerCase().includes("assistive")) {
+                await transaction.request()
+                    .input("assessment_id", sql.Int, assessmentId)
+                    .input("category", sql.VarChar, "ASSISTIVE_TECH")
+                    .input("value", sql.VarChar, value)
+                    .query(`
+                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        (assessment_id, category, value)
+                        VALUES (@assessment_id, @category, @value);
+                    `);
+                console.log("Inserted Assistive Technology:", value);
+            }
+        }
+    }
+    
+    console.log("Testing Environment data extraction completed");
+} else {
+    console.log("Testing Environment header not found in Excel");
+}
         // ========================================
         // TAB 2: URL DETAILS
         // ========================================
@@ -822,6 +973,157 @@ if (workbook.SheetNames.length > 2) {
     }
 };
 
+// exports.deleteAccessibilityReportService = async (assessment_id) => {
+//     const pool = await getConnectionPool();
+//     const transaction = pool.transaction();
+//     let isTransactionStarted = false;
+    
+//     console.log("Deleting assessment with ID:", assessment_id);
+    
+//     try {
+//         await transaction.begin();
+//         isTransactionStarted = true;
+
+//         // 1. Check if assessment exists
+//         const assessmentCheck = await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 SELECT assessment_id 
+//                 FROM Assessments_DEV 
+//                 WHERE assessment_id = @assessment_id
+//             `);
+
+//         if (!assessmentCheck.recordset.length) {
+//             throw new AppError(
+//                 ERROR_MESSAGES.ASSESSMENT_NOT_FOUND || 'Assessment not found',
+//                 STATUS_CODES.NOT_FOUND
+//             );
+//         }
+
+//         // ================================
+//         // DELETE IN REVERSE ORDER
+//         // ================================
+
+//         // Delete Detailed Findings (child of Assessments_Page_DEV)
+//         const detailedFindingsResult = await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 DELETE cdr
+//                 FROM Category_Detail_Report_DEV cdr
+//                 INNER JOIN Assessments_Page_DEV ap 
+//                     ON cdr.assessment_page_id = ap.assessment_page_id
+//                 WHERE ap.assessment_id = @assessment_id;
+
+//                 SELECT @@ROWCOUNT AS deleted_count;
+//             `);
+//         const detailedFindingsDeleted = detailedFindingsResult.recordset[0].deleted_count;
+
+//         // Delete Assessment Pages
+//         const pagesResult = await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 DELETE FROM Assessments_Page_DEV 
+//                 WHERE assessment_id = @assessment_id;
+
+//                 SELECT @@ROWCOUNT AS deleted_count;
+//             `);
+//         const pagesDeleted = pagesResult.recordset[0].deleted_count;
+
+//         // Delete WCAG Guidelines
+//         const wcagResult = await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 DELETE FROM WCAG_DEV 
+//                 WHERE assessment_id = @assessment_id;
+
+//                 SELECT @@ROWCOUNT AS deleted_count;
+//             `);
+//         const wcagDeleted = wcagResult.recordset[0].deleted_count;
+
+//         // Delete Top Issues
+//         const topIssuesResult = await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 DELETE FROM Top_Accessibility_Issues_DEV 
+//                 WHERE assessment_id = @assessment_id;
+
+//                 SELECT @@ROWCOUNT AS deleted_count;
+//             `);
+//         const topIssuesDeleted = topIssuesResult.recordset[0].deleted_count;
+
+//         // Delete Conformance Records
+//         const conformanceResult = await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 DELETE FROM Assessment_conformance_DEV 
+//                 WHERE assessment_id = @assessment_id;
+
+//                 SELECT @@ROWCOUNT AS deleted_count;
+//             `);
+//         const conformanceDeleted = conformanceResult.recordset[0].deleted_count;
+
+//         // Delete Severity Records
+//         const severityResult = await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 DELETE FROM Assessment_severity_DEV 
+//                 WHERE assessment_id = @assessment_id;
+
+//                 SELECT @@ROWCOUNT AS deleted_count;
+//             `);
+//         const severityDeleted = severityResult.recordset[0].deleted_count;
+
+//         // ✅ NEW: Delete Report Metadata
+//         const metadataResult = await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 DELETE FROM Assessment_Report_Metadata_DEV 
+//                 WHERE assessment_id = @assessment_id;
+
+//                 SELECT @@ROWCOUNT AS deleted_count;
+//             `);
+//         const metadataDeleted = metadataResult.recordset[0].deleted_count;
+
+//         // Finally, Delete the Assessment itself
+//         await transaction.request()
+//             .input('assessment_id', sql.Int, assessment_id)
+//             .query(`
+//                 DELETE FROM Assessments_DEV 
+//                 WHERE assessment_id = @assessment_id;
+//             `);
+
+//         await transaction.commit();
+
+//         return {
+//             assessment_id: Number(assessment_id),
+//             deleted: true,
+//             summary: {
+//                 detailed_findings: detailedFindingsDeleted,
+//                 pages: pagesDeleted,
+//                 wcag_guidelines: wcagDeleted,
+//                 top_issues: topIssuesDeleted,
+//                 conformance_records: conformanceDeleted,
+//                 severity_records: severityDeleted,
+//                 metadata_records: metadataDeleted
+//             },
+//             message: "Assessment and all related data deleted successfully"
+//         };
+
+//     } catch (err) {
+//         if (isTransactionStarted) {
+//             await transaction.rollback();
+//         }
+
+//         console.error('Error in deleteAccessibilityReportService:', err);
+
+//         throw new AppError(
+//             err.message || 'Error deleting accessibility report',
+//             err.status || STATUS_CODES.INTERNAL_SERVER_ERROR
+//         );
+//     }
+// };
+
+
 exports.deleteAccessibilityReportService = async (assessment_id) => {
     const pool = await getConnectionPool();
     const transaction = pool.transaction();
@@ -848,6 +1150,22 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
                 STATUS_CODES.NOT_FOUND
             );
         }
+
+        // ✅ NEW: Get all screenshot paths before deleting
+        const screenshotsResult = await transaction.request()
+            .input('assessment_id', sql.Int, assessment_id)
+            .query(`
+                SELECT DISTINCT cdr.screenshot
+                FROM Category_Detail_Report_DEV cdr
+                INNER JOIN Assessments_Page_DEV ap 
+                    ON cdr.assessment_page_id = ap.assessment_page_id
+                WHERE ap.assessment_id = @assessment_id
+                AND cdr.screenshot IS NOT NULL
+                AND cdr.screenshot != '';
+            `);
+
+        const screenshotPaths = screenshotsResult.recordset.map(row => row.screenshot);
+        console.log(`Found ${screenshotPaths.length} screenshots to delete`);
 
         // ================================
         // DELETE IN REVERSE ORDER
@@ -922,7 +1240,7 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
             `);
         const severityDeleted = severityResult.recordset[0].deleted_count;
 
-        // ✅ NEW: Delete Report Metadata
+        // Delete Report Metadata
         const metadataResult = await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
@@ -932,6 +1250,17 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
                 SELECT @@ROWCOUNT AS deleted_count;
             `);
         const metadataDeleted = metadataResult.recordset[0].deleted_count;
+
+        // ✅ NEW: Delete Testing Environment
+        const testingEnvResult = await transaction.request()
+            .input('assessment_id', sql.Int, assessment_id)
+            .query(`
+                DELETE FROM Assessment_Testing_Environment_DEV 
+                WHERE assessment_id = @assessment_id;
+
+                SELECT @@ROWCOUNT AS deleted_count;
+            `);
+        const testingEnvDeleted = testingEnvResult.recordset[0].deleted_count;
 
         // Finally, Delete the Assessment itself
         await transaction.request()
@@ -943,6 +1272,24 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
 
         await transaction.commit();
 
+        // ✅ NEW: Delete screenshot files from file system (after commit)
+        const path = require('path');
+        const fs = require('fs');
+        let deletedFiles = 0;
+
+        for (const screenshotPath of screenshotPaths) {
+            try {
+                const fullPath = path.join(__dirname, '../..', screenshotPath);
+                if (fs.existsSync(fullPath)) {
+                    fs.unlinkSync(fullPath);
+                    deletedFiles++;
+                    console.log(`Deleted screenshot: ${screenshotPath}`);
+                }
+            } catch (err) {
+                console.error(`Error deleting screenshot ${screenshotPath}:`, err);
+            }
+        }
+
         return {
             assessment_id: Number(assessment_id),
             deleted: true,
@@ -953,7 +1300,9 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
                 top_issues: topIssuesDeleted,
                 conformance_records: conformanceDeleted,
                 severity_records: severityDeleted,
-                metadata_records: metadataDeleted
+                metadata_records: metadataDeleted,
+                testing_environment_records: testingEnvDeleted,
+                screenshot_files: deletedFiles
             },
             message: "Assessment and all related data deleted successfully"
         };
@@ -971,8 +1320,6 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         );
     }
 };
-
-
 
 // const { sql, getConnectionPool } = require("../config/db");
 // const { ERROR_MESSAGES, STATUS_CODES } = require("../utils/errorCodes");
