@@ -29,7 +29,9 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                     a.conformance_score,
                     a.status,
                     a.assessment_timestamp
-                FROM Assessments_DEV a
+                // FROM Assessments_DEV a
+                FROM Assessments_v2 a
+
                 WHERE a.assessment_id = @assessment_id
             `);
 
@@ -47,7 +49,9 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                     report_meta_id,
                     prepared_for,
                     report_date
-                FROM Assessment_Report_Metadata_DEV
+                // FROM Assessment_Report_Metadata_DEV
+                FROM Assessment_Report_Metadata
+
                 WHERE assessment_id = @assessment_id
             `);
         
@@ -57,7 +61,8 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                 SELECT 
                     category,
                     value
-                FROM Assessment_Testing_Environment_DEV
+                // FROM Assessment_Testing_Environment_DEV
+                FROM Assessment_Testing_Environment
                 WHERE assessment_id = @assessment_id
                 ORDER BY env_id
             `);
@@ -102,7 +107,9 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                     cl.level AS conformance_level,
                     ac.passes_na,
                     ac.failed
-                FROM Assessment_conformance_DEV ac
+                // FROM Assessment_conformance_DEV ac
+                FROM Assessment_conformance ac
+
                 LEFT JOIN Guideline_version gv ON ac.wcag_id = gv.guidline_version_id
                 LEFT JOIN Compliance_level cl ON ac.compliance_level_id = cl.compliance_level_id
                 WHERE ac.assessment_id = @assessment_id
@@ -118,8 +125,12 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                     s.severity_name AS severity,
                     asev.no_of_issues,
                     asev.defect_score
-                FROM Assessment_severity_DEV asev
-                LEFT JOIN Severity_DEV s ON asev.severity = s.severity_id
+                // FROM Assessment_severity_DEV asev
+                FROM Assessment_severity asev
+
+                // LEFT JOIN Severity_DEV s ON asev.severity = s.severity_id
+                                LEFT JOIN Severity s ON asev.severity = s.severity_id
+
                 WHERE asev.assessment_id = @assessment_id
                 ORDER BY 
                     CASE s.severity_name
@@ -138,7 +149,8 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                 SELECT 
                     issue_id,
                     issue_title
-                FROM Top_Accessibility_Issues_DEV
+                // FROM Top_Accessibility_Issues_DEV
+                           FROM Top_Accessibility_Issues
                 WHERE assessment_id = @assessment_id
                 ORDER BY issue_id
             `);
@@ -155,7 +167,8 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                     page_name,
                     page_url,
                     environments
-                FROM Assessments_Page_DEV
+                // FROM Assessments_Page_DEV
+                FROM Assessments_Page
                 WHERE assessment_id = @assessment_id
                 ORDER BY assessment_page_id
             `);
@@ -188,10 +201,16 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                     cdr.template_issue,
                     cdr.template_name,
                     cdr.status
-                FROM Category_Detail_Report_DEV cdr
-                INNER JOIN Assessments_Page_DEV ap ON cdr.assessment_page_id = ap.assessment_page_id
+                // FROM Category_Detail_Report_DEV cdr
+                                FROM Category_Detail_Report_v2 cdr
+
+                // INNER JOIN Assessments_Page_DEV ap ON cdr.assessment_page_id = ap.assessment_page_id
+                INNER JOIN Assessments_Page ap ON cdr.assessment_page_id = ap.assessment_page_id
+
                 LEFT JOIN Category_Report cr ON cdr.category_id = cr.category_id
-                LEFT JOIN Severity_DEV s ON cdr.severity = s.severity_id
+                // LEFT JOIN Severity_DEV s ON cdr.severity = s.severity_id
+                                LEFT JOIN Severity s ON cdr.severity = s.severity_id
+
                 LEFT JOIN Compliance_level cl ON cdr.wcag_conformance_level = cl.compliance_level_id
                 WHERE ap.assessment_id = @assessment_id
                 ORDER BY 
@@ -218,7 +237,9 @@ exports.getAccessibilityReportService = async (assessment_id) => {
                     cl.level AS conformance_level,
                     w.guideline AS wcag_success_criteria,
                     w.description
-                FROM WCAG_DEV w
+                // FROM WCAG_DEV w
+                                FROM WCAG w
+
                 LEFT JOIN Guideline_version gv ON w.guideline_version_id = gv.guidline_version_id
                 LEFT JOIN Compliance_level cl ON w.compliance_level_id = cl.compliance_level_id
                 ORDER BY w.guideline
@@ -430,7 +451,8 @@ exports.uploadAccessibilityExcelService = async (filePath, org_id) => {
             .input("status", sql.VarChar, "Completed")
             .input("assessment_timestamp", sql.DateTime2, new Date())
             .query(`
-                INSERT INTO Assessments_DEV 
+                // INSERT INTO Assessments_DEV 
+                INSERT INTO Assessments_v2
                 (service_id, conformance_score, status, assessment_timestamp)
                 OUTPUT INSERTED.assessment_id
                 VALUES (@service_id, @conformance_score, @status, @assessment_timestamp);
@@ -446,7 +468,9 @@ exports.uploadAccessibilityExcelService = async (filePath, org_id) => {
                 .input("report_date", sql.Date, reportDate || null)
                 .input("uploaded_at", sql.DateTime2, new Date())
                 .query(`
-                    INSERT INTO Assessment_Report_Metadata_DEV 
+                    // INSERT INTO Assessment_Report_Metadata_DEV 
+                    INSERT INTO Assessment_Report_Metadata 
+
                     (assessment_id, prepared_for, report_date, uploaded_at)
                     VALUES (@assessment_id, @prepared_for, @report_date, @uploaded_at);
                 `);
@@ -493,7 +517,9 @@ exports.uploadAccessibilityExcelService = async (filePath, org_id) => {
                 .input("failed", sql.Int, parseInt(row[2]) || 0)
                 .input("compliance_level_id", sql.Int, complianceLevelId)
                 .query(`
-                    INSERT INTO Assessment_conformance_DEV
+                    // INSERT INTO Assessment_conformance_DEV
+                    INSERT INTO Assessment_conformance
+
                     (assessment_id, wcag_id, passes_na, failed, compliance_level_id)
                     VALUES (@assessment_id, @wcag_id, @passes_na, @failed, @compliance_level_id);
                 `);
@@ -502,7 +528,9 @@ exports.uploadAccessibilityExcelService = async (filePath, org_id) => {
         // Extract Severity Data
         const severityIndex = tab1Data.findIndex(r => String(r[0]).trim() === "Severity");
         if (severityIndex !== -1) {
-            const severityRef = await pool.request().query(`SELECT severity_name, severity_id FROM Severity_DEV;`);
+            // const severityRef = await pool.request().query(`SELECT severity_name, severity_id FROM Severity_DEV;`);
+            const severityRef = await pool.request().query(`SELECT severity_name, severity_id FROM Severity;`);
+
             const severityMap = {};
             severityRef.recordset.forEach(row => {
                 severityMap[row.severity_name.trim().toLowerCase()] = row.severity_id;
@@ -526,7 +554,8 @@ exports.uploadAccessibilityExcelService = async (filePath, org_id) => {
                     .input("no_of_issues", sql.Int, parseInt(row[1]) || 0)
                     .input("defect_score", sql.Decimal(5, 2), defectScore)
                     .query(`
-                        INSERT INTO Assessment_severity_DEV 
+                        // INSERT INTO Assessment_severity_DEV 
+                        INSERT INTO Assessment_severity
                         (assessment_id, severity, no_of_issues, defect_score)
                         VALUES (@assessment_id, @severity, @no_of_issues, @defect_score);
                     `);
@@ -549,7 +578,9 @@ exports.uploadAccessibilityExcelService = async (filePath, org_id) => {
                     .input("assessment_id", sql.Int, assessmentId)
                     .input("issue_title", sql.VarChar, issueTitle)
                     .query(`
-                        INSERT INTO Top_Accessibility_Issues_DEV 
+                        // INSERT INTO Top_Accessibility_Issues_DEV 
+                                                INSERT INTO Top_Accessibility_Issues 
+
                         (assessment_id, issue_title)
                         VALUES (@assessment_id, @issue_title);
                     `);
@@ -626,7 +657,8 @@ if (testingEnvHeaderIndex !== -1) {
                     .input("category", sql.VarChar, "AUTOMATED_TOOL")
                     .input("value", sql.VarChar, value)
                     .query(`
-                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        // INSERT INTO Assessment_Testing_Environment_DEV 
+                        INSERT INTO Assessment_Testing_Environment
                         (assessment_id, category, value)
                         VALUES (@assessment_id, @category, @value);
                     `);
@@ -643,7 +675,8 @@ if (testingEnvHeaderIndex !== -1) {
                     .input("category", sql.VarChar, "OPERATING_SYSTEM")
                     .input("value", sql.VarChar, value)
                     .query(`
-                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        // INSERT INTO Assessment_Testing_Environment_DEV 
+                        INSERT INTO Assessment_Testing_Environment
                         (assessment_id, category, value)
                         VALUES (@assessment_id, @category, @value);
                     `);
@@ -660,7 +693,8 @@ if (testingEnvHeaderIndex !== -1) {
                     .input("category", sql.VarChar, "BROWSER")
                     .input("value", sql.VarChar, value)
                     .query(`
-                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        // INSERT INTO Assessment_Testing_Environment_DEV 
+                        INSERT INTO Assessment_Testing_Environment
                         (assessment_id, category, value)
                         VALUES (@assessment_id, @category, @value);
                     `);
@@ -677,7 +711,8 @@ if (testingEnvHeaderIndex !== -1) {
                     .input("category", sql.VarChar, "APPLICATION")
                     .input("value", sql.VarChar, value)
                     .query(`
-                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        // INSERT INTO Assessment_Testing_Environment_DEV 
+                        INSERT INTO Assessment_Testing_Environment
                         (assessment_id, category, value)
                         VALUES (@assessment_id, @category, @value);
                     `);
@@ -694,7 +729,8 @@ if (testingEnvHeaderIndex !== -1) {
                     .input("category", sql.VarChar, "ASSISTIVE_TECH")
                     .input("value", sql.VarChar, value)
                     .query(`
-                        INSERT INTO Assessment_Testing_Environment_DEV 
+                        // INSERT INTO Assessment_Testing_Environment_DEV 
+                        INSERT INTO Assessment_Testing_Environment
                         (assessment_id, category, value)
                         VALUES (@assessment_id, @category, @value);
                     `);
@@ -735,7 +771,8 @@ if (testingEnvHeaderIndex !== -1) {
                         .input("page_url", sql.VarChar, pageUrl)
                         .input("environments", sql.VarChar, environments)
                         .query(`
-                            INSERT INTO Assessments_Page_DEV 
+                            // INSERT INTO Assessments_Page_DEV 
+                                                        INSERT INTO Assessments_Page
                             (assessment_id, page_name, page_url, environments)
                             VALUES (@assessment_id, @page_name, @page_url, @environments);
                         `);
@@ -781,7 +818,9 @@ if (workbook.SheetNames.length > 2) {
             let screenshotPath = imageObj ? imageObj.path : null;
 
             // Load severity and compliance level mappings (move outside loop if performance needed)
-            const severityRef = await pool.request().query(`SELECT severity_name, severity_id FROM Severity_DEV;`);
+            // const severityRef = await pool.request().query(`SELECT severity_name, severity_id FROM Severity_DEV;`);
+                        const severityRef = await pool.request().query(`SELECT severity_name, severity_id FROM Severity;`);
+
             const severityMap = {};
             severityRef.recordset.forEach(row => {
                 severityMap[row.severity_name.trim().toLowerCase()] = row.severity_id;
@@ -798,7 +837,8 @@ if (workbook.SheetNames.length > 2) {
                 .input("assessment_id", sql.Int, assessmentId)
                 .query(`
                     SELECT assessment_page_id, page_name 
-                    FROM Assessments_Page_DEV 
+                    // FROM Assessments_Page_DEV 
+                    FROM Assessments_Page
                     WHERE assessment_id = @assessment_id;
                 `);
 
@@ -838,7 +878,9 @@ if (workbook.SheetNames.length > 2) {
                 .input("template_name", sql.NVarChar, String(row[16] || "").trim())
                 .input("status", sql.VarChar, "Open")
                 .query(`
-                    INSERT INTO Category_Detail_Report_DEV 
+                    // INSERT INTO Category_Detail_Report_DEV 
+                                        INSERT INTO Category_Detail_Report_v2 
+
                     (category_id, assessment_page_id, issue_name, actual_result, instances, 
                      screenshot, expected_results, remediation, existing_code, suggested_code,
                      severity, wcag_conformance_level, wcag_success_criteria, section_508,
@@ -922,7 +964,9 @@ if (workbook.SheetNames.length > 2) {
                         .input("compliance_level_id", sql.Int, complianceLevelId)
                         .query(`
                             SELECT wcag_id 
-                            FROM WCAG_DEV 
+                            // FROM WCAG_DEV 
+                            FROM WCAG
+
                             WHERE assessment_id = @assessment_id
                             AND guideline = @guideline 
                             AND guideline_version_id = @guideline_version_id
@@ -937,7 +981,8 @@ if (workbook.SheetNames.length > 2) {
                             .input("guideline", sql.VarChar, guideline)
                             .input("description", sql.NVarChar, description)
                             .query(`
-                                INSERT INTO WCAG_DEV 
+                                // INSERT INTO WCAG_DEV 
+                                INSERT INTO WCAG
                                 (assessment_id, guideline_version_id, compliance_level_id, guideline, description)
                                 VALUES (@assessment_id, @guideline_version_id, @compliance_level_id, @guideline, @description);
                             `);
@@ -1140,7 +1185,8 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
                 SELECT assessment_id 
-                FROM Assessments_DEV 
+                // FROM Assessments_DEV 
+                FROM Assessments_v2
                 WHERE assessment_id = @assessment_id
             `);
 
@@ -1156,8 +1202,11 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
                 SELECT DISTINCT cdr.screenshot
-                FROM Category_Detail_Report_DEV cdr
-                INNER JOIN Assessments_Page_DEV ap 
+                // FROM Category_Detail_Report_DEV cdr
+                FROM Category_Detail_Report_v2 cdr
+
+                // INNER JOIN Assessments_Page_DEV ap 
+                INNER JOIN Assessments_Page ap
                     ON cdr.assessment_page_id = ap.assessment_page_id
                 WHERE ap.assessment_id = @assessment_id
                 AND cdr.screenshot IS NOT NULL
@@ -1176,8 +1225,11 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
                 DELETE cdr
-                FROM Category_Detail_Report_DEV cdr
-                INNER JOIN Assessments_Page_DEV ap 
+                // FROM Category_Detail_Report_DEV cdr
+                FROM Category_Detail_Report_v2 cdr
+
+                // INNER JOIN Assessments_Page_DEV ap 
+                INNER JOIN Assessments_Page ap
                     ON cdr.assessment_page_id = ap.assessment_page_id
                 WHERE ap.assessment_id = @assessment_id;
 
@@ -1189,7 +1241,8 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         const pagesResult = await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
-                DELETE FROM Assessments_Page_DEV 
+                // DELETE FROM Assessments_Page_DEV
+                DELETE FROM Assessments_Page
                 WHERE assessment_id = @assessment_id;
 
                 SELECT @@ROWCOUNT AS deleted_count;
@@ -1200,7 +1253,8 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         const wcagResult = await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
-                DELETE FROM WCAG_DEV 
+                // DELETE FROM WCAG_DEV 
+                DELETE FROM WCAG
                 WHERE assessment_id = @assessment_id;
 
                 SELECT @@ROWCOUNT AS deleted_count;
@@ -1211,7 +1265,9 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         const topIssuesResult = await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
-                DELETE FROM Top_Accessibility_Issues_DEV 
+                // DELETE FROM Top_Accessibility_Issues_DEV 
+                                DELETE FROM Top_Accessibility_Issues 
+
                 WHERE assessment_id = @assessment_id;
 
                 SELECT @@ROWCOUNT AS deleted_count;
@@ -1222,7 +1278,9 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         const conformanceResult = await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
-                DELETE FROM Assessment_conformance_DEV 
+                // DELETE FROM Assessment_conformance_DEV 
+                DELETE FROM Assessment_conformance
+
                 WHERE assessment_id = @assessment_id;
 
                 SELECT @@ROWCOUNT AS deleted_count;
@@ -1233,7 +1291,8 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         const severityResult = await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
-                DELETE FROM Assessment_severity_DEV 
+                // DELETE FROM Assessment_severity_DEV 
+                DELETE FROM Assessment_severity
                 WHERE assessment_id = @assessment_id;
 
                 SELECT @@ROWCOUNT AS deleted_count;
@@ -1244,7 +1303,8 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         const metadataResult = await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
-                DELETE FROM Assessment_Report_Metadata_DEV 
+                // DELETE FROM Assessment_Report_Metadata_DEV 
+                DELETE FROM Assessment_Report_Metadata
                 WHERE assessment_id = @assessment_id;
 
                 SELECT @@ROWCOUNT AS deleted_count;
@@ -1255,7 +1315,8 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         const testingEnvResult = await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
-                DELETE FROM Assessment_Testing_Environment_DEV 
+                // DELETE FROM Assessment_Testing_Environment_DEV 
+                DELETE FROM Assessment_Testing_Environment
                 WHERE assessment_id = @assessment_id;
 
                 SELECT @@ROWCOUNT AS deleted_count;
@@ -1266,7 +1327,9 @@ exports.deleteAccessibilityReportService = async (assessment_id) => {
         await transaction.request()
             .input('assessment_id', sql.Int, assessment_id)
             .query(`
-                DELETE FROM Assessments_DEV 
+                // DELETE FROM Assessments_DEV 
+                DELETE FROM Assessments_v2
+
                 WHERE assessment_id = @assessment_id;
             `);
 
@@ -1344,9 +1407,13 @@ exports.getOrgAssessmentsService = async (org_id) => {
                     m.prepared_for,
                     m.report_date,
                     m.uploaded_at
-                FROM Assessments_DEV a
+                // FROM Assessments_DEV a
+                FROM Assessments_v2 a
+
                 INNER JOIN Service s ON a.service_id = s.service_id
-                LEFT JOIN Assessment_Report_Metadata_DEV m ON a.assessment_id = m.assessment_id
+                // LEFT JOIN Assessment_Report_Metadata_DEV m ON a.assessment_id = m.assessment_id
+                LEFT JOIN Assessment_Report_Metadata m ON a.assessment_id = m.assessment_id
+
                 WHERE s.org_id = @org_id
                 ORDER BY a.assessment_timestamp DESC
             `);
