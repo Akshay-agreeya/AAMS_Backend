@@ -15,7 +15,7 @@ exports.getAssessmentReportMetadataService = async (assessment_id) => {
                     assessment_id,
                     prepared_for,
                     report_date
-                // FROM Assessment_Report_Metadata_DEV
+                -- FROM Assessment_Report_Metadata_DEV
                 FROM Assessment_Report_Metadata
 
                 WHERE assessment_id = @assessment_id

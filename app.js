@@ -25,16 +25,21 @@ const notificationRoutes = require('./routes/notificationRoutes');
 const pdfRoutes = require('./PDF/route/pdfRoutes');
 const excelRoutes = require("./routes/excel.routes");
 const pdfScanRoute = require('./routes/pdfScanRoute');
-// Add these after your existing requires
 const { ConfidentialClientApplication } = require("@azure/msal-node");
 const axios = require("axios");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ Fix 1: CORS must be FIRST, before all other middleware
+
+
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:8080'],
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:8080',
+    'http://gdc-vm-adaclient:8080',   // ✅ ADD THIS
+    'http://10.9.32.233:8080'         // ✅ optional (IP access)
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']

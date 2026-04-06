@@ -1,33 +1,3 @@
-// require("dotenv").config();
-// const nodemailer = require("nodemailer");
-
-// const transporter = nodemailer.createTransport({
-//   host: process.env.SMTP_HOST,
-//   port: process.env.SMTP_PORT,
-//   secure: process.env.SMTP_SECURE === "true",
-//   auth: {
-//     user: process.env.EMAIL,
-//     pass: process.env.EMAIL_PASSWORD,
-//   },
-// });
-
-// async function sendTest() {
-//   try {
-//     let info = await transporter.sendMail({
-//       from: `"${process.env.FROM_NAME}" <${process.env.EMAIL}>`,
-//       to: "your.personal.email@gmail.com",
-//       subject: "Test Email",
-//       text: "If you see this, Gmail SMTP works!",
-//     });
-
-//     console.log("✅ Test Email Sent:", info.messageId);
-//   } catch (err) {
-//     console.error("❌ Email Error:", err);
-//   }
-// }
-
-// sendTest();
-
 
 
 require("dotenv").config();

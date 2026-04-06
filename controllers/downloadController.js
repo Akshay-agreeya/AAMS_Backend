@@ -65,7 +65,7 @@ exports.generateAccessibilityReportPDFController = async (req, res, next) => {
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
-    res.end(buffer); // 🔑 use end instead of send
+    res.end(buffer); 
   } catch (err) {
     console.error('PDF Controller Error:', err);
     next(err);

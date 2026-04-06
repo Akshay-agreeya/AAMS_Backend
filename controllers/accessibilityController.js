@@ -2,7 +2,7 @@ const { STATUS_CODES, ERROR_MESSAGES } = require("../utils/errorCodes");
 const { SUCCESS_MESSAGES } = require('../utils/responseMessages');
 const { SuccessReturnHandler } = require('../middlewares/responseHandler');
 const { getAccessibilityReportService, uploadAccessibilityExcelService, deleteAccessibilityReportService ,
-     getOrgAssessmentsService,          // ✅ ADD THIS
+     getOrgAssessmentsService,          
     getOrgServiceService    
 
 
@@ -105,10 +105,6 @@ exports.deleteAccessibilityReportController = async (req, res, next) => {
 };
 
 
-// const { 
-//     getOrgAssessmentsService,
-//     getOrgServiceService 
-// } = require("../services/accessibilityService");
 
 // Get all assessments for an organization
 exports.getOrgAssessmentsController = async (req, res, next) => {

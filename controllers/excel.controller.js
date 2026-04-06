@@ -18,7 +18,7 @@ exports.uploadA11yExcel = async (req, res) => {
          * ----------------------------------------- */
         const severityRef = await pool.request().query(`
             SELECT severity_name, severity_id 
-            // FROM Severity_DEV;
+            -- FROM Severity_DEV;
             FROM Severity;
 
             `);
@@ -90,7 +90,7 @@ exports.uploadA11yExcel = async (req, res) => {
                 .input("no_of_issues", sql.Int, row.issues)
                 .input("defect_score", sql.Float, row.score)
                 .query(`
-                    // INSERT INTO Assessment_severity_DEV 
+                    -- INSERT INTO Assessment_severity_DEV 
                     INSERT INTO Assessment_severity
 
                     (assessment_id, severity, no_of_issues, defect_score)
@@ -134,7 +134,7 @@ exports.uploadA11yExcel = async (req, res) => {
                 .input("passes_na", sql.Int, row.passes)
                 .input("failed", sql.Int, row.failed)
                 .query(`
-                    // INSERT INTO Assessment_conformance_DEV
+                    -- INSERT INTO Assessment_conformance_DEV
                     INSERT INTO Assessment_conformance
 
                     (assessment_id, wcag_id, passes_na, failed)
@@ -153,7 +153,7 @@ exports.uploadA11yExcel = async (req, res) => {
                 .input("title", sql.VarChar, cleanTitle)
                 .query(`
                     SELECT issue_id 
-                    // FROM Top_Accessibility_Issues_DEV
+                    -- FROM Top_Accessibility_Issues_DEV
                     FROM Top_Accessibility_Issues
 
                     WHERE issue_title = @title;
@@ -165,7 +165,7 @@ exports.uploadA11yExcel = async (req, res) => {
                 const insertIssue = await pool.request()
                     .input("title", sql.VarChar, cleanTitle)
                     .query(`
-                        // INSERT INTO Top_Accessibility_Issues_DEV (issue_title)
+                        -- INSERT INTO Top_Accessibility_Issues_DEV (issue_title)
                         INSERT INTO Top_Accessibility_Issues (issue_title)
 
                         OUTPUT INSERTED.issue_id
@@ -181,7 +181,7 @@ exports.uploadA11yExcel = async (req, res) => {
                 .input("assessment_id", sql.Int, assessmentId)
                 .input("issue_id", sql.Int, issueId)
                 .query(`
-                    // INSERT INTO Top_Accessibility_Issues_DEV (assessment_id, issue_id)
+                    -- INSERT INTO Top_Accessibility_Issues_DEV (assessment_id, issue_id)
                     INSERT INTO Top_Accessibility_Issues (assessment_id, issue_id)
 
                     VALUES (@assessment_id, @issue_id);

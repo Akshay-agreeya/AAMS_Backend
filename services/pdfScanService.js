@@ -8,7 +8,7 @@ exports.getDomainByScanId = async (scan_id) => {
         .input("scan_id", sql.Int, scan_id)
         .query(`
             SELECT website_url
-            // FROM PDF_Scan_History_DEV
+            -- FROM PDF_Scan_History_DEV
             FROM PDF_Scan_History
 
             WHERE scan_id = @scan_id
@@ -29,7 +29,7 @@ exports.savePdfRecord = async (data) => {
     request.input("upload_date", sql.DateTime, data.upload_date);
 
     await request.query(`
-        // INSERT INTO PDF_Scan_Files_DEV (scan_id, file_name, file_link, page_count, file_category, upload_date)
+        -- INSERT INTO PDF_Scan_Files_DEV (scan_id, file_name, file_link, page_count, file_category, upload_date)
         INSERT INTO PDF_Scan_Files (scan_id, file_name, file_link, page_count, file_category, upload_date)
 
         VALUES (@scan_id, @file_name, @file_link, @page_count, @file_category, @upload_date)
@@ -66,7 +66,7 @@ exports.getPdfScanService = async (scan_id) => {
                     page_count,
                     file_category,
                     upload_date
-                // FROM PDF_Scan_Files_DEV
+                -- FROM PDF_Scan_Files_DEV
                 FROM PDF_Scan_Files
 
                 WHERE scan_id = @scan_id

@@ -224,63 +224,6 @@ exports.deleteOrgService = async (org_ids, deleted_by) => {
 };
 
 
-
-// exports.deleteOrgService = async (org_ids, deleted_by) => {
-//   try {
-//     const pool = await getConnectionPool();
-
-//     // 🔹 Set the session context for audit logs
-//     await pool.request()
-//       .input("app_user", sql.UniqueIdentifier, deleted_by)
-//       .query("EXEC sp_set_session_context @key = 'app_user', @value = @app_user, @read_only = 0;");
-
-//     // ✅ Validate that all org_ids exist before attempting delete
-//     const validationTable = new sql.Table("UDT_OrgID");
-//     validationTable.columns.add("org_id", sql.UniqueIdentifier);
-    
-//     org_ids.forEach(id => {
-//       // Validate UUID format
-//       if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) {
-//         throw new AppError(`Invalid org_id format: ${id}`, STATUS_CODES.BAD_REQUEST);
-//       }
-//       validationTable.rows.add(id);
-//     });
-
-//     // Check if organizations exist
-//     const existingOrgs = await pool.request()
-//       .input("OrgIDs", validationTable)
-//       .query(`
-//         SELECT org_id 
-//         FROM Organization 
-//         WHERE org_id IN (SELECT org_id FROM @OrgIDs) 
-//         AND is_deleted = 0
-//       `);
-
-//     if (existingOrgs.recordset.length !== org_ids.length) {
-//       throw new AppError("One or more organizations not found or already deleted", STATUS_CODES.NOT_FOUND);
-//     }
-
-//     // Create TVP for actual delete
-//     const table = new sql.Table("UDT_OrgID");
-//     table.columns.add("org_id", sql.UniqueIdentifier);
-//     org_ids.forEach(id => table.rows.add(id));
-
-//     const result = await pool.request()
-//       .input("OrgIDs", table)
-//       .execute("DeleteOrganization");
-
-//     return result.recordset;
-
-//   } catch (err) {
-//     console.error("Delete Organization Error:", err);
-//     if (err.code === "EREQUEST" || err.code === "EPARAM") {
-//       throw new AppError(err.message, STATUS_CODES.BAD_REQUEST);
-//     }
-//     throw new AppError("An unexpected error occurred: " + err.message, err.status || STATUS_CODES.INTERNAL_SERVER_ERROR);
-//   }
-// };
-
-
 exports.getOrganizationsService = async (user_id, pageNumber, pageSize) => {
     try {
         const pool = await getConnectionPool();
