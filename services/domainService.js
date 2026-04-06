@@ -4,7 +4,7 @@ const { AppError } = require("../middlewares/errorHandler");
 
 /**
  * Register a new domain
- * Inserts a new record into PDF_Scan_History_DEV table
+ * Inserts a new record into PDF_Scan_History table
  */
 exports.registerDomainService = async ({ website_url, pdf_count }) => {
     try {
@@ -15,7 +15,8 @@ exports.registerDomainService = async ({ website_url, pdf_count }) => {
             .input('website_url', sql.VarChar(500), website_url)
             .query(`
                 SELECT scan_id 
-                FROM PDF_Scan_History_DEV
+                // FROM PDF_Scan_History_DEV
+                FROM PDF_Scan_History
                 WHERE website_url = @website_url
             `);
 
@@ -29,7 +30,9 @@ exports.registerDomainService = async ({ website_url, pdf_count }) => {
             .input('pdf_count', sql.Int, pdf_count)
             .input('scan_date', sql.DateTime, new Date())
             .query(`
-                INSERT INTO PDF_Scan_History_DEV (website_url, pdf_count, scan_date)
+                // INSERT INTO PDF_Scan_History_DEV (website_url, pdf_count, scan_date)
+                INSERT INTO PDF_Scan_History (website_url, pdf_count, scan_date)
+
                 OUTPUT INSERTED.scan_id, INSERTED.website_url, INSERTED.pdf_count, INSERTED.scan_date
                 VALUES (@website_url, @pdf_count, @scan_date)
             `);
@@ -54,7 +57,9 @@ exports.updateDomainService = async (scan_id, website_url) => {
         const exists = await pool.request()
             .input("scan_id", sql.Int, scan_id)
             .query(`
-                SELECT scan_id FROM PDF_Scan_History_DEV WHERE scan_id = @scan_id
+                // SELECT scan_id FROM PDF_Scan_History_DEV WHERE scan_id = @scan_id
+                                SELECT scan_id FROM PDF_Scan_History WHERE scan_id = @scan_id
+
             `);
 
         if (exists.recordset.length === 0) {
@@ -66,12 +71,16 @@ exports.updateDomainService = async (scan_id, website_url) => {
             .input("scan_id", sql.Int, scan_id)
             .input("website_url", sql.VarChar(500), website_url)
             .query(`
-                UPDATE PDF_Scan_History_DEV
+                // UPDATE PDF_Scan_History_DEV
+                UPDATE PDF_Scan_History
+
                 SET website_url = @website_url
                 WHERE scan_id = @scan_id;
 
                 SELECT scan_id, website_url, pdf_count, scan_date
-                FROM PDF_Scan_History_DEV
+                // FROM PDF_Scan_History_DEV
+                                FROM PDF_Scan_History
+
                 WHERE scan_id = @scan_id;
             `);
 
@@ -91,14 +100,18 @@ exports.deleteDomainService = async (scan_id) => {
         await pool.request()
             .input("scan_id", sql.Int, scan_id)
             .query(`
-                DELETE FROM PDF_Scan_Files_DEV WHERE scan_id = @scan_id
+                // DELETE FROM PDF_Scan_Files_DEV WHERE scan_id = @scan_id
+                DELETE FROM PDF_Scan_Files WHERE scan_id = @scan_id
+
             `);
 
         // Delete from history
         const result = await pool.request()
             .input("scan_id", sql.Int, scan_id)
             .query(`
-                DELETE FROM PDF_Scan_History_DEV WHERE scan_id = @scan_id
+                // DELETE FROM PDF_Scan_History_DEV WHERE scan_id = @scan_id
+                                DELETE FROM PDF_Scan_History WHERE scan_id = @scan_id
+
             `);
 
         if (result.rowsAffected[0] === 0) {
