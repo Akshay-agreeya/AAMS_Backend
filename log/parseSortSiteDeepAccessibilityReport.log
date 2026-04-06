@@ -3458,3 +3458,3667 @@
     "nestedTableData": []
   }
 ]
+[2026-03-03T08:40:54.810Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-03T09:09:20.692Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-06T16:31:49.066Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The element main must not appear as a descendant of the section element.",
+    "Remediation": null,
+    "Level": "A",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      },
+      {
+        "text": "WCAG 2.2 A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      },
+      {
+        "text": "Section 508 (2017) A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='home_slider'>...</div>...</main>",
+            "LineNumbers": "119"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "376"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "376"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "374"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "1.4.6",
+    "Issue Description": "Ensure that text and background colors have enough contrast.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 3.0 or more for 18 point text, or larger\nThe contrast ratio should be 3.0 or more for 14 point bold text, or larger\nThe contrast ratio should be 4.5 or more for all other text",
+    "Level": "AA",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      },
+      {
+        "text": "Section 508 (2017) AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Benefits</h2>",
+            "LineNumbers": "371"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Features</h2>",
+            "LineNumbers": "371"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Free Trial</h2>",
+            "LineNumbers": "369"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.7",
+    "Issue Description": "The CSS outline or border style on this element makes it difficult or impossible to see the link focus outline.",
+    "Remediation": "Do not remove the default outline style, and change any border styles to avoid obscuring the focus outline around focusable elements. See :focus-visible for more information.\n          \n                    Using a border or outline style that obscures the focus ring causes problems for keyboard-only users in:\n\nChrome (obscures the focus indicator on links, buttons, dropdowns and range controls)\nFirefox (obscures the focus indicator on links)",
+    "Level": "AA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      },
+      {
+        "text": "Section 508 (2017) AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-1'>Read More</button>",
+            "LineNumbers": "163"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-4'>Read More</button>",
+            "LineNumbers": "189"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-3'>Read More</button>",
+            "LineNumbers": "180"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-2'>Read More</button>",
+            "LineNumbers": "168"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "261"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "705"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "711"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "717"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "709"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "715"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "721"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "675"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "681"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "687"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(241,241,241)font-size: 12ptfont-weight: 300<div class='tile services-tile'>Recovery Manager ... database backup.</div>",
+            "LineNumbers": "125"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "453"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "532"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='quick-links-heading' class='widget-title'>Quick Links</h3>",
+            "LineNumbers": "565"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='support-heading' class='widget-title'>Product Support</h3>",
+            "LineNumbers": "596"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 10.50ptfont-weight: 300<p style='margin-top:30px;'>©<script>...</script>All ... is a<br>....</p>",
+            "LineNumbers": "625"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>The time it takes for an ... on the user restore requests</li>",
+            "LineNumbers": "418"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to find and locate the requested data</li>",
+            "LineNumbers": "420"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to write the data back to SharePoint</li>",
+            "LineNumbers": "422"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "457"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "536"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Schedule native backups and integrate into any existing infrastructure</li>",
+            "LineNumbers": "394"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Bring one backup system for a complete farm and granular recovery.</li>",
+            "LineNumbers": "396"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Expose SharePoint backups for ... search, making it discoverable.</li>",
+            "LineNumbers": "398"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Get a preview of backed-up ... version before it is restored</li>",
+            "LineNumbers": "400"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Get a direct emergency access to ... even when SharePoint is down.</li>",
+            "LineNumbers": "402"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.9",
+    "Issue Description": "Link uses non-descriptive text like 'Click Here' which doesn't explain link purpose.",
+    "Remediation": "Screen reader users often tab from one link to the next, or use the 'Next Link' command.\n            Moving between links labelled 'click here' sounds like 'Click here, tab, click here, tab, click here'.\n            Change the link text, or add an aria-label, so the link makes sense when read without the surrounding text.",
+    "Level": "AAA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F84",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F84.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-09T16:31:38.049Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-09T16:35:40.151Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-10T08:48:41.636Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-13T16:32:40.388Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The element main must not appear as a descendant of the section element.",
+    "Remediation": null,
+    "Level": "A",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      },
+      {
+        "text": "WCAG 2.2 A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      },
+      {
+        "text": "Section 508 (2017) A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='home_slider'>...</div>...</main>",
+            "LineNumbers": "119"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "376"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "376"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "374"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "1.4.6",
+    "Issue Description": "Ensure that text and background colors have enough contrast.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 3.0 or more for 18 point text, or larger\nThe contrast ratio should be 3.0 or more for 14 point bold text, or larger\nThe contrast ratio should be 4.5 or more for all other text",
+    "Level": "AA",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      },
+      {
+        "text": "Section 508 (2017) AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Benefits</h2>",
+            "LineNumbers": "371"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Features</h2>",
+            "LineNumbers": "371"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Free Trial</h2>",
+            "LineNumbers": "369"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.7",
+    "Issue Description": "The CSS outline or border style on this element makes it difficult or impossible to see the link focus outline.",
+    "Remediation": "Do not remove the default outline style, and change any border styles to avoid obscuring the focus outline around focusable elements. See :focus-visible for more information.\n          \n                    Using a border or outline style that obscures the focus ring causes problems for keyboard-only users in:\n\nChrome (obscures the focus indicator on links, buttons, dropdowns and range controls)\nFirefox (obscures the focus indicator on links)",
+    "Level": "AA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      },
+      {
+        "text": "Section 508 (2017) AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-1'>Read More</button>",
+            "LineNumbers": "163"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-4'>Read More</button>",
+            "LineNumbers": "189"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-3'>Read More</button>",
+            "LineNumbers": "180"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-2'>Read More</button>",
+            "LineNumbers": "168"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "261"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "705"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "711"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "717"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "709"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "715"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "721"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "675"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "681"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "687"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(241,241,241)font-size: 12ptfont-weight: 300<div class='tile services-tile'>Recovery Manager ... database backup.</div>",
+            "LineNumbers": "125"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "453"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "532"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='quick-links-heading' class='widget-title'>Quick Links</h3>",
+            "LineNumbers": "565"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='support-heading' class='widget-title'>Product Support</h3>",
+            "LineNumbers": "596"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 10.50ptfont-weight: 300<p style='margin-top:30px;'>©<script>...</script>All ... is a<br>....</p>",
+            "LineNumbers": "625"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>The time it takes for an ... on the user restore requests</li>",
+            "LineNumbers": "418"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to find and locate the requested data</li>",
+            "LineNumbers": "420"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to write the data back to SharePoint</li>",
+            "LineNumbers": "422"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "457"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "536"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Schedule native backups and integrate into any existing infrastructure</li>",
+            "LineNumbers": "394"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Bring one backup system for a complete farm and granular recovery.</li>",
+            "LineNumbers": "396"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Expose SharePoint backups for ... search, making it discoverable.</li>",
+            "LineNumbers": "398"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Get a preview of backed-up ... version before it is restored</li>",
+            "LineNumbers": "400"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Get a direct emergency access to ... even when SharePoint is down.</li>",
+            "LineNumbers": "402"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.9",
+    "Issue Description": "Link uses non-descriptive text like 'Click Here' which doesn't explain link purpose.",
+    "Remediation": "Screen reader users often tab from one link to the next, or use the 'Next Link' command.\n            Moving between links labelled 'click here' sounds like 'Click here, tab, click here, tab, click here'.\n            Change the link text, or add an aria-label, so the link makes sense when read without the surrounding text.",
+    "Level": "AAA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F84",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F84.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-16T16:32:42.807Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-16T16:36:06.437Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-21T16:31:53.144Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The element main must not appear as a descendant of the section element.",
+    "Remediation": null,
+    "Level": "A",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      },
+      {
+        "text": "WCAG 2.2 A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      },
+      {
+        "text": "Section 508 (2017) A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='home_slider'>...</div>...</main>",
+            "LineNumbers": "119"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "376"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "376"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "374"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "1.4.6",
+    "Issue Description": "Ensure that text and background colors have enough contrast.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 3.0 or more for 18 point text, or larger\nThe contrast ratio should be 3.0 or more for 14 point bold text, or larger\nThe contrast ratio should be 4.5 or more for all other text",
+    "Level": "AA",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      },
+      {
+        "text": "Section 508 (2017) AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Benefits</h2>",
+            "LineNumbers": "371"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Features</h2>",
+            "LineNumbers": "371"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Free Trial</h2>",
+            "LineNumbers": "369"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.7",
+    "Issue Description": "The CSS outline or border style on this element makes it difficult or impossible to see the link focus outline.",
+    "Remediation": "Do not remove the default outline style, and change any border styles to avoid obscuring the focus outline around focusable elements. See :focus-visible for more information.\n          \n                    Using a border or outline style that obscures the focus ring causes problems for keyboard-only users in:\n\nChrome (obscures the focus indicator on links, buttons, dropdowns and range controls)\nFirefox (obscures the focus indicator on links)",
+    "Level": "AA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      },
+      {
+        "text": "Section 508 (2017) AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-1'>Read More</button>",
+            "LineNumbers": "163"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-4'>Read More</button>",
+            "LineNumbers": "189"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-3'>Read More</button>",
+            "LineNumbers": "180"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-2'>Read More</button>",
+            "LineNumbers": "168"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "261"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "705"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "711"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "717"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "709"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "715"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "721"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "675"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "681"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "687"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(241,241,241)font-size: 12ptfont-weight: 300<div class='tile services-tile'>Recovery Manager ... database backup.</div>",
+            "LineNumbers": "125"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "453"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "532"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='quick-links-heading' class='widget-title'>Quick Links</h3>",
+            "LineNumbers": "565"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='support-heading' class='widget-title'>Product Support</h3>",
+            "LineNumbers": "596"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 10.50ptfont-weight: 300<p style='margin-top:30px;'>©<script>...</script>All ... is a<br>....</p>",
+            "LineNumbers": "625"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>The time it takes for an ... on the user restore requests</li>",
+            "LineNumbers": "418"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to find and locate the requested data</li>",
+            "LineNumbers": "420"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to write the data back to SharePoint</li>",
+            "LineNumbers": "422"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "457"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "536"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Schedule native backups and integrate into any existing infrastructure</li>",
+            "LineNumbers": "394"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Bring one backup system for a complete farm and granular recovery.</li>",
+            "LineNumbers": "396"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Expose SharePoint backups for ... search, making it discoverable.</li>",
+            "LineNumbers": "398"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Get a preview of backed-up ... version before it is restored</li>",
+            "LineNumbers": "400"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 300<li>Get a direct emergency access to ... even when SharePoint is down.</li>",
+            "LineNumbers": "402"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.9",
+    "Issue Description": "Link uses non-descriptive text like 'Click Here' which doesn't explain link purpose.",
+    "Remediation": "Screen reader users often tab from one link to the next, or use the 'Next Link' command.\n            Moving between links labelled 'click here' sounds like 'Click here, tab, click here, tab, click here'.\n            Change the link text, or add an aria-label, so the link makes sense when read without the surrounding text.",
+    "Level": "AAA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F84",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F84.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-23T16:31:56.821Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-23T16:34:59.806Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2201"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2981"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3006"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2897"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2922"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2957"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2982"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:31:54.533Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The element main must not appear as a descendant of the section element.",
+    "Remediation": null,
+    "Level": "A",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      },
+      {
+        "text": "WCAG 2.2 A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      },
+      {
+        "text": "Section 508 (2017) A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='home_slider'>...</div>...</main>",
+            "LineNumbers": "120"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "368"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "369"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "1.4.6",
+    "Issue Description": "Ensure that text and background colors have enough contrast.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 3.0 or more for 18 point text, or larger\nThe contrast ratio should be 3.0 or more for 14 point bold text, or larger\nThe contrast ratio should be 4.5 or more for all other text",
+    "Level": "AA",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      },
+      {
+        "text": "Section 508 (2017) AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Benefits</h2>",
+            "LineNumbers": "363"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Features</h2>",
+            "LineNumbers": "364"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.7",
+    "Issue Description": "The CSS outline or border style on this element makes it difficult or impossible to see the link focus outline.",
+    "Remediation": "Do not remove the default outline style, and change any border styles to avoid obscuring the focus outline around focusable elements. See :focus-visible for more information.\n          \n                    Using a border or outline style that obscures the focus ring causes problems for keyboard-only users in:\n\nChrome (obscures the focus indicator on links, buttons, dropdowns and range controls)\nFirefox (obscures the focus indicator on links)",
+    "Level": "AA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      },
+      {
+        "text": "Section 508 (2017) AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-1'>Read More</button>",
+            "LineNumbers": "163"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-4'>Read More</button>",
+            "LineNumbers": "189"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-3'>Read More</button>",
+            "LineNumbers": "180"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-2'>Read More</button>",
+            "LineNumbers": "168"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "261"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "697"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "703"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "709"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "702"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "708"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "714"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Its Management Console ... SharePoint knowledge.</div>",
+            "LineNumbers": "140"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "445"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "524"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='quick-links-heading' class='widget-title'>Quick Links</h3>",
+            "LineNumbers": "557"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='support-heading' class='widget-title'>Product Support</h3>",
+            "LineNumbers": "588"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 10.50ptfont-weight: 300<p style='margin-top:30px;'>©<script>...</script>All ... is a<br>....</p>",
+            "LineNumbers": "617"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>The time it takes for an ... on the user restore requests</li>",
+            "LineNumbers": "411"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to find and locate the requested data</li>",
+            "LineNumbers": "413"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to write the data back to SharePoint</li>",
+            "LineNumbers": "415"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "450"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "529"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.9",
+    "Issue Description": "Link uses non-descriptive text like 'Click Here' which doesn't explain link purpose.",
+    "Remediation": "Screen reader users often tab from one link to the next, or use the 'Next Link' command.\n            Moving between links labelled 'click here' sounds like 'Click here, tab, click here, tab, click here'.\n            Change the link text, or add an aria-label, so the link makes sense when read without the surrounding text.",
+    "Level": "AAA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F84",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F84.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:35:22.445Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2209"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2983"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3008"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2899"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2924"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2959"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2984"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:38:35.271Z] Parsed data: [
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://huloop.ai/' target='_blank'>huloop.ai</a>",
+            "LineNumbers": "2205"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://quickapps.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2203"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='.../' target='_blank'>recoverymanager.agreeya.com</a>",
+            "LineNumbers": "2207"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "<a href='https://siteadmin.agreeya.com/' target='_blank'>...m</a>",
+            "LineNumbers": "2209"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'>2026</span>......</p>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<span id='footeryear'>2026</span>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2983"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "3008"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2899"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2924"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>© Copyright<span id='footeryear'></span>AgreeYa.com ... reserved. ...</p>",
+            "LineNumbers": "2959"
+          },
+          {
+            "Description": "color:   rgb(99,99,99)background:   rgb(255,255,255)font-size: 8.40ptfont-weight: 400<p>This site is best viewed with ... Safari or Microsoft EDGE.</p>",
+            "LineNumbers": "2984"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-03T16:32:15.825Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The element main must not appear as a descendant of the section element.",
+    "Remediation": null,
+    "Level": "A",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "HTML5",
+        "link": "https://html.spec.whatwg.org/multipage/"
+      },
+      {
+        "text": "WCAG 2.2 A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      },
+      {
+        "text": "Section 508 (2017) A 1.3.1",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='home_slider'>...</div>...</main>",
+            "LineNumbers": "120"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "368"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<main id='main' class='clearfix'><div class='inner clearfix'>...</div></main>",
+            "LineNumbers": "369"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "1.4.6",
+    "Issue Description": "Ensure that text and background colors have enough contrast.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 3.0 or more for 18 point text, or larger\nThe contrast ratio should be 3.0 or more for 14 point bold text, or larger\nThe contrast ratio should be 4.5 or more for all other text",
+    "Level": "AA",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      },
+      {
+        "text": "Section 508 (2017) AA 1.4.3",
+        "link": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Benefits</h2>",
+            "LineNumbers": "363"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(219,219,219)font-size: 24ptfont-weight: 400<h2 class='page-title ...'>Features</h2>",
+            "LineNumbers": "364"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.7",
+    "Issue Description": "The CSS outline or border style on this element makes it difficult or impossible to see the link focus outline.",
+    "Remediation": "Do not remove the default outline style, and change any border styles to avoid obscuring the focus outline around focusable elements. See :focus-visible for more information.\n          \n                    Using a border or outline style that obscures the focus ring causes problems for keyboard-only users in:\n\nChrome (obscures the focus indicator on links, buttons, dropdowns and range controls)\nFirefox (obscures the focus indicator on links)",
+    "Level": "AA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      },
+      {
+        "text": "Section 508 (2017) AA F78",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F78.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-1'>Read More</button>",
+            "LineNumbers": "163"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-4'>Read More</button>",
+            "LineNumbers": "189"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-3'>Read More</button>",
+            "LineNumbers": "180"
+          },
+          {
+            "Description": ":focusoutline:  invert  none  0px <button type='button' class='...' onclick='...' aria-expanded='false' aria-controls='more-details-2'>Read More</button>",
+            "LineNumbers": "168"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "3.2.5",
+    "Issue Description": "Avoid specifying a new window as the target of a link with target=_blank.",
+    "Remediation": "Displaying new windows without warning can be very confusing to non-sighted and mobile users.\n            Some screen readers and mobile devices give very little indication a new tab or window has opened.\n            If you cannot avoid displaying a new window, insert an \"opens in a new window\" warning into the link text \n            or add the warning to the link using a title attribute or aria-describedby attribute.",
+    "Level": "AAA",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F22",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F22.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "261"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "261"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "697"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "703"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "709"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='facebook' href='...2' target='_blank' title='Follow on Facebook'>...</a>",
+            "LineNumbers": "702"
+          },
+          {
+            "Description": "<a class='twitter' href='...l' target='_blank' title='Subscribe to Twitter Feed'>...</a>",
+            "LineNumbers": "708"
+          },
+          {
+            "Description": "<a class='linkedin' href='...s' target='_blank' title='View LinkedIn Profile'>...</a>",
+            "LineNumbers": "714"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Ensure that text and background colors have a 7:1 contrast ratio.",
+    "Remediation": "Some users find it hard to read light gray text on a white background, dark gray text on a black background and white text on a red background.\n\nThe contrast ratio should be 4.5 or more for 18 point text, or larger\nThe contrast ratio should be 4.5 or more for 14 point bold text, or larger\nThe contrast ratio should be 7.0 or more for all other text",
+    "Level": "AAA",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA 1.4.6",
+        "link": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 10.50ptfont-weight: 300<div class='desc'>Its Management Console ... SharePoint knowledge.</div>",
+            "LineNumbers": "140"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "445"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "524"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='quick-links-heading' class='widget-title'>Quick Links</h3>",
+            "LineNumbers": "557"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 15.75ptfont-weight: 400<h3 id='support-heading' class='widget-title'>Product Support</h3>",
+            "LineNumbers": "588"
+          },
+          {
+            "Description": "color:   rgb(90,100,110)background:   rgb(241,244,245)font-size: 10.50ptfont-weight: 300<p style='margin-top:30px;'>©<script>...</script>All ... is a<br>....</p>",
+            "LineNumbers": "617"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>The time it takes for an ... on the user restore requests</li>",
+            "LineNumbers": "411"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to find and locate the requested data</li>",
+            "LineNumbers": "413"
+          },
+          {
+            "Description": "color:   rgb(104,104,104)background:   rgb(255,255,255)font-size: 12ptfont-weight: 700<li>Time to write the data back to SharePoint</li>",
+            "LineNumbers": "415"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 12ptfont-weight: 600<span>Contact Us</span>",
+            "LineNumbers": "450"
+          },
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(104,104,104)font-size: 10.50ptfont-weight: 500<button type='submit' class='ff-btn ff-btn-submit' aria-label='Submit'>Submit</button>",
+            "LineNumbers": "529"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": "2.4.9",
+    "Issue Description": "Link uses non-descriptive text like 'Click Here' which doesn't explain link purpose.",
+    "Remediation": "Screen reader users often tab from one link to the next, or use the 'Next Link' command.\n            Moving between links labelled 'click here' sounds like 'Click here, tab, click here, tab, click here'.\n            Change the link text, or add an aria-label, so the link makes sense when read without the surrounding text.",
+    "Level": "AAA",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "WCAG 2.2 AAA F84",
+        "link": "https://www.w3.org/TR/WCAG20-TECHS/F84.html"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  }
+]

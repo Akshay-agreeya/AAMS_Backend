@@ -307,3 +307,1087 @@
     ]
   }
 ]
+[2026-03-03T08:41:35.683Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-03T09:10:01.368Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-06T16:32:31.862Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "No meta description tag found. Use a description tag that accurately describes the contents of a web page.",
+    "Remediation": "A well-written meta description attracts more clicks in search results than\n            an irrelevant or missing description.",
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide#snippets"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-09T16:32:19.168Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-09T16:36:22.217Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-10T08:49:23.396Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-13T16:33:21.224Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "No meta description tag found. Use a description tag that accurately describes the contents of a web page.",
+    "Remediation": "A well-written meta description attracts more clicks in search results than\n            an irrelevant or missing description.",
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide#snippets"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-16T16:33:23.927Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-16T16:36:47.210Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-21T16:32:33.432Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "No meta description tag found. Use a description tag that accurately describes the contents of a web page.",
+    "Remediation": "A well-written meta description attracts more clicks in search results than\n            an irrelevant or missing description.",
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide#snippets"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-23T16:32:36.422Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-23T16:35:39.791Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2148"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2156"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:32:35.879Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "No meta description tag found. Use a description tag that accurately describes the contents of a web page.",
+    "Remediation": "A well-written meta description attracts more clicks in search results than\n            an irrelevant or missing description.",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide#snippets"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:36:03.483Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2152"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2160"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:39:15.960Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Search engines may penalize invisible text where text color is nearly identical to the background color.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "5",
+    "Guideline": [
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/essentials"
+      },
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/huloop/",
+          "link": "https://agreeya.com/software/huloop/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>HuLoop Automation offers an ... its prestigious customer base.</p>",
+            "LineNumbers": "2152"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>QuickApps is part of AgreeYa’s ... and help maximize your ROI.</p>",
+            "LineNumbers": "2150"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/recovery-manager/",
+          "link": "https://agreeya.com/software/recovery-manager/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>Recovery Manager is an ingenious ... from a content database backup.</p>",
+            "LineNumbers": "2158"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/site-administrator/",
+          "link": "https://agreeya.com/software/site-administrator/"
+        },
+        "Details": [
+          {
+            "Description": "color:   rgb(255,255,255)background:   rgb(255,255,255)<p>AgreeYa’s Site Administrator ... global policy management.</p>",
+            "LineNumbers": "2160"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-03T16:32:56.568Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "No meta description tag found. Use a description tag that accurately describes the contents of a web page.",
+    "Remediation": "A well-written meta description attracts more clicks in search results than\n            an irrelevant or missing description.",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Yahoo",
+        "link": "https://help.yahoo.com/kb/search/search-content-quality-guidelines-sln2245.html"
+      },
+      {
+        "text": "Google",
+        "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide#snippets"
+      },
+      {
+        "text": "Bing",
+        "link": "https://www.bing.com/webmasters/help/webmasters-guidelines-30fba23a"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      }
+    ]
+  }
+]

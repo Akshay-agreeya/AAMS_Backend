@@ -1459,3 +1459,2735 @@
     ]
   }
 ]
+[2026-03-03T08:41:15.199Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-03T09:09:41.092Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-06T16:32:11.328Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Users should be able to quickly look at each link and tell where it goes.",
+    "Remediation": "Don't use generic link labels like \"click here\" or \"read more\" because they're hard to tell apart when users scan a page.",
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 10:1",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='banner-home'>",
+            "LineNumbers": "120"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Benefits'>",
+            "LineNumbers": "155"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Specification'>",
+            "LineNumbers": "193"
+          },
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "118"
+          },
+          {
+            "Description": "<img decoding='async' alt='Management Console 5' src='...g'>",
+            "LineNumbers": "216"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "291"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "388"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "401"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "412"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "423"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "291"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "388"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "399"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "410"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "429"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "289"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Provide a search option on each page of content-rich web sites.",
+    "Remediation": "A search option should be provided on all pages where it may be useful - users should not have to return to the homepage to conduct a search. Search engines can be helpful on content-rich web sites, but do not add value on other types of sites.",
+    "Level": "Priority 2",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Usability.gov 17:4",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Its Management Console ... SharePoint knowledge.</div>",
+            "LineNumbers": "140"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-09T16:31:58.484Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-09T16:36:00.440Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Minimize the time required to download a Web site's pages.",
+    "Remediation": "Users rate download times up to five seconds as 'good' and over ten seconds as 'poor'.\n            Reduce the download time to 5 seconds or less by optimizing content or reducing the size of the page.",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 2:6",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/quickapps/",
+          "link": "https://agreeya.com/software/quickapps/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...'><head><meta charset='utf-8'>...</head>...</html>",
+            "LineNumbers": "2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-10T08:49:02.972Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-13T16:33:00.874Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Users should be able to quickly look at each link and tell where it goes.",
+    "Remediation": "Don't use generic link labels like \"click here\" or \"read more\" because they're hard to tell apart when users scan a page.",
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 10:1",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='banner-home'>",
+            "LineNumbers": "120"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Benefits'>",
+            "LineNumbers": "155"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Specification'>",
+            "LineNumbers": "193"
+          },
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "118"
+          },
+          {
+            "Description": "<img decoding='async' alt='Management Console 5' src='...g'>",
+            "LineNumbers": "216"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "291"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "388"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "401"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "412"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "423"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "291"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "388"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "399"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "410"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "429"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "289"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Provide a search option on each page of content-rich web sites.",
+    "Remediation": "A search option should be provided on all pages where it may be useful - users should not have to return to the homepage to conduct a search. Search engines can be helpful on content-rich web sites, but do not add value on other types of sites.",
+    "Level": "Priority 2",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Usability.gov 17:4",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Its Management Console ... SharePoint knowledge.</div>",
+            "LineNumbers": "140"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-16T16:33:03.508Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-16T16:36:26.838Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-21T16:32:13.172Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Users should be able to quickly look at each link and tell where it goes.",
+    "Remediation": "Don't use generic link labels like \"click here\" or \"read more\" because they're hard to tell apart when users scan a page.",
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 10:1",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='banner-home'>",
+            "LineNumbers": "120"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Benefits'>",
+            "LineNumbers": "155"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Specification'>",
+            "LineNumbers": "193"
+          },
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "118"
+          },
+          {
+            "Description": "<img decoding='async' alt='Management Console 5' src='...g'>",
+            "LineNumbers": "216"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "291"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "388"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "401"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "412"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "423"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "291"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "388"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "399"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "410"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "429"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/free-trial/",
+          "link": "https://recoverymanager.agreeya.com/free-trial/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "289"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Provide a search option on each page of content-rich web sites.",
+    "Remediation": "A search option should be provided on all pages where it may be useful - users should not have to return to the homepage to conduct a search. Search engines can be helpful on content-rich web sites, but do not add value on other types of sites.",
+    "Level": "Priority 2",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Usability.gov 17:4",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Its Management Console ... SharePoint knowledge.</div>",
+            "LineNumbers": "140"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-23T16:32:16.175Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-23T16:35:19.527Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2197"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2211"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2225"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2253"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2267"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2350"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2366"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2382"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2398"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2414"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:32:15.106Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Users should be able to quickly look at each link and tell where it goes.",
+    "Remediation": "Don't use generic link labels like \"click here\" or \"read more\" because they're hard to tell apart when users scan a page.",
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 10:1",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Minimize the time required to download a Web site's pages.",
+    "Remediation": "Users rate download times up to five seconds as 'good' and over ten seconds as 'poor'.\n            Reduce the download time to 5 seconds or less by optimizing content or reducing the size of the page.",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 2:6",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<html lang='en-us' prefix='og: ...' og='...' fb='...' itemscope itemtype='...'>...</html>",
+            "LineNumbers": "3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='banner-home'>",
+            "LineNumbers": "121"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Benefits'>",
+            "LineNumbers": "155"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Specification'>",
+            "LineNumbers": "193"
+          },
+          {
+            "Description": "<img decoding='async' alt='Management Console 5' src='...g'>",
+            "LineNumbers": "216"
+          },
+          {
+            "Description": "<img decoding='async' alt='Management Console 6' src='...g'>",
+            "LineNumbers": "217"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "284"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "380"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "393"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "404"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "415"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "285"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "381"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "392"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "403"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "422"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Provide a search option on each page of content-rich web sites.",
+    "Remediation": "A search option should be provided on all pages where it may be useful - users should not have to return to the homepage to conduct a search. Search engines can be helpful on content-rich web sites, but do not add value on other types of sites.",
+    "Level": "Priority 2",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Usability.gov 17:4",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Its Management Console ... SharePoint knowledge.</div>",
+            "LineNumbers": "140"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:35:43.040Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2199"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2213"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2227"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2255"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2269"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2352"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2368"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2384"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2400"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2416"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:38:55.596Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='lazyloaded' src='...g' data-src='...' alt='Twitter Icon'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AI-in-SLDC-workshop' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='From-data-to-insights' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='AgreeYa + Computacenter' loading='eager'>",
+            "LineNumbers": "134"
+          },
+          {
+            "Description": "<img decoding='async' class='d-none d-md-block ...' src='...g' alt='Best-Places-to-Work-banner' loading='eager'>",
+            "LineNumbers": "134"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "2",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/",
+          "link": "https://agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 11.25pt<span>This website uses cookies to ... you can opt-out if you wish....</span>",
+            "LineNumbers": "134"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 9.60pt<span class='...'>20 - 40% Reduction in the IT Helpdesk requests</span>",
+            "LineNumbers": "2199"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>24X7 Support at the employees’ fingertips</span>",
+            "LineNumbers": "2213"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>3x Improvement in user experience and adoption</span>",
+            "LineNumbers": "2227"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Anytime, anywhere, ... on any device</span>",
+            "LineNumbers": "2255"
+          },
+          {
+            "Description": "font-size: 9.60pt<span class='...'>Quick Deployment time of ... on customization)</span>",
+            "LineNumbers": "2269"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use bold text sparingly - for one or two words or a short phrase.",
+    "Remediation": "Keep runs of bold text to less than 70 characters.",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:5",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/software/agreeya-chatbot/",
+          "link": "https://agreeya.com/software/agreeya-chatbot/"
+        },
+        "Details": [
+          {
+            "Description": "<strong>Leverages leading-edge ... and respond to user queries.</strong>",
+            "LineNumbers": "2352"
+          },
+          {
+            "Description": "<strong>Remembers and understands ... several sessions and pauses.</strong>",
+            "LineNumbers": "2368"
+          },
+          {
+            "Description": "<strong>Leverages pre-built and ... and improve user engagement.</strong>",
+            "LineNumbers": "2384"
+          },
+          {
+            "Description": "<strong>Leverages Azure Language ... the response generation.</strong>",
+            "LineNumbers": "2400"
+          },
+          {
+            "Description": "<strong>Supports 15+ languages to ... user’s preferred language.</strong>",
+            "LineNumbers": "2416"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-03T16:32:36.210Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "Users should be able to quickly look at each link and tell where it goes.",
+    "Remediation": "Don't use generic link labels like \"click here\" or \"read more\" because they're hard to tell apart when users scan a page.",
+    "Level": "Priority 1",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 10:1",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "140"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "Read more<a class='ReadMoreLink' href='/features/'>Read more</a>",
+            "LineNumbers": "138"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Omitting img width or height attributes makes the page layout jump about as images load.",
+    "Remediation": "This makes the page very hard to read or click while it's loading.\n            Fix by adding width and height attributes to the img tag matching the image dimensions. \n            In responsive layouts, specifying width and height prevents layout jumping because the browser can \n            pre-calculate the final image size when CSS like this is used:\n            img {  max-width: 100%; height: auto }",
+    "Level": "Priority 2",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Usability.gov 14:3",
+        "link": "https://digital.gov/topics/usability/"
+      },
+      {
+        "text": "W3C",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "<img src='...g' alt='banner-home'>",
+            "LineNumbers": "121"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Benefits'>",
+            "LineNumbers": "155"
+          },
+          {
+            "Description": "<img decoding='async' class='thumbnail' src='...g' alt='Recovery Manager Specification'>",
+            "LineNumbers": "193"
+          },
+          {
+            "Description": "<img decoding='async' alt='Management Console 5' src='...g'>",
+            "LineNumbers": "216"
+          },
+          {
+            "Description": "<img decoding='async' alt='Management Console 6' src='...g'>",
+            "LineNumbers": "217"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/benefits/",
+          "link": "https://recoverymanager.agreeya.com/benefits/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "284"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "380"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "393"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "404"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "415"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "<img class='standard-logo' src='...g' alt='Recovery Manager'>",
+            "LineNumbers": "285"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "381"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "392"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "403"
+          },
+          {
+            "Description": "<img decoding='async' src='...g' alt=''>",
+            "LineNumbers": "422"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Provide a search option on each page of content-rich web sites.",
+    "Remediation": "A search option should be provided on all pages where it may be useful - users should not have to return to the homepage to conduct a search. Search engines can be helpful on content-rich web sites, but do not add value on other types of sites.",
+    "Level": "Priority 2",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Usability.gov 17:4",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": []
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "Use at least a 12-point font on all web pages.",
+    "Remediation": "For users over age 65, it may be better to use at least fourteen-point fonts.\n            Never use less than nine-point font on a Web site.\n            The following are all smaller than 12 point:\n            \n\n<p style=\"font-size: 11pt;\" >\n<p style=\"font-size: 15px;\" >\n<p style=\"font-size: small;\" >\n<font size=\"2\" >\n<font size=\"-1\" >",
+    "Level": "Priority 3",
+    "Failing Page": "1",
+    "Guideline": [
+      {
+        "text": "Usability.gov 11:8",
+        "link": "https://digital.gov/topics/usability/"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the data back to ... entire document library.</div>",
+            "LineNumbers": "131"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Restores the content in a ... and the restored content.</div>",
+            "LineNumbers": "133"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Mitigates all possible ... a quick recovery.</div>",
+            "LineNumbers": "135"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Allows a quick browsing ... retrieving the data.</div>",
+            "LineNumbers": "138"
+          },
+          {
+            "Description": "font-size: 10.50pt<div class='desc'>Its Management Console ... SharePoint knowledge.</div>",
+            "LineNumbers": "140"
+          }
+        ]
+      }
+    ]
+  }
+]

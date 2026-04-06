@@ -126,3 +126,4458 @@
     ]
   }
 ]
+[2026-03-03T08:42:17.649Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-03T09:10:42.749Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-06T16:33:14.296Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "9",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "53"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "53"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "110"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "110"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/7kbi.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/7kbi.css"
+        },
+        "Details": [
+          {
+            "Description": ".download-link",
+            "LineNumbers": "745"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/7kbj.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/7kbj.css"
+        },
+        "Details": [
+          {
+            "Description": "input.lsow-button",
+            "LineNumbers": "533"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-09T16:33:00.381Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-09T16:37:04.930Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-10T08:50:05.243Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-13T16:34:01.959Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "9",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "53"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "53"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "110"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "110"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/7kbi.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/7kbi.css"
+        },
+        "Details": [
+          {
+            "Description": ".download-link",
+            "LineNumbers": "745"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/7kbj.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/7kbj.css"
+        },
+        "Details": [
+          {
+            "Description": "input.lsow-button",
+            "LineNumbers": "533"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-16T16:34:04.909Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-16T16:37:28.263Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-21T16:33:14.182Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "9",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "53"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "53"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "110"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "110"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/7kbi.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/7kbi.css"
+        },
+        "Details": [
+          {
+            "Description": ".download-link",
+            "LineNumbers": "745"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/7kbj.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/7kbj.css"
+        },
+        "Details": [
+          {
+            "Description": "input.lsow-button",
+            "LineNumbers": "533"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-23T16:33:16.671Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-03-23T16:36:20.163Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9713"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9717"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9716"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9718"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9719"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8416"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8420"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8419"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8421"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8422"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9549"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9553"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9552"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9554"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9555"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "4",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/drsjh397/6l0s1.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/6l0qe.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/k9rwdebs/6l6ay.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/mk6i0qgf/6l0jq.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:33:17.447Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "58"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "58"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "113"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "113"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/8hldp.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/8hldp.css"
+        },
+        "Details": [
+          {
+            "Description": ".btn-blue",
+            "LineNumbers": "800"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/8hljk.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/8hljk.css"
+        },
+        "Details": [
+          {
+            "Description": "input.lsow-button",
+            "LineNumbers": "533"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:36:44.816Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9568"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9572"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9571"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9573"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9574"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9732"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9736"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9735"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9737"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9738"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-01T16:39:57.107Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9568"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9572"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9571"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9573"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9574"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9732"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9736"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9735"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9737"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "9738"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css"
+        },
+        "Details": [
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8435"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8439"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8438"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8440"
+          },
+          {
+            "Description": ".cli-plugin-button",
+            "LineNumbers": "8441"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The orphans: CSS property is not supported by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/orphans"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { orphans: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { orphans: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The page-break-after: CSS property values avoid, left and right are not supported by Firefox.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=132035"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "5017"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "4818"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { page-break-after: avoid; }",
+            "LineNumbers": "3884"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Criteria": null,
+    "Issue Description": "The widows: CSS property is not implemented by some browsers.",
+    "Remediation": null,
+    "Level": "Priority 3",
+    "Failing Page": "3",
+    "Guideline": [
+      {
+        "text": "Firefox",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/widows"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/f5b1usv9/60g1w.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "5016"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3828"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/ffr25l8k/5uf4l.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "4817"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "3629"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css",
+          "link": "https://agreeya.com/wp-content/cache/wpfc-minified/g0je9byl/5ufmu.css"
+        },
+        "Details": [
+          {
+            "Description": "h2 { widows: 3; }",
+            "LineNumbers": "3883"
+          },
+          {
+            "Description": ".card-columns { widows: 1; }",
+            "LineNumbers": "2695"
+          }
+        ]
+      }
+    ]
+  }
+]
+[2026-04-03T16:33:37.919Z] Parsed data: [
+  {
+    "Criteria": null,
+    "Issue Description": "The :visited CSS selector only supports limited style changes.",
+    "Remediation": "Browsers restrict the :visited CSS selector to only color changes, to prevent a web page\n            figuring out other web sites the user has visited.",
+    "Level": "Priority 3",
+    "Failing Page": "7",
+    "Guideline": [
+      {
+        "text": "Firefox ≥ 4",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Chrome ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Android ≥ 6",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Edge ≥ 12",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Opera ≥ 15",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "Safari ≥ 5",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      },
+      {
+        "text": "iPhone/iPad ≥ 4.2",
+        "link": "https://developer.mozilla.org/en/docs/Web/CSS/:visited"
+      }
+    ],
+    "nestedTableData": [
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/",
+          "link": "https://recoverymanager.agreeya.com/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "58"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "58"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/features/",
+          "link": "https://recoverymanager.agreeya.com/features/"
+        },
+        "Details": [
+          {
+            "Description": "cite",
+            "LineNumbers": "113"
+          },
+          {
+            "Description": "cite",
+            "LineNumbers": "113"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/8hldp.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/9argf93p/8hldp.css"
+        },
+        "Details": [
+          {
+            "Description": ".btn-blue",
+            "LineNumbers": "800"
+          }
+        ]
+      },
+      {
+        "PageURL": {
+          "text": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/8hljk.css",
+          "link": "https://recoverymanager.agreeya.com/wp-content/cache/wpfc-minified/g2akzzi/8hljk.css"
+        },
+        "Details": [
+          {
+            "Description": "input.lsow-button",
+            "LineNumbers": "533"
+          }
+        ]
+      }
+    ]
+  }
+]
